@@ -1,0 +1,128 @@
+import React from "react";
+import Image from "next/image";
+import BotIcon from "../BotIcon";
+
+function Section1(props) {
+  const {
+    aboutTitle,
+    aboutBody,
+    noPaymentVideo,
+    noPaymentText,
+    remoteLocationsVideo,
+    remoteLocationsText,
+    timeAndLanguageVideo,
+    timeAndLanguageText,
+  } = props;
+
+  return (
+    <div className="px-10 mb-14">
+      <div className="flex  md:justify-center md:mb-2">
+        <h2 className="font-bold text-xs 450:text-sm  md:text-3xl">
+         {aboutTitle}
+        </h2>
+      </div>
+      <div className="flex md:justify-center mb-4">
+        <div className=" w-[75px] md:w-[150px]">
+          <Image
+            src="/images/logos-and-icons/red-underline.png"
+            width={150}
+            height={20}
+          />
+        </div>
+      </div>
+
+      <div>
+        <div className="text-justify mb-3">
+          <p className="text-pry-color ">
+        {aboutBody}
+          </p>
+        </div>{" "}
+    
+      </div>
+
+      <div className=" mb-4   grid grid-cols-1 sm:grid-cols-3  gap-4">
+        <div>
+      
+          <div className='flex justify-center'>
+          <video
+            // width="400"
+            height="305"
+            controls
+            // autoPlay
+            loop
+            // muted
+            className="rounded-lg mb-2 h-auto"
+          >
+            <source src={noPaymentVideo} />
+            Your browser does not support the video tag.
+          </video>
+      </div>
+
+          <div className="text-center">
+            <p className="text-sm text-pry-color">
+           {noPaymentText}
+            </p>
+          </div>
+        </div>
+
+        <div>
+
+        <div className='flex justify-center'>
+                <video
+            // width="400"
+            height="3035"
+            controls
+            // autoPlay
+            loop
+            // muted
+            className="rounded-lg mb-2"
+          >
+            <source src={remoteLocationsVideo} />
+            Your browser does not support the video tag.
+          </video>
+            </div>
+
+      
+          <div className="text-center">
+            <p className="text-sm text-pry-color">
+            {remoteLocationsText}
+            </p>
+          </div>
+        </div>
+
+        <div>
+        <div className='flex justify-center'>
+              <video
+            // width="400"
+            height="305"
+            controls
+            // autoPlay
+            loop
+            // muted
+            className="rounded-lg mb-2"
+          >
+            <source src={timeAndLanguageVideo} />
+            Your browser does not support the video tag.
+          </video>
+            </div>
+
+        
+          <div className="text-center">
+            <p className="text-sm text-pry-color">
+            {timeAndLanguageText}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="flex justify-center">
+        <button className="px-3 py-2 rounded-md ring-2 hover:ring-pry-color ring-pry-color ring-opacity-50 bg-mid-color text-pry-color font-semibold text-sm ">
+          Want to know more?
+        </button>
+      </div>
+
+      <BotIcon />
+    </div>
+  );
+}
+
+export default Section1;

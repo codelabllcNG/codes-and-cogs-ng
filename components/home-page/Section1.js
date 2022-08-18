@@ -1,0 +1,175 @@
+import React, { useEffect, useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+
+import AllCtx from "../../util-functions/allCtx";
+import BotIcon from "../BotIcon";
+
+function Section1(props) {
+  const router = useRouter();
+  const { setSectionOneHeight, sectionOneHeight } = AllCtx();
+  const { heroTitle, heroSubtitle, bgUrl } = props;
+
+  const divHeightRef = useRef();
+
+  const {
+    searchKeyword,
+    setSearchKeyword,
+    searchResponse,
+    setSearchResponse,
+    searchingSkills,
+    setSearchingSkills,
+    talentsFound,
+    setTalentsFound,
+  } = AllCtx();
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (divHeightRef.current) {
+        setSectionOneHeight(divHeightRef.current.clientHeight);
+      }
+    });
+  }, [divHeightRef]);
+
+  async function findTalents(e) {
+    e.preventDefault();
+    if (!searchKeyword || searchKeyword.trim() === "") {
+      setSearchResponse("Search keyword cannot be blank.");
+      console.log("Search keyword cannot be blank.");
+      return;
+    }
+
+    try {
+      setSearchingSkills(true);
+      setSearchResponse('Searching...')
+      const response = await fetch(
+        `http://dev.codesandcogs.com/server/api/codesandcogs/v1/search?s=${searchKeyword}`
+      );
+
+      const data = await response.json();
+
+      // return
+
+      if (!response.ok) {
+        setSearchingSkills(false);
+        setSearchResponse("Something went wrong, please search again!");
+        console.log("Something went wrong, please search again!");
+        return;
+      }
+
+      // console.log(data);
+
+      // return
+
+      if (data.status !== "success") {
+        setSearchingSkills(false);
+        setSearchResponse("Something went wrong, please try again!");
+        console.log("Something went wrong, please try again!");
+
+        return;
+      }
+
+      // console.log(typeof data.talents);
+      // return
+
+      if (typeof data.talents === "string") {
+        setSearchingSkills(false);
+        setSearchResponse(data.talents);
+        setTalentsFound([])
+        console.log(data.talents);
+        return;
+      }
+
+
+      setTalentsFound(data.talents);
+    
+      setSearchingSkills(false);
+      router.push("/search-results");
+      console.log(1);
+      setSearchResponse("Success! Some talents match your query.");
+      console.log(2);
+      console.log("Success! Some talents match your query.");
+
+   
+      
+      console.log(data.talents);
+      // return
+      // localStorage.setItem("flightArray", JSON.stringify(flights));
+      // console.log(flights);
+     
+    } catch (error) {
+      setSearchingSkills(false);
+      setSearchResponse(
+        "Something went wrong! Check internet connection and try again."
+      );
+      console.log("Something went wrong, try again.");
+      console.log(error);
+    }
+  }
+
+  return (
+    <section
+      id="section1"
+      ref={divHeightRef}
+      style={{ backgroundImage: `url(${bgUrl})` }}
+      className="px-5 pb-8 mb-10    md:bg-cover md:bg-right md:bg-no-repeat md:ml-8"
+    >
+      <div className="md:w-[65%] mt-4">
+        <h1 className="font-bold text-pry-color md:text-[#07222E] md:leading-[4rem] md:text-5xl    text-[1.7rem]">
+          {heroTitle}
+        </h1>
+      </div>
+      <div className="mt-5 md:leading-10 md:mt-8 md:w-[65%] text-xl md:text-3xl">
+        <p className="text-[#07222E]">{heroSubtitle} </p>
+      </div>
+      <form onSubmit={findTalents} className="flex items-center mt-8 ">
+        <div className="flex border-2 border-pry-color border-opacity-80 px-1 py-1 md:py-2  rounded-full  md:mr-7 mr-2 text-sm w-[80%] md:w-[40%]">
+          {" "}
+          <Image
+            src="/images/logos-and-icons/search.png"
+            width={23}
+            height={23}
+          />{" "}
+          <input
+            required
+            onChange={(e) => {
+              setSearchKeyword(e.target.value);
+            }}
+            type="text"
+            className="outline-0 text-center w-full bg-transparent "
+            placeholder="Search for Talents"
+          />
+        </div>{" "}
+        <div>
+          {" "}
+          <button
+            type="submit"
+            // onClick={() => {
+            //   router.push("/search-results");
+            // }}
+            className="text-white text-sm  rounded-full md:py-2 pt-[0.37rem] pb-[0.37rem] px-4 md:px-8 bg-pry-color "
+          >
+            Search
+          </button>{" "}
+        </div>
+      </form>
+
+      <div className=" text-[0.6rem] mt-3 flex items-center space-x-2">
+        <p className="bg-mid-color   px-3 py-1 rounded-full  text-pry-color">
+          UI/UX Designer
+        </p>
+        <p className="bg-mid-color  px-3 py-1 rounded-full  text-pry-color">
+          JavaScript Developer
+        </p>
+      </div>
+      <div className={`flex px-6 mb-20 justify-center h-5 my-3 ${searchResponse.includes('Success') ? 'text-green-600' : 'text-red-600'} text-sm`}>
+        <p>{searchResponse}</p>
+      </div>
+
+      <BotIcon />
+    </section>
+  );
+}
+
+export default Section1;

@@ -1,0 +1,36 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        "pry-color": "#2E3192",
+        "sec-color": "#B6CAF2",
+        "mid-color": "#F1F2F2",
+        "semi-sec-color": "#ECF1FA",
+      },
+
+      screens: {
+        400: { raw: "(min-width: 400px)" },
+        450: { raw: "(min-width: 450px)" },
+        500: { raw: "(min-width: 500px)" },
+        560: { raw: "(min-width: 560px)" },
+        340: { raw: "(min-width: 340px)" },
+        800: { raw: "(min-width: 800px)" },
+        700: { raw: "(min-width: 700px)" },
+        900: { raw: "(min-width: 900px)" },
+        500: { raw: "(min-width: 500px)" },
+        1000: { raw: "(min-width: 1000px)" },
+        1130: { raw: "(min-width: 1130px)" },
+        1200: { raw: "(min-width: 1200px)" },
+      },
+    },
+  },
+  plugins: [
+    require("tailwind-scrollbar-hide"),
+    require('@tailwindcss/typography'),
+  ],
+};

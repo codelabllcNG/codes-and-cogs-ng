@@ -1,0 +1,17 @@
+# *
+User-agent: *
+Allow: /
+
+# *
+User-agent: *
+Disallow: /support/*
+Disallow: /support
+Disallow: /take-a-test
+Disallow: /talents/*
+
+# Host
+Host: https://codes-and-cogs.com
+
+# Sitemaps
+Sitemap: https://codes-and-cogs.com/sitemap.xml
+Sitemap: https://www.codes-and-cogs.com/server-sitemap.xml
