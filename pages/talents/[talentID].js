@@ -43,8 +43,8 @@ function TalentID(props) {
               </p>
               <p className="text-xs 400:text-sm ">{selectedTalent.overview}</p>
             </div>{" "}
-            <div className="w-20 h-20 float-right">
-              <img className="" src={selectedTalent.icon} alt="" />
+            <div className=" float-right">
+              <Image height={80} width={70}className="" src={selectedTalent.icon} alt="" />
             </div>
           </div>
 
@@ -153,9 +153,10 @@ function TalentID(props) {
           <div>
             <div className="flex items-center mb-4">
               {" "}
-              <div className="h-[1rem] w-[60%] 400:w-[30%] rounded-md flex justify-center items-center bg-pry-color text-white text-xs   pt-[0.6rem] pb-[0.6rem]">
+              <div className="h-[1rem] w-[60%] 400:h-[1.5rem] 
+400:w-[40%] rounded-md flex justify-center items-center bg-pry-color text-white text-xs   pt-[0.6rem] pb-[0.6rem]">
                 {" "}
-                <p className="text-[0.6rem] 500:text-xs">SKILLS</p>{" "}
+                <p className="text-[0.6rem] 400:text-xs">SKILLS</p>{" "}
               </div>{" "}
               <div className="h-[0.1rem] w-[70%] bg-pry-color "></div>{" "}
             </div>
@@ -165,11 +166,22 @@ function TalentID(props) {
                 <div key={skill.id} className="">
                   <div className="flex justify-center ">
                     {" "}
-                    <div className="flex border-pry-color border-2 justify-center items-center bg-white h-8 w-8 400:h-12 400:w-12 rounded-full">
-                    <picture>
-        <source srcSet={skill.icon} type="image/webp" />
-        <img src={skill.icon} alt="Landscape picture" />
-      </picture>
+                    <div className="400:flex border-pry-color border-2 justify-center items-center bg-white h-8 w-8 hidden 400:h-12 400:w-12 rounded-full">
+                      {" "}
+                      <Image height={30} width={30}
+                        className="w-4 h-4  400:h-auto 400:w-auto"
+                        src={skill.icon}
+                        alt=""
+                      />{" "}
+                    </div>
+
+                    <div className="flex border-pry-color border-2 justify-center items-center bg-white h-8 w-8 400:hidden 400:h-12 400:w-12 rounded-full">
+                      {" "}
+                      <Image height={20} width={20}
+                        className="w-4 h-4  400:h-auto 400:w-auto"
+                        src={skill.icon}
+                        alt=""
+                      />{" "}
                     </div>
                   </div>
                   <div className="flex justify-center items-center text-center text-[0.5rem] font-semibold 400:font-normal 400:text-xs">
@@ -240,9 +252,10 @@ function TalentID(props) {
           <div className="mt-8">
             <div className="flex items-center mb-4">
               {" "}
-              <div className="h-[1rem] w-[60%] 400:w-[30%] rounded-md flex justify-center items-center bg-pry-color text-white text-xs   pt-[0.6rem] pb-[0.6rem]">
+              <div className="h-[1rem] w-[60%] 400:h-[1.5rem] 
+400:w-[40%] rounded-md flex justify-center items-center bg-pry-color text-white text-xs   pt-[0.6rem] pb-[0.6rem]">
                 {" "}
-                <p className="text-[0.6rem] 500:text-xs">OTHER SKILLS</p>{" "}
+                <p className="text-[0.6rem] 400:text-xs">OTHER SKILLS</p>{" "}
               </div>{" "}
               <div className="h-[0.1rem] w-[70%] bg-pry-color "></div>{" "}
             </div>
@@ -252,9 +265,19 @@ function TalentID(props) {
                 <div key={skill.id}>
                   <div className="flex justify-center ">
                     {" "}
-                    <div className="flex border-pry-color border-2 justify-center items-center bg-white h-8 w-8 400:h-12 400:w-12 rounded-full">
+                    <div className="400:flex hidden border-pry-color border-2 justify-center items-center bg-white h-8 w-8 400:h-12 400:w-12 rounded-full">
                       {" "}
-                      <img
+                      <Image height={30} width={30}
+                        className="w-4 h-4  400:h-auto 400:w-auto"
+                        src={skill.icon}
+                        alt=""
+                      />{" "}
+                    </div>
+
+
+                    <div className="flex 400:hidden border-pry-color border-2 justify-center items-center bg-white h-8 w-8 400:h-12 400:w-12 rounded-full">
+                      {" "}
+                      <Image height={20} width={20}
                         className="w-4 h-4  400:h-auto 400:w-auto"
                         src={skill.icon}
                         alt=""
@@ -330,9 +353,9 @@ function TalentID(props) {
           <div className="mt-8">
             <div className="flex items-center mb-4">
               {" "}
-              <div className="h-[1rem] w-[60%] 400:w-[30%] rounded-md flex justify-center items-center bg-pry-color text-white text-xs   pt-[0.6rem] pb-[0.6rem]">
+              <div className="h-[1rem] 400:h-[1.5rem]  w-[60%] 400:w-[40%]  rounded-md flex justify-center items-center bg-pry-color text-white text-xs   pt-[0.6rem] pb-[0.6rem]">
                 {" "}
-                <p className="text-[0.6rem] 500:text-xs">
+                <p className="text-[0.6rem] 400:text-xs  ">
                   FEATURED PROJECTS
                 </p>{" "}
               </div>{" "}
