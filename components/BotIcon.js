@@ -11,7 +11,7 @@ function BotIcon() {
         height={55}
       />{" "}
       <div
-        className="bg-mid-color h-[45px] flex items-center -ml-10 -mb-1 rounded-full ring-2 ring-pry-color ring-opacity-50
+        className="bg-mid-color h-[45px] flex items-center -ml-10 -mb-1 rounded-full ring-2 ring-mid-color ring-opacity-50
     "
       >
         <p className="pl-11 pr-2 text-xs text-pry-color  font-semibold ">

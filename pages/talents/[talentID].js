@@ -166,12 +166,10 @@ function TalentID(props) {
                   <div className="flex justify-center ">
                     {" "}
                     <div className="flex border-pry-color border-2 justify-center items-center bg-white h-8 w-8 400:h-12 400:w-12 rounded-full">
-                      {" "}
-                      <img
-                        className="w-4 h-4  400:h-auto 400:w-auto"
-                        src={skill.icon}
-                        alt=""
-                      />{" "}
+                    <picture>
+        <source srcSet={skill.icon} type="image/webp" />
+        <img src={skill.icon} alt="Landscape picture" />
+      </picture>
                     </div>
                   </div>
                   <div className="flex justify-center items-center text-center text-[0.5rem] font-semibold 400:font-normal 400:text-xs">
