@@ -4,7 +4,13 @@ import BotIcon from "../BotIcon";
 import { useRouter } from "next/router";
 
 
-function Section3() {
+function Section3(props) {
+  const {
+
+    ticketStatusTitle,
+    ticketStatusSubtitle,
+  } = props;
+
 let router = useRouter() 
 
 
@@ -28,8 +34,8 @@ let router = useRouter()
   return (
     <div id='ticket-status' className="px-5 pt-16 md:px-14 md:bg-[url('/images/sections-watermark.png')] bg-contain bg-right-bottom  bg-no-repeat">
       <div className="flex  md:justify-center md:mb-2">
-        <h2 className="font-bold text-xs 450:text-sm  md:text-3xl">
-        Check Ticket Status
+        <h2 className="font-bold text-xs 400:text-xl  md:text-3xl">
+       {ticketStatusTitle}
         </h2>
       </div>
       <div className="flex md:justify-center mb-4">
@@ -42,8 +48,8 @@ let router = useRouter()
         </div>
       </div>
 
-      <div className="flex justify-center font-semibold mb-5">
-        <p>Please provide your email address and ticket number. An access link will be emailed to you.</p>
+      <div className="flex justify-center text-lg font-semibold mb-5">
+        <p>{ticketStatusSubtitle}</p>
       </div>
 
       <div className="flex justify-center">

@@ -9,7 +9,7 @@ function Section2(props) {
   return (
     <div className="md:px-10 px-5 mb-8">
       <div className="flex  md:justify-center md:mb-2">
-        <h2 className="font-bold text-xs 450:text-sm  md:text-3xl">
+        <h2 className="font-bold text-xs 400:text-xl  md:text-3xl">
           {reviewsTitle}
 
           {/* Customer Reviews */}
@@ -29,7 +29,7 @@ function Section2(props) {
         {reviewsArray.map((review) => (
           <div
             key={review.id}
-            className={`    py-12 px-4 700:w-[32%] w-[15rem] shrink-0 snap-center `}
+            className={`    py-12 px-4 700:w-[32%] w-[15rem]  400:w-[17rem] shrink-0 snap-center `}
           >
             <div
               className={`bg-mid-color  rounded-lg hover:bg-[#ECF1FA] hover:scale-110 duration-300 py-8 px-3`}
@@ -39,16 +39,16 @@ function Section2(props) {
                   <Image height={70} width={64} className="" src={review.icon} alt={review.name} />
                 </div>{" "}
                 <div>
-                  <div className="flex justify-center text-sm font-semibold">
+                  <div className="flex justify-center 400:text-base text-sm font-semibold">
                     <p>{review.title}</p>
                   </div>{" "}
-                  <div className="flex justify-center text-xs">
+                  <div className="flex justify-center 400:text-sm text-xs">
                     <p>{review.name}</p>
                   </div>{" "}
                 </div>
               </div>
 
-              <div className="text-xs 700:text-sm text-justify mb-3 700:mb-10">
+              <div className="text-xs 400:text-sm 700:text-base text-justify mb-3 700:mb-10">
                 <p>{review.review}</p>
               </div>
             </div>

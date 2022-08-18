@@ -92,3 +92,8 @@ const note = {
   
  //Same structure for engineers and developers
 };
+
+const note2 = {
+  whatWeDoTitle: '',
+  whatW
+}

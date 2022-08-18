@@ -17,7 +17,7 @@ function Section1(props) {
   return (
     <div className="px-10 mb-14">
       <div className="flex  md:justify-center md:mb-2">
-        <h2 className="font-bold text-xs 450:text-sm  md:text-3xl">
+        <h2 className="font-bold text-xs 400:text-xl  md:text-3xl">
          {aboutTitle}
         </h2>
       </div>
@@ -33,7 +33,7 @@ function Section1(props) {
 
       <div>
         <div className="text-justify mb-3">
-          <p className="text-pry-color ">
+          <p className="text-pry-color text-lg ">
         {aboutBody}
           </p>
         </div>{" "}

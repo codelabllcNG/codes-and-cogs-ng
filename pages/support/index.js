@@ -1,16 +1,68 @@
-import React from 'react'
-import Section1 from '../../components/support/Section1';
-import Section2 from '../../components/support/Section2';
-import Section3 from '../../components/support/Section3';
+import React from "react";
+import Section1 from "../../components/support/Section1";
+import Section2 from "../../components/support/Section2";
+import Section3 from "../../components/support/Section3";
 
-function Index() {
+function Index(props) {
+  const {
+    supportTitle,
+    supportSubtitle,
+    supportBgImage,
+    customerCareNumber,
+    newTicketTitle,
+    newTicketSubtitle,
+    ticketStatusTitle,
+    ticketStatusSubtitle,
+  } = props;
+
   return (
-      <div className=''>
-      <Section1 />
-      <Section2 />
-      <Section3/>
+    <div className="">
+      <Section1
+        supportTitle={supportTitle}
+        supportSubtitle={supportSubtitle}
+        supportBgImage={supportBgImage}
+        customerCareNumber={customerCareNumber}
+      />
+      <Section2
+        newTicketTitle={newTicketTitle}
+        newTicketSubtitle={newTicketSubtitle}
+      />
+      <Section3
+        ticketStatusTitle={ticketStatusTitle}
+        ticketStatusSubtitle={ticketStatusSubtitle}
+      />
     </div>
-  )
+  );
 }
 
-export default Index
+export async function getStaticProps() {
+  const response = await fetch(
+    "http://dev.codesandcogs.com/server/api/codesandcogs/v1/supportpage"
+  );
+  const data = await response.json();
+
+  const supportTitle = data.supportTitle;
+  const supportSubtitle = data.supportSubtitle;
+  const supportBgImage = data.supportBgImage;
+  const customerCareNumber = data.csNumber;
+  const newTicketTitle = data.newTicketTitle;
+  const newTicketSubtitle = data.newTicketSubtitle;
+  const ticketStatusTitle = data.statusTicketTitle;
+  const ticketStatusSubtitle = data.statusTicketSubtitle;
+
+  return {
+    props: {
+      supportTitle,
+      supportSubtitle,
+      supportBgImage,
+      customerCareNumber,
+      newTicketTitle,
+      newTicketSubtitle,
+      ticketStatusTitle,
+      ticketStatusSubtitle,
+    },
+    revalidate: 100,
+  };
+}
+
+export default Index;

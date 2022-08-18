@@ -19,7 +19,7 @@ function TalentID(props) {
   return (
     <div className="px-5 md:px-10">
       <div className="flex  md:justify-center md:mb-2">
-        <h2 className="font-bold text-xs 450:text-sm  md:text-3xl">
+        <h2 className="font-bold text-xs 400:text-xl  md:text-3xl">
           Talent Profile
         </h2>
       </div>
@@ -37,11 +37,11 @@ function TalentID(props) {
         <div className=" 900:w-[40%]">
           <div className="flex items-center px-4 text-pry-color bg-semi-sec-color py-4  rounded-l-3xl rounded-r-full mb-4">
             <div className="w-[75%]">
-              <p className="font-semibold mb-1">{selectedTalent.name}</p>
+              <p className="font-semibold 400:text-lg mb-1">{selectedTalent.name}</p>
               <p className="text-[#9f143e] text-xl  font-extrabold mb-3">
                 {selectedTalent.title}
               </p>
-              <p className="text-xs font-semibold">{selectedTalent.overview}</p>
+              <p className="text-xs 400:text-sm ">{selectedTalent.overview}</p>
             </div>{" "}
             <div className="w-20 h-20 float-right">
               <img className="" src={selectedTalent.icon} alt="" />

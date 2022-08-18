@@ -2,7 +2,15 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import BotIcon from "../BotIcon";
 
-function Section2() {
+function Section2(props) {
+  const {
+    newTicketTitle,
+    newTicketSubtitle,
+    ticketStatusTitle,
+    ticketStatusSubtitle,
+  } = props;
+
+
   const nameRef = useRef();
   const emailRef = useRef();
   const subjectRef = useRef();
@@ -22,8 +30,8 @@ function Section2() {
   return (
     <div id='create-ticket' className="px-5 pt-16 md:px-14 md:bg-[url('/images/sections-watermark.png')] bg-contain bg-right-bottom  bg-no-repeat">
       <div className="flex  md:justify-center md:mb-2">
-        <h2 className="font-bold text-xs 450:text-sm  md:text-3xl">
-          Open a New Ticket
+        <h2 className="font-bold text-xs 400:text-xl  md:text-3xl">
+      {newTicketTitle}
         </h2>
       </div>
       <div className="flex md:justify-center mb-4">
@@ -37,7 +45,7 @@ function Section2() {
       </div>
 
       <div className="flex justify-center font-semibold mb-5">
-        <p>Please fill the form below to create a new ticket</p>
+        <p>{newTicketSubtitle}</p>
       </div>
 
       <div className="flex justify-center">
