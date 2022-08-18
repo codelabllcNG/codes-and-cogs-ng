@@ -34,7 +34,7 @@ function Section5(props) {
     >
       <div className="mb-10">
         <div className="flex  md:justify-center md:mb-2">
-          <h2 className="font-bold text-xs 400:text-xl   md:text-3xl">
+          <h2 className="font-bold text-xs 400:text-xl font-larken  md:text-3xl">
             {trusteeTitle}
           </h2>
         </div>

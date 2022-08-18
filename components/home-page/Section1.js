@@ -22,6 +22,7 @@ function Section1(props) {
     setSearchingSkills,
     talentsFound,
     setTalentsFound,
+    devUrl, prodUrl,
   } = AllCtx();
 
   useEffect(() => {
@@ -44,7 +45,7 @@ function Section1(props) {
       setSearchingSkills(true);
       setSearchResponse('Searching...')
       const response = await fetch(
-        `http://dev.codesandcogs.com/server/api/codesandcogs/v1/search?s=${searchKeyword}`
+        `${devUrl}/server/api/codesandcogs/v1/search?s=${searchKeyword}`
       );
 
       const data = await response.json();
@@ -115,12 +116,12 @@ function Section1(props) {
       style={{ backgroundImage: `url(${bgUrl})` }}
       className="px-5 pb-8 mb-10    md:bg-cover md:bg-right md:bg-no-repeat md:ml-8"
     >
-      <div className="md:w-[65%] mt-4">
-        <h1 className="font-bold text-pry-color md:text-[#07222E] md:leading-[4rem] md:text-5xl    text-[1.7rem]">
+      <div className="md:w-[70%] mt-4">
+        <h1 className="font-semibold text-pry-color font-larken md:text-[#07222E] md:leading-[5rem] md:text-6xl   text-[1.7rem] 400:text-2xl 400:leading-[2.2rem] ">
           {heroTitle}
         </h1>
       </div>
-      <div className="mt-5 md:leading-10 md:mt-8 md:w-[65%] text-xl md:text-3xl">
+      <div className="mt-5 md:leading-10 md:mt-8 md:w-[65%]  text-xl md:text-3xl">
         <p className="text-[#07222E]">{heroSubtitle} </p>
       </div>
       <form onSubmit={findTalents} className="flex items-center mt-8 ">
@@ -137,7 +138,7 @@ function Section1(props) {
               setSearchKeyword(e.target.value);
             }}
             type="text"
-            className="outline-0 text-center w-full bg-transparent "
+            className=" ml-4 outline-0 text- w-full bg-transparent "
             placeholder="Search for Talents"
           />
         </div>{" "}

@@ -13,6 +13,13 @@ module.exports = {
         "semi-sec-color": "#ECF1FA",
       },
 
+      
+      fontFamily: {
+        "larken": ["Larken DEMO"],
+        "kyivType": ["KyivType Sans"],
+     
+      },
+
       screens: {
         400: { raw: "(min-width: 400px)" },
         450: { raw: "(min-width: 450px)" },

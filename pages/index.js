@@ -10,6 +10,7 @@ import Section5 from "../components/home-page/Section5";
 
 export default function Home(props) {
   const {
+    
     heroTitle,
     heroSubtitle,
     bgUrl,
@@ -33,6 +34,7 @@ export default function Home(props) {
   } = props;
 
   const {
+    devUrl,
     setSection,
     isSectionOne,
     isSectionTwo,
@@ -198,12 +200,7 @@ export async function getStaticProps() {
     const remoteBgImage = data.remoteBgImage;
   const trusteeLogos = data.trusteeIcons;
   
-  const response2 = await fetch(
-    "http://dev.codesandcogs.com/server/api/codesandcogs/v1/aboutpage"
-  );
-  const data2 = await response2.json();
 
-  const talentsFound = data2.designers;
 
     return {
       props: {
@@ -226,7 +223,7 @@ export async function getStaticProps() {
         remoteDesigners,
         remoteBgImage,
         trusteeLogos,
-        talentsFound
+        
       },
       revalidate: 1,
     };

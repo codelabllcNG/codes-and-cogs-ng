@@ -21,6 +21,7 @@ function SearchResults(props) {
     setSearchingSkills,
     talentsFound,
     setTalentsFound,
+    devUrl, prodUrl
   } = AllCtx();
 
   //   const { talentsFound } = props;
@@ -42,7 +43,7 @@ function SearchResults(props) {
         setSearchingSkills(true);
         setSearchResponse('Searching...')
       const response = await fetch(
-        `http://dev.codesandcogs.com/server/api/codesandcogs/v1/search?s=${searchKeyword}`
+        `${devUrl}/server/api/codesandcogs/v1/search?s=${searchKeyword}`
       );
  
       const data = await response.json();

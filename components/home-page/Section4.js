@@ -45,7 +45,7 @@ function Section4(props) {
     >
       <div>
         <div className="flex  md:justify-center md:mb-2">
-          <h2 className="font-bold text-xs 450:text-xl   md:text-3xl">
+          <h2 className="font-bold text-xs 450:text-xl font-larken  md:text-3xl">
           {feasibilityTitle}
           </h2>
         </div>
@@ -67,7 +67,7 @@ function Section4(props) {
       </div>
 
       <div className="md:flex justify-center mb-4">
-        <p className="font-semibold text-lg">
+        <p className="font-semibold text-lg 400:text-xl font-larken">
        {feasibilitySubtitle}
         </p>
       </div>
@@ -76,7 +76,7 @@ function Section4(props) {
         {feasibilityArray.map((content) => (
           <div className="" key={content.id}>
             <hr className="border-[1px] border-[#404033]" />
-            <div className="flex py-2 items-center justify-between mb-4">
+            <div className="flex py-2 items-center  justify-between mb-4">
               <div className="flex mr-1">
                 <Image
                   height='40'
@@ -87,7 +87,7 @@ function Section4(props) {
                 />{" "}
                 <div className="ml-1 flex items-center ">
                   {" "}
-                  <p className="font-semibold text-pry-color text-sm 400:text-lg">
+                  <p className="font-semibold text-pry-color text-sm 400:text-base">
                     {content.title}
                   </p>
                 </div>{" "}

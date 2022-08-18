@@ -26,7 +26,11 @@ export function AllContextProvider(props) {
   const [searchingSkills, setTheSearchingSkills] = useState(false)
   const [talentsFound, setTheTalentsFound] = useState([])
 
+  const devUrl = 'http://dev.codesandcogs.com'
+  const prodUrl = 'https://dev.codesandcogs.com'
+
   const context = {
+    devUrl, prodUrl,
     megaMenu,
     servicesClicked,
     solutionsClicked,

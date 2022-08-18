@@ -19,7 +19,7 @@ function Footer() {
     <section id="footer" ref={divHeightRef} className="">
       <div className="px-5 md:px-20 py-20">
         <div className="flex  md:justify-center md:mb-2">
-          <h2 className="font-bold text-xs 400:text-xl   md:text-3xl">
+          <h2 className="font-bold text-xs 400:text-xl font-larken  md:text-3xl">
             Subscribe to our Newsletter
           </h2>
         </div>

@@ -34,3 +34,32 @@ div[disabled] {
   opacity: 0.6;
   pointer-events: none;
 }
+
+h1, h2 {
+  @apply font-larken
+}
+
+
+
+@font-face {
+  font-family: 'KyivType Sans';
+  src: url('../public/fonts/KyivTypeSans-Regular.eot');
+  src: url('../public/fonts/KyivTypeSans-Regular.eot?#iefix') format('embedded-opentype'),
+      url('../public/fonts/KyivTypeSans-Regular.woff2') format('woff2'),
+      url('../public/fonts/KyivTypeSans-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Larken DEMO';
+  src: url('../public/fonts/LarkenDEMO-Regular.eot');
+  src: url('../public/fonts/LarkenDEMO-Regular.eot?#iefix') format('embedded-opentype'),
+      url('../public/fonts/LarkenDEMO-Regular.woff2') format('woff2'),
+      url('../public/fonts/LarkenDEMO-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
