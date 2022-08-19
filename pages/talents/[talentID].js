@@ -5,7 +5,7 @@ import AllCtx from "../../util-functions/allCtx";
 import { useRouter } from "next/router";
 
 function TalentID(props) {
-
+const router = useRouter();
 
   if (router.isFallback) {
     return <Loading/>
