@@ -126,7 +126,7 @@ function Section4(props) {
                   : "opacity-0 hidden"
               } duration-500 text-pry-color -mt-5 text-sm pl-14 pr-9 mb-2 text-justify 400:text-base`}
             >
-              <p>{content.excerpt}</p>{" "}
+              <p >{content.excerpt}</p>{" "}
               <button
                 onClick={() => {
                   router.push(`/feasibility/${content.id}`);

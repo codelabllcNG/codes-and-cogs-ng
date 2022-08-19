@@ -1,17 +1,26 @@
-import React from 'react'
-import { selectedFeasibility, FEASIBILITY } from "../../a-store/content-store/FEASIBILITY"
+import React from "react";
+import {
+  selectedFeasibility,
+  FEASIBILITY,
+} from "../../a-store/content-store/FEASIBILITY";
 import Image from "next/image";
+import Loading from "../../components/Loading";
+import { useRouter } from "next/router";
+
 
 function FeasibilityID(props) {
-const {selectedFeasibility} = props
+const router = useRouter(); 
 
+  const { selectedFeasibility } = props;
+
+  if (router.isFallback) {
+    return <Loading/> 
+  }
 
   return (
-      <div className='px-5 md:px-10'>
-               <div className="flex  md:justify-center mb-2">
-        <h2 className="font-bold text-3xl">
-        {selectedFeasibility.title}
-        </h2>
+    <div className="px-5 md:px-10">
+      <div className="flex  md:justify-center mb-2">
+        <h2 className="font-bold text-3xl">{selectedFeasibility.title}</h2>
       </div>
       <div className="flex md:justify-center mb-10 ">
         <div className=" [150px]">
@@ -21,11 +30,12 @@ const {selectedFeasibility} = props
             height={20}
           />
         </div>
-          </div>
-          
+      </div>
 
-          <div className='900:flex justify-between items-center '>
-          <div className='900:w-[40%] items-center flex justify-center mb-5 900:mb-0'> <video
+      <div className="900:flex justify-between items-center ">
+        <div className="900:w-[40%] items-center flex justify-center mb-5 900:mb-0">
+          {" "}
+          <video
             // width="400"
             height="305"
             controls
@@ -36,65 +46,73 @@ const {selectedFeasibility} = props
           >
             <source src={selectedFeasibility.videoUrl} type="video/mp4" />
             Your browser does not support the video tag.
-          </video></div>
+          </video>
+        </div>
 
-          <div className='900:w-[55%] text-justify lg:leading-8 mb-5 900:mb-0 text-pry-color'><p>{selectedFeasibility.content} 
-              </p></div>
-            
-          </div>
+        <div
+          dangerouslySetInnerHTML={{ __html: selectedFeasibility.content }}
+          className="prose 900:w-[55%] text-justify lg:leading-8 mb-5 900:mb-0 text-pry-color"
+        >
+          {}
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
 export async function getStaticProps(context) {
-try {
-  const feasibilityID = context.params.feasibilityID;
-  const response = await fetch(
-    "http://dev.codesandcogs.com/server/api/codesandcogs/v1/homepage"
-  );
-  const data = await response.json();
-  const feasibilityArray = data.feasibilities;
+  try {
+    const feasibilityID = context.params.feasibilityID;
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/homepage`
+    );
+    const data = await response.json();
+    const feasibilityArray = data.feasibilities;
 
-  function feasibilityFinder() {
-    return feasibilityArray.find((feasibility) => feasibility.id === feasibilityID);
+    function feasibilityFinder() {
+      return feasibilityArray.find(
+        (feasibility) => feasibility.id === feasibilityID
+      );
+    }
+    const selectedFeasibility = feasibilityFinder(feasibilityID);
+
+    if (!selectedFeasibility) {
+      return {
+        notFound: true,
+      };
+    }
+
+    return {
+      props: {
+        feasibilityID,
+        feasibilityArray,
+        selectedFeasibility,
+      },
+      revalidate: 600,
+    };
+  } catch (error) {
+    console.log(error);
   }
-  const selectedFeasibility = feasibilityFinder(feasibilityID);
-
-  return {
-    props: {
-      feasibilityID,
-      feasibilityArray,
-      selectedFeasibility,
-    },
-    revalidate: 600,
-  };
-} catch (error) {
-
-  console.log(error);
-
 }
-  }
-  
-  export async function getStaticPaths() {
-try {
+
+export async function getStaticPaths() {
   const response = await fetch(
-    "http://dev.codesandcogs.com/server/api/codesandcogs/v1/homepage"
+    `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/homepage`
   );
   const data = await response.json();
 
   const feasibilityArray = data.feasibilities;
 
-  const feasibilityPaths = feasibilityArray.map((feasibility) => feasibility.id);
+  const feasibilityPaths = feasibilityArray.map(
+    (feasibility) => feasibility.id
+  );
 
   return {
     paths: feasibilityPaths.map((feasibilityID) => ({
       params: { feasibilityID: feasibilityID },
     })),
-    fallback: false,
+    fallback: true,
   };
-} catch (error) {
-  console.log(error);
 }
-  }
 
-export default FeasibilityID
+export default FeasibilityID;

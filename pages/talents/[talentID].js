@@ -1,11 +1,16 @@
 import React from "react";
 import Image from "next/image";
-import {
-  selectedTalent,
-  ALL_TALENTS,
-} from "../../a-store/content-store/TALENTS";
+import Loading from "../../components/Loading";
+import AllCtx from "../../util-functions/allCtx";
+import { useRouter } from "next/router";
 
 function TalentID(props) {
+
+
+  if (router.isFallback) {
+    return <Loading/>
+  }
+
   var oneRating = [1];
   var twoRating = [1, 2];
   var threeRating = [1, 2, 3];
@@ -384,10 +389,11 @@ function TalentID(props) {
 }
 
 export async function getStaticProps(context) {
+
   const talentID = context.params.talentID;
 
   const response = await fetch(
-    "http://dev.codesandcogs.com/server/api/codesandcogs/v1/aboutpage"
+    `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/aboutpage`
   );
   const data = await response.json();
   const designerArray = data.designers;
@@ -401,21 +407,11 @@ export async function getStaticProps(context) {
   }
   const selectedTalent = talentFinder(talentID);
 
-  // const languageDefaultRating = [false, false, false, false, false];
-
-  // selectedTalent.languages.map((language) => {
-  //   for (let i = 0; i < language.rating; i++) {
-  //     languageDefaultRating[i] = true;
-  //   }
-  // });
-
-  // var talentSkillsRating = [];
-  // selectedTalent.skills.map((skill) => {
-  //   for (let i = 0; i < skill.rating; skill++) {
-  //     console.log(skill.rating);
-  //     talentSkillsRating.push(true);
-  //   }
-  // });
+  if (!selectedTalent) {
+    return {
+      notFound: true
+  }
+  }
 
   return {
     props: {
@@ -426,8 +422,9 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
+
   const response = await fetch(
-    "http://dev.codesandcogs.com/server/api/codesandcogs/v1/aboutpage"
+    `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/aboutpage`
   );
   const data = await response.json();
 
@@ -443,7 +440,7 @@ export async function getStaticPaths() {
     paths: talentPaths.map((talentID) => ({
       params: { talentID },
     })),
-    fallback: false,
+    fallback: true,
   };
 }
 

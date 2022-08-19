@@ -22,7 +22,8 @@ function Section1(props) {
     setSearchingSkills,
     talentsFound,
     setTalentsFound,
-    devUrl, prodUrl,
+    devUrl,
+    prodUrl,
   } = AllCtx();
 
   useEffect(() => {
@@ -43,7 +44,7 @@ function Section1(props) {
 
     try {
       setSearchingSkills(true);
-      setSearchResponse('Searching...')
+      setSearchResponse("Searching...");
       const response = await fetch(
         `${devUrl}/server/api/codesandcogs/v1/search?s=${searchKeyword}`
       );
@@ -76,35 +77,46 @@ function Section1(props) {
 
       if (typeof data.talents === "string") {
         setSearchingSkills(false);
-        setSearchResponse(data.talents);
-        setTalentsFound([])
-        console.log(data.talents);
-        return;
+        setSearchResponse("No Talent matches your search query, try another one.");
+        setTalentsFound([]);
+        console.log("No Talent matches your search query, try another one.");
+        {
+          const timer = setTimeout(() => {
+            setSearchResponse("");
+          }, 20000);
+
+          return () => clearTimeout(timer);
+        }
       }
 
-
       setTalentsFound(data.talents);
-    
+
       setSearchingSkills(false);
       router.push("/search-results");
       console.log(1);
-      setSearchResponse("Success! Some talents match your query.");
+      setSearchResponse(
+        `Success! Some talents match your ${searchKeyword} query.`
+      );
+
       console.log(2);
       console.log("Success! Some talents match your query.");
 
-   
-      
-      console.log(data.talents);
-      // return
       // localStorage.setItem("flightArray", JSON.stringify(flights));
       // console.log(flights);
-     
+
+      {
+        const timer = setTimeout(() => {
+          setSearchResponse("");
+        }, 20000);
+
+        return () => clearTimeout(timer);
+      }
     } catch (error) {
       setSearchingSkills(false);
       setSearchResponse(
-        "Something went wrong! Check internet connection and try again."
+        "An error occurred, try again."
       );
-      console.log("Something went wrong, try again.");
+      console.log("An error occurred, try again.");
       console.log(error);
     }
   }
@@ -164,7 +176,11 @@ function Section1(props) {
           JavaScript Developer
         </p>
       </div>
-      <div className={`flex px-6 mb-20 justify-center h-5 my-3 ${searchResponse.includes('Success') ? 'text-green-600' : 'text-red-600'} text-sm`}>
+      <div
+        className={`flex px-6 mb-20 justify-center h-5 my-3 ${
+          searchResponse.includes("Success") ? "text-green-600" : "text-red-600"
+        } text-sm`}
+      >
         <p>{searchResponse}</p>
       </div>
 

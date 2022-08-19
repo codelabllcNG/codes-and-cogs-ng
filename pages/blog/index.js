@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import {arrayOfArticleObject} from '../../util-functions/blog-utils'
-import { BLOG_POSTS } from "../../a-store/content-store/BLOG_POSTS";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
@@ -13,26 +11,42 @@ function Index(props) {
   const [next, setNext] = useState(range);
 
   const router = useRouter();
-  const { articlesArray, blogPosts } = props;
-  // console.log(articlesArray);
+  const { blogPostArray } = props;
+  // console.log(blogPostArray);
 
   let date;
   let day;
   let month;
   let year;
 
-  const blogPostLength = articlesArray.length;
+  function ordinal(n) {
+    var s = ["th", "st", "nd", "rd"];
+    var v = n%100;
+    return n + (s[(v-20)%10] || s[v] || s[0]);
+  }
+  
+
+  const blogPostLength = blogPostArray.length;
 
   return (
     <div className="px-5 md:px-14">
-      <div className="mb-10 md:leading-10 flex justify-center items-center">
-        <p className="font-semibold text-2xl lg:text-3xl md:font-bold text-pry-color">
-          Blog
-        </p>
-      </div>
+     <div className="flex  justify-center md:mb-2">
+          <h2 className="font-bold text-xs 400:text-xl font-larken md:text-5xl">
+           Blog
+          </h2>
+        </div>
+        <div className="flex justify-center mb-4">
+          <div className=" w-[75px] md:w-[150px]">
+            <Image
+              src="/images/logos-and-icons/red-underline.png"
+              width={150}
+              height={20}
+            />
+          </div>
+        </div>
 
       <div className="grid grid-cols-1 gap-x-3 gap-y-6 sm:grid-cols-2 md:grid-cols-3">
-        {articlesArray
+        {blogPostArray
           .map(
             (article) => (
               (date = new Date(article.date)),
@@ -40,25 +54,23 @@ function Index(props) {
               (month = date.toLocaleDateString("en-US", { month: "short" })),
               (year = date.toLocaleDateString("en-US", { year: "numeric" })),
               (
-                <div key={article.slug} className="bg-gray-100 text-sm pb-2">
+                <div key={article.title} className="bg-gray-100 text-sm pb-2">
                   <div className="mb-4">
                     <Image
                       className="rounded-t-lg "
                       width={400}
                       height={250}
                       // src={blogPost.imageUrl}
-                      src={`/images/blog/headers/${article.image}`}
+                      src={article.imageUrl}
                     />
                   </div>
 
-                  <div className="px-2 font-semibold text-pry-color mb-1">
+                  <div className="px-2 400:text-lg font-semibold text-pry-color mb-1">
                     <p>{article.title}</p>
                   </div>
 
                   <div className="px-2 text-xs mb-4 text-gray-500">
-                    <p>{`${day}${
-                      day == 1 ? "st" : day == 2 ? "nd" : day == 3 ? "rd" : "th"
-                    } ${month}., ${year}`}</p>
+                    <p>{`${  ordinal(day)  } ${month}., ${year}`}</p>
                   </div>
 
                   <div className="px-2 text-justify mb-2 ">
@@ -68,7 +80,7 @@ function Index(props) {
                   <div className="px-2 text-pry-color text-xs font-semibold">
                     <button
                       onClick={() => {
-                        router.push(`/blog/${article.slug}`);
+                        router.push(`/blog/${article.id}`);
                       }}
                     >
                       Read More
@@ -183,15 +195,20 @@ function Index(props) {
 
 export default Index;
 
-export function getStaticProps() {
-  const blogPosts = BLOG_POSTS;
-  const articlesArray = arrayOfArticleObject()
+export async function getStaticProps() {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/getblog`
+  );
+  const data = await response.json();
+
+  const blogPostArray = data.posts;
+  
 
   return {
     props: {
-      articlesArray,
-      blogPosts: blogPosts,
+      blogPostArray,
+     
     },
-    revalidate: 100,
+    revalidate: 600,
   };
 }

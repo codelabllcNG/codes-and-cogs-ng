@@ -9,7 +9,7 @@ export const getServerSideProps = async (ctx) => {
   // const data = await response.json()
 
   const fields = BLOG_POSTS.map((blog) => ({
-    loc: `https://codes-and-cogs.com/blog/${blog.id}`,
+    loc: `https://codesandcogs.com/blog/${blog.id}`,
     lastmod: new Date().toISOString(),
     changefreq: "weekly",
     priority: 1,

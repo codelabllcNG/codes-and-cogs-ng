@@ -1,10 +1,5 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import {
-  DESIGNERS,
-  ENGINEERS,
-  DEVELOPERS,
-} from "../a-store/content-store/TALENTS";
 import BotIcon from "../components/BotIcon";
 
 import AllCtx from "../util-functions/allCtx";
@@ -21,7 +16,8 @@ function SearchResults(props) {
     setSearchingSkills,
     talentsFound,
     setTalentsFound,
-    devUrl, prodUrl
+    devUrl,
+    prodUrl,
   } = AllCtx();
 
   //   const { talentsFound } = props;
@@ -29,7 +25,6 @@ function SearchResults(props) {
   const router = useRouter();
 
   // const [selected, setSelected] = useState(true)
-  const [category, setCategory] = useState("designers");
 
   async function findTalents(e) {
     e.preventDefault();
@@ -40,12 +35,12 @@ function SearchResults(props) {
     }
 
     try {
-        setSearchingSkills(true);
-        setSearchResponse('Searching...')
+      setSearchingSkills(true);
+      setSearchResponse("Searching...");
       const response = await fetch(
-        `${devUrl}/server/api/codesandcogs/v1/search?s=${searchKeyword}`
+        `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/search?s=${searchKeyword}`
       );
- 
+
       const data = await response.json();
 
       // return
@@ -57,18 +52,21 @@ function SearchResults(props) {
         return;
       }
 
-      // console.log(data);
-
-      // return
-        
       if (typeof data.talents === "string") {
         setSearchingSkills(false);
-          setSearchResponse(data.talents);
-          setTalentsFound([])
-        console.log(data.talents);
-        return;
-      }
+        setSearchResponse(
+          "No Talent matches your search query, try another one."
+        );
+        setTalentsFound([]);
+        console.log("No Talent matches your search query, try another one.");
+        {
+          const timer = setTimeout(() => {
+            setSearchResponse("");
+          }, 20000);
 
+          return () => clearTimeout(timer);
+        }
+      }
 
       if (data.status !== "success") {
         setSearchingSkills(false);
@@ -77,20 +75,26 @@ function SearchResults(props) {
         return;
       }
 
-      setSearchResponse(`Success! Some talents match your ${searchKeyword.toUpperCase()} query.`);
+      setSearchResponse(
+        `Success! Some talents match your ${searchKeyword.toUpperCase()} query.`
+      );
       console.log("Success! Some talents match your query.");
 
       setSearchingSkills(false);
       setTalentsFound(data.talents);
       // localStorage.setItem("flightArray", JSON.stringify(flights));
       // console.log(flights);
-      router.push("/search-results");
+      {
+        const timer = setTimeout(() => {
+          setSearchResponse("");
+        }, 20000);
+
+        return () => clearTimeout(timer);
+      }
     } catch (error) {
       setSearchingSkills(false);
-      setSearchResponse(
-        "Something went wrong! Check internet connection and try again."
-      );
-      console.log("Something went wrong, try again.");
+      setSearchResponse("An error occurred, try again.");
+      console.log("An error occurred, try again.");
     }
   }
 
@@ -149,17 +153,24 @@ function SearchResults(props) {
                 Search
               </button>{" "}
             </div>
-                  </form>
-          
-              </div>
-              
-              <div className={`flex px-5 justify-center h-5 my-3 mb-7 ${searchResponse.includes('Success') ? 'text-green-600 ' : 'text-red-600 '} text-sm`} ><p>{ searchResponse }</p></div>
+          </form>
+        </div>
+
+        <div
+          className={`flex px-5 justify-center h-5 my-3 mb-7 ${
+            searchResponse.includes("Success")
+              ? "text-green-600 "
+              : "text-red-600 "
+          } text-sm`}
+        >
+          <p>{searchResponse}</p>
+        </div>
 
         <div className="grid gap-2 560:gap-4 grid-cols-2 md:grid-cols-3 mt-5 text-xs 560:text-base">
           {talentsFound.map((talent) => (
             <div
               key={talent.id}
-              onClick={() => { 
+              onClick={() => {
                 router.push(`/talents/${talent.id}`);
               }}
               className="bg-mid-color hover:bg-[#ECF1FA] hover:scale-105 duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
@@ -180,20 +191,6 @@ function SearchResults(props) {
   );
 }
 
-export async function getStaticProps() {
-  const response = await fetch(
-    "http://dev.codesandcogs.com/server/api/codesandcogs/v1/aboutpage"
-  );
-  const data = await response.json();
 
-  const talentsFound = data.designers;
-
-  return {
-    props: {
-      talentsFound,
-    },
-    revalidate: 1,
-  };
-}
 
 export default SearchResults;

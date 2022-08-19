@@ -4,6 +4,7 @@ import Section1 from "../components/about-us/Section1";
 import Section2 from "../components/about-us/Section2";
 import Section3 from "../components/about-us/Section3";
 import Section4 from "../components/about-us/Section4";
+import AllCtx from "../util-functions/allCtx";
 
 function AboutUs(props) {
   const {
@@ -59,8 +60,9 @@ function AboutUs(props) {
 }
 
 export async function getStaticProps() {
+
   const response = await fetch(
-    "http://dev.codesandcogs.com/server/api/codesandcogs/v1/aboutpage"
+    `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/aboutpage`
   );
   const data = await response.json();
 
@@ -100,7 +102,7 @@ export async function getStaticProps() {
       developersArray,
       engineersArray,
     },
-    revalidate: 1,
+    revalidate: 600,
   };
 }
 

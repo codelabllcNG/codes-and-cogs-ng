@@ -2,6 +2,8 @@ import React from "react";
 import Section1 from "../../components/support/Section1";
 import Section2 from "../../components/support/Section2";
 import Section3 from "../../components/support/Section3";
+import AllCtx from "../../util-functions/allCtx";
+
 
 function Index(props) {
   const {
@@ -36,8 +38,9 @@ function Index(props) {
 }
 
 export async function getStaticProps() {
+
   const response = await fetch(
-    "http://dev.codesandcogs.com/server/api/codesandcogs/v1/supportpage"
+    `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/supportpage`
   );
   const data = await response.json();
 
@@ -61,7 +64,7 @@ export async function getStaticProps() {
       ticketStatusTitle,
       ticketStatusSubtitle,
     },
-    revalidate: 100,
+    revalidate: 600,
   };
 }
 

@@ -1,9 +1,18 @@
 import React from 'react'
 // import { selectedModel, OUR_MODELS } from "../../a-store/content-store/OUR-MODELS"
 import Image from "next/image";
+import Loading from '../../components/Loading';
+import { useRouter } from 'next/router';
+
 
 function ModelID(props) {
-const {selectedModel} = props
+const router = useRouter();
+
+  const { selectedModel } = props
+  
+  if (router.isFallback) {
+    return <Loading/>
+  }
 
 
   return (
@@ -44,7 +53,7 @@ const {selectedModel} = props
 export async function getStaticProps(context) {
   const modelID = context.params.modelID;
   const response = await fetch(
-    "http://dev.codesandcogs.com/server/api/codesandcogs/v1/homepage"
+    `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/homepage`
   );
   const data = await response.json();
 
@@ -56,6 +65,12 @@ export async function getStaticProps(context) {
   }
 
   const selectedModel = modelFinder(modelID);
+
+  if (!selectedModel) {
+    return {
+      notFound: true
+  }
+  }
 
   return {
     props: {
@@ -69,7 +84,7 @@ export async function getStaticProps(context) {
   
   export async function getStaticPaths() {
     const response = await fetch(
-      "http://dev.codesandcogs.com/server/api/codesandcogs/v1/homepage"
+      `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/homepage`
     );
     const data = await response.json();
   
@@ -81,7 +96,7 @@ export async function getStaticProps(context) {
       paths: modelPaths.map((modelID) => ({
         params: { modelID: modelID },
       })),
-      fallback: false,
+      fallback: true,
     };
   }
 

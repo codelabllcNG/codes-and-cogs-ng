@@ -1,8 +1,16 @@
 import React from "react";
-import { selectedTool, TOOLS } from "../../a-store/content-store/TOOLS";
 import Image from "next/image";
+import AllCtx from "../../util-functions/allCtx";
+import { useRouter } from "next/router";
+import Loading from "../../components/Loading";
 
 function ToolID(props) {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <Loading />;
+  }
+
   const { skillID, selectedSkill } = props;
 
   return (
@@ -22,9 +30,7 @@ function ToolID(props) {
 
       <div className="900:flex justify-between items-center ">
         <div className="900:w-[55%] text-justify lg:leading-8 mb-5 900:mb-0 text-pry-color">
-          <p>
-      {selectedSkill.toolInfo}
-          </p>
+          <p>{selectedSkill.toolInfo}</p>
         </div>
         <div className="900:w-[40%] flex justify-center">
           {" "}
@@ -47,10 +53,9 @@ function ToolID(props) {
 }
 
 export async function getStaticProps(context) {
+  const { devUrl } = AllCtx();
   const skillID = context.params.skillID;
-  const response = await fetch(
-    "http://dev.codesandcogs.com/server/api/codesandcogs/v1/homepage"
-  );
+  const response = await fetch(`${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/homepage`);
   const data = await response.json();
   console.log(data.status);
 
@@ -61,6 +66,11 @@ export async function getStaticProps(context) {
   }
 
   const selectedSkill = skillFinder(skillID);
+  if (!selectedSkill) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
@@ -73,9 +83,8 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-  const response = await fetch(
-    "http://dev.codesandcogs.com/server/api/codesandcogs/v1/homepage"
-  );
+  const { devUrl } = AllCtx();
+  const response = await fetch(`${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/homepage`);
   const data = await response.json();
 
   const skillsArray = data.skills;
@@ -86,7 +95,7 @@ export async function getStaticPaths() {
     paths: skillPaths.map((skillID) => ({
       params: { skillID: skillID },
     })),
-    fallback: false,
+    fallback: true,
   };
 }
 

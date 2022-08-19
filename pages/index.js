@@ -10,7 +10,6 @@ import Section5 from "../components/home-page/Section5";
 
 export default function Home(props) {
   const {
-    
     heroTitle,
     heroSubtitle,
     bgUrl,
@@ -30,7 +29,6 @@ export default function Home(props) {
     remoteDesigners,
     remoteBgImage,
     trusteeLogos,
-
   } = props;
 
   const {
@@ -138,7 +136,6 @@ export default function Home(props) {
         heroTitle={heroTitle}
         bgUrl={bgUrl}
         heroSubtitle={heroSubtitle}
-     
       />
       <Section2
         skillsArray={skillsArray}
@@ -171,61 +168,59 @@ export default function Home(props) {
 
 export async function getStaticProps() {
 
-    const response = await fetch(
-      "http://dev.codesandcogs.com/server/api/codesandcogs/v1/homepage"
-    );
-    const data = await response.json();
-    console.log(data.status);
-    const heroTitle = await data.heroTitle;
-    const heroSubtitle = data.heroSubtitle;
-    const bgUrl = data.bgUrl;
+  const response = await fetch(`${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/homepage`);
+  const data = await response.json();
 
-    const skillsTitle = data.skillsTitle;
-    const skillsSubtitle = data.skillsSubtitle;
-    const skillsArray = data.skills;
+  const heroTitle = await data.heroTitle;
+  const heroSubtitle = data.heroSubtitle;
+  const bgUrl = data.bgUrl;
 
-    const modelsTitle = data.modelsTitle;
-    const modelsSubtitle = data.modelsSubtitle;
-    const modelsArray = data.models;
+  const skillsTitle = data.skillsTitle;
+  const skillsSubtitle = data.skillsSubtitle;
+  const skillsArray = data.skills;
 
-    const feasibilityTitle = data.feasibilityTitle;
-    const feasibilitySubtitle = data.feasibilitySubtitle;
-    const feasibilityArray = data.feasibilities;
-    const feasibilityDescription = data.feasibilityDescription;
+  const modelsTitle = data.modelsTitle;
+  const modelsSubtitle = data.modelsSubtitle;
+  const modelsArray = data.models;
 
-    const trusteeTitle = data.trusteeTitle;
-    const remoteLocations = data.remoteLocations;
-    const remoteEngineers = data.remoteEngineers;
-    const remoteDesigners = data.remoteDesigners;
-    const remoteBgImage = data.remoteBgImage;
+  const feasibilityTitle = data.feasibilityTitle;
+  const feasibilitySubtitle = data.feasibilitySubtitle;
+  const feasibilityArray = data.feasibilities;
+  const feasibilityDescription = data.feasibilityDescription;
+
+  const trusteeTitle = data.trusteeTitle;
+  const remoteLocations = data.remoteLocations;
+  const remoteEngineers = data.remoteEngineers;
+  const remoteDesigners = data.remoteDesigners;
+  const remoteBgImage = data.remoteBgImage;
   const trusteeLogos = data.trusteeIcons;
-  
 
+  return {
+    props: {
+      heroTitle,
+      heroSubtitle,
+      bgUrl,
 
-    return {
-      props: {
-        heroTitle,
-        heroSubtitle,
-        bgUrl,
-        skillsTitle,
-        skillsSubtitle,
-        skillsArray,
-        modelsTitle,
-        modelsSubtitle,
-        modelsArray,
-        feasibilityTitle,
-        feasibilitySubtitle,
-        feasibilityArray,
-        feasibilityDescription,
-        trusteeTitle,
-        remoteLocations,
-        remoteEngineers,
-        remoteDesigners,
-        remoteBgImage,
-        trusteeLogos,
-        
-      },
-      revalidate: 1,
-    };
+      skillsTitle,
+      skillsSubtitle,
+      skillsArray,
 
+      modelsTitle,
+      modelsSubtitle,
+      modelsArray,
+
+      feasibilityTitle,
+      feasibilitySubtitle,
+      feasibilityArray,
+      feasibilityDescription,
+   
+      trusteeTitle,
+      remoteLocations,
+      remoteEngineers,
+      remoteDesigners,
+      remoteBgImage,
+      trusteeLogos,
+    },
+    revalidate: 600,
+  };
 }
