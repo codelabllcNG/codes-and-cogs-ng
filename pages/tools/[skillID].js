@@ -53,7 +53,7 @@ function ToolID(props) {
 }
 
 export async function getStaticProps(context) {
-  const { devUrl } = AllCtx();
+
   const skillID = context.params.skillID;
   const response = await fetch(`${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/homepage`);
   const data = await response.json();
@@ -83,7 +83,7 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-  const { devUrl } = AllCtx();
+
   const response = await fetch(`${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/homepage`);
   const data = await response.json();
 
