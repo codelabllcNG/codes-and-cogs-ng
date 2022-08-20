@@ -6,7 +6,9 @@ import { useRouter } from "next/router";
 
 
 
-function PressRelease() {
+function PressRelease(props) {
+  const { pressReleaseArray } = props;
+
 const router = useRouter()
 
 
@@ -15,12 +17,12 @@ const router = useRouter()
   return (
     <div className="">
       <div className="px-5 md:px-10">
-        <div className="flex  md:justify-center md:mb-2">
-          <h2 className="font-bold text-xs 450:text-sm  md:text-3xl">
+        <div className="flex  justify-center md:mb-2">
+          <h2 className="font-bold text-xs 400:text-xl  md:text-5xl">
             Press Release
           </h2>
         </div>
-        <div className="flex md:justify-center mb-4">
+        <div className="flex justify-center mb-4">
           <div className=" w-[75px] md:w-[150px]">
             <Image
               src="/images/logos-and-icons/red-underline.png"
@@ -211,4 +213,23 @@ const router = useRouter()
   );
 }
 
+export async function getStaticProps() {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/getpressrelease`
+  );
+  const data = await response.json();
+
+  const pressReleaseArray = data.posts;
+  
+
+  return {
+    props: {
+      pressReleaseArray,
+     
+    },
+    revalidate: 600,
+  };
+}
+
 export default PressRelease;
+ 
