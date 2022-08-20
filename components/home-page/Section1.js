@@ -46,7 +46,7 @@ function Section1(props) {
       setSearchingSkills(true);
       setSearchResponse("Searching...");
       const response = await fetch(
-        `${devUrl}/server/api/codesandcogs/v1/search?s=${searchKeyword}`
+        `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/search?s=${searchKeyword}`
       );
 
       const data = await response.json();
