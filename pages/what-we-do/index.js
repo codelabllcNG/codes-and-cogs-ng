@@ -8,7 +8,10 @@ import {
   SOLUTIONS,
 } from "../../a-store/content-store/WHAT-WE-DO";
 
-function Services() {
+function WhatWeDo(props) {
+  const { title, subtitle, bgImage, enterpriseServices, solutionAsServices } =
+    props;
+
   return (
     <div className="px-5 ">
       <div className="900:bg-[url('/images/services-bg.png')]  bg-cover bg-center bg-no-repeat pt-16 900:pb-16   900:mb-16">
@@ -18,7 +21,7 @@ function Services() {
         </div>
         <div className="mb-5 900:px-14">
           <p>
-            Unlike our competitors we mean it when we say “We got your back”{" "}
+            {subtitle}{" "}
           </p>
         </div>
 
@@ -71,10 +74,10 @@ function Services() {
         </div>
       </div>
 
-      {SERVICES.map((service, i) => (
-        <div key={service.id} className="mb-20" id={`${service.id}`}>
+      {enterpriseServices.map((enterpriseService, i) => (
+        <div key={enterpriseService.id} className="mb-20" id={`${enterpriseService.id}`}>
           <div className="flex  md:justify-center mb-2">
-            <h2 className="font-bold text-2xl">{service.title}</h2>
+            <h2 className="font-bold text-2xl">{enterpriseService.name}</h2>
           </div>
           {/* <div className="flex md:justify-center mb-3 ">
           <div className=" [150px]">
@@ -87,7 +90,7 @@ function Services() {
     </div> */}
 
           <div className="mb-5">
-            <p className="text-center">{service.subTitle}</p>
+            <p className="text-center">{enterpriseService.excerpt}</p>
           </div>
 
           <div
@@ -98,11 +101,11 @@ function Services() {
             <div
               className={`sm:w-[55%] text-justify  mb-5 sm:mb-0 text-pry-color `}
             >
-              <p className="sm:leading-10  ">{service.body}</p>
+              <p className="sm:leading-10  ">{enterpriseService.content}</p>
             </div>
 
             <div className="sm:w-[40%] items-center flex justify-center mb-5 sm:mb-0">
-              <img className="w-300px" src={service.imageUrl} alt="" />
+              <img className="w-300px" src={enterpriseService.imageUrl} alt="" />
             </div>
           </div>
         </div>
@@ -123,10 +126,10 @@ function Services() {
         </div>
       </div>
 
-      {SOLUTIONS.map((service, i) => (
-        <div key={service.id} className="mb-20" id={`${service.id}`}>
+      {solutionAsServices.map((solution, i) => (
+        <div key={solution.id} className="mb-20" id={`${solution.id}`}>
           <div className="flex  md:justify-center mb-2">
-            <h2 className="font-bold text-2xl">{service.title}</h2>
+            <h2 className="font-bold text-2xl">{solution.name}</h2>
           </div>
           {/* <div className="flex md:justify-center mb-3 ">
           <div className=" [150px]">
@@ -139,7 +142,7 @@ function Services() {
     </div> */}
 
           <div className="mb-5">
-            <p className="text-center">{service.subTitle}</p>
+            <p className="text-center">{solution.excerpt}</p>
           </div>
 
           <div
@@ -150,11 +153,11 @@ function Services() {
             <div
               className={`sm:w-[55%] text-justify  mb-5 sm:mb-0 text-pry-color `}
             >
-              <p className="sm:leading-10  ">{service.body}</p>
+              <p className="sm:leading-10  ">{solution.content}</p>
             </div>
 
             <div className="sm:w-[40%] items-center flex justify-center mb-5 sm:mb-0">
-              <img className="w-300px" src={service.imageUrl} alt="" />
+              <img className="w-300px" src={solution.imageUrl} alt="" />
             </div>
           </div>
         </div>
@@ -163,4 +166,28 @@ function Services() {
   );
 }
 
-export default Services;
+export async function getStaticProps() {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/whatwedo`
+  );
+  const data = await response.json();
+
+  const title = data.whatWeDoTitle;
+  const subtitle = data.whatWeDoSubtitle;
+  const bgImage = data.whatWeDoBgImage;
+  const enterpriseServices = data.enterprize_services;
+  const solutionAsServices = data.solution_as_services;
+
+  return {
+    props: {
+      title,
+      subtitle,
+      bgImage,
+      enterpriseServices,
+      solutionAsServices,
+    },
+    revalidate: 600,
+  };
+}
+
+export default WhatWeDo;

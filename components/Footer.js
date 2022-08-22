@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from "react";
 import AllCtx from "../util-functions/allCtx";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import Router from "next/router";
+
 
 function Footer() {
   let router = useRouter();
@@ -122,9 +124,7 @@ function Footer() {
                 Legal{" "}
               </p>
               <p
-                onClick={() => {
-                  router.push("/internship");
-                }}
+             onClick={() => { Router.push('/what-we-do/#internship') }}
                 className="cursor-pointer hover:text-red-700"
               >
                 Internship{" "}
@@ -188,16 +188,16 @@ function Footer() {
     
             <div className=" md:space-y-2 space-y-1 md:mb-0 mb-7">
               <button className="font-bold ">SOLUTIONS</button>
-              <p className="cursor-pointer hover:text-red-700">Hackathon</p>
+              <p onClick={() => { Router.push('/what-we-do/#hackathon') }} className="cursor-pointer hover:text-red-700">Hackathon</p>
               {/* <p className="cursor-pointer hover:text-red-700">
                 Training
               </p>{" "} */}
-              <p className="cursor-pointer hover:text-red-700">
+              <p onClick={() => { Router.push('/what-we-do/#infrastructure') }} className="cursor-pointer hover:text-red-700">
                Infrastructure
               </p>
-              <p className="cursor-pointer hover:text-red-700">Workspace</p>
+              <p onClick={() => { Router.push('/what-we-do/#workspace') }} className="cursor-pointer hover:text-red-700">Workspace</p>
           
-              <p className="cursor-pointer hover:text-red-700">
+              <p onClick={() => { Router.push('/what-we-do/#salary-estimator') }} className="cursor-pointer hover:text-red-700">
                 Salary Estimator 
               </p>
 

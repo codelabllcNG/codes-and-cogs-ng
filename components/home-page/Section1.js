@@ -22,8 +22,7 @@ function Section1(props) {
     setSearchingSkills,
     talentsFound,
     setTalentsFound,
-    devUrl,
-    prodUrl,
+
   } = AllCtx();
 
   useEffect(() => {

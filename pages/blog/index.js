@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-
-
 function Index(props) {
-  const range = 3;
+  const range = 6;
   const [pageNum, setPageNum] = useState(1);
   const [prev, setPrev] = useState(0);
   const [next, setNext] = useState(range);
@@ -21,29 +19,28 @@ function Index(props) {
 
   function ordinal(n) {
     var s = ["th", "st", "nd", "rd"];
-    var v = n%100;
-    return n + (s[(v-20)%10] || s[v] || s[0]);
+    var v = n % 100;
+    return n + (s[(v - 20) % 10] || s[v] || s[0]);
   }
-  
 
   const blogPostLength = blogPostArray.length;
 
   return (
     <div className="px-5 md:px-14">
-     <div className="flex  justify-center md:mb-2">
-          <h2 className="font-bold text-xs 400:text-xl font-larken md:text-5xl">
-           Blog
-          </h2>
+      <div className="flex  justify-center md:mb-2">
+        <h2 className="font-bold text-xs 400:text-xl font-larken md:text-5xl">
+          Blog
+        </h2>
+      </div>
+      <div className="flex justify-center mb-4">
+        <div className=" w-[75px] md:w-[150px]">
+          <Image
+            src="/images/logos-and-icons/red-underline.png"
+            width={150}
+            height={20}
+          />
         </div>
-        <div className="flex justify-center mb-4">
-          <div className=" w-[75px] md:w-[150px]">
-            <Image
-              src="/images/logos-and-icons/red-underline.png"
-              width={150}
-              height={20}
-            />
-          </div>
-        </div>
+      </div>
 
       <div className="grid grid-cols-1 gap-x-3 gap-y-6 sm:grid-cols-2 md:grid-cols-3">
         {blogPostArray
@@ -54,7 +51,13 @@ function Index(props) {
               (month = date.toLocaleDateString("en-US", { month: "short" })),
               (year = date.toLocaleDateString("en-US", { year: "numeric" })),
               (
-                <div key={article.title} className="bg-gray-100 text-sm pb-2">
+                <div
+                  onClick={() => {
+                    router.push(`/blog/${article.id}`);
+                  }}
+                  key={article.title}
+                  className="bg-gray-100 text-sm pb-2 cursor-pointer hover:scale-95 duration-300"
+                >
                   <div className="mb-4">
                     <Image
                       className="rounded-t-lg "
@@ -70,7 +73,7 @@ function Index(props) {
                   </div>
 
                   <div className="px-2 text-xs mb-4 text-gray-500">
-                    <p>{`${  ordinal(day)  } ${month}., ${year}`}</p>
+                    <p>{`${ordinal(day)} ${month}., ${year}`}</p>
                   </div>
 
                   <div className="px-2 text-justify mb-2 ">
@@ -202,14 +205,11 @@ export async function getStaticProps() {
   const data = await response.json();
 
   const blogPostArray = data.posts;
-  
 
   return {
     props: {
       blogPostArray,
-     
     },
     revalidate: 600,
   };
 }
- 

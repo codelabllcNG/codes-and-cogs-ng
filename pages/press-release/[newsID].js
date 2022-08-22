@@ -1,18 +1,25 @@
 import React from "react";
 import Image from "next/image";
 import { selectedNews, TOP_NEWS } from "../../a-store/content-store/TOP_NEWS";
+import Loading from "../../components/Loading";
+import { useRouter } from "next/router";
 
 function NewsID(props) {
-  const { theSelectedNews } = props;
+  const router = useRouter();
+  const { selectedNews } = props;
+
+  if (router.isFallback) {
+    return <Loading />;
+  }
 
   return (
     <div className="px-5 md:px-10">
-      <div className="flex  md:justify-center md:text-center md:mb-2">
-        <h2 className="font-bold text-xs 450:text-sm  md:text-3xl">
-          {theSelectedNews.title}
+      <div className="flex  justify-center md:text-center md:mb-2">
+        <h2 className="font-bold text-xs 400:text-xl  md:text-5xl">
+          {selectedNews.title}
         </h2>
       </div>
-      <div className="flex md:justify-center mb-4">
+      <div className="flex justify-center mb-8">
         <div className=" w-[75px] md:w-[150px]">
           <Image
             src="/images/logos-and-icons/red-underline.png"
@@ -21,25 +28,65 @@ function NewsID(props) {
           />
         </div>
       </div>
+
+      <div className="  justify-between md:space-x-4 ">
+        <div className="w-[40%]  md:mr-4 float-left h-full hidden md:flex">
+          <Image className='rounded-lg' src={selectedNews.imageUrl} width={500} height={700} />{" "}
+        </div>
+        <div className="w-[100%] mb-5 flex justify-center md:hidden">
+          <Image src={selectedNews.imageUrl} width={500} height={300} />{" "}
+        </div>
+        <div className=' w-full   '>
+          <p
+            className="prose-h1:text-3xl prose-h1:font-bold max-w-none text-justify md:text-lg md:leading-10 leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: selectedNews.content }}
+          >
+            {}
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
 
 export async function getStaticProps(context) {
   const newsID = context.params.newsID;
-  const theSelectedNews = selectedNews(newsID);
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/getpressrelease`
+  );
+  const data = await response.json();
+  const newsArray = data.posts;
+
+  function newsFinder() {
+    return newsArray.find((news) => news.id === newsID);
+  }
+  const selectedNews = newsFinder(newsID);
+
+  if (!selectedNews) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
-      newsID: newsID,
-      theSelectedNews: theSelectedNews,
+      newsID,
+      newsArray,
+      selectedNews,
     },
     revalidate: 600,
   };
 }
 
 export async function getStaticPaths() {
-  const newsPaths = TOP_NEWS.map((news) => news.id);
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/getpressrelease`
+  );
+  const data = await response.json();
+
+  const newsArray = data.posts;
+
+  const newsPaths = newsArray.map((news) => news.id);
 
   return {
     paths: newsPaths.map((newsID) => ({
