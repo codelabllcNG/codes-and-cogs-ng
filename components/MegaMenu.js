@@ -1,10 +1,13 @@
 import React from "react";
 import Image from "next/image";
 import AllCtx from "../util-functions/allCtx";
-import Router from "next/router";
+import { useRouter } from "next/router";
+
 
 
 function MegaMenu() {
+const router = useRouter();
+
   const {
     servicesClicked,
     solutionsClicked,
@@ -64,7 +67,7 @@ function MegaMenu() {
               />{" "}
             </div>
             <div>
-              <p onClick={() => {Router.push('/what-we-do/#global-payroll')}}>Global Payroll</p>
+              <p onClick={() => {router.push('/what-we-do/#global-payroll')}}>Global Payroll</p>
             </div>
           </div>
 
@@ -77,7 +80,7 @@ function MegaMenu() {
               />{" "}
             </div>
             <div>
-              <p onClick={() => {Router.push('/what-we-do/#training')}}>Training</p>
+              <p onClick={() => {router.push('/what-we-do/#training')}}>Training</p>
             </div>
           </div>
 
@@ -90,7 +93,7 @@ function MegaMenu() {
               />{" "}
             </div>
             <div>
-              <p onClick={() => { Router.push('/what-we-do/#hiring-as-a-service') }}>Hiring as a Service</p>
+              <p onClick={() => { router.push('/what-we-do/#hiring-as-a-service') }}>Hiring as a Service</p>
             </div>
           </div>
 
@@ -103,7 +106,7 @@ function MegaMenu() {
               />{" "}
             </div>
             <div>
-              <p onClick={() => { Router.push('/what-we-do/#internship') }}>Internship</p>
+              <p onClick={() => { router.push('/what-we-do/#internship') }}>Internship</p>
             </div>
           </div>
 
@@ -116,7 +119,7 @@ function MegaMenu() {
               />{" "}
             </div>
             <div>
-              <p onClick={() => { Router.push('/what-we-do/#conpliance-and-hr-services') }}>Compliance and HR Services</p>
+              <p onClick={() => { router.push('/what-we-do/#conpliance-and-hr-services') }}>Compliance and HR Services</p>
             </div>
           </div>
 
@@ -129,7 +132,7 @@ function MegaMenu() {
               />{" "}
             </div>
             <div>
-              <p onClick={() => { Router.push('/what-we-do/#enterprise-packages') }}>Enterprise Packages</p>
+              <p onClick={() => { router.push('/what-we-do/#enterprise-packages') }}>Enterprise Packages</p>
             </div>
           </div>
 
@@ -142,7 +145,7 @@ function MegaMenu() {
               />{" "}
             </div>
             <div>
-              <p onClick={() => { Router.push('/what-we-do/#remote-development-services') }}>Remote Development Services</p>
+              <p onClick={() => { router.push('/what-we-do/#remote-development-services') }}>Remote Development Services</p>
             </div>
           </div>
         </div>
@@ -161,7 +164,7 @@ function MegaMenu() {
               />{" "}
             </div>
             <div>
-              <p onClick={() => { Router.push('/what-we-do/#hackathon') }}>Hackathon</p>
+              <p onClick={() => { router.push('/what-we-do/#hackathon') }}>Hackathon</p>
             </div>
           </div>
 
@@ -174,7 +177,7 @@ function MegaMenu() {
               />{" "}
             </div>
             <div>
-              <p onClick={() => { Router.push('/what-we-do/#infrastructure') }}>Infrastructure</p>
+              <p onClick={() => { router.push('/what-we-do/#infrastructure') }}>Infrastructure</p>
             </div>
           </div>
 
@@ -187,7 +190,7 @@ function MegaMenu() {
               />{" "}
             </div>
             <div>
-              <p onClick={() => { Router.push('/what-we-do/#workspace') }}>Workspace</p>
+              <p onClick={() => { router.push('/what-we-do/#workspace') }}>Workspace</p>
             </div>
           </div>
 
@@ -200,7 +203,7 @@ function MegaMenu() {
               />{" "}
             </div>
             <div>
-              <p onClick={() => { Router.push('/what-we-do/#salary-estimator') }}>Salary Estimator</p>
+              <p onClick={() => { router.push('/what-we-do/#salary-estimator') }}>Salary Estimator</p>
             </div>
           </div>
         </div>

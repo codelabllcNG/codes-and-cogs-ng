@@ -2,8 +2,6 @@ import React, { useEffect, useRef } from "react";
 import AllCtx from "../util-functions/allCtx";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import Router from "next/router";
-
 
 function Footer() {
   let router = useRouter();
@@ -124,7 +122,9 @@ function Footer() {
                 Legal{" "}
               </p>
               <p
-             onClick={() => { Router.push('/what-we-do/#internship') }}
+                onClick={() => {
+                  router.push("/what-we-do/#internship");
+                }}
                 className="cursor-pointer hover:text-red-700"
               >
                 Internship{" "}
@@ -158,7 +158,7 @@ function Footer() {
               </p>
               <p
                 onClick={() => {
-                  router.push("/");
+                  router.push("/remote-locations");
                 }}
                 className="cursor-pointer hover:text-red-700"
               >
@@ -173,32 +173,53 @@ function Footer() {
                 Software Engineering School
               </p>
             </div>{" "}
-    
             <div className="  md:w-[20%] md:space-y-2 space-y-1 md:mb-0 mb-7">
               <button className="font-bold ">DEVELOPERS</button>
-              <p className="cursor-pointer hover:text-red-700">Apply for Jobs</p>
               <p className="cursor-pointer hover:text-red-700">
-                Talent Login
-              </p>{" "}
-              <p className="cursor-pointer hover:text-red-700">
-               Talent Stories
+                Apply for Jobs
               </p>
-  
+              <p className="cursor-pointer hover:text-red-700">Talent Login</p>{" "}
+              <p className="cursor-pointer hover:text-red-700">
+                Talent Stories
+              </p>
             </div>
-    
             <div className=" md:space-y-2 space-y-1 md:mb-0 mb-7">
               <button className="font-bold ">SOLUTIONS</button>
-              <p onClick={() => { Router.push('/what-we-do/#hackathon') }} className="cursor-pointer hover:text-red-700">Hackathon</p>
+              <p
+                onClick={() => {
+                  router.push("/what-we-do/#hackathon");
+                }}
+                className="cursor-pointer hover:text-red-700"
+              >
+                Hackathon
+              </p>
               {/* <p className="cursor-pointer hover:text-red-700">
                 Training
               </p>{" "} */}
-              <p onClick={() => { Router.push('/what-we-do/#infrastructure') }} className="cursor-pointer hover:text-red-700">
-               Infrastructure
+              <p
+                onClick={() => {
+                  router.push("/what-we-do/#infrastructure");
+                }}
+                className="cursor-pointer hover:text-red-700"
+              >
+                Infrastructure
               </p>
-              <p onClick={() => { Router.push('/what-we-do/#workspace') }} className="cursor-pointer hover:text-red-700">Workspace</p>
-          
-              <p onClick={() => { Router.push('/what-we-do/#salary-estimator') }} className="cursor-pointer hover:text-red-700">
-                Salary Estimator 
+              <p
+                onClick={() => {
+                  router.push("/what-we-do/#workspace");
+                }}
+                className="cursor-pointer hover:text-red-700"
+              >
+                Workspace
+              </p>
+
+              <p
+                onClick={() => {
+                  router.push("/what-we-do/#salary-estimator");
+                }}
+                className="cursor-pointer hover:text-red-700"
+              >
+                Salary Estimator
               </p>
 
               {/* <p className="cursor-pointer hover:text-red-700">
@@ -208,7 +229,7 @@ function Footer() {
               <p className="cursor-pointer hover:text-red-700">
                Remove Dev. Services
               </p> */}
-{/* 
+              {/* 
               <p className="cursor-pointer hover:text-red-700">
                Hackathon 
               </p>
@@ -234,8 +255,22 @@ function Footer() {
           </div>{" "}
           <div className="flex justify-center">
             <div className="flex justify-between space-x-3">
-              <button onClick={()=>{router.push('/privacy-policy')}} className="hover:text-red-700">Privacy Policy</button>{" "}
-              <button onClick={()=>{router.push('/terms-of-service')}} className="hover:text-red-700">Terms of Service</button>
+              <button
+                onClick={() => {
+                  router.push("/privacy-policy");
+                }}
+                className="hover:text-red-700"
+              >
+                Privacy Policy
+              </button>{" "}
+              <button
+                onClick={() => {
+                  router.push("/terms-of-service");
+                }}
+                className="hover:text-red-700"
+              >
+                Terms of Service
+              </button>
             </div>
           </div>
         </div>
