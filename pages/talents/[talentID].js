@@ -112,7 +112,7 @@ const router = useRouter();
                 {selectedTalent.hobbies.map((hobby) => (
                   <div key={hobby}>
                     <div className="flex justify-center items-center  mb-2 ">
-                      <img className="h-5 w-5" src={hobby.icon} alt="" />
+                      <Image height={20} width={20} className="h-5 w-5" src='/images/logos-and-icons/soccer-hobby.png' alt="" />
                     </div>
                     <div className="flex justify-center items-center text-xs ">
                       {" "}

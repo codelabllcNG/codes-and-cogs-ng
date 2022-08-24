@@ -13,19 +13,19 @@ function WhatWeDo(props) {
     props;
 
   return (
-    <div className="px-5 ">
+    <div className="px-5 md:px-14">
       <div className="900:bg-[url('/images/services-bg.png')]  bg-cover bg-center bg-no-repeat pt-16 900:pb-16   900:mb-16">
-        <div className="900:px-14  mb-5 -mt-10 ">
+        <div className="  mb-5 -mt-10 ">
           {" "}
           <h1 className="font-bold text-3xl">What We Do</h1>
         </div>
-        <div className="mb-5 900:px-14">
+        <div className="mb-5 ">
           <p>
             {subtitle}{" "}
           </p>
         </div>
 
-        <div className="900:px-14 flex space-x-5 mt-7  items-center mb-6">
+        <div className=" flex space-x-5 mt-7  items-center mb-6">
           {" "}
           <Image
             src="/images/logos-and-icons/enterprise.png"
@@ -39,7 +39,7 @@ function WhatWeDo(props) {
           </Link>{" "}
         </div>
 
-        <div className="900:px-14 flex space-x-5 items-center mb-4">
+        <div className=" flex space-x-5 items-center mb-4">
           {" "}
           <Image
             src="/images/logos-and-icons/solutions.png"
@@ -53,7 +53,7 @@ function WhatWeDo(props) {
           </Link>{" "}
         </div>
 
-        <div className="px-14 mt-16">
+        <div className=" mt-16">
           {" "}
           <BotIcon />
         </div>
@@ -101,11 +101,11 @@ function WhatWeDo(props) {
             <div
               className={`sm:w-[55%] text-justify  mb-5 sm:mb-0 text-pry-color `}
             >
-              <p className="sm:leading-10  ">{enterpriseService.content}</p>
+              <p className="sm:leading-7 lg:leading-10  ">{enterpriseService.content}</p>
             </div>
 
             <div className="sm:w-[40%] items-center flex justify-center mb-5 sm:mb-0">
-              <img className="w-300px" src={enterpriseService.imageUrl} alt="" />
+              <Image width={400} height={300} className="w-300px" src={enterpriseService.imageUrl} alt="" />
             </div>
           </div>
         </div>
@@ -153,11 +153,11 @@ function WhatWeDo(props) {
             <div
               className={`sm:w-[55%] text-justify  mb-5 sm:mb-0 text-pry-color `}
             >
-              <p className="sm:leading-10  ">{solution.content}</p>
+              <p className="sm:leading-7 lg:leading-10   ">{solution.content}</p>
             </div>
 
             <div className="sm:w-[40%] items-center flex justify-center mb-5 sm:mb-0">
-              <img className="w-300px" src={solution.imageUrl} alt="" />
+              <Image height={300} width={400} className="w-300px" src={solution.imageUrl} alt="" />
             </div>
           </div>
         </div>

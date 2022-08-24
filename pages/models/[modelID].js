@@ -36,13 +36,13 @@ const router = useRouter();
           <div className='flex justify-center items-center text-justify 900:text-center mb-1 900:mb-8 text-pry-color '><p>{ selectedModel.excerpt}</p></div>
 
           <div className='900:flex justify-between items-center '>
-          <div className='900:w-[55%] text-justify lg:leading-8 mb-5 900:mb-0 text-pry-color '><p className='900:leading-10'>{selectedModel.content} 
+          <div className='900:w-[55%] text-justify  mb-5 900:mb-0 text-pry-color '><p className=' leading-7 900:leading-10 lg:leading-8'>{selectedModel.content} 
               </p></div>
             
               
               <div className='900:w-[40%] items-center flex justify-center mb-5 900:mb-0'>
               
-                  <img src={selectedModel.imageUrl} alt="" />
+                  <Image height={300} width={400} src={selectedModel.imageUrl} alt="" />
               
               </div>
           </div>

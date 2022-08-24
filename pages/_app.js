@@ -7,7 +7,7 @@ import '../styles/globals.css'
 import '../styles/md-styles.css'
 
 function MyApp({ Component, pageProps }) {
-  return <Fragment>
+  return <Fragment >
     <AllContextProvider>
       <Navbar />
      <Component {...pageProps} />

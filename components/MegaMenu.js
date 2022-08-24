@@ -58,6 +58,21 @@ const router = useRouter();
       {/* SERVICES MEGA MENU  */}
       {servicesClicked && (
         <div className="w-[500px] h-[18rem] rounded-r-lg grid grid-cols-2 bg-mid-color    p-5 ">
+
+<div className="flex items-center  hover:text-blue-600 cursor-pointer">
+            <div>
+              <Image
+                src="/images/logos-and-icons/mega7.png"
+                width="55"
+                height="55"
+              />{" "}
+            </div>
+            <div>
+              <p onClick={() => { router.push('/what-we-do/#remote-development-services') }}>Remote Development Services</p>
+            </div>
+          </div>
+
+
           <div className="flex items-center  hover:text-blue-600 cursor-pointer">
             <div>
               <Image
@@ -136,18 +151,7 @@ const router = useRouter();
             </div>
           </div>
 
-          <div className="flex items-center  hover:text-blue-600 cursor-pointer">
-            <div>
-              <Image
-                src="/images/logos-and-icons/mega7.png"
-                width="55"
-                height="55"
-              />{" "}
-            </div>
-            <div>
-              <p onClick={() => { router.push('/what-we-do/#remote-development-services') }}>Remote Development Services</p>
-            </div>
-          </div>
+       
         </div>
       )}
 

@@ -26,10 +26,12 @@ export function AllContextProvider(props) {
   const [searchingSkills, setTheSearchingSkills] = useState(false)
   const [talentsFound, setTheTalentsFound] = useState([])
 
+  const [menuIsClicked, setTheMenuIsClicked] = useState(false);
+
   const devUrl = 'http://dev.codesandcogs.com'
   const prodUrl = 'https://dev.codesandcogs.com'
 
-  const context = {
+  const context = { menuIsClicked, 
     devUrl, prodUrl,
     megaMenu,
     servicesClicked,
@@ -51,6 +53,7 @@ export function AllContextProvider(props) {
     searchingSkills,
     talentsFound,
 
+    setMenuIsClicked,
     setSection,
     setSectionOneHeight,
     setSectionTwoHeight,
@@ -71,6 +74,10 @@ export function AllContextProvider(props) {
   );
 
   // functions below
+
+  function setMenuIsClicked(value) {
+    setTheMenuIsClicked(value)
+  }
 
   function setTalentsFound(value) {
     setTheTalentsFound(value)

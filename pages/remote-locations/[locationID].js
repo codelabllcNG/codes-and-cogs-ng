@@ -29,15 +29,15 @@ function LocationID(props) {
         </div>
       </div>
 
-      <div className={`px-5 md:px-10 sm:flex  justify-between  `}>
+      <div className={`px-5 md:px-10 md:flex  justify-between  `}>
         <div
-          className={`sm:w-[55%] text-justify mb-5 sm:mb-0 text-pry-color `}
+          className={`md:w-[55%] text-justify mb-5 md:mb-0 text-pry-color `}
         >
-          <p className="sm:leading-10  ">{selectedLocation.content}</p>
+          <p className="md:leading-10  ">{selectedLocation.content}</p>
         </div>
 
-        <div className="sm:w-[40%]  flex justify-center mb-5 sm:mb-0">
-          <img className="w-300px rounded-lg" src={selectedLocation.imageUrl} alt="" />
+        <div className="md:w-[40%]  flex justify-center mb-5 md:mb-0">
+          <Image width={400} height={300} className="w-300px rounded-lg" src={selectedLocation.imageUrl} alt="" />
         </div>
       </div>
     </div>

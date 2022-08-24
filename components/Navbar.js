@@ -7,20 +7,21 @@ import { useRouter } from "next/router";
 import MegaMenu from "./MegaMenu";
 import AllCtx from "../util-functions/allCtx";
 import { MdExpandMore } from "react-icons/md";
+import MobileNav from "./MobileNav";
 
 function Navbar() {
-  const { megaMenu, setMegaMenu } = AllCtx(); 
+  const { megaMenu, setMegaMenu, menuIsClicked, setMenuIsClicked } = AllCtx(); 
 
   const router = useRouter();
 
   // Hover functions here next
   const [homeHover, setHomeHover] = useState(true);
-  const [aboutHover, setAboutHover] = useState(false);
+  const [aboutHover, setAboutHover] = useState(true);
   const [postHover, setPostHover] = useState(false);
   const [servicesHover, setServicesHover] = useState(false);
   const [supportHover, setSupportHover] = useState(false);
 
-  const [menuIsClicked, setMenuIsClicked] = useState(false);
+  
 
   function showHover(home, about, post, services, support) {
     setHomeHover(home);
@@ -31,7 +32,8 @@ function Navbar() {
   }
 
   return (
-    <div className="">
+    <div className={``}>
+          <MobileNav/>
       <div className="flex items-center py-4 justify-between mx-5 mb-5 mt-3 md:mx-10">
       
           <div  onClick={()=>{router.push('/')} } className=" flex items-center cursor-pointer w-[5rem]     ">
@@ -125,7 +127,7 @@ function Navbar() {
           </Link>
         </div>
         <div className="md:flex hidden items-center text-sm text-pry-color font-semibold  ">
-          <Link passHref href="/freelancing">
+          <Link passHref href="/join-us">
             <a className="border border-transparent mx-2 hover:border-pry-color px-2 rounded py-1 ">
               {" "}
               Freelancing{" "}
@@ -133,7 +135,7 @@ function Navbar() {
           </Link>{" "}
           <button
             onClick={() => {
-              router.push("/join-us");
+              router.push("/post-a-job");
             }}
             className="bg-pry-color px-2 font-normal py-1 ring-2 ring-pry-color hover:bg-blue-800 text-white rounded-lg"
           >
@@ -159,91 +161,12 @@ function Navbar() {
             <IoClose className="w-[28px] -mt-2 h-[28px] text-pry-color cursor-pointer" />
           )}
           {/* Mobile Nav Items  */}
-          <div
-            className={` z-40 duration-200 ${
-              menuIsClicked ? "translate-y-0" : "-translate-y-[500px] "
-            } absolute right-[5px] top-5`}
-          >
-            <div
-              onClick={() => {
-                router.push("/");
-              }}
-              className="bg-[#ECF1FA] hover:bg-sec-color cursor-pointer duration-300 w-[10rem] p-2  rounded-lg mb-[0.1rem]"
-            >
-              <p className="text-center text-pry-color font-semibold   ">
-                Home
-              </p>
-            </div>
-
-            <div
-              onClick={() => {
-                router.push("/about-us");
-              }}
-              className="bg-[#ECF1FA] hover:bg-sec-color cursor-pointer duration-300 w-[10rem] p-2  rounded-lg mb-[0.1rem]"
-            >
-              <p className="text-center text-pry-color font-semibold   ">
-                About Us
-              </p>
-            </div>
-
-            <div
-              onClick={() => {
-                router.push("/post-a-job");
-              }}
-              className="bg-[#ECF1FA] hover:bg-sec-color cursor-pointer duration-300 w-[10rem] p-2  rounded-lg mb-[0.1rem]"
-            >
-              <p className="text-center text-pry-color font-semibold   ">
-                Post a Job
-              </p>
-            </div>
-
-            <div
-              onClick={() => {
-                router.push("/what-we-do");
-              }}
-              className="bg-[#ECF1FA] hover:bg-sec-color cursor-pointer duration-300 w-[10rem] p-2  rounded-lg mb-[0.1rem]"
-            >
-              <p className="text-center text-pry-color font-semibold   ">
-                What We Do
-              </p>
-            </div>
-
-            <div
-              onClick={() => {
-                router.push("/support");
-              }}
-              className="bg-[#ECF1FA] hover:bg-sec-color cursor-pointer duration-300 w-[10rem] p-2  rounded-lg mb-[0.1rem]"
-            >
-              <p className="text-center text-pry-color font-semibold   ">
-                Support
-              </p>
-            </div>
-
-            <div
-              onClick={() => {
-                router.push("/freelancing");
-              }}
-              className="bg-[#ECF1FA] hover:bg-sec-color cursor-pointer duration-300 w-[10rem] p-2  rounded-lg mb-[0.1rem]"
-            >
-              <p className="text-center text-pry-color font-semibold   ">
-                Freelancing
-              </p>
-            </div>
-
-            <div
-              onClick={() => {
-                router.push("/join-us");
-              }}
-              className="bg-[#ECF1FA] hover:bg-sec-color cursor-pointer duration-300 w-[10rem] p-2  rounded-lg mb-[0.1rem]"
-            >
-              <p className="text-center text-pry-color font-semibold   ">
-                Join Us
-              </p>
-            </div>
-          </div>
+     
         </div>
       </div>
+      
       {megaMenu && <MegaMenu />}
+      
     </div>
   );
 }

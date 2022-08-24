@@ -29,8 +29,8 @@ function NewsID(props) {
         </div>
       </div>
 
-      <div className="  justify-between md:space-x-4 ">
-        <div className="w-[40%]  md:mr-4 float-left h-full hidden md:flex">
+      <div className="  justify-between md: ">
+        <div className="w-[40%]  md:mr-8 float-left h-full hidden md:flex">
           <Image className='rounded-lg' src={selectedNews.imageUrl} width={500} height={700} />{" "}
         </div>
         <div className="w-[100%] mb-5 flex justify-center md:hidden">
@@ -41,7 +41,7 @@ function NewsID(props) {
             className="prose-h1:text-3xl prose-h1:font-bold max-w-none text-justify md:text-lg md:leading-10 leading-relaxed"
             dangerouslySetInnerHTML={{ __html: selectedNews.content }}
           >
-            {}
+            {} 
           </p>
         </div>
       </div>
