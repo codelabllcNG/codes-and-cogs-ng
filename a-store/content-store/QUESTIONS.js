@@ -6,7 +6,7 @@ export const QUESTIONS = [
     options: ["USA", "Canada", "Nigeria", "Algeria"],
     selectedAnswer: "",
     answer: "Nigeria",
-  },
+  }, 
   {
     id: "q2",
     question:

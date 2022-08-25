@@ -151,7 +151,7 @@ function TakeATest() {
       </div>
 
       <div className="flex justify-end mt-4">
-        <button
+        <button onClick={()=>{console.log(questionArray)}}
           className={`${
             done ? "bg-pry-color" : "bg-gray-400 pointer-events-none"
           }  text-white px-4 py-1 rounded-md hover:via-violet-800`}

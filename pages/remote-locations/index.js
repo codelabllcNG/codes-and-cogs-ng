@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
@@ -10,6 +11,14 @@ function RemoteLocations(props) {
 
   return (
     <div>
+<Head>
+        <title>{`Remote Locations - Codes and Cogs`}</title>
+        <meta name="description" content={`Our remote locations across the world.`} />
+        <link rel="icon" href="/favicon.ico" />
+      
+      </Head>
+
+
       <div className="flex  justify-center md:mb-2">
         <h2 className="font-bold text-xs 400:text-xl font-larken md:text-3xl">
           {title}

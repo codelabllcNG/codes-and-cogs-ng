@@ -7,6 +7,7 @@ import {
   SERVICES,
   SOLUTIONS,
 } from "../../a-store/content-store/WHAT-WE-DO";
+import Head from "next/head";
 
 function WhatWeDo(props) {
   const { title, subtitle, bgImage, enterpriseServices, solutionAsServices } =
@@ -14,7 +15,19 @@ function WhatWeDo(props) {
 
   return (
     <div className="px-5 md:px-14">
-      <div className="900:bg-[url('/images/services-bg.png')]  bg-cover bg-center bg-no-repeat pt-16 900:pb-16   900:mb-16">
+
+<Head>
+        <title>{`What We Do - Codes and Cogs`}</title>
+        <meta name="description" content={`The enterprise services and solutions we offer at Codes and Cogs. ${subtitle}`} />
+        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="canonical"
+          href={`https://www.codesandcogs.com/what-we-do`}
+        />
+      </Head>
+
+
+      <div className="900:bg-[url('/images/services-bg.png')]  bg-cover bg-center bg-no-repeat pt-16 900:pb-16 lg:pb-[8rem]   900:mb-16">
         <div className="  mb-5 -mt-10 ">
           {" "}
           <h1 className="font-bold text-3xl">What We Do</h1>
@@ -46,7 +59,7 @@ function WhatWeDo(props) {
             width="35"
             height="35"
           />{" "}
-          <Link passHref href={`#solution-as-a-services`}>
+          <Link passHref href={`#solution-as-a-service`}>
             <button className="font-semibold text-pry-color hover:text-blue-600">
               Solution As A Service
             </button>
@@ -60,10 +73,10 @@ function WhatWeDo(props) {
       </div>
 
       <div id="enterprise-services" className="mb-10">
-        <div className="flex  md:justify-center mb-2">
+        <div className="flex  justify-center mb-2">
           <h2 className="font-bold text-3xl">Enterprise Services</h2>
         </div>
-        <div className="flex md:justify-center mb-3 ">
+        <div className="flex justify-center mb-3 ">
           <div className=" [150px]">
             <Image
               src="/images/logos-and-icons/red-underline.png"
@@ -76,7 +89,7 @@ function WhatWeDo(props) {
 
       {enterpriseServices.map((enterpriseService, i) => (
         <div key={enterpriseService.id} className="mb-20" id={`${enterpriseService.id}`}>
-          <div className="flex  md:justify-center mb-2">
+          <div className="flex  justify-center mb-2">
             <h2 className="font-bold text-2xl">{enterpriseService.name}</h2>
           </div>
           {/* <div className="flex md:justify-center mb-3 ">
@@ -111,11 +124,11 @@ function WhatWeDo(props) {
         </div>
       ))}
 
-      <div id="solution-as-a-services" className="mb-10 ">
-        <div className="flex  md:justify-center mb-2">
+      <div id="solution-as-a-service" className="mb-10 ">
+        <div className="flex  justify-center mb-2">
           <h2 className="font-bold text-3xl">Solution As A Service</h2>
         </div>
-        <div className="flex md:justify-center mb-3 ">
+        <div className="flex justify-center mb-3 ">
           <div className=" [150px]">
             <Image
               src="/images/logos-and-icons/red-underline.png"
@@ -128,7 +141,7 @@ function WhatWeDo(props) {
 
       {solutionAsServices.map((solution, i) => (
         <div key={solution.id} className="mb-20" id={`${solution.id}`}>
-          <div className="flex  md:justify-center mb-2">
+          <div className="flex  justify-center mb-2">
             <h2 className="font-bold text-2xl">{solution.name}</h2>
           </div>
           {/* <div className="flex md:justify-center mb-3 ">

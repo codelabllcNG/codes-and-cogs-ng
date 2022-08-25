@@ -4,6 +4,7 @@ import Image from "next/image";
 import Loading from "../../components/Loading"
 
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 
 function BlogPostID(props) {
@@ -46,8 +47,19 @@ if (router.isFallback) {
 
   return (
     <div className="px-5 md:px-10">
+   <Head>
+        <title>{selectedBlogPost.title}</title>
+        <meta
+          name="description"
+          content={selectedBlogPost.title}
+        />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href={`https://www.codesandcogs.com/blog/${slug}`} />
+      </Head>
+
+
       <div className="flex  justify-center md:mb-2">
-          <h2 className="font-bold text-xs 400:text-3xl font-larken md:text-5xl">
+          <h2 className="font-bold text-xs 400:text-5xl font-larken md:text-5xl">
            Blog
           </h2>
         </div>

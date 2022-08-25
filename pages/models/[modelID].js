@@ -3,6 +3,7 @@ import React from 'react'
 import Image from "next/image";
 import Loading from '../../components/Loading';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 
 function ModelID(props) {
@@ -14,9 +15,22 @@ const router = useRouter();
     return <Loading/>
   }
 
+  
 
   return (
-      <div className='px-5 md:px-10'>
+    <div className='px-5 md:px-10'>
+      
+      <Head>
+        <title>{selectedModel.title}</title>
+        <meta name="description" content={selectedModel.title} />
+        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="canonical"
+          href={`https://www.codesandcogs.com/models/${selectedModel.id}`}
+        />
+      </Head>
+
+
                <div className="flex  md:justify-center mb-2">
         <h2 className="font-bold text-3xl">
         {selectedModel.title}

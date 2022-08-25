@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React, { useRef } from "react";
 import BotIcon from "../components/BotIcon";
 
@@ -20,6 +21,16 @@ function PostAJob() {
 
   return (
     <div className="px-5 md:px-14   md:bg-[url('/images/post-job-bg.png')]  bg-cover bg-bottom bg-no-repeat">
+
+<Head>
+        <title>Post Your Job - Codes and Cogs</title>
+        <meta name="description" content='Post your job requirements to Codes and Cogs and be attended to in a jiffy.' />
+        <link rel="icon" href="/favicon.ico" />
+      
+      </Head>
+
+
+
       <div className="mb-5">
         <p className="font-semibold text-gray-700 md:text-xl">
           Post your requirements and get a perfect fit
@@ -32,7 +43,7 @@ function PostAJob() {
       >
         <div className="mb-5">
           <div>
-            <p className="text-xs md:text-sm font-semibold text-gray-500">
+            <p className="text-xs mb-1 md:text-sm font-semibold text-gray-500">
               Name
             </p>
           </div>
@@ -49,10 +60,11 @@ function PostAJob() {
 
         <div className="mb-5">
           <div>
-            <p className="text-xs md:text-sm font-semibold text-gray-500">
+            <p className="text-xs mb-1 md:text-sm font-semibold text-gray-500">
               Email Address
             </p>
           </div>
+          
           <div>
             <input
               ref={emailRef}
@@ -66,7 +78,26 @@ function PostAJob() {
 
         <div className="mb-5">
           <div>
-            <p className="text-xs md:text-sm font-semibold text-gray-500">
+            <p className="text-xs mb-1 md:text-sm font-semibold text-gray-500">
+              Proposed Duration
+            </p>
+          </div>
+          
+          <div>
+            <input
+              ref={emailRef}
+              placeholder='e.g three months'
+              className="w-full h-[2rem] text-sm focus:outline outline-1 outline-blue-900 rounded-lg px-3"
+              type="text"
+              name=""
+              id=""
+            />
+          </div>
+        </div>
+
+        <div className="mb-5">
+          <div>
+            <p className="text-xs mb-1 md:text-sm font-semibold text-gray-500">
               Type of Engineer
             </p>
           </div>
@@ -97,7 +128,7 @@ function PostAJob() {
 
         <div className="mb-5">
           <div>
-            <p className="text-xs md:text-sm font-semibold text-gray-500">
+            <p className="text-xs mb-1 md:text-sm font-semibold text-gray-500">
               Project Description
             </p>
           </div>

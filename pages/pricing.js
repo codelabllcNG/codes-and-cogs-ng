@@ -1,12 +1,25 @@
 import React, { useState } from 'react'
 import Image from "next/image";
 import {PRICING} from '../a-store/content-store/PRICING'
+import Head from 'next/head';
 
 function Pricing() {
 const [currentHover, setCurrentHover] = useState('')
 
+
+  
+  
   return (
-      <div className='px-5 md:px-10'>
+    <div className='px-5 md:px-10'>
+      
+      <Head>
+        <title>Codes and Cogs Pricing</title>
+        <meta name="description" content='Our services and pricing at Codes and Cogs.' />
+        <link rel="icon" href="/favicon.ico" />
+        
+      </Head>
+
+
                  <div className="flex  md:justify-center mb-2">
         <h2 className="font-bold text-3xl">
         Our Standard Pricing

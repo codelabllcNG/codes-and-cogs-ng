@@ -3,6 +3,7 @@ import Image from "next/image";
 import AllCtx from "../../util-functions/allCtx";
 import { useRouter } from "next/router";
 import Loading from "../../components/Loading";
+import Head from "next/head";
 
 function ToolID(props) {
   const router = useRouter();
@@ -15,10 +16,23 @@ function ToolID(props) {
 
   return (
     <div className="px-5 md:px-10">
-      <div className="flex  md:justify-center md:mb-2">
+
+
+<Head>
+        <title>About {selectedSkill.name} on Codes and Cogs</title>
+        <meta name="description" content={selectedSkill.name} />
+        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="canonical"
+          href={`https://www.codesandcogs.com/tools/${selectedSkill.id}`}
+        />
+      </Head>
+
+
+      <div className="flex  justify-center md:mb-2">
         <h2 className="font-bold text-3xl">{selectedSkill.name}</h2>
       </div>
-      <div className="flex md:justify-center mb-10 ">
+      <div className="flex justify-center mb-10 ">
         <div className=" w-[75px] md:w-[150px]">
           <Image
             src="/images/logos-and-icons/red-underline.png"

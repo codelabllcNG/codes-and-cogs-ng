@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import Head from "next/head";
+
 
 function Index(props) {
   const range = 6;
@@ -27,6 +29,16 @@ function Index(props) {
 
   return (
     <div className="px-5 md:px-14">
+   <Head>
+        <title>Codes and Cogs - Blog</title>
+        <meta
+          name="description"
+          content="Codes and Cogs' official blog for both freelancers and entrepreneurs, where strategies, tips, and ideas are disseminated."
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+
       <div className="flex  justify-center md:mb-2">
         <h2 className="font-bold text-xs 400:text-xl font-larken md:text-5xl">
           Blog
@@ -58,7 +70,7 @@ function Index(props) {
                   key={article.title}
                   className="bg-gray-100 text-sm pb-2 cursor-pointer hover:scale-95 duration-300"
                 >
-                  <div className="mb-4">
+                  <div className="mb-4 flex justify-center">
                     <Image
                       className="rounded-t-lg "
                       width={400}
@@ -68,11 +80,11 @@ function Index(props) {
                     />
                   </div>
 
-                  <div className="px-2 400:text-lg font-semibold text-pry-color mb-1">
-                    <p>{article.title}</p>
+                  <div className="px-2 400:text-lg font-semibold text-pry-color mb-1 text-center">
+                    <p >{article.title}</p>
                   </div>
 
-                  <div className="px-2 text-xs mb-4 text-gray-500">
+                  <div className="px-2 text-xs mb-4 text-gray-500 text-center">
                     <p>{`${ordinal(day)} ${month}., ${year}`}</p>
                   </div>
 

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { TOP_NEWS } from "../../a-store/content-store/TOP_NEWS";
 import { RECENT_NEWS } from "../../a-store/content-store/RECENT_NEWS";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 function PressRelease(props) {
   const { recentNews, topNews } = props;
@@ -35,6 +36,15 @@ function PressRelease(props) {
 
   return (
     <div className="">
+
+<Head>
+        <title>{`Codes and Cogs - Press Release`}</title>
+        <meta name="description" content={`Top and recent press-release/news from Codes and Cogs`} />
+        <link rel="icon" href="/favicon.ico" />
+       
+      </Head>
+
+      
       <div className="px-5 md:px-10">
         <div className="flex  justify-center md:mb-2">
           <h2 className="font-bold text-xs 400:text-xl  md:text-5xl">

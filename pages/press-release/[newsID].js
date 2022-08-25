@@ -3,6 +3,7 @@ import Image from "next/image";
 import { selectedNews, TOP_NEWS } from "../../a-store/content-store/TOP_NEWS";
 import Loading from "../../components/Loading";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 function NewsID(props) {
   const router = useRouter();
@@ -14,6 +15,18 @@ function NewsID(props) {
 
   return (
     <div className="px-5 md:px-10">
+
+<Head>
+        <title>{selectedNews.title}</title>
+        <meta name="description" content={selectedNews.title} />
+        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="canonical"
+          href={`https://www.codesandcogs.com/press-release/${selectedNews.id}`}
+        />
+      </Head>
+
+
       <div className="flex  justify-center md:text-center md:mb-2">
         <h2 className="font-bold text-xs 400:text-xl  md:text-5xl">
           {selectedNews.title}

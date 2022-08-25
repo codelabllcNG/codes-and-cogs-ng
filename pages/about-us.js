@@ -32,7 +32,7 @@ function AboutUs(props) {
         <title>About Codes and Cogs</title>
         <meta
           name="description"
-          content="Codes and Cogs is a global remote company that provides a freelancing platform and much more."
+          content="Codes and Cogs is a global remote company that makes your web or software projects easier, and much more."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>

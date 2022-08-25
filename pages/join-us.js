@@ -30,6 +30,8 @@ function JoinUS(props) {
     router.push("/take-a-test");
   }
 
+
+
   return (
     <div>
       <Head>

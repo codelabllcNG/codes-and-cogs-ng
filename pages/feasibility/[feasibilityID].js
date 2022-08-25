@@ -6,23 +6,33 @@ import {
 import Image from "next/image";
 import Loading from "../../components/Loading";
 import { useRouter } from "next/router";
-
+import Head from "next/head";
 
 function FeasibilityID(props) {
-const router = useRouter(); 
+  const router = useRouter();
 
   const { selectedFeasibility } = props;
 
   if (router.isFallback) {
-    return <Loading/> 
+    return <Loading />;
   }
 
   return (
     <div className="px-5 md:px-10">
-      <div className="flex  md:justify-center mb-2">
+      <Head>
+        <title>{selectedFeasibility.title}</title>
+        <meta name="description" content={selectedFeasibility.title} />
+        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="canonical"
+          href={`https://www.codesandcogs.com/feasibility/${selectedFeasibility.id}`}
+        />
+      </Head>
+
+      <div className="flex  justify-center mb-2">
         <h2 className="font-bold text-3xl">{selectedFeasibility.title}</h2>
       </div>
-      <div className="flex md:justify-center mb-10 ">
+      <div className="flex justify-center mb-10 ">
         <div className=" [150px]">
           <Image
             src="/images/logos-and-icons/red-underline.png"
