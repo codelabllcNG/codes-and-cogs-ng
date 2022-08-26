@@ -98,7 +98,7 @@ export async function getStaticProps(context) {
         feasibilityArray,
         selectedFeasibility,
       },
-      revalidate: 600,
+      revalidate: 300,
     };
   } catch (error) {
     console.log(error);

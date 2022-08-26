@@ -92,7 +92,7 @@ export async function getStaticProps(context) {
       skillsArray,
       selectedSkill,
     },
-    revalidate: 600,
+    revalidate: 300,
   };
 }
 

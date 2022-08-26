@@ -248,7 +248,7 @@ export async function getStaticProps() {
       subtitle,
       videoUrl,
     },
-    revalidate: 600,
+    revalidate: 300,
   };
 }
 

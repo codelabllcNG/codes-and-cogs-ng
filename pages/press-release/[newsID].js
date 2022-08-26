@@ -87,7 +87,7 @@ export async function getStaticProps(context) {
       newsArray,
       selectedNews,
     },
-    revalidate: 600,
+    revalidate: 300,
   };
 }
 

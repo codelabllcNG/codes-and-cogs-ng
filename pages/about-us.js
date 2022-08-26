@@ -102,7 +102,7 @@ export async function getStaticProps() {
       developersArray,
       engineersArray,
     },
-    revalidate: 600,
+    revalidate: 300,
   };
 }
 

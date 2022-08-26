@@ -332,7 +332,7 @@ export async function getStaticProps() {
       recentNews,
       topNews,
     },
-    revalidate: 600,
+    revalidate: 300,
   };
 }
 

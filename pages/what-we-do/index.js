@@ -199,7 +199,7 @@ export async function getStaticProps() {
       enterpriseServices,
       solutionAsServices,
     },
-    revalidate: 600,
+    revalidate: 300,
   };
 }
 

@@ -96,7 +96,7 @@ export async function getStaticProps() {
       title,
       locations,
     },
-    revalidate: 600,
+    revalidate: 300,
   };
 }
 

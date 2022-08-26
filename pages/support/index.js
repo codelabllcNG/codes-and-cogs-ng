@@ -64,7 +64,7 @@ export async function getStaticProps() {
       ticketStatusTitle,
       ticketStatusSubtitle,
     },
-    revalidate: 600,
+    revalidate: 300,
   };
 }
 

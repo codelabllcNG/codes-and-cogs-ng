@@ -92,7 +92,7 @@ export async function getStaticProps(context) {
       modelsArray,
       selectedModel,
     },
-    revalidate: 600,
+    revalidate: 300,
   };
   }
   

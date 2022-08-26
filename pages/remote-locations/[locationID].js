@@ -83,7 +83,7 @@ export async function getStaticProps(context) {
       locationArray,
       selectedLocation,
     },
-    revalidate: 600,
+    revalidate: 300,
   };
 }
 

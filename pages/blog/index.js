@@ -222,6 +222,6 @@ export async function getStaticProps() {
     props: {
       blogPostArray,
     },
-    revalidate: 60,
+    revalidate: 300,
   };
 }
