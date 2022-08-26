@@ -153,7 +153,7 @@ export async function getStaticProps(context) {
       blogPostArray,
       selectedBlogPost,
     },
-    revalidate: 600,
+    revalidate: 300,
   };
 }
 

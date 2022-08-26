@@ -221,6 +221,6 @@ export async function getStaticProps() {
       remoteBgImage,
       trusteeLogos,
     },
-    revalidate: 600,
+    revalidate: 300,
   };
 }
