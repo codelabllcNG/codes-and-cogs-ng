@@ -9,7 +9,7 @@ export function AllContextProvider(props) {
   const [isSectionFour, setTheIsSectionFour] = useState(false);
   const [isSectionFive, setTheIsSectionFive] = useState(false);
   const [isSectionSix, setTheIsSectionSix] = useState(false);
-  const [megaMenu, setTheMegaMenu] = useState(false)
+  const [megaMenu, setTheMegaMenu] = useState(false);
 
   const [sectionOneHeight, setTheSectionOneHeight] = useState();
   const [sectionTwoHeight, setTheSectionTwoHeight] = useState();
@@ -21,18 +21,23 @@ export function AllContextProvider(props) {
   const [servicesClicked, setTheServicesClicked] = useState(true);
   const [solutionsClicked, setTheSolutionsClicked] = useState(false);
 
-  const [searchKeyword, setTheSearchKeyword] = useState('')
-  const [searchResponse, setTheSearchResponse] = useState('')
-  const [searchingSkills, setTheSearchingSkills] = useState(false)
-  const [talentsFound, setTheTalentsFound] = useState([])
+  const [searchKeyword, setTheSearchKeyword] = useState("");
+  const [searchResponse, setTheSearchResponse] = useState("");
+  const [searchingSkills, setTheSearchingSkills] = useState(false);
+  const [talentsFound, setTheTalentsFound] = useState([]);
 
   const [menuIsClicked, setTheMenuIsClicked] = useState(false);
 
-  const devUrl = 'http://dev.codesandcogs.com'
-  const prodUrl = 'https://dev.codesandcogs.com'
+  const [testData, setTheTestData] = useState();
 
-  const context = { menuIsClicked, 
-    devUrl, prodUrl,
+  const devUrl = "http://dev.codesandcogs.com";
+  const prodUrl = "https://dev.codesandcogs.com";
+
+  const context = {
+    menuIsClicked,
+    devUrl,
+    prodUrl,
+    testData,
     megaMenu,
     servicesClicked,
     solutionsClicked,
@@ -53,6 +58,7 @@ export function AllContextProvider(props) {
     searchingSkills,
     talentsFound,
 
+    setTestData,
     setMenuIsClicked,
     setSection,
     setSectionOneHeight,
@@ -66,8 +72,8 @@ export function AllContextProvider(props) {
     setSearchKeyword,
     setSearchResponse,
     setSearchingSkills,
-    setTalentsFound
-  }; 
+    setTalentsFound,
+  };
 
   return (
     <AllContext.Provider value={context}>{props.children}</AllContext.Provider>
@@ -75,24 +81,28 @@ export function AllContextProvider(props) {
 
   // functions below
 
+  function setTestData(value) {
+    setTheTestData(value)
+  }
+
   function setMenuIsClicked(value) {
-    setTheMenuIsClicked(value)
+    setTheMenuIsClicked(value);
   }
 
   function setTalentsFound(value) {
-    setTheTalentsFound(value)
+    setTheTalentsFound(value);
   }
 
   function setSearchKeyword(value) {
-    setTheSearchKeyword(value)
+    setTheSearchKeyword(value);
   }
 
   function setSearchResponse(value) {
-    setTheSearchResponse(value)
+    setTheSearchResponse(value);
   }
 
   function setSearchingSkills(value) {
-    setTheSearchingSkills(value)
+    setTheSearchingSkills(value);
   }
 
   function setSection(one, two, three, four, five, six) {
@@ -105,13 +115,13 @@ export function AllContextProvider(props) {
   }
 
   function setMegaMenuTab(services, solutions) {
-    setTheServicesClicked(services)
-    setTheSolutionsClicked(solutions)
+    setTheServicesClicked(services);
+    setTheSolutionsClicked(solutions);
   }
 
   function setMegaMenu(value) {
-  setTheMegaMenu(value);
-}
+    setTheMegaMenu(value);
+  }
 
   function setSectionOneHeight(value) {
     setTheSectionOneHeight(value);

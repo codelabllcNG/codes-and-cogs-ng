@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,7 +8,21 @@ import AllCtx from "../util-functions/allCtx";
 function JoinUS(props) {
   let router = useRouter();
 
-  const { title, subtitle, videoUrl } = props;
+  const { title, subtitle, videoUrl, testRoles, testCategories } = props;
+
+  const { testData, setTestData } = AllCtx();
+
+  const [response, setResponse] = useState("");
+  const [fetchingQuestions, setFetchingQuestions] = useState(false);
+
+  useEffect(() => { 
+    if (
+      testData 
+    ) {
+      router.push('/take-a-test')
+     
+    }
+}, [])
 
   const nameRef = useRef();
   const emailRef = useRef();
@@ -16,7 +30,7 @@ function JoinUS(props) {
   const categoryRef = useRef();
   const roleRef = useRef();
 
-  function takeATest(e) {
+  async function takeATest(e) {
     e.preventDefault();
 
     const nameInput = nameRef.current.value;
@@ -25,12 +39,84 @@ function JoinUS(props) {
     const categoryInput = categoryRef.current.value;
     const roleInput = roleRef.current.value;
 
-    console.log(nameInput, emailInput, phoneInput, categoryInput, roleInput);
+    if (
+      !nameInput ||
+      nameInput.trim() === "" ||
+      !phoneInput ||
+      phoneInput.trim() === "" ||
+      !emailInput ||
+      emailInput.trim() === "" ||
+      !categoryInput ||
+      categoryInput.trim() === "" ||
+      !roleInput ||
+      roleInput.trim() === ""
+    ) {
+      setResponse("Fill all inputs!");
+      return;
+    }
 
-    router.push("/take-a-test");
+    try {
+      setResponse("Fetching questions...");
+      setFetchingQuestions(true);
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/getquestions`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            name: nameInput,
+            email: emailInput,
+            phone: phoneInput,
+            category: categoryInput,
+            role: roleInput,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      // console.log(nameInput, emailInput, phoneInput, categoryInput, roleInput);
+
+      // return
+
+      const data = await response.json();
+
+      if (data.status === "error") {
+        setResponse(data.message);
+        console.log(data.message);
+        setFetchingQuestions(false);
+        return;
+      }
+
+      if (!response.ok) {
+        setResponse("Something went wrong, retry!");
+        console.log(data);
+        setFetchingQuestions(false);
+        return;
+      }
+
+  
+
+      setTestData(data);
+      setResponse("Test questions fetched successfully!");
+      console.log("Test questions fetched successfully!");
+      console.log(data);
+      // nameRef.current.value = "";
+      // emailRef.current.value = "";
+      // phoneRef.current.value = "";
+      // categoryRef.current.value = "";
+      // roleRef.current.value = "";
+
+      setFetchingQuestions(false);
+      router.push("/take-a-test");
+    } catch (error) {
+      console.log(error);
+      setResponse("Error, failed to apply for test.");
+      setFetchingQuestions(false);
+    }
+
+    // console.log(nameInput, emailInput, phoneInput, categoryInput, roleInput);
   }
-
-
 
   return (
     <div>
@@ -44,12 +130,12 @@ function JoinUS(props) {
       </Head>
 
       <div className="md:bg-[url('/images/sections-watermark.png')] bg-cover bg-right-bottom  px-5 md:px-10 bg-no-repeat">
-        <div className="flex  md:justify-center md:mb-2">
-          <h2 className="font-bold text-xs 400:text-xl  md:text-3xl">
+        <div className="flex  justify-center md:mb-2">
+          <h2 className="font-bold text-xs 400:text-xl  md:text-5xl">
             {title}
           </h2>
         </div>
-        <div className="flex md:justify-center mb-4">
+        <div className="flex justify-center mb-4">
           <div className=" w-[75px] md:w-[150px]">
             <Image
               src="/images/logos-and-icons/red-underline.png"
@@ -78,11 +164,21 @@ function JoinUS(props) {
           <p className="text-sm  w-[80%] text-pry-color">{subtitle}</p>
         </div>
 
-        <div className="px-5 md:px-14 mt-5 justify-center flex decoration-blue-600 underline text-cyan-400 font-semibold ">
-          {" "}
-          <Link passHref href="#take-a-test">
-            <a> Take a test now!</a>
-          </Link>
+        <div>
+          <div className="px-5 md:px-14 mt-5 justify-center flex decoration-blue-600 underline text-cyan-400 font-semibold ">
+            {" "}
+            <Link passHref href="#take-a-test">
+              <a> Fill in your details to take a test!</a>
+            </Link>
+          </div>
+          <p className="text-center font-semibold mt-2">OR</p>
+
+          <div className="px-5 md:px-14 mt-2 justify-center flex decoration-blue-600 underline text-cyan-400 font-semibold ">
+            {" "}
+            <Link passHref href="">
+              <a>Take a demo test.</a>
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -102,7 +198,7 @@ function JoinUS(props) {
             <div className="mb-5">
               <div className="flex space-x-2 items-center text-center">
                 <p className="text-xs md:text-sm font-semibold text-gray-500">
-                  Name
+                  Full Name
                 </p>
                 <p className="text-red-500">&#9733;</p>
               </div>
@@ -169,17 +265,11 @@ function JoinUS(props) {
                 >
                   <option className="w-1/2 " value=""></option>
 
-                  <option className="w-1/2 " value="web">
-                    Category1
-                  </option>
-
-                  <option className="w-1/2 " value="web">
-                    Category2
-                  </option>
-
-                  <option className="w-1/2 " value="web">
-                    Category3
-                  </option>
+                  {testCategories.map((category) => (
+                    <option key={category.id} className="w-1/2 " value={category.name}>
+                      {category.name}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -201,19 +291,23 @@ function JoinUS(props) {
                 >
                   <option className="w-1/2 " value=""></option>
 
-                  <option className="w-1/2 " value="web">
-                    Role1
-                  </option>
-
-                  <option className="w-1/2 " value="web">
-                    Role2
-                  </option>
-
-                  <option className="w-1/2 " value="web">
-                    Role3
-                  </option>
+                  {testRoles.map((role) => (
+                    <option key={role} className="w-1/2 " value={role}>
+                      {role.charAt(0).toUpperCase() + role.slice(1)}
+                    </option>
+                  ))}
                 </select>
               </div>
+            </div>
+
+            <div
+              className={`h-9 text-sm flex justify-center  ${
+                response.includes("successfully")
+                  ? "text-green-600"
+                  : "text-red-600"
+              }`}
+            >
+              <p>{response}</p>
             </div>
 
             <div className=" text-center font-bold">
@@ -232,7 +326,6 @@ function JoinUS(props) {
 }
 
 export async function getStaticProps() {
-
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/getstartedpage`
   );
@@ -241,12 +334,16 @@ export async function getStaticProps() {
   const title = data.title;
   const subtitle = data.subtitle;
   const videoUrl = data.videoUrl;
+  const testRoles = data.testRoles;
+  const testCategories = data.testCategories;
 
   return {
     props: {
       title,
       subtitle,
       videoUrl,
+      testRoles,
+      testCategories,
     },
     revalidate: 300,
   };
