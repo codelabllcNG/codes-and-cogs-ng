@@ -15,14 +15,19 @@ function JoinUS(props) {
   const [response, setResponse] = useState("");
   const [fetchingQuestions, setFetchingQuestions] = useState(false);
 
-  useEffect(() => { 
-    if (
-      testData 
-    ) {
-      router.push('/take-a-test')
-     
+  const [confirmBox, setConfirmBox] = useState(false);
+
+  useEffect(() => {
+    if (testData) {
+      router.push("/take-a-test");
     }
-}, [])
+  }, []);
+
+  useEffect(() => {
+    confirmBox
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "auto");
+  }, [confirmBox]);
 
   const nameRef = useRef();
   const emailRef = useRef();
@@ -30,7 +35,7 @@ function JoinUS(props) {
   const categoryRef = useRef();
   const roleRef = useRef();
 
-  async function takeATest(e) {
+  async function triggerConfirmBox(e) {
     e.preventDefault();
 
     const nameInput = nameRef.current.value;
@@ -55,7 +60,18 @@ function JoinUS(props) {
       return;
     }
 
+    setConfirmBox(true);
+  }
+
+  async function takeTest(e) {
     try {
+      const nameInput = nameRef.current.value;
+      const emailInput = emailRef.current.value;
+      const phoneInput = phoneRef.current.value;
+      const categoryInput = categoryRef.current.value;
+      const roleInput = roleRef.current.value;
+
+      setConfirmBox(false);
       setResponse("Fetching questions...");
       setFetchingQuestions(true);
       const response = await fetch(
@@ -75,16 +91,13 @@ function JoinUS(props) {
         }
       );
 
-      // console.log(nameInput, emailInput, phoneInput, categoryInput, roleInput);
-
-      // return
-
       const data = await response.json();
 
       if (data.status === "error") {
         setResponse(data.message);
         console.log(data.message);
         setFetchingQuestions(false);
+
         return;
       }
 
@@ -92,15 +105,14 @@ function JoinUS(props) {
         setResponse("Something went wrong, retry!");
         console.log(data);
         setFetchingQuestions(false);
+
         return;
       }
-
-  
 
       setTestData(data);
       setResponse("Test questions fetched successfully!");
       console.log("Test questions fetched successfully!");
-      console.log(data);
+      // console.log(data);
       // nameRef.current.value = "";
       // emailRef.current.value = "";
       // phoneRef.current.value = "";
@@ -108,14 +120,13 @@ function JoinUS(props) {
       // roleRef.current.value = "";
 
       setFetchingQuestions(false);
+
       router.push("/take-a-test");
     } catch (error) {
       console.log(error);
       setResponse("Error, failed to apply for test.");
       setFetchingQuestions(false);
     }
-
-    // console.log(nameInput, emailInput, phoneInput, categoryInput, roleInput);
   }
 
   return (
@@ -129,6 +140,45 @@ function JoinUS(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      {/* CONFIRM BOX */}
+      {confirmBox && (
+        <div className="flex justify-center items-center -my-40 h-screen w-full overflow-hidden bg-black bg-opacity-30 fixed z-30 ">
+          <div
+            className="w-[70%] bg-white h-1/3 rounded-md shadow-md shadow-pry-color p-5
+        "
+          >
+            <div>
+              <p className="text-pry-color 400:text-xl font-semibold">
+                Hello {nameRef.current?.value}, this is the real test. Once you
+                continue, your time starts immediately.{" "}
+              </p>
+            </div>
+
+            <div className="mt-12">
+              <div className="flex justify-center text-center mb-2 text-lg font-semibold">
+                <p>Do you want to take the test now?</p>
+              </div>
+              <div className="flex justify-center space-x-5">
+                <button
+                  onClick={takeTest}
+                  className="bg-pry-color text-white px-5 py-1 rounded-md hover:text-pry-color hover:bg-white hover:shadow-md duration-100"
+                >
+                  YES
+                </button>{" "}
+                <button
+                  onClick={() => {
+                    setConfirmBox(false);
+                  }}
+                  className="bg-pry-color text-white px-5 py-1 rounded-md hover:text-pry-color hover:bg-white hover:shadow-md duration-100"
+                >
+                  NO
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+{/* PAGE CONTENT */}
       <div className="md:bg-[url('/images/sections-watermark.png')] bg-cover bg-right-bottom  px-5 md:px-10 bg-no-repeat">
         <div className="flex  justify-center md:mb-2">
           <h2 className="font-bold text-xs 400:text-xl  md:text-5xl">
@@ -192,7 +242,7 @@ function JoinUS(props) {
 
         <div className="flex justify-center px-5 md:px-14">
           <form
-            onSubmit={takeATest}
+            onSubmit={triggerConfirmBox}
             className="py-5 bg-mid-color rounded-3xl px-4 sm:px-8 md:w-[80%] w-full mb-10"
           >
             <div className="mb-5">
@@ -266,7 +316,11 @@ function JoinUS(props) {
                   <option className="w-1/2 " value=""></option>
 
                   {testCategories.map((category) => (
-                    <option key={category.id} className="w-1/2 " value={category.name}>
+                    <option
+                      key={category.id}
+                      className="w-1/2 "
+                      value={category.name}
+                    >
                       {category.name}
                     </option>
                   ))}
@@ -313,7 +367,9 @@ function JoinUS(props) {
             <div className=" text-center font-bold">
               <button
                 type="submit"
-                className="bg-pry-color text-white h-[2.5rem] w-full rounded-lg sm:text-lg hover:bg-opacity-80"
+                className={`bg-pry-color text-white h-[2.5rem] w-full rounded-lg sm:text-lg hover:bg-opacity-80 ${
+                  fetchingQuestions ? "bg-gray-400 pointer-events-none" : ""
+                }`}
               >
                 Take Test
               </button>

@@ -31,12 +31,12 @@ const router = useRouter();
       </Head>
 
 
-               <div className="flex  md:justify-center mb-2">
+               <div className="flex text-center justify-center mb-2">
         <h2 className="font-bold text-3xl">
         {selectedModel.title}
         </h2>
       </div>
-      <div className="flex md:justify-center mb-10 ">
+      <div className="flex justify-center mb-10 ">
         <div className=" [150px]">
           <Image
             src="/images/logos-and-icons/red-underline.png"

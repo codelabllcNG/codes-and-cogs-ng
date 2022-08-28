@@ -91,7 +91,7 @@ function Section1(props) {
       setTalentsFound(data.talents);
 
       setSearchingSkills(false);
-      router.push("/search-results");
+      router.push("/search-talents");
       console.log(1);
       setSearchResponse(
         `Success! Some talents match your ${searchKeyword} query.`
@@ -158,7 +158,7 @@ function Section1(props) {
           <button
             type="submit"
             // onClick={() => {
-            //   router.push("/search-results");
+            //   router.push("/search-talents");
             // }}
             className="text-white text-sm  rounded-full md:py-2 pt-[0.37rem] pb-[0.37rem] px-4 md:px-8 bg-pry-color "
           >

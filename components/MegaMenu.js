@@ -3,10 +3,8 @@ import Image from "next/image";
 import AllCtx from "../util-functions/allCtx";
 import { useRouter } from "next/router";
 
-
-
 function MegaMenu() {
-const router = useRouter();
+  const router = useRouter();
 
   const {
     servicesClicked,
@@ -58,8 +56,7 @@ const router = useRouter();
       {/* SERVICES MEGA MENU  */}
       {servicesClicked && (
         <div className="w-[500px] h-[18rem] rounded-r-lg grid grid-cols-2 bg-mid-color    p-5 ">
-
-<div className="flex items-center  hover:text-blue-600 cursor-pointer">
+          <div className="flex items-center  hover:text-blue-600 cursor-pointer">
             <div>
               <Image
                 src="/images/logos-and-icons/mega7.png"
@@ -68,60 +65,14 @@ const router = useRouter();
               />{" "}
             </div>
             <div>
-              <p onClick={() => { router.push('/what-we-do/#remote-development-services') }}>Remote Development Services</p>
-            </div>
-          </div>
-
-
-          <div className="flex items-center  hover:text-blue-600 cursor-pointer">
-            <div>
-              <Image
-                src="/images/logos-and-icons/mega1.png"
-                width="55"
-                height="55"
-              />{" "}
-            </div>
-            <div>
-              <p onClick={() => {router.push('/what-we-do/#global-payroll')}}>Global Payroll</p>
-            </div>
-          </div>
-
-          <div className="flex items-center  hover:text-blue-600 cursor-pointer">
-            <div>
-              <Image
-                src="/images/logos-and-icons/mega2.png"
-                width="55"
-                height="55"
-              />{" "}
-            </div>
-            <div>
-              <p onClick={() => {router.push('/what-we-do/#training')}}>Training</p>
-            </div>
-          </div>
-
-          <div className="flex items-center  hover:text-blue-600 cursor-pointer">
-            <div>
-              <Image
-                src="/images/logos-and-icons/mega3.png"
-                width="55"
-                height="55"
-              />{" "}
-            </div>
-            <div>
-              <p onClick={() => { router.push('/what-we-do/#hiring-as-a-service') }}>Hiring as a Service</p>
-            </div>
-          </div>
-
-          <div className="flex items-center  hover:text-blue-600 cursor-pointer">
-            <div>
-              <Image
-                src="/images/logos-and-icons/mega4.png"
-                width="55"
-                height="55"
-              />{" "}
-            </div>
-            <div>
-              <p onClick={() => { router.push('/what-we-do/#internship') }}>Internship</p>
+              <p
+                onClick={() => {
+                  router.push("/what-we-do/#remote-development-services");
+                setMegaMenu(false)
+                }}
+              >
+                Remote Development Services
+              </p>
             </div>
           </div>
 
@@ -134,7 +85,114 @@ const router = useRouter();
               />{" "}
             </div>
             <div>
-              <p onClick={() => { router.push('/what-we-do/#conpliance-and-hr-services') }}>Compliance and HR Services</p>
+              <p
+                onClick={() => {
+                  router.push("/search-talents");
+                setMegaMenu(false)
+                }}
+              >
+                Hire Talents
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center  hover:text-blue-600 cursor-pointer">
+            <div>
+              <Image
+                src="/images/logos-and-icons/mega1.png"
+                width="55"
+                height="55"
+              />{" "}
+            </div>
+            <div>
+              <p
+                onClick={() => {
+                  router.push("/what-we-do/#global-payroll");
+                setMegaMenu(false)
+                }}
+              >
+                Global Payroll
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center  hover:text-blue-600 cursor-pointer">
+            <div>
+              <Image
+                src="/images/logos-and-icons/mega2.png"
+                width="55"
+                height="55"
+              />{" "}
+            </div>
+            <div>
+              <p
+                onClick={() => {
+                  router.push("/what-we-do/#training");
+                setMegaMenu(false)
+                }}
+              >
+                Training
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center  hover:text-blue-600 cursor-pointer">
+            <div>
+              <Image
+                src="/images/logos-and-icons/mega3.png"
+                width="55"
+                height="55"
+              />{" "}
+            </div>
+            <div>
+              <p
+                onClick={() => {
+                  router.push("/what-we-do/#hiring-as-a-service");
+                setMegaMenu(false)
+                }}
+              >
+                Hiring as a Service
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center  hover:text-blue-600 cursor-pointer">
+            <div>
+              <Image
+                src="/images/logos-and-icons/mega4.png"
+                width="55"
+                height="55"
+              />{" "}
+            </div>
+            <div>
+              <p
+                onClick={() => {
+                  router.push("/what-we-do/#internship");
+                setMegaMenu(false)
+                }}
+              >
+                Internship
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center  hover:text-blue-600 cursor-pointer">
+            <div>
+              <Image
+                src="/images/logos-and-icons/mega5.png"
+                width="55"
+                height="55"
+              />{" "}
+            </div>
+            <div>
+              <p
+                onClick={() => {
+                  router.push("/what-we-do/#conpliance-and-hr-services");
+                setMegaMenu(false)
+                }}
+              >
+                Compliance and HR Services
+              </p>
             </div>
           </div>
 
@@ -147,11 +205,16 @@ const router = useRouter();
               />{" "}
             </div>
             <div>
-              <p onClick={() => { router.push('/what-we-do/#enterprise-packages') }}>Enterprise Packages</p>
+              <p
+                onClick={() => {
+                  router.push("/what-we-do/#enterprise-packages");
+                setMegaMenu(false)
+                }}
+              >
+                Enterprise Packages
+              </p>
             </div>
           </div>
-
-       
         </div>
       )}
 
@@ -168,7 +231,14 @@ const router = useRouter();
               />{" "}
             </div>
             <div>
-              <p onClick={() => { router.push('/what-we-do/#hackathon') }}>Hackathon</p>
+              <p
+                onClick={() => {
+                  router.push("/what-we-do/#hackathon");
+                setMegaMenu(false)
+                }}
+              >
+                Hackathon
+              </p>
             </div>
           </div>
 
@@ -181,7 +251,14 @@ const router = useRouter();
               />{" "}
             </div>
             <div>
-              <p onClick={() => { router.push('/what-we-do/#infrastructure') }}>Infrastructure</p>
+              <p
+                onClick={() => {
+                  router.push("/what-we-do/#infrastructure");
+                setMegaMenu(false)
+                }}
+              >
+                Infrastructure
+              </p>
             </div>
           </div>
 
@@ -194,7 +271,14 @@ const router = useRouter();
               />{" "}
             </div>
             <div>
-              <p onClick={() => { router.push('/what-we-do/#workspace') }}>Workspace</p>
+              <p
+                onClick={() => {
+                  router.push("/what-we-do/#workspace");
+                setMegaMenu(false)
+                }}
+              >
+                Workspace
+              </p>
             </div>
           </div>
 
@@ -207,7 +291,14 @@ const router = useRouter();
               />{" "}
             </div>
             <div>
-              <p onClick={() => { router.push('/what-we-do/#salary-estimator') }}>Salary Estimator</p>
+              <p
+                onClick={() => {
+                  router.push("/what-we-do/#salary-estimator");
+                setMegaMenu(false)
+                }}
+              >
+                Salary Estimator
+              </p>
             </div>
           </div>
         </div>

@@ -128,6 +128,10 @@ function TakeATest() {
             questionArray
               .map((question) => (
                 <div key={question.id}>
+                  <div className='flex  justify-between -mt-5 mb-10'>
+                    <div>{testData.participants_info.name}</div>
+                    <div>testData.time</div>
+                  </div>
                   <div className="flex space-x-3 text-xl">
                     <div>
                       <p className="font-bold">{`Q${qIndex + 1}`}</p>

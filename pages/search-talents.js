@@ -6,7 +6,7 @@ import AllCtx from "../util-functions/allCtx";
 
 import { useRouter } from "next/router";
 
-function SearchResults(props) {
+function SearchTalents(props) {
   const {
     searchKeyword,
     setSearchKeyword,
@@ -102,7 +102,7 @@ function SearchResults(props) {
     <div className="md:px-10 px-5 mb-8">
       <div>
         <div className="flex  justify-center md:mb-2">
-          <h2 className="font-bold 400:text-xl  md:text-3xl">Search Results</h2>
+          <h2 className="font-bold 400:text-xl  md:text-3xl">Search Talents</h2>
         </div>
         <div className="flex justify-center  ">
           <div className=" w-[75px] md:w-[150px] mb-5">
@@ -145,9 +145,9 @@ function SearchResults(props) {
             <div>
               {" "}
               <button
-                onClick={() => {
-                  router.push("/search-results");
-                }}
+                // onClick={() => {
+                //   router.push("/search-talents");
+                // }}
                 className="text-white text-sm  rounded-full md:py-2 pt-[0.37rem] pb-[0.37rem] px-4 md:px-8 bg-pry-color "
               >
                 Search
@@ -166,8 +166,8 @@ function SearchResults(props) {
           <p>{searchResponse}</p>
         </div>
 
-        <div className="grid gap-2 560:gap-4 grid-cols-2 md:grid-cols-3 mt-5 text-xs 560:text-base">
-          {talentsFound.map((talent) => (
+      { talentsFound.length > 0 ? <div className="grid gap-2 560:gap-4 grid-cols-2 md:grid-cols-3 mt-5 text-xs 560:text-base">
+          { talentsFound.map((talent) => (
             <div
               key={talent.id}
               onClick={() => {
@@ -184,8 +184,8 @@ function SearchResults(props) {
                 <p>{talent.name}</p>{" "}
               </div>
             </div>
-          ))}
-        </div>
+          ))  }
+        </div> : <div className='flex justify-center text-lg text-center'><p>Search for the talent you want, e.g Web Developer, JavaScript Engineer, etc.</p></div>}
       </div>
     </div>
   );
@@ -193,4 +193,4 @@ function SearchResults(props) {
 
 
 
-export default SearchResults;
+export default SearchTalents;

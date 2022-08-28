@@ -8,8 +8,14 @@ import {
   SOLUTIONS,
 } from "../../a-store/content-store/WHAT-WE-DO";
 import Head from "next/head";
+import { useRouter } from "next/router";
+
+
 
 function WhatWeDo(props) {
+const router = useRouter();
+
+
   const { title, subtitle, bgImage, enterpriseServices, solutionAsServices } =
     props;
 
@@ -92,15 +98,7 @@ function WhatWeDo(props) {
           <div className="flex  justify-center mb-2">
             <h2 className="font-bold text-2xl">{enterpriseService.name}</h2>
           </div>
-          {/* <div className="flex md:justify-center mb-3 ">
-          <div className=" [150px]">
-            <Image
-              src="/images/logos-and-icons/red-underline.png"
-              width={150}
-              height={20}
-            /> 
-          </div>
-    </div> */}
+      
 
           <div className="mb-5">
             <p className="text-center">{enterpriseService.excerpt}</p>
@@ -114,14 +112,19 @@ function WhatWeDo(props) {
             <div
               className={`sm:w-[55%] text-justify  mb-5 sm:mb-0 text-pry-color `}
             >
-              <p className="sm:leading-7 lg:leading-10  ">{enterpriseService.content}</p>
+              <p className="sm:leading-7 lg:leading-10  ">{enterpriseService.content.length > 400 ? enterpriseService.content.substring(0,400) + '...' : enterpriseService.content }</p>
+
+              <div onClick={()=>{router.push(`/what-we-do/${enterpriseService.id}`)}} className='mt-5 text-pry-color text-sm font-semibold'><button>Read More</button></div>
             </div>
 
             <div className="sm:w-[40%] items-center flex justify-center mb-5 sm:mb-0">
               <Image width={400} height={300} className="w-300px" src={enterpriseService.imageUrl} alt="" />
             </div>
           </div>
+          
+     
         </div>
+        
       ))}
 
       <div id="solution-as-a-service" className="mb-10 ">
@@ -167,6 +170,8 @@ function WhatWeDo(props) {
               className={`sm:w-[55%] text-justify  mb-5 sm:mb-0 text-pry-color `}
             >
               <p className="sm:leading-7 lg:leading-10   ">{solution.content}</p>
+
+              <div onClick={()=>{router.push(`/what-we-do/${solution.id}`)}} className='mt-5 text-pry-color text-sm font-semibold'><button>Read More</button></div>
             </div>
 
             <div className="sm:w-[40%] items-center flex justify-center mb-5 sm:mb-0">

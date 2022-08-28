@@ -45,7 +45,7 @@ const { skillsArray,
     >
       <div>
         <div className="flex  md:justify-center md:mb-2">
-          <h2 className="font-bold text-xs 450:text-xl font-larken md:text-3xl">
+          <h2 className="font-bold text-xs 320:text-sm 450:text-xl font-larken md:text-3xl">
            {skillsTitle}
           </h2>
         </div>

@@ -23,6 +23,7 @@ module.exports = {
 
       screens: {
         400: { raw: "(min-width: 400px)" },
+        320: { raw: "(min-width: 320px)" },
         450: { raw: "(min-width: 450px)" },
         500: { raw: "(min-width: 500px)" },
         560: { raw: "(min-width: 560px)" },
