@@ -36,10 +36,6 @@ function TakeATest() {
   }, []);
 
   useEffect(() => {
-    console.log(submitted);
-  }, [submitted])
-
-  useEffect(() => {
     setLoading(true);
     setQuestionArray(testData?.questions);
     setLoading(false);
@@ -52,44 +48,42 @@ function TakeATest() {
   }, [showConfirmBox]);
 
   useEffect(() => {
-    if (!submitted) {
-      console.log('still running', submitted);
-      var countDownTime = setInterval(() => {
-        if (submitted) {
-          clearInterval(countDownTime);
-        
-          // setCountDownTimer("TIME OUT");
-          // console.log(submitted, 'running');
-        
-      
-        }
+   
+    var countDownTime = setInterval(() => {
+      console.log("still running", submitted);
+      if (submitted) {
+        console.log("INTENTIONALLY SUBMITTED! ", submitted);
+        clearInterval(countDownTime);
+        return
+      }
 
-        var now = new Date().getTime();
-  
-        var timeDifference = expiryTime - now;
-  
-        var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-        var hours = Math.floor(
-          (timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        );
-        var minutes = Math.floor(
-          (timeDifference % (1000 * 60 * 60)) / (1000 * 60)
-        );
-        var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-  
-        setCountDownTimer(`${hours}:${minutes}:${seconds}`);
-  
-        if (timeDifference < 0) {
-          clearInterval(countDownTime);
-          setTimeUp(true);
-          setCountDownTimer("TIME OUT");
-          console.log(submitted, 'running');
-          setShowConfirmBox(true);
-       handleSubmit()
-        }
-      }, 1000);
-}
-  }, [countDownTimer, submitted]);
+      var now = new Date().getTime();
+
+      var timeDifference = expiryTime - now;
+
+      // var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      var hours = Math.floor(
+        (timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      var minutes = Math.floor(
+        (timeDifference % (1000 * 60 * 60)) / (1000 * 60)
+      );
+      var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+      setCountDownTimer(`${hours}:${minutes}:${seconds}`);
+
+      if (timeDifference < 0) {
+        clearInterval(countDownTime);
+        setTimeUp(true);
+        setCountDownTimer("TIME OUT");
+        console.log("TIME OUT SUBMITTED! ", submitted);
+        setShowConfirmBox(true);
+       if(!submitted) { handleSubmit()}
+        return
+      }
+    }, 1000);
+    return ()=> clearInterval(countDownTime)
+  }, [submitted]);
 
   function navigateQuestions(value) {
     setQIndex(value);
@@ -123,7 +117,6 @@ function TakeATest() {
   }
 
   async function handleSubmit() {
-
     if (!testData) {
       setResponse(
         "You are not authorized to submit. Go back to apply for a test."
@@ -163,22 +156,15 @@ function TakeATest() {
         return;
       }
 
-      // if (data.status === "error") {
-      //   setResponse(data.message);
-      //   console.log(data.message);
-      //   setSubmitting(false);
-      //   return;
-      // }
-
-      setSubmitted(true)
-      setCountDownTimer('__:__:__')
+      setSubmitted(true);
+      setCountDownTimer("__:__:__");
       setResponse(
         "Test submitted successfully. Your result has been sent to your email address!"
       );
       console.log(
         "Test submitted successfully. Your result has been sent to your email address!"
       );
-      // console.log(data); 
+      // console.log(data);
 
       setSubmitting(false);
     } catch (error) {
@@ -217,7 +203,7 @@ function TakeATest() {
                       : "text-red-600"
                   }`}
                 >
-                  { `${response}`}
+                  {`${response}`}
                 </p>
               </div>
               {timeUp ? (
@@ -233,19 +219,21 @@ function TakeATest() {
                     OK
                   </button>
                 </div>
+              ) : submitted ? (
+                <div className="flex justify-center space-x-5">
+                  <button
+                    onClick={() => {
+                      setShowConfirmBox(false);
+                      setTestData();
+                      router.push("/take-a-test");
+                    }}
+                    className="bg-pry-color text-white px-5 py-1 rounded-md hover:text-pry-color hover:bg-white hover:shadow-md duration-100"
+                  >
+                    OK
+                  </button>
+                </div>
               ) : (
-              submitted ?     <div className="flex justify-center space-x-5">
-              <button
-                onClick={() => {
-                  setShowConfirmBox(false); 
-                  setTestData();
-                  router.push("/take-a-test");
-                }}
-                className="bg-pry-color text-white px-5 py-1 rounded-md hover:text-pry-color hover:bg-white hover:shadow-md duration-100"
-              >
-                OK
-              </button>
-            </div> :  <div className="flex justify-center space-x-5">
+                <div className="flex justify-center space-x-5">
                   <button
                     onClick={handleSubmit}
                     className="bg-pry-color text-white px-5 py-1 rounded-md hover:text-pry-color hover:bg-white hover:shadow-md duration-100"
@@ -383,7 +371,6 @@ function TakeATest() {
               onClick={() => {
                 // console.log(answersArray);
                 setShowConfirmBox(true);
-           
               }}
               className={`${
                 done ? "bg-pry-color" : "bg-gray-400 pointer-events-none"
