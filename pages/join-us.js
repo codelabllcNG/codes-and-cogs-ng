@@ -10,12 +10,16 @@ function JoinUS(props) {
 
   const { title, subtitle, videoUrl, testRoles, testCategories } = props;
 
-  const { testData, setTestData } = AllCtx();
+  const { testData, setTestData, setCountDownTimer, setExpiryTime } = AllCtx();
 
   const [response, setResponse] = useState("");
   const [fetchingQuestions, setFetchingQuestions] = useState(false);
 
   const [confirmBox, setConfirmBox] = useState(false);
+  // const [countDownTimer, setCountDownTimer] = useState('__ : __ : __')
+
+  
+
 
   useEffect(() => {
     if (testData) {
@@ -29,11 +33,13 @@ function JoinUS(props) {
       : (document.body.style.overflow = "auto");
   }, [confirmBox]);
 
+
+
   const nameRef = useRef();
   const emailRef = useRef();
   const phoneRef = useRef();
   const categoryRef = useRef();
-  const roleRef = useRef();
+  const roleRef = useRef(); 
 
   async function triggerConfirmBox(e) {
     e.preventDefault();
@@ -61,7 +67,7 @@ function JoinUS(props) {
     }
 
     setConfirmBox(true);
-  }
+  } 
 
   async function takeTest(e) {
     try {
@@ -110,6 +116,7 @@ function JoinUS(props) {
       }
 
       setTestData(data);
+      setExpiryTime(new Date().setMinutes(new Date().getMinutes() + 1))
       setResponse("Test questions fetched successfully!");
       console.log("Test questions fetched successfully!");
       // console.log(data);

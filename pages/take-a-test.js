@@ -7,15 +7,27 @@ import { useRouter } from "next/router";
 function TakeATest() {
   const router = useRouter();
 
-  const { testData } = AllCtx();
+  const {
+    testData,
+    setTestData,
+    countDownTimer,
+    setCountDownTimer,
+    expiryTime,
+  } = AllCtx();
 
   const [questionArray, setQuestionArray] = useState([]);
+  const [answersArray, setAnswersArray] = useState([]);
   const [qIndex, setQIndex] = useState(0);
   const [done, setDone] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const [sending, setSending] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [response, setResponse] = useState("");
+
+  const [submitted, setSubmitted] = useState(false);
+
+  const [timeUp, setTimeUp] = useState(false);
+  const [showConfirmBox, setShowConfirmBox] = useState(false);
 
   useEffect(() => {
     if (!testData) {
@@ -24,10 +36,60 @@ function TakeATest() {
   }, []);
 
   useEffect(() => {
+    console.log(submitted);
+  }, [submitted])
+
+  useEffect(() => {
     setLoading(true);
     setQuestionArray(testData?.questions);
     setLoading(false);
   }, [testData?.questions, questionArray, qIndex]);
+
+  useEffect(() => {
+    showConfirmBox
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "auto");
+  }, [showConfirmBox]);
+
+  useEffect(() => {
+    if (!submitted) {
+      console.log('still running', submitted);
+      var countDownTime = setInterval(() => {
+        if (submitted) {
+          clearInterval(countDownTime);
+        
+          // setCountDownTimer("TIME OUT");
+          // console.log(submitted, 'running');
+        
+      
+        }
+
+        var now = new Date().getTime();
+  
+        var timeDifference = expiryTime - now;
+  
+        var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        var hours = Math.floor(
+          (timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minutes = Math.floor(
+          (timeDifference % (1000 * 60 * 60)) / (1000 * 60)
+        );
+        var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+  
+        setCountDownTimer(`${hours}:${minutes}:${seconds}`);
+  
+        if (timeDifference < 0) {
+          clearInterval(countDownTime);
+          setTimeUp(true);
+          setCountDownTimer("TIME OUT");
+          console.log(submitted, 'running');
+          setShowConfirmBox(true);
+       handleSubmit()
+        }
+      }, 1000);
+}
+  }, [countDownTimer, submitted]);
 
   function navigateQuestions(value) {
     setQIndex(value);
@@ -43,6 +105,13 @@ function TakeATest() {
 
     setQuestionArray(newQuestionArray);
 
+    setAnswersArray(
+      newQuestionArray.map((answer) => ({
+        id: answer.id,
+        selectedAnswer: answer.selectedAnswer,
+      }))
+    );
+
     for (let i = 0; i < newQuestionArray.length; i++) {
       if (!newQuestionArray[i].selectedAnswer) {
         setDone(false);
@@ -54,9 +123,6 @@ function TakeATest() {
   }
 
   async function handleSubmit() {
-   
-    alert('Work in progress!')
-    return
 
     if (!testData) {
       setResponse(
@@ -70,17 +136,17 @@ function TakeATest() {
 
     try {
       setResponse("Submitting...");
-      setSending(true);
+      setSubmitting(true);
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/submitquestion`,
         {
           method: "POST",
           body: JSON.stringify({
-            name: nameInput,
-            email: emailInput,
-            phone: phoneInput,
-            category: categoryInput,
-            role: roleInput,
+            participants_info: {
+              id: testData.participants_info.id,
+              email: testData.participants_info.email,
+            },
+            answers: answersArray,
           }),
           headers: {
             "Content-Type": "application/json",
@@ -88,38 +154,119 @@ function TakeATest() {
         }
       );
 
-      const data = await response.json();
+      // const data = await response.json();
 
       if (!response.ok) {
         setResponse("Something went wrong, retry!");
-        console.log(data);
-        setSending(false);
+        // console.log(data);
+        setSubmitting(false);
         return;
       }
 
       // if (data.status === "error") {
       //   setResponse(data.message);
       //   console.log(data.message);
-      //   setSending(false);
+      //   setSubmitting(false);
       //   return;
       // }
 
-      setTestData(data);
-      setResponse("Test submitted successfully. Your result has been sent to your email address!");
-      console.log("Test submitted successfully. Your result has been sent to your email address!");
-      console.log(data);
-   
-      setSending(false);
-      router.push("/take-a-test");
+      setSubmitted(true)
+      setCountDownTimer('__:__:__')
+      setResponse(
+        "Test submitted successfully. Your result has been sent to your email address!"
+      );
+      console.log(
+        "Test submitted successfully. Your result has been sent to your email address!"
+      );
+      // console.log(data); 
+
+      setSubmitting(false);
     } catch (error) {
       console.log(error);
-      setResponse("Error, failed to submit.");
-      setSending(false);
+      setResponse("Error, failed to submit. Retry.");
+      setSubmitting(false);
     }
   }
 
   return (
     <div>
+      {/* CONFIRM BOX */}
+
+      {showConfirmBox && (
+        <div className="flex justify-center items-center -my-40 h-screen w-full overflow-hidden bg-black bg-opacity-30 fixed z-30 ">
+          <div
+            className="w-[70%] bg-white h-1/3 rounded-md shadow-md shadow-pry-color p-5
+        "
+          >
+            <div>
+              <p
+                className={`text-pry-color 400:text-xl font-semibold text-center`}
+              >
+                {timeUp
+                  ? "Your time is up! Don't worry, we will submit for you."
+                  : "Are you sure you want to submit?"}
+              </p>
+            </div>
+
+            <div className="mt-12">
+              <div className="flex justify-center text-center mb-2 text-lg font-semibold">
+                <p
+                  className={`   ${
+                    response.includes("successfully")
+                      ? "text-green-600"
+                      : "text-red-600"
+                  }`}
+                >
+                  { `${response}`}
+                </p>
+              </div>
+              {timeUp ? (
+                <div className="flex justify-center space-x-5">
+                  <button
+                    onClick={() => {
+                      setShowConfirmBox(false);
+                      setTestData();
+                      router.push("/take-a-test");
+                    }}
+                    className="bg-pry-color text-white px-5 py-1 rounded-md hover:text-pry-color hover:bg-white hover:shadow-md duration-100"
+                  >
+                    OK
+                  </button>
+                </div>
+              ) : (
+              submitted ?     <div className="flex justify-center space-x-5">
+              <button
+                onClick={() => {
+                  setShowConfirmBox(false); 
+                  setTestData();
+                  router.push("/take-a-test");
+                }}
+                className="bg-pry-color text-white px-5 py-1 rounded-md hover:text-pry-color hover:bg-white hover:shadow-md duration-100"
+              >
+                OK
+              </button>
+            </div> :  <div className="flex justify-center space-x-5">
+                  <button
+                    onClick={handleSubmit}
+                    className="bg-pry-color text-white px-5 py-1 rounded-md hover:text-pry-color hover:bg-white hover:shadow-md duration-100"
+                  >
+                    YES
+                  </button>{" "}
+                  <button
+                    onClick={() => {
+                      setShowConfirmBox(false);
+                    }}
+                    className="bg-pry-color text-white px-5 py-1 rounded-md hover:text-pry-color hover:bg-white hover:shadow-md duration-100"
+                  >
+                    NO
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
       {testData ? (
         <div className="px-5 md:px-14">
           {loading ? (
@@ -128,9 +275,9 @@ function TakeATest() {
             questionArray
               .map((question) => (
                 <div key={question.id}>
-                  <div className='flex  justify-between -mt-5 mb-10'>
+                  <div className="flex  justify-between -mt-5 mb-10">
                     <div>{testData.participants_info.name}</div>
-                    <div>testData.time</div>
+                    <div>{countDownTimer}</div>
                   </div>
                   <div className="flex space-x-3 text-xl">
                     <div>
@@ -234,10 +381,9 @@ function TakeATest() {
           <div className="flex justify-end mt-4">
             <button
               onClick={() => {
-              
-              
-                console.log(questionArray);
-                  handleSubmit()
+                // console.log(answersArray);
+                setShowConfirmBox(true);
+           
               }}
               className={`${
                 done ? "bg-pry-color" : "bg-gray-400 pointer-events-none"

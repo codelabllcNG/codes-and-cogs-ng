@@ -29,12 +29,16 @@ export function AllContextProvider(props) {
   const [menuIsClicked, setTheMenuIsClicked] = useState(false);
 
   const [testData, setTheTestData] = useState();
+  const [countDownTimer, setTheCountDownTimer] = useState("__ : __ : __");
+  const [expiryTime, setTheExpiryTime] = useState('');
 
   const devUrl = "http://dev.codesandcogs.com";
   const prodUrl = "https://dev.codesandcogs.com";
 
   const context = {
     menuIsClicked,
+    countDownTimer,
+    expiryTime,
     devUrl,
     prodUrl,
     testData,
@@ -59,6 +63,8 @@ export function AllContextProvider(props) {
     talentsFound,
 
     setTestData,
+    setExpiryTime,
+    setCountDownTimer,
     setMenuIsClicked,
     setSection,
     setSectionOneHeight,
@@ -81,8 +87,16 @@ export function AllContextProvider(props) {
 
   // functions below
 
+  function setExpiryTime(value) {
+    setTheExpiryTime(value);
+  }
+
+  function setCountDownTimer(value) {
+    setTheCountDownTimer(value);
+  }
+
   function setTestData(value) {
-    setTheTestData(value)
+    setTheTestData(value);
   }
 
   function setMenuIsClicked(value) {
