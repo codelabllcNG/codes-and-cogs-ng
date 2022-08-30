@@ -384,6 +384,10 @@ const router = useRouter();
           </div>
         </div>
       </div>
+
+      <div className=' mt-5 flex justify-center  '>
+<div className=' rounded-md w-[80%] md:w-[50%] flex justify-center bg-pry-color py-3 text-white 400:text-lg 400:font-semibold hover:shadow-lg cursor-pointer'><button>Hire Talent</button></div>
+      </div>
     </div>
   );
 }

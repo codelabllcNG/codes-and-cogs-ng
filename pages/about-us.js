@@ -47,7 +47,7 @@ function AboutUs(props) {
         timeAndLanguageVideo={timeAndLanguageVideo}
         timeAndLanguageText={timeAndLanguageText}
       />
-      <Section2 reviewsTitle={reviewsTitle} reviewsArray={reviewsArray} />
+      {/* <Section2 reviewsTitle={reviewsTitle} reviewsArray={reviewsArray} /> */}
       <Section3 storiesTitle={storiesTitle} storiesArray={storiesArray} />
       <Section4
         ourTalentTitle={ourTalentTitle}

@@ -70,7 +70,7 @@ const { skillsArray,
             <div
               key={tool.id}
               onClick={() => {
-                router.push(`/tools/${tool.id}`);
+                router.push(`/skills/${tool.id}`);
               }}
               className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-24 pt-1 rounded-lg"
             >
@@ -91,7 +91,7 @@ const { skillsArray,
             <div
               key={tool.id}
               onClick={() => {
-                router.push(`/tools/${tool.id}`);
+                router.push(`/skills/${tool.id}`);
               }}
               className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-24 pt-1 rounded-lg"
             >
@@ -113,7 +113,7 @@ const { skillsArray,
               <div
                 key={tool.id}
                 onClick={() => {
-                  router.push(`/tools/${tool.id}`);
+                  router.push(`/skills/${tool.id}`);
                 }}
                 className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-24 pt-1 rounded-lg"
               >
@@ -136,7 +136,7 @@ const { skillsArray,
               <div
                 key={tool.id}
                 onClick={() => {
-                  router.push(`/tools/${tool.id}`);
+                  router.push(`/skills/${tool.id}`);
                 }}
                 className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-24 pt-1 rounded-lg"
               >
@@ -159,7 +159,7 @@ const { skillsArray,
               <div
                 key={tool.id}
                 onClick={() => {
-                  router.push(`/tools/${tool.id}`);
+                  router.push(`/skills/${tool.id}`);
                 }}
                 className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-24 pt-1 rounded-lg"
               >
@@ -182,7 +182,7 @@ const { skillsArray,
               <div
                 key={tool.id}
                 onClick={() => {
-                  router.push(`/tools/${tool.id}`);
+                  router.push(`/skills/${tool.id}`);
                 }}
                 className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-24 pt-1 rounded-lg"
               >
@@ -205,7 +205,7 @@ const { skillsArray,
               <div
                 key={tool.id}
                 onClick={() => {
-                  router.push(`/tools/${tool.id}`);
+                  router.push(`/skills/${tool.id}`);
                 }}
                 className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-24 pt-1 rounded-lg"
               >
@@ -227,7 +227,7 @@ const { skillsArray,
             <div
               key={tool.id}
               onClick={() => {
-                router.push(`/tools/${tool.id}`);
+                router.push(`/skills/${tool.id}`);
               }}
               className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-24 pt-1 rounded-lg"
             >
@@ -248,7 +248,7 @@ const { skillsArray,
             <div
               key={tool.id}
               onClick={() => {
-                router.push(`/tools/${tool.id}`);
+                router.push(`/skills/${tool.id}`);
               }}
               className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-24 pt-1 rounded-lg"
             >
@@ -285,7 +285,7 @@ const { skillsArray,
             {skillsArray.map((icon) => (
               <div
                 onClick={() => {
-                  router.push(`/tools/${icon.id}`);
+                  router.push(`/skills/${icon.id}`);
                 }}
                 className="mx-3 hover:bg-semi-sec-color cursor-pointer relative justify-between p-3 rounded-md     "
                 key={icon.id}
@@ -332,7 +332,7 @@ const { skillsArray,
           {skillsArray.map((icon) => (
             <div
               onClick={() => {
-                router.push(`/tools/${icon.id}`);
+                router.push(`/skills/${icon.id}`);
               }}
               className="mx-3 hover:bg-semi-sec-color cursor-pointer relative justify-between p-3 rounded-md     "
               key={icon.id}

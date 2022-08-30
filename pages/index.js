@@ -121,7 +121,7 @@ export default function Home(props) {
   ]);
 
   return (
-    <div className="  ">
+    <div className=" ">
       <Head>
         <title>Codes and Cogs - Homepage</title>
         <meta

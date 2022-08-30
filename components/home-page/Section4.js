@@ -20,7 +20,7 @@ function Section4(props) {
   const [threeIsOpened, setThreeIsOpened] = useState(false);
   const [fourIsOpened, setFourIsOpened] = useState(false);
   const [fiveIsOpened, setFiveIsOpened] = useState(false);
-  const [selectedContent, setSelectedContent] = useState(1);
+  const [selectedContent, setSelectedContent] = useState();
 
   const divHeightRef = useRef();
 

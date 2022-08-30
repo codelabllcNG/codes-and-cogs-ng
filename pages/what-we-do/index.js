@@ -80,7 +80,7 @@ const router = useRouter();
 
       <div id="enterprise-services" className="mb-10">
         <div className="flex  justify-center mb-2">
-          <h2 className="font-bold text-3xl">Enterprise Services</h2>
+          <h2 className="font-bold text-3xl">Enterprise Packages</h2>
         </div>
         <div className="flex justify-center mb-3 ">
           <div className=" [150px]">

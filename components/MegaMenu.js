@@ -35,7 +35,7 @@ function MegaMenu() {
               !servicesClicked ? "font-normal" : ""
             }`}
           >
-            Enterprise Services
+            Enterprise Packages
           </p>
         </div>
         <div
@@ -68,7 +68,7 @@ function MegaMenu() {
               <p
                 onClick={() => {
                   router.push("/what-we-do/#remote-development-services");
-                setMegaMenu(false)
+                  setMegaMenu(false);
                 }}
               >
                 Remote Development Services
@@ -88,7 +88,7 @@ function MegaMenu() {
               <p
                 onClick={() => {
                   router.push("/search-talents");
-                setMegaMenu(false)
+                  setMegaMenu(false);
                 }}
               >
                 Hire Talents
@@ -99,7 +99,7 @@ function MegaMenu() {
           <div className="flex items-center  hover:text-blue-600 cursor-pointer">
             <div>
               <Image
-                src="/images/logos-and-icons/mega1.png"
+                src="/images/logos-and-icons/mega6.png"
                 width="55"
                 height="55"
               />{" "}
@@ -107,31 +107,11 @@ function MegaMenu() {
             <div>
               <p
                 onClick={() => {
-                  router.push("/what-we-do/#global-payroll");
-                setMegaMenu(false)
+                  router.push("/what-we-do/#enterprise-packages");
+                  setMegaMenu(false);
                 }}
               >
-                Global Payroll
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center  hover:text-blue-600 cursor-pointer">
-            <div>
-              <Image
-                src="/images/logos-and-icons/mega2.png"
-                width="55"
-                height="55"
-              />{" "}
-            </div>
-            <div>
-              <p
-                onClick={() => {
-                  router.push("/what-we-do/#training");
-                setMegaMenu(false)
-                }}
-              >
-                Training
+                Enterprise Packages
               </p>
             </div>
           </div>
@@ -148,10 +128,54 @@ function MegaMenu() {
               <p
                 onClick={() => {
                   router.push("/what-we-do/#hiring-as-a-service");
-                setMegaMenu(false)
+                  setMegaMenu(false);
                 }}
               >
                 Hiring as a Service
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center  hover:text-blue-600 cursor-pointer">
+            <div>
+              <Image
+                src="/images/logos-and-icons/mega2.png"
+                width="55"
+                height="55"
+              />{" "}
+            </div>
+            <div>
+              <p
+                onClick={() => {
+                  router.push("/what-we-do/#training");
+                  setMegaMenu(false);
+                }}
+              >
+                Training
+              </p>
+            </div>
+          </div>
+
+       
+
+   
+
+          <div className="flex items-center  hover:text-blue-600 cursor-pointer">
+            <div>
+              <Image
+                src="/images/logos-and-icons/mega1.png"
+                width="55"
+                height="55"
+              />{" "}
+            </div>
+            <div>
+              <p
+                onClick={() => {
+                  router.push("/what-we-do/#global-payroll");
+                  setMegaMenu(false);
+                }}
+              >
+                Global Payroll
               </p>
             </div>
           </div>
@@ -168,7 +192,7 @@ function MegaMenu() {
               <p
                 onClick={() => {
                   router.push("/what-we-do/#internship");
-                setMegaMenu(false)
+                  setMegaMenu(false);
                 }}
               >
                 Internship
@@ -188,30 +212,10 @@ function MegaMenu() {
               <p
                 onClick={() => {
                   router.push("/what-we-do/#conpliance-and-hr-services");
-                setMegaMenu(false)
+                  setMegaMenu(false);
                 }}
               >
                 Compliance and HR Services
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center  hover:text-blue-600 cursor-pointer">
-            <div>
-              <Image
-                src="/images/logos-and-icons/mega6.png"
-                width="55"
-                height="55"
-              />{" "}
-            </div>
-            <div>
-              <p
-                onClick={() => {
-                  router.push("/what-we-do/#enterprise-packages");
-                setMegaMenu(false)
-                }}
-              >
-                Enterprise Packages
               </p>
             </div>
           </div>
@@ -234,7 +238,7 @@ function MegaMenu() {
               <p
                 onClick={() => {
                   router.push("/what-we-do/#hackathon");
-                setMegaMenu(false)
+                  setMegaMenu(false);
                 }}
               >
                 Hackathon
@@ -254,7 +258,7 @@ function MegaMenu() {
               <p
                 onClick={() => {
                   router.push("/what-we-do/#infrastructure");
-                setMegaMenu(false)
+                  setMegaMenu(false);
                 }}
               >
                 Infrastructure
@@ -274,7 +278,7 @@ function MegaMenu() {
               <p
                 onClick={() => {
                   router.push("/what-we-do/#workspace");
-                setMegaMenu(false)
+                  setMegaMenu(false);
                 }}
               >
                 Workspace
@@ -294,7 +298,7 @@ function MegaMenu() {
               <p
                 onClick={() => {
                   router.push("/what-we-do/#salary-estimator");
-                setMegaMenu(false)
+                  setMegaMenu(false);
                 }}
               >
                 Salary Estimator

@@ -82,6 +82,15 @@ function MobileNav() {
             <button>Post A Job</button>
           </div>
 
+          <div
+            onClick={() => {
+              router.push("/search-talents");
+              setMenuIsClicked(false);
+            }}
+          >
+            <button>Hire Talent</button>
+          </div>
+
           {/* <div onClick={()=>{setWhatWeDoExpanded(!whatWeDoExpanded)}} className='flex justify-between items-center'>
             <button>What We Do</button> {whatWeDoExpanded ? <HiOutlineChevronDown className='text-xl text-pry-color '/> : <HiOutlineChevronUp className='text-xl text-pry-color '/>}
           </div>
