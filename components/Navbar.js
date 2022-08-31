@@ -34,7 +34,7 @@ function Navbar() {
   return (
     <div className={``}>
           <MobileNav/>
-      <div className="flex items-center py-4 justify-between mx-5 mb-5 mt-3 md:mx-10">
+      <div className="flex items-center py-4 justify-between mx-5 mb-5 mt-3 md:mx-10 lg:px-16">
       
           <div  onClick={()=>{router.push('/')} } className=" flex items-center cursor-pointer w-[5rem]     ">
             {" "}

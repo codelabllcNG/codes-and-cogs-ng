@@ -53,6 +53,8 @@ function TalentID(props) {
                 className="prose text-xs 400:text-sm "
               >
                 {}
+              </div> <div className='flex justify-end'>
+              <button className='px-1 mt-1 text-sm font-semibold ring-pry-color hover:ring-[1px]'>Hire Talent</button>
               </div>
             </div>{" "}
             <div className=" float-right">

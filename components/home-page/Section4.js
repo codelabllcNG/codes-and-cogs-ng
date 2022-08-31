@@ -38,10 +38,11 @@ function Section4(props) {
   }
  
   return (
-    <section
+    <div className="lg:bg-[url('/images/sections-watermark.png')] bg-contain bg-right-bottom  bg-no-repeat px-5 md:px-10 lg:px-16">
+        <section
       id="section4"
       ref={divHeightRef}
-      className="px-5 md:ml-8 lg:bg-[url('/images/sections-watermark.png')] bg-contain bg-right-bottom  bg-no-repeat"
+      className=" md:ml-8 "
     >
       <div>
         <div className="flex  md:justify-center md:mb-2">
@@ -142,6 +143,7 @@ function Section4(props) {
 
       <BotIcon />
     </section>
+  </div>
   );
 }
 

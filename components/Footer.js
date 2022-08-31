@@ -60,7 +60,9 @@ function Footer() {
       <div className="bg-[#ECF1FA] md:px-16 py-6 text-pry-color">
         <div className="md:flex px-5 justify-between">
           <div className="flex mb-7 md:mb-0 md:block items-center justify-between">
-            <div className=" md:flex justify-center md:mb-16">
+            <div     onClick={() => {
+                  router.push("/");
+                }} className=" md:flex justify-center md:mb-16 cursor-pointer ">
               {" "}
               <img
                 className="w-20"
@@ -91,7 +93,7 @@ function Footer() {
               <button className="font-bold ">CUSTOMERS</button>
               <p
                 onClick={() => {
-                  router.push("/hire-talents");
+                  router.push("/search-talents");
                 }}
                 className="cursor-pointer hover:text-red-700"
               >
@@ -99,23 +101,23 @@ function Footer() {
               </p>
               <p
                 onClick={() => {
-                  router.push("/book-a-call");
+                  // router.push("");
                 }}
                 className="cursor-pointer hover:text-red-700"
               >
                 Book a Call
               </p>
-              <p
+              {/* <p
                 onClick={() => {
                   router.push("/customer-reviews");
                 }}
                 className="cursor-pointer hover:text-red-700"
               >
                 Customer Reviews
-              </p>
+              </p> */}
               <p
                 onClick={() => {
-                  router.push("/legal");
+                  // router.push("/legal");
                 }}
                 className="cursor-pointer hover:text-red-700"
               >
@@ -166,7 +168,7 @@ function Footer() {
               </p>
               <p
                 onClick={() => {
-                  router.push("/");
+                  router.push("/coming-soon");
                 }}
                 className="cursor-pointer hover:text-red-700"
               >
@@ -175,11 +177,17 @@ function Footer() {
             </div>{" "}
             <div className="  md:w-[20%] md:space-y-2 space-y-1 md:mb-0 mb-7">
               <button className="font-bold ">DEVELOPERS</button>
-              <p className="cursor-pointer hover:text-red-700">
+              <p     onClick={() => {
+                  router.push("/join-us");
+                }} className="cursor-pointer hover:text-red-700">
                 Apply for Jobs
               </p>
-              <p className="cursor-pointer hover:text-red-700">Talent Login</p>{" "}
-              <p className="cursor-pointer hover:text-red-700">
+              <p     onClick={() => {
+                  // router.push("");
+                }} className="cursor-pointer hover:text-red-700">Talent Login</p>{" "}
+              <p     onClick={() => {
+                  router.push("/about-us/#talent-stories");
+                }} className="cursor-pointer hover:text-red-700">
                 Talent Stories
               </p>
             </div>
@@ -265,7 +273,7 @@ function Footer() {
               </button>{" "}
               <button
                 onClick={() => {
-                  router.push("/terms-of-service");
+                  // router.push("/terms-of-service");
                 }}
                 className="hover:text-red-700"
               >

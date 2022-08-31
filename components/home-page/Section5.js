@@ -27,10 +27,12 @@ function Section5(props) {
   }, []);
 
   return (
-    <section
+    <section className='px-5 md:px-10 lg:px-16'>
+       <div className="lg:bg-[url('/images/sections-watermark.png')] bg-contain bg-right-bottom  bg-no-repeat ">
+       <section
       id="section5"
       ref={divHeightRef}
-      className="px-5 md:ml-8 lg:bg-[url('/images/sections-watermark.png')] bg-contain bg-right-bottom  bg-no-repeat"
+      className=" md:ml-8 "
     >
       <div className="mb-10">
         <div className="flex  md:justify-center md:mb-2">
@@ -63,7 +65,7 @@ function Section5(props) {
           ))}
         </div>
 
-        <div className="pb-4 rounded-lg bg-[url('/images/trusted-bg.png')] bg-cover bg-center  bg-no-repeat">
+        <div className="pb-4 lg:py-8 rounded-lg bg-[url('/images/trusted-bg.png')] bg-cover bg-center  bg-no-repeat">
           <div className="flex justify-around py-12 px-2">
             <div>
               <div className="flex justify-center text-white">
@@ -134,6 +136,15 @@ function Section5(props) {
 
       <BotIcon />
     </section>
+      </div>
+      
+      <div className='p-5 mt-24 400:flex justify-between items-center rounded-xl bg-mid-color md:ml-8 space-x-2'>
+        <div className=' space-y-5'>
+          <h2 className='text-lg 400:text-xl sm:text-2xl md:text-4xl font-bold lg:text-5xl'>We stand with Ukraine</h2>
+          <h2 className=' 400:text-xl '>In oneness, we support the people of Ukraine - our clients, our freelancers, and everyone else.</h2>
+        </div> <div className=" flex justify-center  400:justify-end"><Image src='/images/we-love-ukrain.png' width='150' height='150' /></div>
+      </div>
+   </section>
   );
 }
 

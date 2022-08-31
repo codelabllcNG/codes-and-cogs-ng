@@ -15,7 +15,7 @@ function Section1(props) {
   } = props;
 
   return (
-    <div className="px-10 mb-14">
+    <div className="px-5 md:px-10 lg:px-16 mb-14">
       <div className="flex  md:justify-center md:mb-2">
         <h2 className="font-bold text-xs 400:text-xl  md:text-3xl">
          {aboutTitle}

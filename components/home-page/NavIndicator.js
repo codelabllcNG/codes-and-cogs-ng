@@ -27,7 +27,7 @@ let router = useRouter()
 
 
   return (
-    <div className=" hidden px-5 md:flex h-screen items-center mr-5 fixed top-0">
+    <div className=" hidden px-5 md:px-10 md:flex h-screen items-center mr-5 fixed top-0">
       <div className=" hidden md:block">
         <div className="flex justify-center">
           <div onClick={()=>{router.push('#')}}

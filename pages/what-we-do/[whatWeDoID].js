@@ -13,7 +13,7 @@ function WhatWeDoID(props) {
   }
 
   return (
-    <div className="px-5 md:px-10 ">
+    <div className="px-5 lg:px-16 md:px-10 ">
 
 <Head>
         <title>{selectedWhatWeDo.name}</title>

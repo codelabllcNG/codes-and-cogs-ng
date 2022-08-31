@@ -20,7 +20,7 @@ const router = useRouter();
     props;
 
   return (
-    <div className="px-5 md:px-14">
+    <div className="px-5 md:px-10 lg:px-16">
 
 <Head>
         <title>{`What We Do - Codes and Cogs`}</title>

@@ -22,7 +22,6 @@ function Section1(props) {
     setSearchingSkills,
     talentsFound,
     setTalentsFound,
-
   } = AllCtx();
 
   useEffect(() => {
@@ -76,7 +75,9 @@ function Section1(props) {
 
       if (typeof data.talents === "string") {
         setSearchingSkills(false);
-        setSearchResponse("No Talent matches your search query, try another one.");
+        setSearchResponse(
+          "No Talent matches your search query, try another one."
+        );
         setTalentsFound([]);
         console.log("No Talent matches your search query, try another one.");
         {
@@ -112,79 +113,84 @@ function Section1(props) {
       }
     } catch (error) {
       setSearchingSkills(false);
-      setSearchResponse(
-        "An error occurred, try again."
-      );
+      setSearchResponse("An error occurred, try again.");
       console.log("An error occurred, try again.");
       console.log(error);
     }
   }
 
   return (
-    <section
-      id="section1"
-      ref={divHeightRef}
+    <div
+      className="md:bg-cover  md:bg-right md:bg-no-repeat px-5 md:px-10 lg:px-16"
+      // bg-[url('/images/hero.png')]
       style={{ backgroundImage: `url(${bgUrl})` }}
-      className="px-5 pb-8 mb-10    md:bg-cover md:bg-right md:bg-no-repeat md:ml-8"
     >
-      <div className="md:w-[70%] mt-4">
-        <h1 className="font-semibold text-pry-color font-larken md:text-[#07222E] md:leading-[5rem] md:text-6xl   text-[1.7rem] 400:text-2xl 400:leading-[2.2rem] ">
-          {heroTitle}
-        </h1>
-      </div>
-      <div className="mt-5 md:leading-10 md:mt-8 md:w-[65%]  text-xl md:text-3xl">
-        <p className="text-[#07222E]">{heroSubtitle} </p>
-      </div>
-      <form onSubmit={findTalents} className="flex items-center mt-8 ">
-        <div className="flex border-2 border-pry-color border-opacity-80 px-1 py-1 md:py-2  rounded-full  md:mr-7 mr-2 text-sm w-[80%] md:w-[40%]">
-          {" "}
-          <Image
-            src="/images/logos-and-icons/search.png"
-            width={23}
-            height={23}
-          />{" "}
-          <input
-            required
-            onChange={(e) => {
-              setSearchKeyword(e.target.value);
-            }}
-            type="text"
-            className=" ml-4 outline-0 text- w-full bg-transparent "
-            placeholder="Search for Talents"
-          />
-        </div>{" "}
-        <div>
-          {" "}
-          <button
-            type="submit"
-            // onClick={() => {
-            //   router.push("/search-talents");
-            // }}
-            className="text-white text-sm  rounded-full md:py-2 pt-[0.37rem] pb-[0.37rem] px-4 md:px-8 bg-pry-color "
-          >
-            Search
-          </button>{" "}
-        </div>
-      </form>
-
-      <div className=" text-[0.6rem] mt-3 flex items-center space-x-2">
-        <p className="bg-mid-color   px-3 py-1 rounded-full  text-pry-color">
-          UI/UX Designer
-        </p>
-        <p className="bg-mid-color  px-3 py-1 rounded-full  text-pry-color">
-          JavaScript Developer
-        </p>
-      </div>
-      <div
-        className={`flex px-6 mb-20 justify-center h-5 my-3 ${
-          searchResponse.includes("Success") ? "text-green-600" : "text-red-600"
-        } text-sm`}
+      <section
+        id="section1"
+        ref={divHeightRef}
+        className=" pb-8 mb-10     md:ml-8"
       >
-        <p>{searchResponse}</p>
-      </div>
+        <div className="md:w-[70%] mt-4">
+          <h1 className="font-semibold text-pry-color font-larken md:text-[#07222E] md:leading-[5rem] md:text-6xl   text-[1.7rem] 400:text-2xl 400:leading-[2.2rem] ">
+            {heroTitle}
+          </h1>
+        </div>
+        <div className="mt-5 md:leading-10 md:mt-8 md:w-[65%]  text-xl md:text-3xl">
+          <p className="text-[#07222E]">{heroSubtitle} </p>
+        </div>
+        <form onSubmit={findTalents} className="flex items-center mt-8 ">
+          <div className="flex border-2 border-pry-color border-opacity-80 px-1 py-1 md:py-2  rounded-full  md:mr-7 mr-2 text-sm w-[80%] md:w-[40%]">
+            {" "}
+            <Image
+              src="/images/logos-and-icons/search.png"
+              width={23}
+              height={23}
+            />{" "}
+            <input
+              required
+              onChange={(e) => {
+                setSearchKeyword(e.target.value);
+              }}
+              type="text"
+              className=" ml-4 outline-0 text- w-full bg-transparent "
+              placeholder="Search for Talents"
+            />
+          </div>{" "}
+          <div>
+            {" "}
+            <button
+              type="submit"
+              // onClick={() => {
+              //   router.push("/search-talents");
+              // }}
+              className="text-white text-sm  rounded-full md:py-2 pt-[0.37rem] pb-[0.37rem] px-4 md:px-8 bg-pry-color "
+            >
+              Search
+            </button>{" "}
+          </div>
+        </form>
 
-      <BotIcon />
-    </section>
+        <div className=" text-[0.6rem] mt-3 flex items-center space-x-2">
+          <p className="bg-mid-color   px-3 py-1 rounded-full  text-pry-color">
+            UI/UX Designer
+          </p>
+          <p className="bg-mid-color  px-3 py-1 rounded-full  text-pry-color">
+            JavaScript Developer
+          </p>
+        </div>
+        <div
+          className={`flex px-6 mb-20 justify-center h-5 my-3 ${
+            searchResponse.includes("Success")
+              ? "text-green-600"
+              : "text-red-600"
+          } text-sm`}
+        >
+          <p>{searchResponse}</p>
+        </div>
+
+        <BotIcon />
+      </section>
+    </div>
   );
 }
 

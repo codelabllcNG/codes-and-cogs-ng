@@ -38,10 +38,11 @@ const { skillsArray,
   }
 
   return (
-    <section
+    <div className="md:bg-[url('/images/sections-watermark.png')] bg-cover bg-right-bottom  bg-no-repeat px-5 md:px-10 lg:p-16">
+       <section
       id="section2"
       ref={divHeightRef}
-      className=" px-5 md:ml-8 md:bg-[url('/images/sections-watermark.png')] bg-cover bg-right-bottom  bg-no-repeat"
+      className="  md:ml-8 "
     >
       <div>
         <div className="flex  md:justify-center md:mb-2">
@@ -72,7 +73,7 @@ const { skillsArray,
               onClick={() => {
                 router.push(`/skills/${tool.id}`);
               }}
-              className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-24 pt-1 rounded-lg"
+              className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-[5rem] text-center pt-1 rounded-lg"
             >
               <div className="flex justify-center">
                 {" "}
@@ -93,7 +94,7 @@ const { skillsArray,
               onClick={() => {
                 router.push(`/skills/${tool.id}`);
               }}
-              className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-24 pt-1 rounded-lg"
+              className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-[5rem] text-center pt-1 rounded-lg"
             >
               <div className="flex justify-center">
                 {" "}
@@ -115,7 +116,7 @@ const { skillsArray,
                 onClick={() => {
                   router.push(`/skills/${tool.id}`);
                 }}
-                className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-24 pt-1 rounded-lg"
+                className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-[5rem] text-center pt-1 rounded-lg"
               >
                 <div className="flex justify-center">
                   {" "}
@@ -138,7 +139,7 @@ const { skillsArray,
                 onClick={() => {
                   router.push(`/skills/${tool.id}`);
                 }}
-                className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-24 pt-1 rounded-lg"
+                className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-[5rem] text-center pt-1 rounded-lg"
               >
                 <div className="flex justify-center">
                   {" "}
@@ -161,7 +162,7 @@ const { skillsArray,
                 onClick={() => {
                   router.push(`/skills/${tool.id}`);
                 }}
-                className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-24 pt-1 rounded-lg"
+                className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-[5rem] text-center pt-1 rounded-lg"
               >
                 <div className="flex justify-center">
                   {" "}
@@ -184,7 +185,7 @@ const { skillsArray,
                 onClick={() => {
                   router.push(`/skills/${tool.id}`);
                 }}
-                className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-24 pt-1 rounded-lg"
+                className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-[5rem] text-center pt-1 rounded-lg"
               >
                 <div className="flex justify-center">
                   {" "}
@@ -207,7 +208,7 @@ const { skillsArray,
                 onClick={() => {
                   router.push(`/skills/${tool.id}`);
                 }}
-                className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-24 pt-1 rounded-lg"
+                className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-[5rem] text-center pt-1 rounded-lg"
               >
                 <div className="flex justify-center">
                   {" "}
@@ -229,7 +230,7 @@ const { skillsArray,
               onClick={() => {
                 router.push(`/skills/${tool.id}`);
               }}
-              className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-24 pt-1 rounded-lg"
+              className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-[5rem] text-center pt-1 rounded-lg"
             >
               <div className="flex justify-center">
                 {" "}
@@ -250,7 +251,7 @@ const { skillsArray,
               onClick={() => {
                 router.push(`/skills/${tool.id}`);
               }}
-              className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-24 pt-1 rounded-lg"
+              className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-[5rem] text-center pt-1 rounded-lg"
             >
               <div className="flex justify-center">
                 {" "}
@@ -361,6 +362,7 @@ const { skillsArray,
 
       <BotIcon />
     </section>
+   </div>
   );
 }
 
