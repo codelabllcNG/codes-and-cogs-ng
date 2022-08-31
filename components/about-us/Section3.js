@@ -4,15 +4,13 @@ import { TALENT_STORIES } from "../../a-store/content-store/TALENT_STORIES";
 import BotIcon from "../BotIcon";
 
 function section3(props) {
-const {   storiesTitle,
-  storiesArray,} = props;
-
+  const { storiesTitle, storiesArray } = props;
 
   return (
     <div className="md:px-10 px-5 mb-8">
       <div className="flex  md:justify-center md:mb-2">
         <h2 className="font-bold text-xs 400:text-xl  md:text-3xl">
-        {storiesTitle}
+          {storiesTitle}
         </h2>
       </div>
       <div className="flex md:justify-center -mb-4">
@@ -36,20 +34,30 @@ const {   storiesTitle,
             >
               <div className="text-pry-color flex items-center justify-center space-x-3 mb-2 700:mb-5">
                 <div className="w-[3rem]  h-[4rem] 700:w-[4rem] 700:h-[5rem] ">
-                  <Image height={70} width={64} className="" src={story.icon} alt={story.name} />
+                  <Image
+                    height={70}
+                    width={64}
+                    className=""
+                    src={story.icon}
+                    alt={story.name}
+                  />
                 </div>{" "}
                 <div>
                   <div className="flex justify-center 400:text-base text-sm font-semibold">
                     <p>{story.title}</p>
                   </div>{" "}
-                  <div className="flex justify-center text-xs  400:text-sm" >
-                    <p>{story.name}</p>
+                  <div className="flex justify-center text-xs  400:text-sm">
+                    <div>{story.name}</div>
                   </div>{" "}
                 </div>
               </div>
 
-              <div className="text-xs 400:text-sm 700:text-base text-justify mb-3 700:mb-10">
-                <p>{story.story}</p>
+              <div
+               
+                className="prose max-w-none text-xs 400:text-sm 700:text-base text-justify mb-3 700:mb-10"
+              >
+                {" "}
+                <div  dangerouslySetInnerHTML={{ __html: story.story }}>{}</div>
               </div>
             </div>
           </div>

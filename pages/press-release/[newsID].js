@@ -51,12 +51,12 @@ function NewsID(props) {
           <Image src={selectedNews.imageUrl} width={500} height={300} />{" "}
         </div>
         <div className=' w-full   '>
-          <p
+          <div
             className="prose-h1:text-3xl prose-h1:font-bold max-w-none text-justify md:text-lg md:leading-10 leading-relaxed"
             dangerouslySetInnerHTML={{ __html: selectedNews.content }}
           >
             {} 
-          </p>
+          </div>
         </div>
       </div>
     </div>

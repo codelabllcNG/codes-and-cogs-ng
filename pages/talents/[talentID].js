@@ -5,10 +5,10 @@ import AllCtx from "../../util-functions/allCtx";
 import { useRouter } from "next/router";
 
 function TalentID(props) {
-const router = useRouter();
+  const router = useRouter();
 
   if (router.isFallback) {
-    return <Loading/>
+    return <Loading />;
   }
 
   var oneRating = [1];
@@ -42,14 +42,27 @@ const router = useRouter();
         <div className=" 900:w-[40%]">
           <div className="flex items-center px-4 text-pry-color bg-semi-sec-color py-4  rounded-l-3xl rounded-r-full mb-4">
             <div className="w-[75%]">
-              <p className="font-semibold 400:text-lg mb-1">{selectedTalent.name}</p>
+              <p className="font-semibold 400:text-lg mb-1">
+                {selectedTalent.name}
+              </p>
               <p className="text-[#9f143e] text-xl  font-extrabold mb-3">
                 {selectedTalent.title}
               </p>
-              <p className="text-xs 400:text-sm ">{selectedTalent.overview}</p>
+              <div
+                dangerouslySetInnerHTML={{ __html: selectedTalent.overview }}
+                className="prose text-xs 400:text-sm "
+              >
+                {}
+              </div>
             </div>{" "}
             <div className=" float-right">
-              <Image height={80} width={70}className="" src={selectedTalent.icon} alt="" />
+              <Image
+                height={80}
+                width={70}
+                className=""
+                src={selectedTalent.icon}
+                alt=""
+              />
             </div>
           </div>
 
@@ -112,7 +125,13 @@ const router = useRouter();
                 {selectedTalent.hobbies.map((hobby) => (
                   <div key={hobby}>
                     <div className="flex justify-center items-center  mb-2 ">
-                      <Image height={20} width={20} className="h-5 w-5" src='/images/logos-and-icons/soccer-hobby.png' alt="" />
+                      <Image
+                        height={20}
+                        width={20}
+                        className="h-5 w-5"
+                        src="/images/logos-and-icons/soccer-hobby.png"
+                        alt=""
+                      />
                     </div>
                     <div className="flex justify-center items-center text-xs ">
                       {" "}
@@ -158,8 +177,10 @@ const router = useRouter();
           <div>
             <div className="flex items-center mb-4">
               {" "}
-              <div className="h-[1rem] w-[60%] 400:h-[1.5rem] 
-400:w-[40%] rounded-md flex justify-center items-center bg-pry-color text-white text-xs   pt-[0.6rem] pb-[0.6rem]">
+              <div
+                className="h-[1rem] w-[60%] 400:h-[1.5rem] 
+400:w-[40%] rounded-md flex justify-center items-center bg-pry-color text-white text-xs   pt-[0.6rem] pb-[0.6rem]"
+              >
                 {" "}
                 <p className="text-[0.6rem] 400:text-xs">SKILLS</p>{" "}
               </div>{" "}
@@ -173,16 +194,19 @@ const router = useRouter();
                     {" "}
                     <div className="400:flex border-pry-color border-2 justify-center items-center bg-white h-8 w-8 hidden 400:h-12 400:w-12 rounded-full">
                       {" "}
-                      <Image height={30} width={30}
+                      <Image
+                        height={30}
+                        width={30}
                         className="w-4 h-4  400:h-auto 400:w-auto"
                         src={skill.icon}
                         alt=""
                       />{" "}
                     </div>
-
                     <div className="flex border-pry-color border-2 justify-center items-center bg-white h-8 w-8 400:hidden 400:h-12 400:w-12 rounded-full">
                       {" "}
-                      <Image height={20} width={20}
+                      <Image
+                        height={20}
+                        width={20}
                         className="w-4 h-4  400:h-auto 400:w-auto"
                         src={skill.icon}
                         alt=""
@@ -257,8 +281,10 @@ const router = useRouter();
           <div className="mt-8">
             <div className="flex items-center mb-4">
               {" "}
-              <div className="h-[1rem] w-[60%] 400:h-[1.5rem] 
-400:w-[40%] rounded-md flex justify-center items-center bg-pry-color text-white text-xs   pt-[0.6rem] pb-[0.6rem]">
+              <div
+                className="h-[1rem] w-[60%] 400:h-[1.5rem] 
+400:w-[40%] rounded-md flex justify-center items-center bg-pry-color text-white text-xs   pt-[0.6rem] pb-[0.6rem]"
+              >
                 {" "}
                 <p className="text-[0.6rem] 400:text-xs">OTHER SKILLS</p>{" "}
               </div>{" "}
@@ -272,17 +298,19 @@ const router = useRouter();
                     {" "}
                     <div className="400:flex hidden border-pry-color border-2 justify-center items-center bg-white h-8 w-8 400:h-12 400:w-12 rounded-full">
                       {" "}
-                      <Image height={30} width={30}
+                      <Image
+                        height={30}
+                        width={30}
                         className="w-4 h-4  400:h-auto 400:w-auto"
                         src={skill.icon}
                         alt=""
                       />{" "}
                     </div>
-
-
                     <div className="flex 400:hidden border-pry-color border-2 justify-center items-center bg-white h-8 w-8 400:h-12 400:w-12 rounded-full">
                       {" "}
-                      <Image height={20} width={20}
+                      <Image
+                        height={20}
+                        width={20}
                         className="w-4 h-4  400:h-auto 400:w-auto"
                         src={skill.icon}
                         alt=""
@@ -385,15 +413,16 @@ const router = useRouter();
         </div>
       </div>
 
-      <div className=' mt-5 flex justify-center  '>
-<div className=' rounded-md w-[80%] md:w-[50%] flex justify-center bg-pry-color py-3 text-white 400:text-lg 400:font-semibold hover:shadow-lg cursor-pointer'><button>Hire Talent</button></div>
+      <div className=" mt-5 flex justify-center  ">
+        <div className=" rounded-md w-[80%] md:w-[50%] flex justify-center bg-pry-color py-3 text-white 400:text-lg 400:font-semibold hover:shadow-lg cursor-pointer">
+          <button>Hire Talent</button>
+        </div>
       </div>
     </div>
   );
 }
 
 export async function getStaticProps(context) {
-
   const talentID = context.params.talentID;
 
   const response = await fetch(
@@ -413,8 +442,8 @@ export async function getStaticProps(context) {
 
   if (!selectedTalent) {
     return {
-      notFound: true
-  }
+      notFound: true,
+    };
   }
 
   return {
@@ -426,7 +455,6 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/aboutpage`
   );

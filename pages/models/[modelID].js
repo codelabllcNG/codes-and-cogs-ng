@@ -45,12 +45,12 @@ function ModelID(props) {
 
       <div className="900:flex justify-between items-center ">
         <div className=" prose max-w-none 900:w-[55%] text-justify  mb-5 900:mb-0 text-pry-color ">
-          <p
+          <div
             dangerouslySetInnerHTML={{ __html: selectedModel.content }}
             className=" leading-7 900:leading-10 lg:leading-8"
           >
             {}
-          </p>
+          </div>
         </div>
 
         <div className="900:w-[40%] items-center flex justify-center mb-5 900:mb-0">
