@@ -61,7 +61,7 @@ function FeasibilityID(props) {
 
         <div
           dangerouslySetInnerHTML={{ __html: selectedFeasibility.content }}
-          className="prose 900:w-[55%] text-justify lg:leading-8 mb-5 900:mb-0 text-pry-color"
+          className="prose max-w-none 900:w-[55%] text-justify lg:leading-8 mb-5 900:mb-0 text-pry-color"
         >
           {}
         </div>

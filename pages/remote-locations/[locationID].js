@@ -45,9 +45,9 @@ function LocationID(props) {
 
       <div className={`px-5 md:px-10 md:flex  justify-between  `}>
         <div
-          className={`md:w-[55%] text-justify mb-5 md:mb-0 text-pry-color `}
+          className={`prose max-w-none prose-h1:text-3xl prose-h1:font-bold md:w-[55%] text-justify mb-5 md:mb-0 text-pry-color `}
         >
-          <p className="md:leading-10  ">{selectedLocation.content}</p>
+          <p  dangerouslySetInnerHTML={{__html: selectedLocation.content}} className="md:leading-10  ">{}</p>
         </div>
 
         <div className="md:w-[40%]  flex justify-center mb-5 md:mb-0">

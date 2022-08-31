@@ -12,15 +12,14 @@ function ToolID(props) {
   const [searchingTalents, setSearchingTalents] = useState(false);
   const [talentsFound, setTalentsFound] = useState([])
 
-  if (router.isFallback) {
-    return <Loading />;
-  }
+ 
 
   const { skillID, selectedSkill } = props;
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log('Firing..');
+      try {
+        console.log('Firing..');
       setSearchingTalents(true);
       setResponse("Loading Talents that match this skill...");
       const response = await fetch(
@@ -62,17 +61,22 @@ function ToolID(props) {
 
       setSearchingTalents(false);
       setTalentsFound(data.talents);
+     } catch (error) {
+      setSearchingTalents(false);
+      setResponse("An error occurred while loading talents, reload.");
+      console.log("An error occurred while loading talents, reload.");
+    }
 
  
     };
-    try {
+
          fetchData();
-       } catch (error) {
-         setSearchingTalents(false);
-         setResponse("An error occurred while loading talents, reload.");
-         console.log("An error occurred while loading talents, reload.");
-       }
+      
   }, []);
+
+   if (router.isFallback) {
+    return <Loading />;
+  }
 
   return (
     <div className="px-5 md:px-10">
@@ -99,14 +103,14 @@ function ToolID(props) {
         </div>
       </div>
 
-      <div className="900:flex justify-between items-center ">
-        <div className="900:w-[55%] text-justify lg:leading-8 mb-5 900:mb-0 text-pry-color">
-          <p>{selectedSkill.toolInfo}</p>
+      <div className=" 900:flex justify-between items-center ">
+        <div className="900:w-[55%] prose max-w-none prose-h1:text-3xl prose-h1:font-bold text-justify lg:leading-8 mb-5 900:mb-0 text-pry-color">
+          <p className='' dangerouslySetInnerHTML={{__html: selectedSkill.toolInfo}}>{}</p>
         </div>
         <div className="900:w-[40%] flex justify-center">
           {" "}
           <video
-            // width="400"
+            width="400"
             height="305"
             controls
             // autoPlay

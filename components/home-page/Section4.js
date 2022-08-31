@@ -20,7 +20,7 @@ function Section4(props) {
   const [threeIsOpened, setThreeIsOpened] = useState(false);
   const [fourIsOpened, setFourIsOpened] = useState(false);
   const [fiveIsOpened, setFiveIsOpened] = useState(false);
-  const [selectedContent, setSelectedContent] = useState();
+  const [selectedContent, setSelectedContent] = useState('local-environments-setup');
 
   const divHeightRef = useRef();
 
@@ -73,7 +73,7 @@ function Section4(props) {
       </div>
 
       <div className="mb-10">
-        {feasibilityArray.map((content) => (
+        {feasibilityArray.map((content, i) => (
           <div className="" key={content.id}>
             <hr className="border-[1px] border-[#404033]" />
             <div className="flex py-2 items-center  justify-between mb-4">
