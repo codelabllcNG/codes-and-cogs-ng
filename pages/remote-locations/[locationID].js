@@ -13,20 +13,20 @@ function LocationID(props) {
 
   const { locationID, locationArray, selectedLocation } = props;
 
-  
-
   return (
     <div>
-<Head>
+      <Head>
         <title>Codes and Cogs in {selectedLocation.name}</title>
-        <meta name="description" content={`Our remote location in  ${selectedLocation.title}`} />
+        <meta
+          name="description"
+          content={`Our remote location in  ${selectedLocation.title}`}
+        />
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="canonical"
           href={`https://www.codesandcogs.com/remote-locations/${selectedLocation.id}`}
         />
       </Head>
-
 
       <div className="flex  justify-center md:mb-2">
         <h2 className="font-bold text-xs 400:text-xl font-larken md:text-3xl">
@@ -47,11 +47,22 @@ function LocationID(props) {
         <div
           className={`prose max-w-none prose-h1:text-3xl prose-h1:font-bold md:w-[55%] text-justify mb-5 md:mb-0 text-pry-color `}
         >
-          <p  dangerouslySetInnerHTML={{__html: selectedLocation.content}} className="md:leading-10  ">{}</p>
+          <p
+            dangerouslySetInnerHTML={{ __html: selectedLocation.content }}
+            className="md:leading-10  "
+          >
+            {}
+          </p>
         </div>
 
         <div className="md:w-[40%]  flex justify-center mb-5 md:mb-0">
-          <Image width={400} height={300} className="w-300px rounded-lg" src={selectedLocation.imageUrl} alt="" />
+          <Image
+            width={400}
+            height={300}
+            className="w-300px rounded-lg"
+            src={selectedLocation.imageUrl}
+            alt=""
+          />
         </div>
       </div>
     </div>

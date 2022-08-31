@@ -1,25 +1,21 @@
-import React from 'react'
+import React from "react";
 // import { selectedModel, OUR_MODELS } from "../../a-store/content-store/OUR-MODELS"
 import Image from "next/image";
-import Loading from '../../components/Loading';
-import { useRouter } from 'next/router';
-import Head from 'next/head';
-
+import Loading from "../../components/Loading";
+import { useRouter } from "next/router";
+import Head from "next/head";
 
 function ModelID(props) {
-const router = useRouter();
+  const router = useRouter();
 
-  const { selectedModel } = props
-  
+  const { selectedModel } = props;
+
   if (router.isFallback) {
-    return <Loading/>
+    return <Loading />;
   }
 
-  
-
   return (
-    <div className='px-5 md:px-10'>
-      
+    <div className="px-5 md:px-10">
       <Head>
         <title>{selectedModel.title}</title>
         <meta name="description" content={selectedModel.title} />
@@ -30,11 +26,8 @@ const router = useRouter();
         />
       </Head>
 
-
-               <div className="flex text-center justify-center mb-2">
-        <h2 className="font-bold text-3xl">
-        {selectedModel.title}
-        </h2>
+      <div className="flex text-center justify-center mb-2">
+        <h2 className="font-bold text-3xl">{selectedModel.title}</h2>
       </div>
       <div className="flex justify-center mb-10 ">
         <div className=" [150px]">
@@ -44,24 +37,28 @@ const router = useRouter();
             height={20}
           />
         </div>
-          </div>
+      </div>
 
+      <div className="flex justify-center items-center text-justify 900:text-center mb-1 900:mb-8 text-pry-color ">
+        <p>{selectedModel.excerpt}</p>
+      </div>
 
-          <div className='flex justify-center items-center text-justify 900:text-center mb-1 900:mb-8 text-pry-color '><p>{ selectedModel.excerpt}</p></div>
+      <div className="900:flex justify-between items-center ">
+        <div className=" prose max-w-none 900:w-[55%] text-justify  mb-5 900:mb-0 text-pry-color ">
+          <p
+            dangerouslySetInnerHTML={{ __html: selectedModel.content }}
+            className=" leading-7 900:leading-10 lg:leading-8"
+          >
+            {}
+          </p>
+        </div>
 
-          <div className='900:flex justify-between items-center '>
-          <div className=' prose max-w-none 900:w-[55%] text-justify  mb-5 900:mb-0 text-pry-color '><p  dangerouslySetInnerHTML={{__html: selectedModel.content}} className=' leading-7 900:leading-10 lg:leading-8'>{} 
-              </p></div>
-            
-              
-              <div className='900:w-[40%] items-center flex justify-center mb-5 900:mb-0'>
-              
-                  <Image height={300} width={400} src={selectedModel.imageUrl} alt="" />
-              
-              </div>
-          </div>
+        <div className="900:w-[40%] items-center flex justify-center mb-5 900:mb-0">
+          <Image height={300} width={400} src={selectedModel.imageUrl} alt="" />
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
 export async function getStaticProps(context) {
@@ -70,7 +67,6 @@ export async function getStaticProps(context) {
     `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/homepage`
   );
   const data = await response.json();
-
 
   const modelsArray = data.models;
 
@@ -82,8 +78,8 @@ export async function getStaticProps(context) {
 
   if (!selectedModel) {
     return {
-      notFound: true
-  }
+      notFound: true,
+    };
   }
 
   return {
@@ -94,24 +90,24 @@ export async function getStaticProps(context) {
     },
     revalidate: 300,
   };
-  }
-  
-  export async function getStaticPaths() {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/homepage`
-    );
-    const data = await response.json();
-  
-    const modelsArray = data.models;
-  
-    const modelPaths = modelsArray.map((model) => model.id);
-  
-    return {
-      paths: modelPaths.map((modelID) => ({
-        params: { modelID: modelID },
-      })),
-      fallback: true,
-    };
-  }
+}
 
-export default ModelID
+export async function getStaticPaths() {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/homepage`
+  );
+  const data = await response.json();
+
+  const modelsArray = data.models;
+
+  const modelPaths = modelsArray.map((model) => model.id);
+
+  return {
+    paths: modelPaths.map((modelID) => ({
+      params: { modelID: modelID },
+    })),
+    fallback: true,
+  };
+}
+
+export default ModelID;
