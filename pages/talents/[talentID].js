@@ -461,6 +461,7 @@ export async function getStaticProps(context) {
       talentID,
       selectedTalent,
     },
+    revalidate: 300
   };
 }
 

@@ -30,7 +30,7 @@ function MegaMenu() {
             setMegaMenuTab(true, false); 
           }}
         >
-          <p
+          <p 
             className={`cursor-pointer ${
               !servicesClicked ? "font-normal" : ""
             }`}
