@@ -54,7 +54,9 @@ function section3(props) {
 
               <div className="prose max-w-none text-xs 400:text-sm 700:text-base text-justify mb-3 700:mb-10">
                 {" "}
-                <div dangerouslySetInnerHTML={{ __html: story.story }}>{}</div>
+                <div dangerouslySetInnerHTML={{ __html: story.story }}>
+                  {}
+                </div>
               </div>
             </div>
           </div>
