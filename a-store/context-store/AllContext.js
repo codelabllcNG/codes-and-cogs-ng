@@ -30,13 +30,16 @@ export function AllContextProvider(props) {
 
   const [testData, setTheTestData] = useState();
   const [countDownTimer, setTheCountDownTimer] = useState("__ : __ : __");
-  const [expiryTime, setTheExpiryTime] = useState('');
+  const [expiryTime, setTheExpiryTime] = useState("");
+
+  const [talentToHire, setTheTalentToHire] = useState("");
 
   const devUrl = "http://dev.codesandcogs.com";
   const prodUrl = "https://dev.codesandcogs.com";
 
   const context = {
-    menuIsClicked,
+    menuIsClicked, 
+    talentToHire,
     countDownTimer,
     expiryTime,
     devUrl,
@@ -79,6 +82,7 @@ export function AllContextProvider(props) {
     setSearchResponse,
     setSearchingSkills,
     setTalentsFound,
+    setTalentToHire,
   };
 
   return (
@@ -86,6 +90,10 @@ export function AllContextProvider(props) {
   );
 
   // functions below
+
+  function setTalentToHire(value) {
+    setTheTalentToHire(value);
+  }
 
   function setExpiryTime(value) {
     setTheExpiryTime(value);

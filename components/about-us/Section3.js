@@ -7,7 +7,7 @@ function section3(props) {
   const { storiesTitle, storiesArray } = props;
 
   return (
-    <div id='talent-stories' className="md:px-10 px-5 lg:px-16 mb-8">
+    <div id="talent-stories" className="md:px-10 px-5 lg:px-16 mb-8">
       <div className="flex  md:justify-center md:mb-2">
         <h2 className="font-bold text-xs 400:text-xl  md:text-3xl">
           {storiesTitle}
@@ -38,7 +38,7 @@ function section3(props) {
                     height={70}
                     width={64}
                     className=""
-                    src={story.icon}
+                    src={story.icon || "/images/default-dp.png"}
                     alt={story.name}
                   />
                 </div>{" "}
@@ -54,9 +54,7 @@ function section3(props) {
 
               <div className="prose max-w-none text-xs 400:text-sm 700:text-base text-justify mb-3 700:mb-10">
                 {" "}
-                <div dangerouslySetInnerHTML={{ __html: story.story }}>
-                  {}
-                </div>
+                <div dangerouslySetInnerHTML={{ __html: story.story }}>{}</div>
               </div>
             </div>
           </div>

@@ -7,6 +7,8 @@ import { useRouter } from "next/router";
 function TalentID(props) {
   const router = useRouter();
 
+const {talentToHire, setTalentToHire}  = AllCtx();
+
   if (router.isFallback) {
     return <Loading />;
   }
@@ -19,7 +21,7 @@ function TalentID(props) {
 
   const { talentID, selectedTalent } = props;
 
-  console.log(talentID);
+  // console.log(talentID);
 
   return (
     <div className="px-5 md:px-10">
@@ -53,7 +55,10 @@ function TalentID(props) {
                 className="prose text-xs 400:text-sm "
               >
                 {}
-              </div> <div className='flex justify-end'>
+              </div> <div onClick={() => {
+                setTalentToHire(selectedTalent.name)
+                router.push('/post-a-job')
+              }} className='flex justify-end'>
               <button className='px-1 mt-1 text-sm font-semibold ring-pry-color hover:ring-[1px]'>Hire Talent</button>
               </div>
             </div>{" "}
@@ -62,7 +67,7 @@ function TalentID(props) {
                 height={80}
                 width={70}
                 className=""
-                src={selectedTalent.icon}
+                src={selectedTalent.icon || "/images/default-dp.png"}
                 alt=""
               />
             </div>
@@ -417,7 +422,10 @@ function TalentID(props) {
 
       <div className=" mt-5 flex justify-center  ">
         <div className=" rounded-md w-[80%] md:w-[50%] flex justify-center bg-pry-color py-3 text-white 400:text-lg 400:font-semibold hover:shadow-lg cursor-pointer">
-          <button>Hire Talent</button>
+          <button onClick={() => {
+                setTalentToHire(selectedTalent.name)
+                router.push('/post-a-job')
+              }}>Hire Talent</button>
         </div>
       </div>
     </div>

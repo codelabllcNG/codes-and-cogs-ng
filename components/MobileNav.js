@@ -114,9 +114,9 @@ function MobileNav() {
                   data-bs-target="#flush-collapseOne"
                   aria-expanded="false"
                   aria-controls="flush-collapseOne"
-                > 
+                >
                   What We Do
-                </button> 
+                </button>
               </h2>
               <div
                 id="flush-collapseOne"
@@ -147,8 +147,6 @@ function MobileNav() {
           </div>
 
           <div className="bg-gray-300 h-[2px] -ml-4 -mr-3 "></div>
-
-      
 
           <div
             onClick={() => {
@@ -185,7 +183,6 @@ function MobileNav() {
           >
             <button>Support</button>
           </div>
-      
         </div>
       </div>
 

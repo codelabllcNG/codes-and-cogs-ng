@@ -1,12 +1,12 @@
 import Head from "next/head";
 import React, { useRef, useState } from "react";
 import BotIcon from "../components/BotIcon";
+import AllCtx from "../util-functions/allCtx";
+function PostAJob() {
+  const { talentToHire, setTalentToHire } = AllCtx();
 
- function PostAJob() {
-
-  const [posting, setPosting] = useState(false) 
-  const [response, setResponse] = useState('') 
-
+  const [posting, setPosting] = useState(false);
+  const [response, setResponse] = useState("");
 
   const nameRef = useRef();
   const emailRef = useRef();
@@ -19,8 +19,8 @@ import BotIcon from "../components/BotIcon";
 
     const nameInput = nameRef.current.value;
     const emailInput = emailRef.current.value;
-    const durationInput = durationRef.current.value
-    const engineerInput = engineerRef.current.value;
+    const durationInput = durationRef.current.value;
+    const engineerInput = engineerRef.current?.value || "I chose a talent.";
     const descriptionInput = descriptionRef.current.value;
 
     if (
@@ -30,17 +30,17 @@ import BotIcon from "../components/BotIcon";
       durationInput.trim() === "" ||
       !emailInput ||
       emailInput.trim() === "" ||
-      !engineerInput ||
-      engineerInput.trim() === "" ||
       !descriptionInput ||
-      descriptionInput.trim() === "" 
+      descriptionInput.trim() === ""
     ) {
       setResponse("Fill all inputs!");
       return;
     }
 
     try {
-      setResponse("Posting a job...");
+      talentToHire
+        ? setResponse("Sending request...")
+        : setResponse("Posting a job...");
       setPosting(true);
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/postjobrequest`,
@@ -52,6 +52,7 @@ import BotIcon from "../components/BotIcon";
             engineer: engineerInput,
             description: descriptionInput,
             duration: durationInput,
+            talentToHire: talentToHire,
           }),
           headers: {
             "Content-Type": "application/json",
@@ -75,17 +76,27 @@ import BotIcon from "../components/BotIcon";
         return;
       }
 
-
-   
-      setResponse("Job posted successfully! You will be contacted very soon.");
-      console.log("Job posted successfully! You will be contacted very soon.");
+      talentToHire
+        ? setResponse(
+            `Request to hire ${talentToHire} sent successfully. You will be contacted soon.`
+          )
+        : setResponse(
+            "Job posted successfully! You will be contacted very soon."
+          );
+      talentToHire
+        ? console.log(
+            `Request to hire ${talentToHire} sent successfully. You will be contacted soon.`
+          )
+        : console.log(
+            "Job posted successfully! You will be contacted very soon."
+          );
       console.log(data);
-      // nameRef.current.value = "";
-      // emailRef.current.value = "";
-      // durationRef.current.value = "";
-      // descriptionRef.current.value = "";
-      // engineerRef.current.value = "";
-
+      nameRef.current.value = "";
+      emailRef.current.value = "";
+      durationRef.current.value = "";
+      descriptionRef.current.value = "";
+      talentToHire ? "" : engineerRef.current.value = '';
+      setTalentToHire("");
       setPosting(false);
       // router.push("/take-a-test");
     } catch (error) {
@@ -108,7 +119,9 @@ import BotIcon from "../components/BotIcon";
 
       <div className="mb-5">
         <p className="font-semibold text-gray-700 md:text-xl">
-          Post your requirements and get a perfect fit
+          {talentToHire
+            ? `Submit a request to hire ${talentToHire}`
+            : "   Post your requirements and get a perfect fit"}
         </p>
       </div>
 
@@ -119,7 +132,7 @@ import BotIcon from "../components/BotIcon";
         <div className="mb-5">
           <div>
             <p className="text-xs mb-1 md:text-sm font-semibold text-gray-500">
-              Name
+              Your Name
             </p>
           </div>
           <div>
@@ -170,36 +183,57 @@ import BotIcon from "../components/BotIcon";
           </div>
         </div>
 
-        <div className="mb-5">
-          <div>
-            <p className="text-xs mb-1 md:text-sm font-semibold text-gray-500">
-              Type of Engineer
-            </p>
+        {talentToHire ? (
+          <div disabled className="mb-5 ">
+            <div>
+              <p className="text-xs mb-1 md:text-sm font-semibold text-gray-500">
+                Talent to Hire
+              </p>
+            </div>
+
+            <div>
+              <input
+                // ref={}
+                defaultValue={talentToHire}
+                className="w-full h-[2rem] text-sm focus:outline outline-1 outline-blue-900 rounded-lg px-3"
+                type="text"
+                name=""
+                id=""
+              />
+            </div>
           </div>
-          <div>
-            <select
-              ref={engineerRef}
-              className="w-full h-[2rem] text-sm   focus:outline outline-1 outline-blue-900 rounded-lg px-3"
-              type="text"
-              name=""
-              id=""
-            >
-              <option className="w-1/2 " value=""></option>
+        ) : (
+          <div className="mb-5">
+            <div>
+              <p className="text-xs mb-1 md:text-sm font-semibold text-gray-500">
+                Type of Engineer
+              </p>
+            </div>
+            <div>
+              <select
+                ref={engineerRef}
+                className="w-full h-[2rem] text-sm   focus:outline outline-1 outline-blue-900 rounded-lg px-3"
+                type="text"
+                name=""
+                id=""
+              >
+                <option className="w-1/2 " value=""></option>
 
-              <option className="w-1/2 " value="web">
-                Web Engineer
-              </option>
+                <option className="w-1/2 " value="web">
+                  Web Engineer
+                </option>
 
-              <option className="w-1/2 " value="web">
-                Mobile Engineer
-              </option>
+                <option className="w-1/2 " value="web">
+                  Mobile Engineer
+                </option>
 
-              <option className="w-1/2 " value="web">
-                Database Engineer
-              </option>
-            </select>
+                <option className="w-1/2 " value="web">
+                  Database Engineer
+                </option>
+              </select>
+            </div>
           </div>
-        </div>
+        )}
 
         <div className="mb-5">
           <div>
@@ -221,19 +255,21 @@ import BotIcon from "../components/BotIcon";
         </div>
 
         <div
-              className={`h-9 text-sm flex justify-center  ${
-                response.includes("successfully")
-                  ? "text-green-600"
-                  : "text-red-600"
-              }`}
-            >
-              <p>{response}</p>
-            </div>
+          className={`h-9 text-sm flex justify-center  ${
+            response.includes("successfully")
+              ? "text-green-600"
+              : "text-red-600"
+          }`}
+        >
+          <p>{response}</p>
+        </div>
 
-        <div className=" text-center font-bold">
+        <div className=" mt-3 text-center font-bold">
           <button
             type="submit"
-            className={`bg-pry-color ${posting ? 'bg-gray-400 pointer-events-none' : ''} text-white h-[2.5rem] w-full rounded-lg sm:text-lg hover:bg-opacity-80`}
+            className={`bg-pry-color ${
+              posting ? "bg-gray-400 pointer-events-none" : ""
+            } text-white h-[2.5rem] w-full rounded-lg sm:text-lg hover:bg-opacity-80`}
           >
             Submit Requirement
           </button>

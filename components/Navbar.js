@@ -10,10 +10,12 @@ import { MdExpandMore } from "react-icons/md";
 import MobileNav from "./MobileNav";
 
 function Navbar() {
-  const { megaMenu, setMegaMenu, menuIsClicked, setMenuIsClicked } = AllCtx(); 
-
   const router = useRouter();
 
+  const { megaMenu, setMegaMenu, menuIsClicked, setMenuIsClicked } = AllCtx(); 
+
+
+ 
   // Hover functions here next
   const [homeHover, setHomeHover] = useState(true);
   const [aboutHover, setAboutHover] = useState(true);
