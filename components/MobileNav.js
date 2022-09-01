@@ -28,7 +28,7 @@ function MobileNav() {
 
   return (
     <div
-      className={`md:hidden duration-300 ${
+      className={`890:hidden duration-300 ${
         menuIsClicked ? "-translate-x-0 " : " -translate-x-full "
       } -my-4 w-full h-screen flex   fixed z-[10] overflow-y-hidden
 `}

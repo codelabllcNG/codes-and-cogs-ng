@@ -395,7 +395,7 @@ const {talentToHire, setTalentToHire}  = AllCtx();
               {" "}
               <div className="h-[1rem] 400:h-[1.5rem]  w-[60%] 400:w-[40%]  rounded-md flex justify-center items-center bg-pry-color text-white text-xs   pt-[0.6rem] pb-[0.6rem]">
                 {" "}
-                <p className="text-[0.6rem] 400:text-xs  ">
+                <p className="text-[0.6rem] 400:text-[0.65rem]  ">
                   FEATURED PROJECTS
                 </p>{" "}
               </div>{" "}

@@ -19,15 +19,15 @@ function MegaMenu() {
       onMouseLeave={() => {
         setMegaMenu(false);
       }}
-      className="hidden  z-[10] absolute w-auto  md:flex  text-xs font-semibold text-blue-900 rounded-lg bg-white shadow-md  top-[5rem]  ml-[10%] 900:ml-[15%] 1000:ml-[20%] 1130:ml-[25%] 1200:ml-[30%]  "
-    >
+      className="hidden  z-[10] absolute w-auto  890:flex  text-xs font-semibold text-blue-900 rounded-lg bg-white shadow-md  top-[6rem]  ml-[15%] 900:ml-[17%] 1000:ml-[20%] 1130:ml-[25%] 1200:ml-[30%]  "
+    > 
       <div className="w-[30%] space-y-5 p-5 font-bold">
         <div>
           <p className="select-none text-gray-700  ">Services</p>
-        </div>
+        </div> 
         <div
           onClick={() => {
-            setMegaMenuTab(true, false);
+            setMegaMenuTab(true, false); 
           }}
         >
           <p
