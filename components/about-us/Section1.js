@@ -1,8 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import BotIcon from "../BotIcon";
+import { useRouter } from "next/router";
+
 
 function Section1(props) {
+const router = useRouter();
+
   const {
     aboutTitle,
     aboutBody,

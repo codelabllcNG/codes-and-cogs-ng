@@ -2,7 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import AllCtx from "../../util-functions/allCtx";
 import Image from "next/image";
 import BotIcon from "../BotIcon";
+
 import { TRUSTED } from "../../a-store/content-store/TRUSTED";
+import Link from "next/link";
 
 function Section5(props) {
   const { setSectionFiveHeight, sectionFiveHeight } = AllCtx();
@@ -127,9 +129,11 @@ function Section5(props) {
           </div>
 
           <div className="flex justify-center sm:mb-3">
-            <button className="text-pry-color text-xs sm:text-base bg-white sm:px-6 px-3  py-2 sm:py-3 rounded-md font-semibold">
+          <Link passHref href="tel:+12407342589">
+          <a  className="text-pry-color text-xs sm:text-base bg-white sm:px-6 px-3  py-2 sm:py-3 rounded-md font-semibold">
               Talk to a Project Engineer
-            </button>
+            </a>
+          </Link>
           </div>
         </div>
       </div>
