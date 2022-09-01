@@ -114,7 +114,9 @@ function Section1(props) {
           </div>
         </div>
       </div>
-      <div className="flex justify-center">
+      <div     onClick={() => {
+                  router.push("/what-we-do");
+                }} className="flex justify-center">
         <button className="px-3 py-2 rounded-md ring-2 hover:ring-pry-color ring-pry-color ring-opacity-50 bg-mid-color text-pry-color font-semibold text-sm ">
           Want to know more?
         </button>

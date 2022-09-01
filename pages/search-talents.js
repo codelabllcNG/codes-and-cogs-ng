@@ -315,7 +315,7 @@ export async function getStaticProps() {
 
   const designersArray = data.designers;
   const developersArray = data.developers;
-  const engineersArray = data.engineers;
+  const engineersArray = data.engineers; 
 
   return {
     props: {

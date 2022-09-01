@@ -118,7 +118,7 @@ function PostAJob() {
       </Head>
 
       <div className="mb-5">
-        <p className="font-semibold text-gray-700 md:text-xl">
+        <p className="font-semibold text-gray-700 text-xl font-larken md:text-xl">
           {talentToHire
             ? `Submit a request to hire ${talentToHire}`
             : "   Post your requirements and get a perfect fit"}
@@ -271,7 +271,7 @@ function PostAJob() {
               posting ? "bg-gray-400 pointer-events-none" : ""
             } text-white h-[2.5rem] w-full rounded-lg sm:text-lg hover:bg-opacity-80`}
           >
-            Submit Requirement
+            {talentToHire ? "Hire Talent" : "Submit Requirement"}
           </button>
         </div>
       </form>
