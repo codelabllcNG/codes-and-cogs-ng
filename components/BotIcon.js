@@ -3,7 +3,7 @@ import Image from "next/image";
 
 function BotIcon() {
   return (
-    <div className="hidden md:flex items-center  mb-16">
+    <div className="hidden  items-center  mb-16">
       {" "}
       <Image
         src="/images/logos-and-icons/bot.png"

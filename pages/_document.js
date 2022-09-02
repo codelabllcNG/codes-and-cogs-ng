@@ -5,6 +5,9 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head />
+      
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/22619367.js"></script>
+
         <body>
           <Main />
           <NextScript />
@@ -15,3 +18,4 @@ class MyDocument extends Document {
 }
 
 export default MyDocument;
+ 

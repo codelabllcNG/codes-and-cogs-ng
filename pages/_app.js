@@ -17,6 +17,7 @@ function MyApp({ Component, pageProps }) {
 
   return <Fragment >
     <AllContextProvider>
+      
       <Navbar />
      <Component {...pageProps} />
     </AllContextProvider>
