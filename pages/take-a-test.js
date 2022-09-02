@@ -78,9 +78,9 @@ function TakeATest() {
         setTimeUp(true);
         setCountDownTimer("TIME OUT");
         console.log("TIME OUT SUBMITTED! ", submitted);
-        // setShowConfirmBox(true);
-      //  if(!submitted) { handleSubmit()}
-        return
+        setShowConfirmBox(true);
+       if(!submitted) { handleSubmit()}
+        return 
       }
     }, 1000);
     return ()=> clearInterval(countDownTime)

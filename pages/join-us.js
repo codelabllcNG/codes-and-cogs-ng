@@ -106,7 +106,7 @@ function JoinUS(props) {
 
         return;
       }
-
+ 
       if (!response.ok) {
         setResponse("Something went wrong, retry!");
         console.log(data);
@@ -116,7 +116,7 @@ function JoinUS(props) {
       }
 
       setTestData(data);
-      setExpiryTime(new Date().setMinutes(new Date().getMinutes() + 1))
+      setExpiryTime(new Date(`${data.expireTime}`))
       setResponse("Test questions fetched successfully!");
       console.log("Test questions fetched successfully!");
       // console.log(data);
