@@ -400,7 +400,7 @@ function TakeATest() {
       ) : (
         <div className="text-xl text-center px-5 md:px-10">
           <p>
-            You must submit your details before taking a test. Click{" "}
+            You have previously taken a test or you are yet to apply for a test. Click{" "}
             <span
               className="text-blue-700 underline cursor-pointer"
               onClick={() => {

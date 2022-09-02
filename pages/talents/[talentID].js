@@ -3,11 +3,15 @@ import Image from "next/image";
 import Loading from "../../components/Loading";
 import AllCtx from "../../util-functions/allCtx";
 import { useRouter } from "next/router";
-
+import { MdFavorite, MdOutlineSkateboarding } from "react-icons/md";
+import { FaBookReader, FaHiking } from "react-icons/fa";
+import { IoFootballOutline, IoGameControllerSharp } from "react-icons/io5";
+import { GiLoveSong } from "react-icons/gi";
+import { SiYourtraveldottv } from "react-icons/si";
 function TalentID(props) {
   const router = useRouter();
 
-const {talentToHire, setTalentToHire}  = AllCtx();
+  const { talentToHire, setTalentToHire, setIdOfTalentToHire } = AllCtx();
 
   if (router.isFallback) {
     return <Loading />;
@@ -55,11 +59,18 @@ const {talentToHire, setTalentToHire}  = AllCtx();
                 className="prose text-xs 400:text-sm "
               >
                 {}
-              </div> <div onClick={() => {
-                setTalentToHire(selectedTalent.name)
-                router.push('/post-a-job')
-              }} className='flex justify-end'>
-              <button className='px-1 mt-1 text-sm font-semibold ring-pry-color hover:ring-[1px]'>Hire Talent</button>
+              </div>{" "}
+              <div
+                onClick={() => {
+                  setTalentToHire(selectedTalent.name);
+                  setIdOfTalentToHire(selectedTalent.id);
+                  router.push("/post-a-job");
+                }}
+                className="flex justify-end"
+              >
+                <button className="px-1 mt-1 text-sm font-semibold ring-pry-color hover:ring-[1px]">
+                  Hire Talent
+                </button>
               </div>
             </div>{" "}
             <div className=" float-right">
@@ -74,81 +85,104 @@ const {talentToHire, setTalentToHire}  = AllCtx();
           </div>
 
           {/* LANGUAGES  */}
-          <div className="rounded-xl bg-semi-sec-color py-4 mb-4 ">
-            <div className="pl-4">
-              <p className="font-bold text-pry-color mb-2">Languages</p>
-              {selectedTalent.languages.map((language) => (
-                <div key={language.name} className="flex items-center">
-                  <p className="w-[70px] font-semibold">{language.name}</p>{" "}
-                  <div className="flex space-x-2">
-                    {" "}
-                    {language.rating == 1 &&
-                      oneRating.map((value, i) => (
-                        <div
-                          key={i}
-                          className={`w-3 h-3 rounded-full flex bg-gray-500`}
-                        ></div>
-                      ))}
-                    {language.rating == 2 &&
-                      twoRating.map((value) => (
-                        <div
-                          key={value}
-                          className={`w-3 h-3 rounded-full flex bg-gray-500`}
-                        ></div>
-                      ))}
-                    {language.rating == 3 &&
-                      threeRating.map((value) => (
-                        <div
-                          key={value}
-                          className={`w-3 h-3 rounded-full flex bg-gray-500`}
-                        ></div>
-                      ))}
-                    {language.rating == 4 &&
-                      fourRating.map((value) => (
-                        <div
-                          key={value}
-                          className={`w-3 h-3 rounded-full flex bg-gray-500`}
-                        ></div>
-                      ))}
-                    {language.rating == 5 &&
-                      fiveRating.map((value) => (
-                        <div
-                          key={value}
-                          className={`w-3 h-3 rounded-full flex bg-gray-500`}
-                        ></div>
-                      ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* HOBBIES */}
-          <div className="rounded-xl bg-semi-sec-color mb-4 py-4 ">
-            <div className="pl-4">
-              <p className="font-bold text-pry-color mb-2">Hobbies</p>
-
-              <div className="flex  space-x-4  pr-5">
-                {selectedTalent.hobbies.map((hobby) => (
-                  <div key={hobby}>
-                    <div className="flex justify-center items-center  mb-2 ">
-                      <Image
-                        height={20}
-                        width={20}
-                        className="h-5 w-5"
-                        src="/images/logos-and-icons/soccer-hobby.png"
-                        alt=""
-                      />
-                    </div>
-                    <div className="flex justify-center items-center text-xs ">
+          {selectedTalent.languages && (
+            <div className="rounded-xl bg-semi-sec-color py-4 mb-4 ">
+              <div className="pl-4">
+                <p className="font-bold text-pry-color mb-2">Languages</p>
+                {selectedTalent.languages.map((language) => (
+                  <div key={language.name} className="flex items-center">
+                    <p className="w-[70px] font-semibold">{language.name}</p>{" "}
+                    <div className="flex space-x-2">
                       {" "}
-                      <p>{hobby.name}</p>{" "}
+                      {language.rating == 1 &&
+                        oneRating.map((value, i) => (
+                          <div
+                            key={i}
+                            className={`w-3 h-3 rounded-full flex bg-gray-500`}
+                          ></div>
+                        ))}
+                      {language.rating == 2 &&
+                        twoRating.map((value) => (
+                          <div
+                            key={value}
+                            className={`w-3 h-3 rounded-full flex bg-gray-500`}
+                          ></div>
+                        ))}
+                      {language.rating == 3 &&
+                        threeRating.map((value) => (
+                          <div
+                            key={value}
+                            className={`w-3 h-3 rounded-full flex bg-gray-500`}
+                          ></div>
+                        ))}
+                      {language.rating == 4 &&
+                        fourRating.map((value) => (
+                          <div
+                            key={value}
+                            className={`w-3 h-3 rounded-full flex bg-gray-500`}
+                          ></div>
+                        ))}
+                      {language.rating == 5 &&
+                        fiveRating.map((value) => (
+                          <div
+                            key={value}
+                            className={`w-3 h-3 rounded-full flex bg-gray-500`}
+                          ></div>
+                        ))}
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
+          )}
+
+          {/* HOBBIES */}
+          {selectedTalent.hobbies && (
+            <div className="rounded-xl bg-semi-sec-color mb-4 py-4 ">
+              <div className="pl-4">
+                <p className="font-bold text-pry-color mb-2">Hobbies</p>
+
+                <div className="flex  space-x-4  pr-5">
+                  {selectedTalent.hobbies.map((hobby) => (
+                    <div key={hobby}>
+                      <div className="flex justify-center items-center  mb-1 ">
+                        {/* <Image
+                        height={20}
+                        width={20}
+                        className="h-5 w-5"
+                        src="/images/logos-and-icons/soccer-hobby.png"
+                        alt=""
+                      /> */}
+                        {hobby.name.trim() === "Reading" ? (
+                          <FaBookReader className="w-[20px] h-[20px] text-pry-color " />
+                        ) : hobby.name.trim() === "Football" ? (
+                          <IoFootballOutline className="w-[20px] h-[20px] text-pry-color " />
+                        ) : hobby.name.trim() === "Singing" ? (
+                          <GiLoveSong className="w-[20px] h-[20px] text-pry-color " />
+                        ) : hobby.name.trim() === "Traveling" ? (
+                          <SiYourtraveldottv className="w-[20px] h-[20px] text-pry-color " />
+                        ) : hobby.name.trim() === "Gaming" ? (
+                          <IoGameControllerSharp className="w-[20px] h-[20px] text-pry-color " />
+                        ) : hobby.name.trim() === "Skating" ? (
+                          <MdOutlineSkateboarding className="w-[20px] h-[20px] text-pry-color " />
+                        ) : hobby.name.trim() === "Hiking" ? (
+                          <FaHiking className="w-[20px] h-[20px] text-pry-color " />
+                        ) : hobby.name.trim() === "Soccer" ? (
+                          <IoFootballOutline className="w-[20px] h-[20px] text-pry-color " />
+                        ) : (
+                          <MdFavorite className="w-[20px] h-[20px] text-pry-color " />
+                        )}
+                      </div>
+                      <div className="flex justify-center items-center text-xs ">
+                        {" "}
+                        <p>{hobby.name}</p>{" "}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* PROJECTS  */}
           <div className="rounded-xl bg-semi-sec-color py-4 ">
@@ -163,15 +197,17 @@ const {talentToHire, setTalentToHire}  = AllCtx();
                       <div className="flex justify-center items-center bg-white  h-10 w-10 rounded-full border-pry-color border-2 font-semibold">
                         {" "}
                         {project.value.includes("http") ? (
-                          <Image src={project.value} height="20" width="20" />
+                          (
+                            <Image src={project.value} height="20" width="20" />
+                          ) || "Nil"
                         ) : (
-                          <p>{project.value}</p>
+                          <p>{project.value || 0}</p>
                         )}
                       </div>
                     </div>
                     <div className="flex justify-center items-center text-xs text-pry-color font-semibold ">
                       {" "}
-                      <p>{project.status}</p>
+                      <p>{project.status || 0}</p>
                     </div>
                   </div>
                 ))}
@@ -205,7 +241,7 @@ const {talentToHire, setTalentToHire}  = AllCtx();
                         height={30}
                         width={30}
                         className="w-4 h-4  400:h-auto 400:w-auto"
-                        src={skill.icon}
+                        src={skill.icon || "/images/default-skill.png"}
                         alt=""
                       />{" "}
                     </div>
@@ -215,7 +251,7 @@ const {talentToHire, setTalentToHire}  = AllCtx();
                         height={20}
                         width={20}
                         className="w-4 h-4  400:h-auto 400:w-auto"
-                        src={skill.icon}
+                        src={skill.icon || "/images/default-skill.png"}
                         alt=""
                       />{" "}
                     </div>
@@ -285,147 +321,157 @@ const {talentToHire, setTalentToHire}  = AllCtx();
           </div>
 
           {/* OTHER SKILLS */}
-          <div className="mt-8">
-            <div className="flex items-center mb-4">
-              {" "}
-              <div
-                className="h-[1rem] w-[60%] 400:h-[1.5rem] 
-400:w-[40%] rounded-md flex justify-center items-center bg-pry-color text-white text-xs   pt-[0.6rem] pb-[0.6rem]"
-              >
+          {selectedTalent.otherSkills && (
+            <div className="mt-8">
+              <div className="flex items-center mb-4">
                 {" "}
-                <p className="text-[0.6rem] 400:text-xs">OTHER SKILLS</p>{" "}
-              </div>{" "}
-              <div className="h-[0.1rem] w-[70%] bg-pry-color "></div>{" "}
-            </div>
+                <div
+                  className="h-[1rem] w-[60%] 400:h-[1.5rem] 
+400:w-[40%] rounded-md flex justify-center items-center bg-pry-color text-white text-xs   pt-[0.6rem] pb-[0.6rem]"
+                >
+                  {" "}
+                  <p className="text-[0.6rem] 400:text-xs">OTHER SKILLS</p>{" "}
+                </div>{" "}
+                <div className="h-[0.1rem] w-[70%] bg-pry-color "></div>{" "}
+              </div>
 
-            <div className="grid grid-cols-5 gap-y-3  mt-3 ">
-              {selectedTalent.otherSkills.map((skill) => (
-                <div key={skill.id}>
-                  <div className="flex justify-center ">
-                    {" "}
-                    <div className="400:flex hidden border-pry-color border-2 justify-center items-center bg-white h-8 w-8 400:h-12 400:w-12 rounded-full">
+              <div className="grid grid-cols-5 gap-y-3  mt-3 ">
+                {selectedTalent.otherSkills.map((skill) => (
+                  <div key={skill.id}>
+                    <div className="flex justify-center ">
                       {" "}
-                      <Image
-                        height={30}
-                        width={30}
-                        className="w-4 h-4  400:h-auto 400:w-auto"
-                        src={skill.icon}
-                        alt=""
-                      />{" "}
+                      <div className="400:flex hidden border-pry-color border-2 justify-center items-center bg-white h-8 w-8 400:h-12 400:w-12 rounded-full">
+                        {" "}
+                        <Image
+                          height={30}
+                          width={30}
+                          className="w-4 h-4  400:h-auto 400:w-auto"
+                          src={skill.icon || "/images/default-skill.png"}
+                          alt=""
+                        />{" "}
+                      </div>
+                      <div className="flex 400:hidden border-pry-color border-2 justify-center items-center bg-white h-8 w-8 400:h-12 400:w-12 rounded-full">
+                        {" "}
+                        <Image
+                          height={20}
+                          width={20}
+                          className="w-4 h-4  400:h-auto 400:w-auto"
+                          src={skill.icon || "/images/default-skill.png"}
+                          alt=""
+                        />{" "}
+                      </div>
                     </div>
-                    <div className="flex 400:hidden border-pry-color border-2 justify-center items-center bg-white h-8 w-8 400:h-12 400:w-12 rounded-full">
-                      {" "}
-                      <Image
-                        height={20}
-                        width={20}
-                        className="w-4 h-4  400:h-auto 400:w-auto"
-                        src={skill.icon}
-                        alt=""
-                      />{" "}
+                    <div className="flex justify-center items-center text-center text-[0.5rem] font-semibold 400:font-normal 400:text-xs">
+                      <p>{skill.name}</p>
+                    </div>
+
+                    <div className="flex justify-center">
+                      {skill.rating == 1 &&
+                        oneRating.map((star, i) => (
+                          <div key={i}>
+                            <Image
+                              src="/images/logos-and-icons/star.png"
+                              height="10"
+                              width="10"
+                            />
+                          </div>
+                        ))}
+
+                      {skill.rating == 2 &&
+                        twoRating.map((star, i) => (
+                          <div key={i}>
+                            <Image
+                              src="/images/logos-and-icons/star.png"
+                              height="10"
+                              width="10"
+                            />
+                          </div>
+                        ))}
+
+                      {skill.rating == 3 &&
+                        threeRating.map((star, i) => (
+                          <div key={i}>
+                            <Image
+                              src="/images/logos-and-icons/star.png"
+                              height="10"
+                              width="10"
+                            />
+                          </div>
+                        ))}
+
+                      {skill.rating == 4 &&
+                        fourRating.map((star, i) => (
+                          <div key={i}>
+                            <Image
+                              src="/images/logos-and-icons/star.png"
+                              height="10"
+                              width="10"
+                            />
+                          </div>
+                        ))}
+
+                      {skill.rating == 5 &&
+                        fiveRating.map((star, i) => (
+                          <div key={i}>
+                            <Image
+                              src="/images/logos-and-icons/star.png"
+                              height="10"
+                              width="10"
+                            />
+                          </div>
+                        ))}
                     </div>
                   </div>
-                  <div className="flex justify-center items-center text-center text-[0.5rem] font-semibold 400:font-normal 400:text-xs">
-                    <p>{skill.name}</p>
-                  </div>
-
-                  <div className="flex justify-center">
-                    {skill.rating == 1 &&
-                      oneRating.map((star, i) => (
-                        <div key={i}>
-                          <Image
-                            src="/images/logos-and-icons/star.png"
-                            height="10"
-                            width="10"
-                          />
-                        </div>
-                      ))}
-
-                    {skill.rating == 2 &&
-                      twoRating.map((star, i) => (
-                        <div key={i}>
-                          <Image
-                            src="/images/logos-and-icons/star.png"
-                            height="10"
-                            width="10"
-                          />
-                        </div>
-                      ))}
-
-                    {skill.rating == 3 &&
-                      threeRating.map((star, i) => (
-                        <div key={i}>
-                          <Image
-                            src="/images/logos-and-icons/star.png"
-                            height="10"
-                            width="10"
-                          />
-                        </div>
-                      ))}
-
-                    {skill.rating == 4 &&
-                      fourRating.map((star, i) => (
-                        <div key={i}>
-                          <Image
-                            src="/images/logos-and-icons/star.png"
-                            height="10"
-                            width="10"
-                          />
-                        </div>
-                      ))}
-
-                    {skill.rating == 5 &&
-                      fiveRating.map((star, i) => (
-                        <div key={i}>
-                          <Image
-                            src="/images/logos-and-icons/star.png"
-                            height="10"
-                            width="10"
-                          />
-                        </div>
-                      ))}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* FEATURED PROJECTS */}
-          <div className="mt-8">
-            <div className="flex items-center mb-4">
-              {" "}
-              <div className="h-[1rem] 400:h-[1.5rem]  w-[60%] 400:w-[40%]  rounded-md flex justify-center items-center bg-pry-color text-white text-xs   pt-[0.6rem] pb-[0.6rem]">
+          {selectedTalent.featuredProjects && (
+            <div className="mt-8">
+              <div className="flex items-center mb-4">
                 {" "}
-                <p className="text-[0.6rem] 400:text-[0.65rem]  ">
-                  FEATURED PROJECTS
-                </p>{" "}
-              </div>{" "}
-              <div className="h-[0.1rem] w-[70%] bg-pry-color "></div>{" "}
-            </div>
+                <div className="h-[1rem] 400:h-[1.5rem]  w-[60%] 400:w-[40%]  rounded-md flex justify-center items-center bg-pry-color text-white text-xs   pt-[0.6rem] pb-[0.6rem]">
+                  {" "}
+                  <p className="text-[0.6rem] 400:text-[0.65rem]  ">
+                    FEATURED PROJECTS
+                  </p>{" "}
+                </div>{" "}
+                <div className="h-[0.1rem] w-[70%] bg-pry-color "></div>{" "}
+              </div>
 
-            <div>
-              {selectedTalent.featuredProjects.map((featuredProject) => (
-                <div key={featuredProject.projectUrl} className="mb-5">
-                  <div>
-                    <p className="font-semibold text-gray-700">
-                      - {featuredProject.title}
-                    </p>
+              <div>
+                {selectedTalent.featuredProjects.map((featuredProject) => (
+                  <div key={featuredProject.projectUrl} className="mb-5">
+                    <div>
+                      <p className="font-semibold text-gray-700">
+                        - {featuredProject.title}
+                      </p>
+                    </div>
+                    <div>
+                      <a href={featuredProject.projectUrl}>Link</a>
+                    </div>
                   </div>
-                  <div>
-                    <a href={featuredProject.projectUrl}>Link</a>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
 
       <div className=" mt-5 flex justify-center  ">
         <div className=" rounded-md w-[80%] md:w-[50%] flex justify-center bg-pry-color py-3 text-white 400:text-lg 400:font-semibold hover:shadow-lg cursor-pointer">
-          <button onClick={() => {
-                setTalentToHire(selectedTalent.name)
-                router.push('/post-a-job')
-              }}>Hire Talent</button>
+          <button
+            onClick={() => {
+              setTalentToHire(selectedTalent.name);
+              setIdOfTalentToHire(selectedTalent.id);
+
+              router.push("/post-a-job");
+            }}
+          >
+            Hire Talent
+          </button>
         </div>
       </div>
     </div>
@@ -461,7 +507,7 @@ export async function getStaticProps(context) {
       talentID,
       selectedTalent,
     },
-    revalidate: 300
+    revalidate: 300,
   };
 }
 

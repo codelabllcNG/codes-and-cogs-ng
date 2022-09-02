@@ -3,7 +3,12 @@ import React, { useRef, useState } from "react";
 import BotIcon from "../components/BotIcon";
 import AllCtx from "../util-functions/allCtx";
 function PostAJob() {
-  const { talentToHire, setTalentToHire } = AllCtx();
+  const {
+    talentToHire,
+    setTalentToHire,
+    idOfTalentToHire,
+    setIdOfTalentToHire,
+  } = AllCtx();
 
   const [posting, setPosting] = useState(false);
   const [response, setResponse] = useState("");
@@ -52,7 +57,7 @@ function PostAJob() {
             engineer: engineerInput,
             description: descriptionInput,
             duration: durationInput,
-            talentToHire: talentToHire,
+            talentToHire: idOfTalentToHire,
           }),
           headers: {
             "Content-Type": "application/json",
@@ -95,8 +100,9 @@ function PostAJob() {
       emailRef.current.value = "";
       durationRef.current.value = "";
       descriptionRef.current.value = "";
-      talentToHire ? "" : engineerRef.current.value = '';
+      talentToHire ? "" : (engineerRef.current.value = "");
       setTalentToHire("");
+      setIdOfTalentToHire("");
       setPosting(false);
       // router.push("/take-a-test");
     } catch (error) {
