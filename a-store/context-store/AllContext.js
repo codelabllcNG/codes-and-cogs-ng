@@ -32,6 +32,11 @@ export function AllContextProvider(props) {
   const [countDownTimer, setTheCountDownTimer] = useState("__ : __ : __");
   const [expiryTime, setTheExpiryTime] = useState("");
 
+  const [demoTestData, setTheDemoTestData] = useState();
+  const [demoCountDownTimer, setTheDemoCountDownTimer] =
+    useState("__ : __ : __");
+  const [demoExpiryTime, setTheDemoExpiryTime] = useState("");
+
   const [talentToHire, setTheTalentToHire] = useState("");
   const [idOfTalentToHire, setTheIdOfTalentToHire] = useState("");
 
@@ -39,7 +44,11 @@ export function AllContextProvider(props) {
   const prodUrl = "https://dev.codesandcogs.com";
 
   const context = {
-    menuIsClicked, idOfTalentToHire,
+    menuIsClicked,
+    idOfTalentToHire,
+    demoTestData,
+    demoCountDownTimer,
+    demoExpiryTime,
     talentToHire,
     countDownTimer,
     expiryTime,
@@ -66,7 +75,7 @@ export function AllContextProvider(props) {
     searchingSkills,
     talentsFound,
 
-    setTestData,
+    setTestData, setDemoTestData, setDemoExpiryTime, setDemoCountDownTimer,
     setIdOfTalentToHire,
     setExpiryTime,
     setCountDownTimer,
@@ -92,6 +101,18 @@ export function AllContextProvider(props) {
   );
 
   // functions below
+
+  function setDemoTestData(value) {
+    setTheDemoTestData(value)
+  }
+
+  function setDemoExpiryTime(value) {
+    setTheDemoExpiryTime(value)
+  }
+
+  function setDemoCountDownTimer(value) {
+    setTheDemoCountDownTimer(value)
+  }
 
   function setTalentToHire(value) {
     setTheTalentToHire(value);

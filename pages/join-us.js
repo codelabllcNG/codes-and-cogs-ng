@@ -116,7 +116,7 @@ function JoinUS(props) {
       }
 
       setTestData(data);
-      setExpiryTime(new Date(`${data.expireTime}`))
+      setExpiryTime(new Date(`${data.expireTime}`).setMinutes(new Date(`${data.expireTime}`).getMinutes() - 1))
       setResponse("Test questions fetched successfully!");
       console.log("Test questions fetched successfully!");
       // console.log(data);
@@ -135,6 +135,67 @@ function JoinUS(props) {
       setFetchingQuestions(false);
     }
   }
+
+  // async function takeDemoTest() {
+  //   try {
+   
+  //     setResponse("Fetching questions...");
+  //     setFetchingQuestions(true);
+  //     const response = await fetch(
+  //       `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/getquestions`,
+  //       {
+  //         method: "POST",
+  //         body: JSON.stringify({
+  //           name: nameInput,
+  //           email: emailInput,
+  //           phone: phoneInput,
+  //           category: categoryInput,
+  //           role: roleInput,
+  //         }),
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //       }
+  //     );
+
+  //     const data = await response.json();
+
+  //     if (data.status === "error") {
+  //       setResponse(data.message);
+  //       console.log(data.message);
+  //       setFetchingQuestions(false);
+
+  //       return;
+  //     }
+ 
+  //     if (!response.ok) {
+  //       setResponse("Something went wrong, retry!");
+  //       console.log(data);
+  //       setFetchingQuestions(false);
+
+  //       return;
+  //     }
+
+  //     setTestData(data);
+  //     setExpiryTime(new Date(`${data.expireTime}`).setMinutes(new Date(`${data.expireTime}`).getMinutes() - 1))
+  //     setResponse("Test questions fetched successfully!");
+  //     console.log("Test questions fetched successfully!");
+  //     // console.log(data);
+  //     // nameRef.current.value = "";
+  //     // emailRef.current.value = "";
+  //     // phoneRef.current.value = "";
+  //     // categoryRef.current.value = "";
+  //     // roleRef.current.value = "";
+
+  //     setFetchingQuestions(false);
+
+  //     router.push("/take-a-test");
+  //   } catch (error) {
+  //     console.log(error);
+  //     setResponse("Error, failed to apply for test.");
+  //     setFetchingQuestions(false);
+  //   }
+  // }
 
   return (
     <div>
