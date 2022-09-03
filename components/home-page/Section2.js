@@ -60,9 +60,9 @@ const { skillsArray,
           </div>
         </div>
       </div>
-      <div className="md:flex md:justify-center mb-8">
+      {/* <div className="md:flex md:justify-center mb-8">
         <p>{skillsSubtitle}</p>
-      </div>
+      </div> */}
 
       <div className="1000:flex justify-between hidden mb-20 ">
         {/* First Column  */}

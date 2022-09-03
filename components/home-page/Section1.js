@@ -128,7 +128,7 @@ function Section1(props) {
       <section
         id="section1"
         ref={divHeightRef}
-        className=" pb-8 mb-10     md:ml-8"
+        className=" md:pb-8 md:mb-10     md:ml-8"
       >
         <div className="md:w-[70%] mt-4">
           <h1 className="font-semibold text-pry-color font-larken md:text-[#07222E] md:leading-[5rem] md:text-6xl   text-[1.7rem] 400:text-2xl 400:leading-[2.2rem] ">
@@ -179,13 +179,13 @@ function Section1(props) {
           </p>
         </div>
         <div
-          className={`flex px-6 mb-20 justify-center h-5 my-3 ${
+          className={`flex px-6 mb-5 justify-center h-5 my-3 ${
             searchResponse.includes("Success")
               ? "text-green-600"
               : "text-red-600"
           } text-sm`}
         >
-          <p>{searchResponse}</p>
+          <p className="font-semibold">{searchResponse}</p>
         </div>
 
         <BotIcon />
