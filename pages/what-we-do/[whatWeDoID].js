@@ -40,6 +40,7 @@ function WhatWeDoID(props) {
           charset="utf-8"
           type="text/javascript"
           src="//js.hsforms.net/forms/v2.js?pre=1"
+          id = "#hi"
           dangerouslySetInnerHTML={{
             __html:   
    hbspt.forms.create({
@@ -47,7 +48,7 @@ function WhatWeDoID(props) {
       portalId: "22606943",
       formId: "28241b1b-34b7-449d-9b15-85a2367d0a76",
       target: "#hi",
-      id: "#hi",
+     
     }),
           }}
         />}
