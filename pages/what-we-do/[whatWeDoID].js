@@ -4,11 +4,12 @@ import Loading from "../../components/Loading";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Script from "next/script";
+// import HubspotForm from 'react-hubspot-form'
+
 
 function WhatWeDoID(props) {
   const router = useRouter();
 
-  const [pageLoaded, setPageLoaded] = useState(false);
 
   const { selectedWhatWeDo } = props;
 
@@ -16,11 +17,35 @@ function WhatWeDoID(props) {
     return <Loading />;
   }
 
-  //   useEffect(() => {
-  //     const script = document.createElement('script')
-  //     script.src = '//js.hsforms.net/forms/v2.js?pre=1'
-  //     setPageLoaded(true)
-  // }, [pageLoaded])
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "//js.hsforms.net/forms/v2.js?pre=1";
+    document.body.appendChild(script);
+
+    script.addEventListener("load", () => {
+      if (window.hbspt) {
+        window.hbspt.forms.create({
+          region: "na1",
+          portalId: "22606943",
+          formId: "28241b1b-34b7-449d-9b15-85a2367d0a76",
+          target: "#wwd-form",
+        });
+      }
+    });
+
+    return () => {
+      script.removeEventListener('load', () => {
+        if (window.hbspt) {
+          window.hbspt.forms.create({
+            region: "na1",
+            portalId: "22606943",
+            formId: "28241b1b-34b7-449d-9b15-85a2367d0a76",
+            target: "#wwd-form",
+          });
+        }
+      })
+   };
+  }, []);
 
   return (
     <div className="px-5 lg:px-16 md:px-10 ">
@@ -32,27 +57,23 @@ function WhatWeDoID(props) {
           rel="canonical"
           href={`${process.env.NEXT_PUBLIC_devUrl}/what-we-do/${selectedWhatWeDo.id}`}
         />
-
-     
       </Head>
-
-  {  <Script
-          charset="utf-8"
-          type="text/javascript"
-          src="//js.hsforms.net/forms/v2.js?pre=1"
-          id = "#hi"
-          dangerouslySetInnerHTML={{
-            __html:   
-   hbspt.forms.create({
-      region: "na1",
-      portalId: "22606943",
-      formId: "28241b1b-34b7-449d-9b15-85a2367d0a76",
-      target: "#hi",
-     
-    }),
-          }}
-        />}
-        {/* {}
+       
+      {/* <Script
+        charset="utf-8"
+        type="text/javascript"
+        src="//js.hsforms.net/forms/v2.js?pre=1"
+        id="#hi"
+        dangerouslySetInnerHTML={{
+          __html: hbspt.forms.create({
+            region: "na1",
+            portalId: "22606943",
+            formId: "28241b1b-34b7-449d-9b15-85a2367d0a76",
+            target: "#hi",
+          }),
+        }}
+      />  */}
+      {/* {}
       </Script> */}
 
       <div className="flex  justify-center md:text-center md:mb-2">
@@ -92,7 +113,17 @@ function WhatWeDoID(props) {
         </div>
       </div>
 
-      <div id="hi"></div>
+      <div className=' mt-5 lg:mt-20 '>
+        <div className=' flex justify-center '>
+         <p className='md:w-[70%] text-pry-color font-semibold 400:text-2xl '> Reach out to us below! </p>
+        </div>
+      <div className='flex justify-center mt-5  '>
+        
+        <div id="wwd-form" className='w-full md:w-[70%]'>
+      
+      </div> 
+        </div>
+    </div>
     </div>
   );
 }
