@@ -33,18 +33,18 @@ function WhatWeDoID(props) {
       }
     });
 
-    return () => {
-      script.removeEventListener('load', () => {
-        if (window.hbspt) {
-          window.hbspt.forms.create({
-            region: "na1",
-            portalId: "22606943",
-            formId: "28241b1b-34b7-449d-9b15-85a2367d0a76",
-            target: "#wwd-form",
-          });
-        }
-      })
-   };
+  //   return () => {
+  //     script.removeEventListener('load', () => {
+  //       if (window.hbspt) {
+  //         window.hbspt.forms.create({
+  //           region: "na1",
+  //           portalId: "22606943",
+  //           formId: "28241b1b-34b7-449d-9b15-85a2367d0a76",
+  //           target: "#wwd-form",
+  //         });
+  //       }
+  //     })
+  //  };
   }, []);
 
   return (
