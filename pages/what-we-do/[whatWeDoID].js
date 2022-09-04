@@ -1,21 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Loading from "../../components/Loading";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import Script from "next/script";
 
 function WhatWeDoID(props) {
   const router = useRouter();
+
+  const [pageLoaded, setPageLoaded] = useState(false);
+
   const { selectedWhatWeDo } = props;
 
   if (router.isFallback) {
     return <Loading />;
   }
 
+  //   useEffect(() => {
+  //     const script = document.createElement('script')
+  //     script.src = '//js.hsforms.net/forms/v2.js?pre=1'
+  //     setPageLoaded(true)
+  // }, [pageLoaded])
+
   return (
     <div className="px-5 lg:px-16 md:px-10 ">
-
-<Head>
+      <Head>
         <title>{selectedWhatWeDo.name}</title>
         <meta name="description" content={selectedWhatWeDo.name} />
         <link rel="icon" href="/favicon.ico" />
@@ -23,8 +32,26 @@ function WhatWeDoID(props) {
           rel="canonical"
           href={`${process.env.NEXT_PUBLIC_devUrl}/what-we-do/${selectedWhatWeDo.id}`}
         />
+
+     
       </Head>
 
+      <Script
+          charset="utf-8"
+          type="text/javascript"
+          src="//js.hsforms.net/forms/v2.js?pre=1"
+          dangerouslySetInnerHTML={{
+            __html:   
+   hbspt.forms.create({
+      region: "na1",
+      portalId: "22606943",
+      formId: "28241b1b-34b7-449d-9b15-85a2367d0a76",
+      target: "#hi",
+    }),
+          }}
+        />
+        {/* {}
+      </Script> */}
 
       <div className="flex  justify-center md:text-center md:mb-2">
         <h2 className="font-bold text-xs 400:text-xl  md:text-5xl">
@@ -43,20 +70,27 @@ function WhatWeDoID(props) {
 
       <div className="  justify-between md: ">
         <div className="w-[40%]  md:mr-8 float-left h-full hidden md:flex">
-          <Image className='rounded-lg' src={selectedWhatWeDo.imageUrl} width={500} height={400} />{" "}
+          <Image
+            className="rounded-lg"
+            src={selectedWhatWeDo.imageUrl}
+            width={500}
+            height={400}
+          />{" "}
         </div>
         <div className="w-[100%] mb-5 flex justify-center md:hidden">
           <Image src={selectedWhatWeDo.imageUrl} width={400} height={300} />{" "}
         </div>
-        <div className=' w-full   '>
+        <div className=" w-full   ">
           <p
             className="prose-h1:text-3xl prose-h1:font-bold max-w-none text-justify md:text-lg md:leading-10 leading-relaxed"
             dangerouslySetInnerHTML={{ __html: selectedWhatWeDo.content }}
           >
-            {} 
+            {}
           </p>
         </div>
       </div>
+
+      <div id="hi"></div>
     </div>
   );
 }
@@ -67,7 +101,10 @@ export async function getStaticProps(context) {
     `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/whatwedo`
   );
   const data = await response.json();
-  const whatWeDoArray = [...data.enterprize_services, ...data.solution_as_services]
+  const whatWeDoArray = [
+    ...data.enterprize_services,
+    ...data.solution_as_services,
+  ];
 
   function whatWiDoFinder() {
     return whatWeDoArray.find((whatWeDo) => whatWeDo.id === whatWeDoID);
@@ -96,7 +133,10 @@ export async function getStaticPaths() {
   );
   const data = await response.json();
 
-  const whatWeDoArray = [...data.enterprize_services, ...data.solution_as_services]
+  const whatWeDoArray = [
+    ...data.enterprize_services,
+    ...data.solution_as_services,
+  ];
 
   const whatWeDoPaths = whatWeDoArray.map((whatWeDo) => whatWeDo.id);
 
