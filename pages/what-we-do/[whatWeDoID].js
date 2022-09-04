@@ -13,11 +13,7 @@ function WhatWeDoID(props) {
 
   const { selectedWhatWeDo } = props;
 
-  if (router.isFallback) {
-    return <Loading />;
-  }
-
-  useEffect(() => {
+    useEffect(() => {
     const script = document.createElement("script");
     script.src = "//js.hsforms.net/forms/v2.js?pre=1";
     document.body.appendChild(script);
@@ -33,19 +29,25 @@ function WhatWeDoID(props) {
       }
     });
 
-  //   return () => {
-  //     script.removeEventListener('load', () => {
-  //       if (window.hbspt) {
-  //         window.hbspt.forms.create({
-  //           region: "na1",
-  //           portalId: "22606943",
-  //           formId: "28241b1b-34b7-449d-9b15-85a2367d0a76",
-  //           target: "#wwd-form",
-  //         });
-  //       }
-  //     })
-  //  };
+    return () => {
+      script.removeEventListener('load', () => {
+        if (window.hbspt) {
+          window.hbspt.forms.create({
+            region: "na1",
+            portalId: "22606943",
+            formId: "28241b1b-34b7-449d-9b15-85a2367d0a76",
+            target: "#wwd-form",
+          });
+        }
+      })
+   };
   }, []);
+
+  if (router.isFallback) {
+    return <Loading />;
+  }
+
+
 
   return (
     <div className="px-5 lg:px-16 md:px-10 ">
