@@ -17,7 +17,8 @@ const nextConfig = {
   },
 
   images: {
-    domains: ['dev.codesandcogs.com'],
+    // domains: ['dev.codesandcogs.com'],
+    domains: ['orgsapi.com'],
   },
 
 

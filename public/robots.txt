@@ -14,4 +14,4 @@ Host: https://codes-and-cogs.com
 
 # Sitemaps
 Sitemap: https://codes-and-cogs.com/sitemap.xml
-Sitemap: https://www.codes-and-cogs.com/server-sitemap.xml
+Sitemap: https://www.codesandcogs.com/server-sitemap.xml
