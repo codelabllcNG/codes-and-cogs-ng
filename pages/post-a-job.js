@@ -48,7 +48,7 @@ function PostAJob() {
         : setResponse("Posting a job...");
       setPosting(true);
       const response = await fetch(
-        `${NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/postjobrequest`,
+        `${process.env.NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/postjobrequest`,
         {
           method: "POST",
           body: JSON.stringify({

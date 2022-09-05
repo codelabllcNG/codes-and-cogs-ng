@@ -57,7 +57,7 @@ function WhatWeDoID(props) {
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="canonical"
-          href={`${NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/what-we-do/${selectedWhatWeDo.id}`}
+          href={`${process.env.NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/what-we-do/${selectedWhatWeDo.id}`}
         />
       </Head>
        
@@ -129,7 +129,7 @@ function WhatWeDoID(props) {
 export async function getStaticProps(context) {
   const whatWeDoID = context.params.whatWeDoID;
   const response = await fetch(
-    `${NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/whatwedo`
+    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/whatwedo`
   );
   const data = await response.json();
   const whatWeDoArray = [
@@ -160,7 +160,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   const response = await fetch(
-    `${NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/whatwedo`
+    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/whatwedo`
   );
   const data = await response.json();
 
