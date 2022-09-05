@@ -121,21 +121,21 @@ function Section1(props) {
 
   return (
     <div
-      className="md:bg-cover  md:bg-right md:bg-no-repeat px-5 md:px-10 lg:px-16"
-      // bg-[url('/images/hero.png')]
-      style={{ backgroundImage: `url(${bgUrl})` }}
+      className="  md:bg-cover  md:bg-[url('/images/hero.png')] md:bg-center md:bg-no-repeat px-5 md:px-10 lg:px-16  md:h-[600px] lg:h-[650px] "
+      // 
+      // style={{ backgroundImage: `url(${bgUrl})` }}
     >
       <section
         id="section1"
         ref={divHeightRef}
-        className=" md:pb-8 md:mb-0     md:ml-8"
+        className=" md:pb-8 md:mb-0   md:ml-8"
       >
-        <div className="md:w-[70%] mt-4">
-          <h1 className="font-semibold text-pry-color font-larken md:text-[#07222E] md:leading-[5rem] md:text-6xl   text-[1.7rem] 400:text-2xl 400:leading-[2.2rem] ">
+        <div className="lg:w-[90%] mt-4">
+          <h1 className="font-semibold text-pry-color font-larken md:text-[#07222E] md:leading-[5rem] md:text-6xl lg:text-7xl lg:leading-[5.5rem] text-[1.7rem] 400:text-2xl 400:leading-[2.2rem] ">
             {heroTitle}
           </h1>
         </div>
-        <div className="mt-5 md:leading-10 md:mt-8 md:w-[65%]  text-xl md:text-3xl">
+        <div className="mt-5 md:leading-10 md:mt-8 md:w-[65%]  text-xl md:text-3xl lg:text-4xl xl:text-5xl xl:leading-[3.5rem] lg:mb-10">
           <p className="text-[#07222E]">{heroSubtitle} </p>
         </div>
         <form onSubmit={findTalents} className="flex items-center mt-8 ">
