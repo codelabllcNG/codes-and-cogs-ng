@@ -61,22 +61,7 @@ function WhatWeDoID(props) {
         />
       </Head>
        
-      {/* <Script
-        charset="utf-8"
-        type="text/javascript"
-        src="//js.hsforms.net/forms/v2.js?pre=1"
-        id="#hi"
-        dangerouslySetInnerHTML={{
-          __html: hbspt.forms.create({
-            region: "na1",
-            portalId: "22606943",
-            formId: "28241b1b-34b7-449d-9b15-85a2367d0a76",
-            target: "#hi",
-          }),
-        }}
-      />  */}
-      {/* {}
-      </Script> */}
+    
 
       <div className="flex  justify-center md:text-center md:mb-2">
         <h2 className="font-bold text-xs 400:text-xl  md:text-5xl">
@@ -92,9 +77,10 @@ function WhatWeDoID(props) {
           />
         </div>
       </div>
-
-      <div className="  justify-between md: ">
-        <div className="w-[40%]  md:mr-8 float-left h-full hidden md:flex">
+      <div>
+        
+      <div className="  justify-between md:flex ">
+        <div className="w-[40%]  md:mr-8  h-full hidden md:flex">
           <Image
             className="rounded-lg"
             src={selectedWhatWeDo.imageUrl}
@@ -105,7 +91,17 @@ function WhatWeDoID(props) {
         <div className="w-[100%] mb-5 flex justify-center md:hidden">
           <Image src={selectedWhatWeDo.imageUrl} width={400} height={300} />{" "}
         </div>
-        <div className=" w-full   ">
+        <div className=" w-full md:w-[50%]  ">
+          <p
+            className="prose-h1:text-3xl prose-h1:font-bold max-w-none text-justify md:text-lg md:leading-10 leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ipsa molestias earum accusamus autem amet dolore harum aliquid, facilis assumenda in rem tempora facere magni iure temporibus repellendus. Praesentium, sunt Officiis, dicta sit fuga, saepe provident molestias corporis accusantium ut qui nihil non tempora vero, nam laudantium? Mollitia officiis non eligendi voluptates, porro ab ut, maxime, quis recusandae molestias modi! Modi porro temporibus deleniti reprehenderit? Optio assumenda commodi eveniet nobis molestiae blanditiis repellat provident? Quos libero voluptate iusto quam sit dicta aperiam possimus ex velit, reiciendis accusamus deserunt sunt quis?  Suscipit itaque saepe, ipsum consectetur eos ducimus tempore minus dignissimos accusamus impedit odio dolorem voluptatibus deleniti fugiat assumenda vel, facilis quae molestiae? Quos fuga ex perspiciatis molestias atque dolor repellat? nobis fugit!" }}
+          >
+            {}
+          </p>
+        </div>
+        </div>
+        
+        <div className=" w-full  ">
           <p
             className="prose-h1:text-3xl prose-h1:font-bold max-w-none text-justify md:text-lg md:leading-10 leading-relaxed"
             dangerouslySetInnerHTML={{ __html: selectedWhatWeDo.content }}
@@ -113,7 +109,7 @@ function WhatWeDoID(props) {
             {}
           </p>
         </div>
-      </div>
+</div>
 
       <div className=' mt-5 lg:mt-20 '>
         <div className=' flex justify-center '>
