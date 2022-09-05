@@ -84,7 +84,7 @@ function RemoteLocations(props) {
 
 export async function getStaticProps() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/remotelocations`
+    `${process.env.NEXT_PUBLIC_devUrl}/remotelocations`
   );
   const data = await response.json();
 

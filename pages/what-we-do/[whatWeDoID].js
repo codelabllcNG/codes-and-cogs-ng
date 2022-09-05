@@ -129,7 +129,7 @@ function WhatWeDoID(props) {
 export async function getStaticProps(context) {
   const whatWeDoID = context.params.whatWeDoID;
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/whatwedo`
+    `${process.env.NEXT_PUBLIC_devUrl}/whatwedo`
   );
   const data = await response.json();
   const whatWeDoArray = [
@@ -160,7 +160,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/whatwedo`
+    `${process.env.NEXT_PUBLIC_devUrl}/whatwedo`
   );
   const data = await response.json();
 

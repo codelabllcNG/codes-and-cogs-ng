@@ -21,7 +21,7 @@ const config = {
       },
     ],
     additionalSitemaps: [
-      `https://www.codes-and-cogs.com/server-sitemap.xml`,
+      `https://www.codesandcogs.com/server-sitemap.xml`,
     //   'https://example.com/my-custom-sitemap-1.xml',
     //   'https://example.com/my-custom-sitemap-2.xml',
     //   'https://example.com/my-custom-sitemap-3.xml',

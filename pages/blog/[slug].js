@@ -159,7 +159,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/getblog`
+    `${process.env.NEXT_PUBLIC_devUrl}/getblog`
   );
   const data = await response.json();
 

@@ -62,7 +62,7 @@ function AboutUs(props) {
 export async function getStaticProps() {
 
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/aboutpage`
+    `${process.env.NEXT_PUBLIC_devUrl}/aboutpage`
   );
   const data = await response.json();
 

@@ -40,7 +40,7 @@ function Index(props) {
 export async function getStaticProps() {
 
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/supportpage`
+    `${process.env.NEXT_PUBLIC_devUrl}/supportpage`
   );
   const data = await response.json();
 

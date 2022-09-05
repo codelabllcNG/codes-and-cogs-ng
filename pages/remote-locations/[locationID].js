@@ -72,7 +72,7 @@ function LocationID(props) {
 export async function getStaticProps(context) {
   const locationID = context.params.locationID;
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/remotelocations`
+    `${process.env.NEXT_PUBLIC_devUrl}/remotelocations`
   );
   const data = await response.json();
   const locationArray = data.locations;
