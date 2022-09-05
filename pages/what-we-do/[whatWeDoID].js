@@ -94,7 +94,7 @@ function WhatWeDoID(props) {
         <div className=" w-full md:w-[50%]  ">
           <p
             className="prose-h1:text-3xl prose-h1:font-bold max-w-none text-justify md:text-lg md:leading-10 leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ipsa molestias earum accusamus autem amet dolore harum aliquid, facilis assumenda in rem tempora facere magni iure temporibus repellendus. Praesentium, sunt Officiis, dicta sit fuga, saepe provident molestias corporis accusantium ut qui nihil non tempora vero, nam laudantium? Mollitia officiis non eligendi voluptates, porro ab ut, maxime, quis recusandae molestias modi! Modi porro temporibus deleniti reprehenderit? Optio assumenda commodi eveniet nobis molestiae blanditiis repellat provident? Quos libero voluptate iusto quam sit dicta aperiam possimus ex velit, reiciendis accusamus deserunt sunt quis?  Suscipit itaque saepe, ipsum consectetur eos ducimus tempore minus dignissimos accusamus impedit odio dolorem voluptatibus deleniti fugiat assumenda vel, facilis quae molestiae? Quos fuga ex perspiciatis molestias atque dolor repellat? nobis fugit!" }}
+            dangerouslySetInnerHTML={{ __html: selectedWhatWeDo.content }}
           >
             {}
           </p>
