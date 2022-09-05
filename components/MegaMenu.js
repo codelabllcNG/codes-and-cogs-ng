@@ -67,7 +67,7 @@ function MegaMenu() {
             <div>
               <p
                 onClick={() => {
-                  router.push("/what-we-do/#remote-development-services");
+                  router.push("/what-we-do/remote-development-services");
                   setMegaMenu(false);
                 }}
               >
@@ -107,7 +107,7 @@ function MegaMenu() {
             <div>
               <p
                 onClick={() => {
-                  router.push("/what-we-do/#enterprise-packages");
+                  router.push("/what-we-do/enterprise-packages");
                   setMegaMenu(false);
                 }}
               >
@@ -127,7 +127,7 @@ function MegaMenu() {
             <div>
               <p
                 onClick={() => {
-                  router.push("/what-we-do/#hiring-as-a-service");
+                  router.push("/what-we-do/hiring-as-a-service");
                   setMegaMenu(false);
                 }}
               >
@@ -147,7 +147,7 @@ function MegaMenu() {
             <div>
               <p
                 onClick={() => {
-                  router.push("/what-we-do/#training");
+                  router.push("/what-we-do/training");
                   setMegaMenu(false);
                 }}
               >
@@ -171,7 +171,7 @@ function MegaMenu() {
             <div>
               <p
                 onClick={() => {
-                  router.push("/what-we-do/#global-payroll");
+                  router.push("/what-we-do/global-payroll");
                   setMegaMenu(false);
                 }}
               >
@@ -191,7 +191,7 @@ function MegaMenu() {
             <div>
               <p
                 onClick={() => {
-                  router.push("/what-we-do/#internship");
+                  router.push("/what-we-do/internship");
                   setMegaMenu(false);
                 }}
               >
@@ -211,7 +211,7 @@ function MegaMenu() {
             <div>
               <p
                 onClick={() => {
-                  router.push("/what-we-do/#conpliance-and-hr-services");
+                  router.push("/what-we-do/conpliance-and-hr-services");
                   setMegaMenu(false);
                 }}
               >

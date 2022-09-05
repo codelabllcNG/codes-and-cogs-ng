@@ -64,7 +64,7 @@ const { skillsArray,
         <p>{skillsSubtitle}</p>
       </div> */}
 
-      <div className="1000:flex justify-between hidden mb-20 ">
+      <div className="1000:flex justify-between hidden mb-12 ">
         {/* First Column  */}
         <div className="flex items-center">
           {skillsArray.map((tool) => (
@@ -267,7 +267,7 @@ const { skillsArray,
 
       {/* THE EXTRA ICONS FOR LARGE SCREEN   */}
       {skillsArray.length > 19 && (
-        <div className="1000:flex hidden mb-20 -mt-10 justify-between  ">
+        <div className="1000:flex hidden mb-0 -mt-10 justify-between  ">
           <div className="flex cursor-pointer items-center ">
             {" "}
             <FaAngleLeft
@@ -315,7 +315,7 @@ const { skillsArray,
       )}
 
       {/* SMALLER SCREEN SCREEN skillsArray  */}
-      <div className="flex 1000:hidden mb-20 ">
+      <div className="flex 1000:hidden mb-10 ">
         <div className="flex cursor-pointer items-center">
           {" "}
           <FaAngleLeft

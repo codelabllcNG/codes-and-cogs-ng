@@ -91,10 +91,10 @@ function WhatWeDoID(props) {
         <div className="w-[100%] mb-5 flex justify-center md:hidden">
           <Image src={selectedWhatWeDo.imageUrl} width={400} height={300} />{" "}
         </div>
-        <div className=" w-full md:w-[50%]  ">
+        <div className=" prose-h1:text-3xl prose-h1:font-bold w-full md:w-[55%]  ">
           <p
-            className="prose-h1:text-3xl prose-h1:font-bold max-w-none text-justify md:text-lg md:leading-10 leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: selectedWhatWeDo.content }}
+            className=" max-w-none text-justify md:text-lg md:leading-10 leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ipsa molestias earum accusamus autem amet dolore harum aliquid, facilis assumenda in rem tempora facere magni iure temporibus emporibus emporibus emporibus emporibus emporibus repellendus. Praesentium, sunt? " }}
           >
             {}
           </p>

@@ -59,12 +59,17 @@ function FeasibilityID(props) {
           </video>
         </div>
 
-        <div
+        <div  className="prose max-w-none 900:w-[55%] text-justify lg:leading-8 mb-5 900:mb-0 text-pry-color">
+             <div
           dangerouslySetInnerHTML={{ __html: selectedFeasibility.content }}
-          className="prose max-w-none 900:w-[55%] text-justify lg:leading-8 mb-5 900:mb-0 text-pry-color"
+         
         >
           {}
+        </div>   <div     onClick={() => {
+                  router.push("/post-a-job");
+                }} className='flex justify-end'><button className='font-bold ring-pry-color px-2 hover:bg-blue-50 rounded ring-1'>I am interested</button></div>
         </div>
+     
       </div>
     </div>
   );

@@ -50,7 +50,9 @@ function ModelID(props) {
             className=" leading-7 900:leading-10 lg:leading-8"
           >
             {}
-          </div>
+          </div> <div     onClick={() => {
+                  router.push("/post-a-job");
+                }} className='flex justify-end'><button className='font-bold ring-pry-color px-2 hover:bg-blue-50 rounded ring-1'>I am interested</button></div>
         </div>
 
         <div className="900:w-[40%] items-center flex justify-center mb-5 900:mb-0">

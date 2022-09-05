@@ -128,7 +128,7 @@ function Section1(props) {
       <section
         id="section1"
         ref={divHeightRef}
-        className=" md:pb-8 md:mb-10     md:ml-8"
+        className=" md:pb-8 md:mb-0     md:ml-8"
       >
         <div className="md:w-[70%] mt-4">
           <h1 className="font-semibold text-pry-color font-larken md:text-[#07222E] md:leading-[5rem] md:text-6xl   text-[1.7rem] 400:text-2xl 400:leading-[2.2rem] ">

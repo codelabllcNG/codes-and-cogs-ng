@@ -16,7 +16,7 @@ function Footer() {
   // },[])
 
   return (
-    <section id="footer" ref={divHeightRef} className="lg:mt-40">
+    <section id="footer" ref={divHeightRef} className="lg:mt20">
       <div className="px-5 md:px-20 py-20">
         <div className="flex  md:justify-center md:mb-2">
           <h2 className="font-bold text-xs 400:text-xl font-larken  md:text-3xl">
@@ -195,7 +195,7 @@ function Footer() {
               <button className="font-bold ">SOLUTIONS</button>
               <p
                 onClick={() => {
-                  router.push("/what-we-do/#hackathon");
+                  router.push("/coming-soon");
                 }}
                 className="cursor-pointer hover:text-red-700"
               >
@@ -206,7 +206,7 @@ function Footer() {
               </p>{" "} */}
               <p
                 onClick={() => {
-                  router.push("/what-we-do/#infrastructure");
+                  router.push("/coming-soon");
                 }}
                 className="cursor-pointer hover:text-red-700"
               >
@@ -214,7 +214,7 @@ function Footer() {
               </p>
               <p
                 onClick={() => {
-                  router.push("/what-we-do/#workspace");
+                  router.push("/coming-soon");
                 }}
                 className="cursor-pointer hover:text-red-700"
               >
@@ -223,7 +223,7 @@ function Footer() {
 
               <p
                 onClick={() => {
-                  router.push("/what-we-do/#salary-estimator");
+                  router.push("/coming-soon");
                 }}
                 className="cursor-pointer hover:text-red-700"
               >

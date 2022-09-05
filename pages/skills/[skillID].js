@@ -12,7 +12,16 @@ function ToolID(props) {
   const [searchingTalents, setSearchingTalents] = useState(false);
   const [talentsFound, setTalentsFound] = useState([]);
 
-  const { skillID, selectedSkill } = props;
+  const [category, setCategory] = useState("designers");
+
+
+  const {
+    skillID,
+    selectedSkill,
+    designersArray,
+    developersArray,
+    engineersArray,
+  } = props;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -56,6 +65,12 @@ function ToolID(props) {
           return;
         }
 
+        if (data.talents.length === 0) {
+          setResponse(
+            "Talents that match this skill are currently on other projects, you can browse through our available talents below."
+          );
+        }
+
         // setResponse(
         //   `Success! Some talents match your ${skillID.toUpperCase()} query.`
         // );
@@ -63,6 +78,7 @@ function ToolID(props) {
 
         setSearchingTalents(false);
         setTalentsFound(data.talents);
+        console.log(data.talents);
       } catch (error) {
         setSearchingTalents(false);
         setResponse("An error occurred while loading talents, reload.");
@@ -135,7 +151,139 @@ function ToolID(props) {
           </div>
         ) : talentsFound.length < 1 ? (
           <div className="flex justify-center text-lg font-semibold text-red-600">
-            <p>{response}</p>
+            <div>
+              <p className='mb-5'>{response}</p>
+              <div>
+                <div className="flex justify-center bg-transparent text-pry-color font-semibold text-xs 400:text-sm 560:text-base  ">
+                  <div
+                    onClick={() => {
+                      setCategory("designers");
+                    }}
+                    className={`${
+                      category === "designers"
+                        ? "bg-pry-color text-white"
+                        : "bg-mid-color"
+                    } duration-300 w-[32%] cursor-pointer py-1 text-center  rounded-l-full`}
+                  >
+                    <p>DESIGNERS</p>
+                  </div>
+                  <div
+                    onClick={() => {
+                      setCategory("engineers");
+                    }}
+                    className={`${
+                      category === "engineers"
+                        ? "bg-pry-color text-white"
+                        : "bg-mid-color"
+                    } duration-300 w-[32%] cursor-pointer py-1 text-center`}
+                  >
+                    <p>ENGINEERS</p>
+                  </div>
+                  <div
+                    onClick={() => {
+                      setCategory("developers");
+                    }}
+                    className={`${
+                      category === "developers"
+                        ? "bg-pry-color text-white"
+                        : "bg-mid-color"
+                    } duration-300 w-[32%] cursor-pointer py-1 text-center  rounded-r-full`}
+                  >
+                    <p>DEVELOPERS</p>
+                  </div>
+                </div>
+
+                {category === "designers" && (
+                  <div className="grid gap-2 560:gap-4 grid-cols-2 md:grid-cols-3 mt-10 text-xs 400:text-sm sm:text-base">
+                    {designersArray.map((designer) => (
+                      <div
+                        key={designer.id}
+                        onClick={() => {
+                          router.push(`/talents/${designer.id}`);
+                        }}
+                        className="bg-mid-color hover:bg-[#ECF1FA] hover:scale-105 duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
+                      >
+                        <div className="w-10 560:w-14">
+                          <Image
+                            height={75}
+                            width={64}
+                            src={designer.icon || "/images/default-dp.png"}
+                            alt=""
+                          />
+                        </div>{" "}
+                        <div>
+                          {" "}
+                          <p className="font-semibold ">
+                            {designer.title}
+                          </p>{" "}
+                          <p>{designer.name}</p>{" "}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {category === "engineers" && (
+                  <div className="grid gap-2 560:gap-4 grid-cols-2 md:grid-cols-3 mt-10 text-xs 400:text-sm sm:text-base">
+                    {engineersArray.map((engineer) => (
+                      <div
+                        key={engineer.id}
+                        onClick={() => {
+                          router.push(`/talents/${engineer.id}`);
+                        }}
+                        className="bg-mid-color hover:bg-[#ECF1FA] duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
+                      >
+                        <div className="w-10 560:w-14">
+                          <Image
+                            height={75}
+                            width={64}
+                            src={engineer.icon || "/images/default-dp.png"}
+                            alt=""
+                          />
+                        </div>{" "}
+                        <div>
+                          {" "}
+                          <p className="font-semibold ">
+                            {engineer.title}
+                          </p>{" "}
+                          <p>{engineer.name}</p>{" "}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {category === "developers" && (
+                  <div className="grid gap-2 560:gap-4 grid-cols-2 md:grid-cols-3 mt-10 text-xs 400:text-sm sm:text-base">
+                    {developersArray.map((developer) => (
+                      <div
+                        key={developer.id}
+                        onClick={() => {
+                          router.push(`/talents/${developer.id}`);
+                        }}
+                        className="bg-mid-color hover:bg-[#ECF1FA] duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
+                      >
+                        <div className="w-10 560:w-14 ">
+                          <Image
+                            height={75}
+                            width={64}
+                            src={developer.icon || "/images/default-dp.png"}
+                            alt=""
+                          />
+                        </div>{" "}
+                        <div>
+                          {" "}
+                          <p className="font-semibold ">
+                            {developer.title}
+                          </p>{" "}
+                          <p>{developer.name}</p>{" "}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         ) : (
           <div>
@@ -164,7 +312,12 @@ function ToolID(props) {
                   className="bg-mid-color hover:bg-[#ECF1FA] hover:scale-105 duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
                 >
                   <div className="w-10 560:w-14">
-                    <Image height={75} width={64} src={talent.icon || "/images/default-dp.png"} alt="" />
+                    <Image
+                      height={75}
+                      width={64}
+                      src={talent.icon || "/images/default-dp.png"}
+                      alt=""
+                    />
                   </div>{" "}
                   <div>
                     {" "}
@@ -200,11 +353,24 @@ export async function getStaticProps(context) {
     };
   }
 
+  const response2 = await fetch(
+    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/aboutpage`
+  );
+  const data2 = await response2.json();
+
+  const designersArray = data2.designers;
+  const developersArray = data2.developers;
+  const engineersArray = data2.engineers;
+
   return {
     props: {
       skillID,
       skillsArray,
       selectedSkill,
+
+      designersArray,
+      developersArray,
+      engineersArray,
     },
     revalidate: 300,
   };
