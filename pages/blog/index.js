@@ -212,7 +212,7 @@ export default Index;
 
 export async function getStaticProps() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_devUrl}/getblog`
+    `${NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/getblog`
   );
   const data = await response.json();
 

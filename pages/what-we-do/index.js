@@ -188,7 +188,7 @@ const router = useRouter();
 
 export async function getStaticProps() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_devUrl}/whatwedo`
+    `${NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/whatwedo`
   );
   const data = await response.json();
 

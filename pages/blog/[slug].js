@@ -131,7 +131,7 @@ if (router.isFallback) {
 export async function getStaticProps(context) {
   const slug = context.params.slug;
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/getblog`
+    `${NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/server/api/codesandcogs/v1/getblog`
   );
   const data = await response.json();
   const blogPostArray = data.posts;
@@ -159,7 +159,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_devUrl}/getblog`
+    `${NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/getblog`
   );
   const data = await response.json();
 

@@ -21,7 +21,7 @@ function ToolID(props) {
         setSearchingTalents(true);
         setResponse("Loading Talents that match this skill...");
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_devUrl}/search?s=${selectedSkill.name}`
+          `${NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/search?s=${selectedSkill.name}`
         );
 
         const data = await response.json();
@@ -184,7 +184,7 @@ function ToolID(props) {
 export async function getStaticProps(context) {
   const skillID = context.params.skillID;
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_devUrl}/homepage`
+    `${NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/homepage`
   );
   const data = await response.json();
   const skillsArray = data.skills;
@@ -212,7 +212,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_devUrl}/homepage`
+    `${NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/homepage`
   );
   const data = await response.json();
 

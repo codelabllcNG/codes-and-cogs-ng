@@ -22,7 +22,7 @@ function NewsID(props) {
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="canonical"
-          href={`${process.env.NEXT_PUBLIC_devUrl}/press-release/${selectedNews.id}`}
+          href={`${NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/press-release/${selectedNews.id}`}
         />
       </Head>
 
@@ -66,7 +66,7 @@ function NewsID(props) {
 export async function getStaticProps(context) {
   const newsID = context.params.newsID;
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_devUrl}/server/api/codesandcogs/v1/getpressrelease`
+    `${NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/server/api/codesandcogs/v1/getpressrelease`
   );
   const data = await response.json();
   const newsArray = data.posts;
@@ -94,7 +94,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_devUrl}/getpressrelease`
+    `${NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/getpressrelease`
   );
   const data = await response.json();
 

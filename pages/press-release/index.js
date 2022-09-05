@@ -317,7 +317,7 @@ function PressRelease(props) {
 
 export async function getStaticProps() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_devUrl}/getpressrelease`
+    `${NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/getpressrelease`
   );
   const data = await response.json();
 
