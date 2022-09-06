@@ -171,7 +171,7 @@ const router = useRouter();
             <div
               className={`sm:w-[55%] text-justify  mb-5 sm:mb-0 text-pry-color `}
             >
-              <p className="sm:leading-7 lg:leading-10   ">{solution.content}</p>
+              <p className="sm:leading-7 lg:leading-10   ">{solution.summary}</p>
 
               <div onClick={()=>{router.push(`/what-we-do/${solution.id}`)}} className='mt-5 text-pry-color text-sm font-semibold'><button>Read More</button></div>
             </div>
