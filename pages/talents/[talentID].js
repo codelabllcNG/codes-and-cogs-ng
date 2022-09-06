@@ -153,21 +153,21 @@ function TalentID(props) {
                         src="/images/logos-and-icons/soccer-hobby.png"
                         alt=""
                       /> */}
-                        {hobby.name.trim() === "Reading" ? (
+                        {hobby.name?.trim() === "Reading" ? (
                           <FaBookReader className="w-[20px] h-[20px] text-pry-color " />
-                        ) : hobby.name.trim() === "Football" ? (
+                        ) : hobby.name?.trim() === "Football" ? (
                           <IoFootballOutline className="w-[20px] h-[20px] text-pry-color " />
-                        ) : hobby.name.trim() === "Singing" ? (
+                        ) : hobby.name?.trim() === "Singing" ? (
                           <GiLoveSong className="w-[20px] h-[20px] text-pry-color " />
-                        ) : hobby.name.trim() === "Traveling" ? (
+                        ) : hobby.name?.trim() === "Traveling" ? (
                           <SiYourtraveldottv className="w-[20px] h-[20px] text-pry-color " />
-                        ) : hobby.name.trim() === "Gaming" ? (
+                        ) : hobby.name?.trim() === "Gaming" ? (
                           <IoGameControllerSharp className="w-[20px] h-[20px] text-pry-color " />
-                        ) : hobby.name.trim() === "Skating" ? (
+                        ) : hobby.name?.trim() === "Skating" ? (
                           <MdOutlineSkateboarding className="w-[20px] h-[20px] text-pry-color " />
-                        ) : hobby.name.trim() === "Hiking" ? (
+                        ) : hobby.name?.trim() === "Hiking" ? (
                           <FaHiking className="w-[20px] h-[20px] text-pry-color " />
-                        ) : hobby.name.trim() === "Soccer" ? (
+                        ) : hobby.name?.trim() === "Soccer" ? (
                           <IoFootballOutline className="w-[20px] h-[20px] text-pry-color " />
                         ) : (
                           <MdFavorite className="w-[20px] h-[20px] text-pry-color " />
