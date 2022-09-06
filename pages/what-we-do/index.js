@@ -110,11 +110,11 @@ const router = useRouter();
             } justify-between items-center `}
           >
             <div
-              className={`sm:w-[55%] text-justify  mb-5 sm:mb-0 text-pry-color prose `}
+              className={`prose max-w-none sm:w-[55%] text-justify  mb-5 sm:mb-0 text-pry-color  `}
             >
-              <p className="sm:leading-7 lg:leading-10  " dangerouslySetInnerHTML={{ __html: enterpriseService.content.length > 400 ? enterpriseService.content.substring(0, 400) + '...' : enterpriseService.content }}>
+              <div className="sm:leading-7 lg:leading-10  " dangerouslySetInnerHTML={{ __html: enterpriseService.content.length > 400 ? enterpriseService.summary.substring(0, 400) + '...' : enterpriseService.summary }}>
                 {}
-              </p>
+              </div>
 
               <div onClick={()=>{router.push(`/what-we-do/${enterpriseService.id}`)}} className='mt-5 text-pry-color text-sm font-semibold'><button>Read More</button></div>
             </div>
@@ -169,9 +169,11 @@ const router = useRouter();
             } justify-between items-center `}
           >
             <div
-              className={`sm:w-[55%] text-justify  mb-5 sm:mb-0 text-pry-color `}
+              className={`prose max-w-none sm:w-[55%] text-justify  mb-5 sm:mb-0 text-pry-color `}
             >
-              <p className="sm:leading-7 lg:leading-10   ">{solution.summary}</p>
+              <div dangerouslySetInnerHTML={{__html: solution.summary}} className="sm:leading-7 lg:leading-10   ">
+                {}
+              </div>
 
               <div onClick={()=>{router.push(`/what-we-do/${solution.id}`)}} className='mt-5 text-pry-color text-sm font-semibold'><button>Read More</button></div>
             </div>

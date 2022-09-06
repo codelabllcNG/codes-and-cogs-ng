@@ -93,7 +93,7 @@ function WhatWeDoID(props) {
         </div>
         <div className=" prose-h1:text-3xl prose-h1:font-bold w-full md:w-[55%]  ">
           <div
-            className=" max-w-none text-justify md:text-lg md:leading-10 leading-relaxed"
+            className=" max-w-none text-justify md:text-lg "
             dangerouslySetInnerHTML={{ __html: selectedWhatWeDo.summary }}
           >
             {}
@@ -103,7 +103,7 @@ function WhatWeDoID(props) {
         
         <div className=" prose  max-w-none prose-h1:text-3xl prose-h1:font-semibold w-full md:mt-3 ">
           <div
-            className=" text-justify md:text-lg md:leading-10 leading-relaxed"
+            className=" text-justify md:text-lg  "
             dangerouslySetInnerHTML={{ __html: selectedWhatWeDo.content }}
           >
             {}
