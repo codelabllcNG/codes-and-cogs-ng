@@ -131,7 +131,7 @@ function Section1(props) {
         className=" md:pb-8 md:mb-0   md:ml-8"
       >
         <div className="lg:w-[90%] mt-4">
-          <h1 className="font-semibold text-pry-color font-larken md:text-[#07222E] md:leading-[5rem] md:text-6xl lg:text-7xl lg:leading-[5.5rem] text-[1.7rem] 400:text-2xl 400:leading-[2.2rem] ">
+          <h1 className="font-semibold text-pry-color font-larken md:text-[#07222E] md:leading-[5rem] md:text-6xl lg:text-[4.2rem] lg:leading-[5rem] text-[1.7rem] 400:text-2xl 400:leading-[2.2rem] ">
             {heroTitle}
           </h1>
         </div>

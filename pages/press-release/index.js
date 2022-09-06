@@ -70,8 +70,8 @@ function PressRelease(props) {
               setSelectedTab("top-news");
             }}
             className={`${
-              selectedTab === "top-news" ? "bg-pry-color text-white" : ""
-            } w-1/2 rounded-l-md text-center shadow-sm py-2 text-pry-color cursor-pointer select-none hover:shadow-md`}
+              selectedTab === "top-news" ? "bg-pry-color text-white" : "bg-white text-pry-color"
+            } w-1/2 rounded-l-md text-center shadow-sm py-2  cursor-pointer select-none hover:shadow-md`}
           >
             TOP NEWS
           </div>
@@ -80,8 +80,8 @@ function PressRelease(props) {
               setSelectedTab("recent-news");
             }}
             className={`${
-              selectedTab === "recent-news" ? "bg-pry-color text-white" : ""
-            } w-1/2 rounded-r-md text-center shadow-sm py-2 text-pry-color cursor-pointer select-none hover:shadow-md`}
+              selectedTab === "recent-news" ? "bg-pry-color text-white" : "bg-white text-pry-color"
+            } w-1/2 rounded-r-md text-center shadow-sm py-2  cursor-pointer select-none hover:shadow-md`}
           >
             RECENT NEWS
           </div>

@@ -67,7 +67,7 @@ function FeasibilityID(props) {
           {}
         </div>   <div     onClick={() => {
                   router.push("/post-a-job");
-                }} className='flex justify-end'><button className='font-bold ring-pry-color px-2 hover:bg-blue-50 rounded ring-1'>I am interested</button></div>
+                }} className='mt-3 flex justify-end'><button className='font-bold ring-pry-color px-2 hover:bg-blue-50 rounded ring-1'>I am interested</button></div>
         </div>
      
       </div>

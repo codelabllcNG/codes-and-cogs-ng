@@ -14,7 +14,7 @@ function NewsID(props) {
   }
 
   return (
-    <div className="px-5 md:px-10">
+    <div className="px-5 md:px-10 lg:px-16">
 
 <Head>
         <title>{selectedNews.title}</title>
@@ -43,11 +43,13 @@ function NewsID(props) {
         </div>
       </div>
 
+      
+      <div className='flex' >
       <div className="  justify-between md: ">
-        <div className="w-[40%]  md:mr-8 float-left h-full hidden md:flex">
+        <div className="w-[40%]  lg:mr-8 float-left h-full hidden lg:flex">
           <Image className='rounded-lg' src={selectedNews.imageUrl} width={500} height={700} />{" "}
         </div>
-        <div className="w-[100%] mb-5 flex justify-center md:hidden">
+        <div className="w-[100%] mb-5 flex justify-center lg:hidden">
           <Image src={selectedNews.imageUrl} width={500} height={300} />{" "}
         </div>
         <div className=' w-full   '>
@@ -59,6 +61,7 @@ function NewsID(props) {
           </div>
         </div>
       </div>
+   </div>
     </div>
   );
 }
