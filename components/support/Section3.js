@@ -49,7 +49,9 @@ let router = useRouter()
       </div>
 
       <div className="flex justify-center text-lg font-semibold mb-">
-        <div dangerouslySetInnerHTML={{__html: ticketStatusSubtitle}} >{}</div>
+        <div dangerouslySetInnerHTML={{ __html: ticketStatusSubtitle }} >
+          {}
+        </div>
       </div>
 
       <div className="flex justify-center">
