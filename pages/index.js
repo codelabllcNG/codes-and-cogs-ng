@@ -195,7 +195,7 @@ export async function getStaticProps() {
   const remoteDesigners = data.remoteDesigners;
   const remoteBgImage = data.remoteBgImage;
   const trusteeLogos = data.trusteeIcons;
-  const projectEngineerPhone = "2347087676354" //data.phone
+  const projectEngineerPhone = data.phone
 
   return {
     props: {

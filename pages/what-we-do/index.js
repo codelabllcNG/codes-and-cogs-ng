@@ -33,9 +33,9 @@ const router = useRouter();
       </Head>
 
 
-      <div className="900:bg-[url('/images/services-bg.png')]  bg-cover bg-center bg-no-repeat pt-16 900:pb-16 lg:pb-[8rem]   900:mb-16">
+      <div className="h-[80vh] md:bg-[url('/images/what-we-do-bg.png')]  bg-contain bg-right-top bg-no-repeat ">
       <div className="flex text-center justify-center ">
-        <h2 className="font-bold header">{"What We Do"}</h2>
+        <h2 className="font-bold header">What We Do</h2>
       </div>
       <div className="flex justify-center mb-10 ">
         <div className=" w-[75px] md:[150px]">
@@ -46,13 +46,13 @@ const router = useRouter();
           />
         </div>
       </div>
-        <div className="mb-5 ">
-          <p>
-            {subtitle}{" "}
-          </p>
+        <div className=" md:w-[60%] lg:w-[70%]  ">
+          <div className='text-xl md:leading-10 sm:text-2xl md:text-3xl lg:text-4xl lg:leading-[3.5rem]  font-semibold '  dangerouslySetInnerHTML={{__html: subtitle}}>
+            {}
+          </div>
         </div>
 
-        <div className=" flex space-x-5 mt-7  items-center mb-6">
+        <div className=" flex space-x-5 mt-16 text-xl sm:text-2xl md:text-3xl  items-center mb-16">
           {" "}
           <Image
             src="/images/logos-and-icons/enterprise.png"
@@ -66,7 +66,7 @@ const router = useRouter();
           </Link>{" "}
         </div>
 
-        <div className=" flex space-x-5 items-center mb-4">
+        <div className=" flex space-x-5 text-xl sm:text-2xl md:text-3xl items-center mb-4">
           {" "}
           <Image
             src="/images/logos-and-icons/solutions.png"
@@ -88,7 +88,7 @@ const router = useRouter();
 
       <div id="enterprise-services" className="mb-10">
         <div className="flex  justify-center mb-2">
-          <h2 className="font-bold text-2xl md:text-5xl">Enterprise Packages</h2>
+          <h2 className="font-bold header">Enterprise Packages</h2>
         </div>
         <div className="flex justify-center mb-3 ">
           <div className=" w-[75px] md:[150px]">
@@ -104,12 +104,16 @@ const router = useRouter();
       {enterpriseServices.map((enterpriseService, i) => (
         <div key={enterpriseService.id} className="mb-20" id={`${enterpriseService.id}`}>
           <div className="flex  justify-center mb-2">
-            <h2 className="font-bold text-2xl">{enterpriseService.name}</h2>
+            <div dangerouslySetInnerHTML={{__html: enterpriseService.name}} className="font-bold text-2xl">
+              {}
+            </div>
           </div>
       
 
           <div className="mb-5">
-            <p className="text-center">{enterpriseService.excerpt}</p>
+            <div dangerouslySetInnerHTML={{ __html: enterpriseService.excerpt }} className="text-center">
+              {}
+            </div>
           </div>
 
           <div
@@ -120,7 +124,7 @@ const router = useRouter();
             <div
               className={`prose max-w-none sm:w-[55%] text-justify  mb-5 sm:mb-0 text-pry-color  `}
             >
-              <div className="sm:leading-7 lg:leading-10  " dangerouslySetInnerHTML={{ __html: enterpriseService.content.length > 400 ? enterpriseService.summary.substring(0, 400) + '...' : enterpriseService.summary }}>
+              <div className="sm:leading-8   sm:text-lg " dangerouslySetInnerHTML={{ __html: enterpriseService.content.length > 400 ? enterpriseService.summary.substring(0, 400) + '...' : enterpriseService.summary }}>
                 {}
               </div>
 
@@ -139,7 +143,7 @@ const router = useRouter();
 
       <div id="solution-as-a-service" className="mb-10 ">
         <div className="flex  justify-center mb-2">
-          <h2 className="font-bold text-2xl md:text-5xl">Solution As A Service</h2>
+          <h2 className="font-bold header">Solution As A Service</h2>
         </div>
         <div className="flex justify-center mb-3 ">
           <div className=" [150px]">
@@ -155,7 +159,9 @@ const router = useRouter();
       {solutionAsServices.map((solution, i) => (
         <div key={solution.id} className="mb-20" id={`${solution.id}`}>
           <div className="flex  justify-center mb-2">
-            <h2 className="font-bold text-2xl">{solution.name}</h2>
+            <div dangerouslySetInnerHTML={{ __html: solution.name }} className="font-bold text-2xl">
+              {}
+            </div>
           </div>
           {/* <div className="flex md:justify-center mb-3 ">
           <div className=" [150px]">
@@ -168,7 +174,9 @@ const router = useRouter();
     </div> */}
 
           <div className="mb-5">
-            <p className="text-center">{solution.excerpt}</p>
+            <div dangerouslySetInnerHTML={{ __html: solution.excerpt }} className="text-center">
+              {}
+            </div>
           </div>
 
           <div
@@ -179,11 +187,12 @@ const router = useRouter();
             <div
               className={`prose max-w-none sm:w-[55%] text-justify  mb-5 sm:mb-0 text-pry-color `}
             >
-              <div dangerouslySetInnerHTML={{__html: solution.summary}} className="sm:leading-7 lg:leading-10   ">
+              <div dangerouslySetInnerHTML={{__html: solution.summary || "Coming Soon"}} className="sm:leading-7 lg:leading-10   ">
                 {}
               </div>
 
-              <div onClick={()=>{router.push(`/what-we-do/${solution.id}`)}} className='mt-5 text-pry-color text-sm font-semibold'><button>Read More</button></div>
+              {/* /what-we-do/${solution.id} */}
+              <div onClick={()=>{router.push(`/coming-soon`)}} className='mt-5 text-pry-color text-sm font-semibold'><button>Read More</button></div>
             </div>
 
             <div className="sm:w-[40%] items-center flex justify-center mb-5 sm:mb-0">

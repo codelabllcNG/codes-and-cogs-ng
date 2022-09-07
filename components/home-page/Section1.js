@@ -121,9 +121,9 @@ function Section1(props) {
 
   return (
     <div
-      className="  md:bg-cover  md:bg-[url('/images/hero.png')] md:bg-center md:bg-no-repeat px-5 md:px-10 lg:px-16  md:h-[600px] lg:h-[650px] "
-      // 
-      // style={{ backgroundImage: `url(${bgUrl})` }}
+      className="  md:bg-cover   md:bg-center md:bg-no-repeat px-5 md:px-10 lg:px-16  md:h-[600px] lg:h-[650px] "
+      // md:bg-[url('/images/hero.png')]
+      style={{ backgroundImage: `url(${bgUrl})` }}
     >
       <section
         id="section1"
@@ -131,12 +131,14 @@ function Section1(props) {
         className=" md:pb-8 md:mb-0   md:ml-8"
       >
         <div className="lg:w-[85%] md:w-[80%] mt-4">
-          <h1 className="font-semibold text-pry-color font-larken md:text-[#07222E] md:leading-[5rem] md:text-6xl lg:text-[4.2rem] lg:leading-[5rem] text-2xl 340:text-[1.7rem] 340:leading-[2.2rem] ">
-            {heroTitle}
-          </h1>
+          <div dangerouslySetInnerHTML={{__html: heroTitle}} className="font-semibold text-pry-color font-larken md:text-[#07222E] md:leading-[5rem] md:text-6xl lg:text-[4.2rem] lg:leading-[5rem] text-2xl sm:text-5xl sm:leading-[3.5rem] 340:text-[1.7rem] 340:leading-[2.2rem] ">
+            {}
+          </div>
         </div>
-        <div className="mt-5 md:leading-10 md:mt-8 md:w-[65%]  text-xl md:text-3xl lg:text-4xl xl:text-5xl xl:leading-[3.5rem] lg:mb-10">
-          <p className="text-[#07222E]">{heroSubtitle} </p>
+        <div className="mt-5 md:leading-10 md:mt-8 md:w-[65%]  text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl xl:leading-[3.5rem] lg:mb-10">
+        <div dangerouslySetInnerHTML={{ __html: heroSubtitle }} className="text-[#07222E]">
+            {}
+          </div>
         </div>
         <form onSubmit={findTalents} className="flex items-center mt-8 ">
           <div className="flex border-2 border-pry-color border-opacity-80 px-1 py-1 md:py-2  rounded-full  md:mr-7 mr-2 text-sm w-[80%] md:w-[40%]">

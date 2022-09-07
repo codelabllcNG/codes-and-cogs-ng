@@ -10,31 +10,23 @@ function MobileNav() {
 
   const [whatWeDoExpanded, setWhatWeDoExpanded] = useState(true);
 
-  // const [bg, setBg] = useState("bg-transparent");
+//   useEffect (() => {
+//     window.addEventListener('scroll', ()=>{
+     
+//     })
+// })
 
-  // useEffect(() => {
-  //   if (menuIsClicked) {
-  //     //   const timer = setTimeout(() => {
-  //     setBg("bg-black bg-opacity-20 ");
-  //     //   }, 1000);
 
-  //     //   return () => clearTimeout(timer);
-  //   } else {
-  //     () => {
-  //       setBg("bg-transparent");
-  //     };
-  //   }
-  // }, [menuIsClicked]);
 
   return (
     <div
-      className={`890:hidden duration-300 ${
+      className={` 890:hidden duration-300 ${
         menuIsClicked ? "translate-x-0 " : " -translate-x-full "
       } -my-4 w-full h-screen flex   fixed z-[10] overflow-y-hidden
 `}
     >
       <div
-        className={`w-[75%] sm:w-[65%] h-screen pl-3 pr-3 400:pl-5 pt-10 bg-mid-color shadow-md `}
+        className={`w-[80%] sm:w-[65%] h-screen pl-3 pr-3 400:pl-5 pt-10 bg-mid-color shadow-md `}
       >
         <div className="flex mb-8">
           <div className="mr-2">
@@ -63,7 +55,7 @@ function MobileNav() {
           </div>
         </div>
 
-        <div className="text-pry-color space-y-4 font-[500] ">
+        <div className="text-pry-color space-y-4 font-semibold ">
           <div
             onClick={() => {
               router.push("/about-us");
@@ -107,8 +99,11 @@ function MobileNav() {
             <div className="accordion-item  mb-10">
               {" "}
               <h2 className="accordion-header ">
-                <button
-                  className="accordion-button  relative flex items-center w-full  text-base  text-left border-0 rounded-none transition focus:outline-none !bg-transparent !shadow-none font-sans !text-pry-color"
+                <button     onClick={() => {
+                  router.push("/what-we-do");
+                  // setMenuIsClicked(false);
+                }}
+                  className="accordion-button  relative flex items-center w-full  text-base   text-left border-0 rounded-none transition focus:outline-none !bg-transparent !shadow-none font-sans !text-pry-color"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#flush-collapseOne"
@@ -124,7 +119,7 @@ function MobileNav() {
                 aria-labelledby="flush-headingOne"
                 data-bs-parent="#accordionFlushExample"
               >
-                <div className="accordion-body space-y-4 py-4 px-2 font-normal text-[0.7rem] 400:text-base">
+                <div className="accordion-body space-y-4 py-4 px-2 font-[500] text-[0.7rem] 350:text-[0.8rem]">
                   <div
                   // onClick={() => {
                   //   router.push("/what-we-do/#enterprise-services");
@@ -138,7 +133,7 @@ function MobileNav() {
                       <div className="accordion-item  mb-">
                         <h2 className="accordion-header ">
                           <button
-                            className="accordion-button  relative flex items-center w-full    text-left border-0 rounded-none transition focus:outline-none !bg-transparent !shadow-none font-sans !text-pry-color text-sm font collapsed"
+                            className="accordion-button  relative flex items-center w-full    text-left border-0 rounded-none transition focus:outline-none !bg-transparent !shadow-none font-sans !text-pry-color text-[0.9rem] font-semibold collapsed"
                             type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#flush-collapseOne2"
@@ -154,14 +149,14 @@ function MobileNav() {
                           aria-labelledby="flush-headingOne"
                           data-bs-parent="#accordionFlushExample2"
                         >
-                          <div className="accordion-body space-y-3 py-4 px-2  font-normal">
-                            <button onClick={() =>{router.push('/what-we-do/remote-development-services');  setMenuIsClicked(false);}}>Remote Dev Services</button>
-                            <button onClick={() =>{router.push('/what-we-do/enterprise-packages');  setMenuIsClicked(false);}}>Enterprise Packages</button>
-                            <button onClick={() =>{router.push('/what-we-do/hiring-as-a-service');  setMenuIsClicked(false);}}>Hiring as a Service</button>
-                            <button onClick={() =>{router.push('/what-we-do/training');  setMenuIsClicked(false);}}>Training</button>
-                            <button onClick={() =>{router.push('/what-we-do/global-payroll');  setMenuIsClicked(false);}}>Global Payroll</button>
-                            <button onClick={() =>{router.push('/what-we-do/internship');  setMenuIsClicked(false);}}>Internship</button>
-                            <button onClick={() =>{router.push('/what-we-do/conpliance-and-hr-services');  setMenuIsClicked(false);}}>Compliance and HR Services</button>
+                          <div className="accordion-body  space-y-3 py-4 px-2  font-[500]">
+                            <button onClick={() =>{router.push('/what-we-do/remote-development-services');  setMenuIsClicked(false);}}>Remote Dev Services</button><br />
+                            <button onClick={() =>{router.push('/what-we-do/enterprise-packages');  setMenuIsClicked(false);}}>Enterprise Packages</button><br />
+                            <button onClick={() =>{router.push('/what-we-do/hiring-as-a-service');  setMenuIsClicked(false);}}>Hiring as a Service</button><br />
+                            <button onClick={() =>{router.push('/what-we-do/training');  setMenuIsClicked(false);}}>Training</button><br />
+                            <button onClick={() =>{router.push('/what-we-do/global-payroll');  setMenuIsClicked(false);}}>Global Payroll</button><br />
+                            <button onClick={() =>{router.push('/what-we-do/internship');  setMenuIsClicked(false);}}>Internship</button><br />
+                            <button className='!text-left' onClick={() =>{router.push('/what-we-do/compliance-and-hr-services');  setMenuIsClicked(false);}}>Compliance and HR Services</button>
                           </div>
                         </div>
                       </div>
@@ -176,7 +171,7 @@ function MobileNav() {
                       <div className="accordion-item  mb-">
                         <h2 className="accordion-header ">
                           <button
-                            className="accordion-button  relative flex items-center w-full    text-left border-0 rounded-none transition focus:outline-none !bg-transparent !shadow-none font-sans !text-pry-color text-sm collapsed"
+                            className="accordion-button  relative flex items-center w-full    text-left border-0 rounded-none transition focus:outline-none !bg-transparent !shadow-none font-sans !text-pry-color text-[0.9rem] font-semibold collapsed"
                             type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#flush-collapseOne3"
@@ -192,7 +187,7 @@ function MobileNav() {
                           aria-labelledby="flush-headingOne"
                           data-bs-parent="#accordionFlushExample3"
                         >
-                          <div className="accordion-body space-y-3 py-4 px-2  font-normal">
+                          <div className="accordion-body space-y-3 py-4 px-2  font-[500]">
                             <button onClick={() =>{router.push('/coming-soon');
                            setMenuIsClicked(false);}}>Hackathon</button><br />
                             <button onClick={() =>{router.push('/coming-soon');

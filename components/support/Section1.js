@@ -16,7 +16,10 @@ function Section1(props) {
   let router = useRouter();
 
   return (
-    <div className="px-5 md:pb-24  md:px-14 md:bg-[url('/images/support-bg.png')]  bg-cover bg-bottom bg-no-repeat">
+    <div className="px-5 md:pb-24  md:px-14   "
+
+ 
+    >
        <div className="flex  justify-center md:mb-2">
               <h2 className="font-bold header font-larken  ">
                 {supportTitle}
@@ -32,7 +35,10 @@ function Section1(props) {
               </div>
             </div>
 
-      <div className="dangerous-html md:w-[60%] md:mb-5">
+      <div className="md:space-x-2"
+           >
+      <div className='md:w-1/2 w-full'>
+      <div className="dangerous-html  md:mb-5">
         <div dangerouslySetInnerHTML={{__html: supportSubtitle}} className="text-pry-color text-lg md:leading-7 lg:text-xl">
        {}
         </div>
@@ -61,10 +67,21 @@ function Section1(props) {
         <p className="font-semibold">Customer Care</p>
         <p>{customerCareNumber}</p>
       </div>
+        </div>
+        
+        <div className="hidden md:flex w-1/2 md:bg-cover md:bg-center md:bg-no-repeat"
+            //  md:bg-[url('/images/support-bg.png')]
+        style={{ backgroundImage: `url(${supportBgImage})` }}
+        >
+
+        </div>
+     </div>
 
       <BotIcon />
     </div>
   );
 }
+
+
 
 export default Section1;

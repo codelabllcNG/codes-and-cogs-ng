@@ -45,7 +45,7 @@ h1, h2 {
 }
 
 .header {
-  @apply text-xs 320:text-base 350:text-xl md:text-4xl
+  @apply text-xs 320:text-base 350:text-xl sm:text-2xl md:text-4xl
 }
 
 @font-face {

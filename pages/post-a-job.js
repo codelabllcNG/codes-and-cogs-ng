@@ -1,14 +1,20 @@
 import Head from "next/head";
+import Image from "next/image";
 import React, { useRef, useState } from "react";
 import BotIcon from "../components/BotIcon";
 import AllCtx from "../util-functions/allCtx";
-function PostAJob() {
+
+function PostAJob(props) {
   const {
     talentToHire,
     setTalentToHire,
     idOfTalentToHire,
     setIdOfTalentToHire,
   } = AllCtx();
+
+  const {title,
+    engineerType,
+    bgImage,} = props
 
   const [posting, setPosting] = useState(false);
   const [response, setResponse] = useState("");
@@ -113,7 +119,7 @@ function PostAJob() {
   }
 
   return (
-    <div className="px-5 md:px-14   md:bg-[url('/images/post-job-bg.png')]  bg-cover bg-bottom bg-no-repeat">
+    <div >
       <Head>
         <title>Post Your Job - Codes and Cogs</title>
         <meta
@@ -123,7 +129,24 @@ function PostAJob() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="mb-5">
+      <div className="flex text-center justify-center mb-2">
+        <h2 className="font-bold text-3xl">Submit Requirement</h2>
+      </div>
+      <div className="flex justify-center mb-10 ">
+        <div className=" [150px]">
+          <Image
+            src="/images/logos-and-icons/red-underline.png"
+            width={150}
+            height={20}
+          />
+        </div>
+      </div>
+
+      <div className="flex  px-5 md:px-14 md:-mr-10 md:space-x-2 "
+      
+      >
+        <div className='w-full md:w-1/2'>
+        <div className="mb-5">
         <p className="font-semibold text-gray-700 text-xl font-larken md:text-xl">
           {talentToHire
             ? `Submit a request to hire ${talentToHire}`
@@ -133,7 +156,7 @@ function PostAJob() {
 
       <form
         onSubmit={submitRequirement}
-        className="py-5 bg-mid-color rounded-3xl px-4 sm:px-8 md:w-[50%] mb-10"
+        className="py-5 bg-mid-color rounded-3xl px-4 sm:px-8  mb-10"
       >
         <div className="mb-5">
           <div>
@@ -225,17 +248,12 @@ function PostAJob() {
               >
                 <option className="w-1/2 " value=""></option>
 
-                <option className="w-1/2 " value="web">
-                  Web Engineer
-                </option>
+             {engineerType.map(engineer =>    <option className="w-1/2 " value={engineer}>
+                 {engineer}
+                </option>)}
 
-                <option className="w-1/2 " value="web">
-                  Mobile Engineer
-                </option>
-
-                <option className="w-1/2 " value="web">
-                  Database Engineer
-                </option>
+              
+             
               </select>
             </div>
           </div>
@@ -281,10 +299,41 @@ function PostAJob() {
           </button>
         </div>
       </form>
+        </div> 
+
+        <div className="hidden  md:flex w-1/2   md:bg-cover md:bg-center md:bg-no-repeat"
+          // md:bg-[url('/images/post-a-job-bg.png')]
+          style={{ backgroundImage: `url(${bgImage})` }}
+        >
+
+        </div>
+  </div>
 
       <BotIcon />
     </div>
   );
+}
+
+export async function getStaticProps() {
+
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/jobrequest`
+  );
+  const data = await response.json();
+
+  const title = data.jobRequestTitle;
+  const engineerType = data.jobRequestEngineerType;
+  const bgImage = data.JobRequestBgImage 
+  
+
+  return {
+    props: {
+      title,
+      engineerType,
+      bgImage,
+    },
+    revalidate: 300,
+  };
 }
 
 export default PostAJob;
