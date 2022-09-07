@@ -91,7 +91,8 @@ function Index(props) {
                   </div>
 
                   <div className="px-2 text-justify mb-2 ">
-                    <div dangerouslySetInnerHTML={{ __html: article.excerpt }}>{}
+                    <div dangerouslySetInnerHTML={{ __html: article.excerpt }}>
+                      {}
                     </div>
                   </div>
 
