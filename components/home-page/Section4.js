@@ -45,12 +45,12 @@ function Section4(props) {
       className=" md:ml-8 "
     >
       <div>
-        <div className="flex  md:justify-center md:mb-2">
-          <h2 className="font-bold text-xs 320:text-sm 450:text-xl font-larken  md:text-3xl">
+        <div className="flex text-center justify-center md:mb-2">
+          <h2 className="font-bold header font-larken  ">
           {feasibilityTitle}
           </h2>
         </div>
-        <div className="flex md:justify-center mb-4">
+        <div className="flex justify-center mb-4">
           <div className=" w-[75px] md:w-[150px]">
             <Image
               src="/images/logos-and-icons/red-underline.png"
@@ -61,16 +61,16 @@ function Section4(props) {
         </div>
       </div>
 
-      <div className="md:flex text-lg md:justify-center mb-8">
-        <p>
-{feasibilityDescription}
-        </p>
+      <div className="dangerous-html md:flex !text-lg !md:justify-center mb-8">
+        <div dangerouslySetInnerHTML={{__html: feasibilityDescription}}>
+{}
+        </div>
       </div>
 
-      <div className="md:flex justify-center mb-4">
-        <p className="font-semibold text-lg 400:text-xl font-larken">
-       {feasibilitySubtitle}
-        </p>
+      <div className="dangerous-html md:flex justify-center mb-4">
+        <div dangerouslySetInnerHTML={{__html: feasibilitySubtitle}} className="font-semibold text-lg 400:text-xl font-larken">
+       {}
+        </div>
       </div>
 
       <div className="mb-10">
@@ -127,7 +127,9 @@ function Section4(props) {
                   : "opacity-0 hidden"
               } duration-500 text-pry-color -mt-5 text-sm pl-14 pr-9 mb-2 text-justify 400:text-base`}
             >
-              <p >{content.excerpt}</p>{" "}
+              <div dangerouslySetInnerHTML={{ __html: content.excerpt }}>
+                {}
+              </div>{" "}
               <button
                 onClick={() => {
                   router.push(`/feasibility/${content.id}`);

@@ -33,12 +33,12 @@ let router = useRouter()
 
   return (
     <div id='ticket-status' className="px-5 pt-16 md:px-14 md:bg-[url('/images/sections-watermark.png')] bg-contain bg-right-bottom  bg-no-repeat">
-      <div className="flex  md:justify-center md:mb-2">
-        <h2 className="font-bold text-xs 400:text-xl  md:text-3xl">
+      <div className="flex  justify-center md:mb-2">
+        <h2 className="font-bold header">
        {ticketStatusTitle}
         </h2>
       </div>
-      <div className="flex md:justify-center mb-4">
+      <div className="flex justify-center mb-4">
         <div className=" w-[75px] md:w-[150px]">
           <Image
             src="/images/logos-and-icons/red-underline.png"
@@ -48,8 +48,8 @@ let router = useRouter()
         </div>
       </div>
 
-      <div className="flex justify-center text-lg font-semibold mb-5">
-        <p>{ticketStatusSubtitle}</p>
+      <div className="flex justify-center text-lg font-semibold mb-">
+        <div dangerouslySetInnerHTML={{__html: ticketStatusSubtitle}} >{}</div>
       </div>
 
       <div className="flex justify-center">

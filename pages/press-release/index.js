@@ -99,7 +99,9 @@ function PressRelease(props) {
               </div>
               <div className="bg-mid-color py-5 text-center">
                 <div className="px-3">
-                  <p className="text-lg font-bold">{featuredNews.title}</p>
+                  <div dangerouslySetInnerHTML={{ __html: featuredNews.title }} className="text-lg font-bold">
+                    {}
+                  </div>
                 </div>
 
                 <div className="mt-3 px-3">

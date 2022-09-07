@@ -34,12 +34,12 @@ function Navbar() {
   return (
     <div className={``}>
       <MobileNav />
-      <div className="flex items-center py-4 justify-between mx-5 mb-5 mt-3 md:mx-10 lg:px-14">
+      <div className="flex items-center pt-4 justify-between mx-5 my-3 md:mx-10 lg:px-14">
         <div
           onClick={() => {
             router.push("/");
           }}
-          className=" flex items-center cursor-pointer w-[5rem] md:w-[6rem]     "
+          className=" flex items-center cursor-pointer w-[4rem] 380:w-[5rem] md:w-[6rem]     "
         >
           {" "}
           <Image
@@ -50,7 +50,7 @@ function Navbar() {
           />{" "}
         </div>
 
-        <div className="890:flex hidden text-sm 930:text-base text-pry-color font-medium space-x-4 800:space-x-5 1000:space-x-7 ">
+        <div className="890:flex hidden text-sm 1130:text-base text-pry-color font-medium space-x-4 800:space-x-5 1000:space-x-7 ">
           {/* <Link passHref href="/">
             <div
               onMouseOver={() => {

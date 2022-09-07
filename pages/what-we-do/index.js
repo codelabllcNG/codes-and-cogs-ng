@@ -34,10 +34,18 @@ const router = useRouter();
 
 
       <div className="900:bg-[url('/images/services-bg.png')]  bg-cover bg-center bg-no-repeat pt-16 900:pb-16 lg:pb-[8rem]   900:mb-16">
-        <div className="  mb-5 -mt-10 ">
-          {" "}
-          <h1 className="font-bold text-3xl">What We Do</h1>
+      <div className="flex text-center justify-center ">
+        <h2 className="font-bold header">{"What We Do"}</h2>
+      </div>
+      <div className="flex justify-center mb-10 ">
+        <div className=" w-[75px] md:[150px]">
+          <Image
+            src="/images/logos-and-icons/red-underline.png"
+            width={150}
+            height={20}
+          />
         </div>
+      </div>
         <div className="mb-5 ">
           <p>
             {subtitle}{" "}
@@ -80,10 +88,10 @@ const router = useRouter();
 
       <div id="enterprise-services" className="mb-10">
         <div className="flex  justify-center mb-2">
-          <h2 className="font-bold text-3xl">Enterprise Packages</h2>
+          <h2 className="font-bold text-2xl md:text-5xl">Enterprise Packages</h2>
         </div>
         <div className="flex justify-center mb-3 ">
-          <div className=" [150px]">
+          <div className=" w-[75px] md:[150px]">
             <Image
               src="/images/logos-and-icons/red-underline.png"
               width={150}
@@ -131,7 +139,7 @@ const router = useRouter();
 
       <div id="solution-as-a-service" className="mb-10 ">
         <div className="flex  justify-center mb-2">
-          <h2 className="font-bold text-3xl">Solution As A Service</h2>
+          <h2 className="font-bold text-2xl md:text-5xl">Solution As A Service</h2>
         </div>
         <div className="flex justify-center mb-3 ">
           <div className=" [150px]">

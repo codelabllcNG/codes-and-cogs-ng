@@ -17,13 +17,13 @@ function Footer() {
 
   return (
     <section id="footer" ref={divHeightRef} className="mt-10">
-      <div className="px-5 md:px-20 py-20">
-        <div className="flex  md:justify-center md:mb-2">
-          <h2 className="font-bold text-xs 400:text-xl font-larken  md:text-3xl">
+      <div className="px-5 md:px-20 py-4">
+        <div className="flex  justify-center md:mb-2">
+          <h2 className="font-bold header font-larken  ">
             Subscribe to our Newsletter
           </h2>
         </div>
-        <div className="flex md:justify-center mb-4">
+        <div className="flex justify-center mb-4">
           <div className=" w-[75px] md:w-[150px]">
             <Image
               src="/images/logos-and-icons/red-underline.png"

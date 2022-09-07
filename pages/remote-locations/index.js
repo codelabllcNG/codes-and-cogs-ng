@@ -20,7 +20,7 @@ function RemoteLocations(props) {
 
 
       <div className="flex  justify-center md:mb-2">
-        <h2 className="font-bold text-xs 400:text-xl font-larken md:text-3xl">
+        <h2 className="font-bold header">
           {title}
         </h2>
       </div>

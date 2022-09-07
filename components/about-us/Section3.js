@@ -8,12 +8,12 @@ function section3(props) {
 
   return (
     <div id="talent-stories" className="md:px-10 px-5 lg:px-16 mb-8">
-      <div className="flex  md:justify-center md:mb-2">
-        <h2 className="font-bold text-xs 400:text-xl  md:text-3xl">
+      <div className="flex  justify-center md:mb-2">
+        <h2 className="font-bold header">
           {storiesTitle}
         </h2>
       </div>
-      <div className="flex md:justify-center -mb-4">
+      <div className="flex justify-center -mb-4">
         <div className=" w-[75px] md:w-[150px]">
           <Image
             src="/images/logos-and-icons/red-underline.png"
@@ -52,7 +52,7 @@ function section3(props) {
                 </div>
               </div>
 
-              <div className="prose max-w-none text-xs 400:text-sm 700:text-base text-justify mb-3 700:mb-10">
+              <div className="prose max-w-none text-xs 350:text-sm 700:text-base text-justify mb-3 700:mb-10">
                 {" "}
                 <div dangerouslySetInnerHTML={{ __html: story.story }}>
                   {}

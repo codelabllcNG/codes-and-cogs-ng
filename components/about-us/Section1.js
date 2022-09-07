@@ -20,12 +20,12 @@ const router = useRouter();
 
   return (
     <div className="px-5 md:px-10 lg:px-16 mb-14">
-      <div className="flex  md:justify-center md:mb-2">
-        <h2 className="font-bold text-xs 400:text-xl  md:text-3xl">
+      <div className="flex  justify-center md:mb-2">
+        <h2 className="font-bold text-xs 320:text-base 350:text-xl  md:text-4xl">
          {aboutTitle}
         </h2>
       </div>
-      <div className="flex md:justify-center mb-4">
+      <div className="flex justify-center mb-4">
         <div className=" w-[75px] md:w-[150px]">
           <Image
             src="/images/logos-and-icons/red-underline.png"
@@ -36,10 +36,10 @@ const router = useRouter();
       </div>
 
       <div>
-        <div className="text-justify mb-3">
-          <p className="text-pry-color text-lg ">
-        {aboutBody}
-          </p>
+        <div className="dangerous-html text-justify mb-3">
+          <div dangerouslySetInnerHTML={{__html: aboutBody}} className="text-pry-color text-lg ">
+        {}
+          </div>
         </div>{" "}
     
       </div>

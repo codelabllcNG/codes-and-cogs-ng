@@ -45,12 +45,12 @@ const { skillsArray,
       className="  md:ml-8 "
     >
       <div>
-        <div className="flex  md:justify-center md:mb-2">
-          <h2 className="font-bold text-xs 320:text-sm 450:text-xl font-larken md:text-3xl">
+        <div className="flex text-center justify-center md:mb-2">
+          <h2 className="font-bold header  font-larken">
            {skillsTitle}
           </h2>
         </div>
-        <div className="flex md:justify-center mb-4">
+        <div className="flex justify-center mb-4">
           <div className=" w-[75px] md:w-[150px]">
             <Image
               src="/images/logos-and-icons/red-underline.png"
@@ -61,7 +61,7 @@ const { skillsArray,
         </div>
       </div>
       {/* <div className="md:flex md:justify-center mb-8">
-        <p>{skillsSubtitle}</p>
+        <p>{skillsSubtitle}</p> 
       </div> */}
 
       <div className="1000:flex justify-between hidden mb-12 ">

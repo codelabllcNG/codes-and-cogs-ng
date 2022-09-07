@@ -130,8 +130,8 @@ function Section1(props) {
         ref={divHeightRef}
         className=" md:pb-8 md:mb-0   md:ml-8"
       >
-        <div className="lg:w-[90%] mt-4">
-          <h1 className="font-semibold text-pry-color font-larken md:text-[#07222E] md:leading-[5rem] md:text-6xl lg:text-[4.2rem] lg:leading-[5rem] text-[1.7rem] 400:text-2xl 400:leading-[2.2rem] ">
+        <div className="lg:w-[85%] md:w-[80%] mt-4">
+          <h1 className="font-semibold text-pry-color font-larken md:text-[#07222E] md:leading-[5rem] md:text-6xl lg:text-[4.2rem] lg:leading-[5rem] text-2xl 340:text-[1.7rem] 340:leading-[2.2rem] ">
             {heroTitle}
           </h1>
         </div>
@@ -152,7 +152,7 @@ function Section1(props) {
                 setSearchKeyword(e.target.value);
               }}
               type="text"
-              className=" ml-4 outline-0 text- w-full bg-transparent "
+              className=" ml-4 outline-0 focus:outline-0 border-0 text- w-full bg-transparent "
               placeholder="Search for Talents"
             />
           </div>{" "}

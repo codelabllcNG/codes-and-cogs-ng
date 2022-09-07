@@ -29,6 +29,7 @@ export default function Home(props) {
     remoteDesigners,
     remoteBgImage,
     trusteeLogos,
+    projectEngineerPhone
   } = props;
 
   const {
@@ -194,6 +195,7 @@ export async function getStaticProps() {
   const remoteDesigners = data.remoteDesigners;
   const remoteBgImage = data.remoteBgImage;
   const trusteeLogos = data.trusteeIcons;
+  const projectEngineerPhone = "2347087676354" //data.phone
 
   return {
     props: {
@@ -220,6 +222,7 @@ export async function getStaticProps() {
       remoteDesigners,
       remoteBgImage,
       trusteeLogos,
+      projectEngineerPhone
     },
     revalidate: 300,
   };

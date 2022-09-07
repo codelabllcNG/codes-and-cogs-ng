@@ -103,7 +103,7 @@ function SearchTalents(props) {
     <div className="md:px-10 px-5 mb-8">
       <div>
         <div className="flex  justify-center md:mb-2">
-          <h2 className="font-bold 400:text-xl  md:text-3xl">Search Talents</h2>
+          <h2 className="font-bold header">Search Talents</h2>
         </div>
         <div className="flex justify-center  ">
           <div className=" w-[75px] md:w-[150px] mb-5">
@@ -146,7 +146,7 @@ function SearchTalents(props) {
                   setSearchKeyword(e.target.value);
                 }}
                 type="text"
-                className="outline-0 text-center w-full bg-transparent "
+                className="outline-0 focus:outline-0 border-0  text-center w-full bg-transparent "
                 placeholder="Search for Talents"
               />
             </div>{" "}

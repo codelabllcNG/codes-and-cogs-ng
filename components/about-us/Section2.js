@@ -8,14 +8,14 @@ function Section2(props) {
 
   return (
     <div className="md:px-10 px-5 lg:px-16 mb-8">
-      <div className="flex  md:justify-center md:mb-2">
-        <h2 className="font-bold text-xs 400:text-xl  md:text-3xl">
+      <div className="flex  justify-center md:mb-2">
+        <h2 className="font-bold header  ">
           {reviewsTitle}
 
           {/* Customer Reviews */}
         </h2>
       </div>
-      <div className="flex md:justify-center -mb-4">
+      <div className="flex justify-center -mb-4">
         <div className=" w-[75px] md:w-[150px]">
           <Image
             src="/images/logos-and-icons/red-underline.png"
@@ -59,6 +59,6 @@ function Section2(props) {
       {/* <BotIcon />  */}
     </div>
   );
-}
+} 
 
 export default Section2;

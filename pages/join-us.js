@@ -249,7 +249,7 @@ function JoinUS(props) {
 {/* PAGE CONTENT */}
       <div className="md:bg-[url('/images/sections-watermark.png')] bg-cover bg-right-bottom  px-5 md:px-10 bg-no-repeat">
         <div className="flex  justify-center md:mb-2">
-          <h2 className="font-bold text-xs 400:text-xl  md:text-5xl">
+          <h2 className="font-bold header">
             {title}
           </h2>
         </div>

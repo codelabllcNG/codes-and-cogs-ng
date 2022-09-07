@@ -24,12 +24,12 @@ function Section4(props) {
 
   return (
     <div className="md:px-10 px-5 lg:px-16 mb-8">
-      <div className="flex  md:justify-center md:mb-2">
-        <h2 className="font-bold text-xs 400:text-xl  md:text-3xl">
+      <div className="flex  justify-center md:mb-2">
+        <h2 className="font-bold header">
         {ourTalentTitle}
         </h2>
       </div>
-      <div className="flex md:justify-center mb-3 ">
+      <div className="flex justify-center mb-3 ">
         <div className=" w-[75px] md:w-[150px]">
           <Image
             src="/images/logos-and-icons/red-underline.png"
@@ -40,7 +40,7 @@ function Section4(props) {
       </div>
 
       <div>
-        <div className="flex justify-center bg-transparent text-pry-color font-semibold text-xs 400:text-sm 560:text-base  ">
+        <div className="flex justify-center bg-transparent text-pry-color font-semibold text-xs 350:text-sm 560:text-base  ">
           <div
             onClick={() => {
               setCategory("designers");
@@ -80,7 +80,7 @@ function Section4(props) {
         </div>
 
         {category === "designers" && (
-          <div className="grid gap-2 560:gap-4 grid-cols-2 md:grid-cols-3 mt-10 text-xs 400:text-sm sm:text-base">
+          <div className="grid gap-2 560:gap-4 grid-cols-2 md:grid-cols-3 mt-10 text-xs 350:text-sm sm:text-base">
             {designersArray.map((designer) => (
               <div
                 key={designer.id}
@@ -126,7 +126,7 @@ function Section4(props) {
         )}
 
         {category === "developers" && (
-          <div className="grid gap-2 560:gap-4 grid-cols-2 md:grid-cols-3 mt-10 text-xs 400:text-sm sm:text-base">
+          <div className="grid gap-2 560:gap-4 grid-cols-2 md:grid-cols-3 mt-10 text-xs 350:text-sm sm:text-base">
             {developersArray.map((developer) => (
               <div
                 key={developer.id}

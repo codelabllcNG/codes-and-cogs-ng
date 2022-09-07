@@ -1,6 +1,8 @@
 import React from "react";
 import BotIcon from "../BotIcon";
 import { useRouter } from "next/router";
+import Image from "next/image";
+
 
 function Section1(props) {
 
@@ -15,16 +17,25 @@ function Section1(props) {
 
   return (
     <div className="px-5 md:pb-24  md:px-14 md:bg-[url('/images/support-bg.png')]  bg-cover bg-bottom bg-no-repeat">
-      <div className="pt-10 mb-5">
-        <p className="font-bold text-base 400:text-xl font-larken  md:text-3xl lg:text-4xl">
-       {supportTitle}
-        </p>
-      </div>
+       <div className="flex  justify-center md:mb-2">
+              <h2 className="font-bold header font-larken  ">
+                {supportTitle}
+              </h2>
+            </div>
+            <div className="flex justify-center mb-4">
+              <div className=" w-[75px] md:w-[150px]">
+                <Image
+                  src="/images/logos-and-icons/red-underline.png"
+                  width={150}
+                  height={20}
+                />
+              </div>
+            </div>
 
-      <div className="md:w-[60%] mb-5">
-        <p className="text-pry-color text-lg md:leading-7 lg:text-xl">
-       {supportSubtitle}
-        </p>
+      <div className="dangerous-html md:w-[60%] md:mb-5">
+        <div dangerouslySetInnerHTML={{__html: supportSubtitle}} className="text-pry-color text-lg md:leading-7 lg:text-xl">
+       {}
+        </div>
       </div>
 
       <div className="mb-10 flex space-x-2 500:space-x-5">

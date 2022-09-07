@@ -26,12 +26,12 @@ function Section3(props) {
     <div className="lg:bg-[url('/images/sections-watermark.png')] bg-contain bg-right-bottom  bg-no-repeat px-5 md:px-10 lg:px-16">
         <section id='section3' ref={divHeightRef} className=" mb-16 md:ml-8 ">
               <div>
-        <div className="flex  md:justify-center md:mb-2">
-          <h2 className="font-bold text-xs 320:text-sm 450:text-xl font-larken  md:text-3xl text-[#07222E]">
+        <div className="flex  text-center justify-center md:mb-2">
+          <h2 className="font-bold header font-larken   text-[#07222E]">
            {modelsTitle}
           </h2>
         </div>
-        <div className="flex md:justify-center mb-4">
+        <div className="flex justify-center mb-4">
           <div className=" w-[75px] md:w-[150px]">
             <Image
               src="/images/logos-and-icons/red-underline.png"
@@ -42,15 +42,19 @@ function Section3(props) {
         </div>
       </div>
 
-         <div className="md:flex md:justify-center mb-8">
-        <p>{modelsSubtitle} </p>
+         <div className="dangerous-html md:flex md:justify-center mb-8">
+          <div dangerouslySetInnerHTML={{ __html: modelsSubtitle }}>
+            { }
+          </div>
       </div>
 
       <div className='md:mr-5 grid grid-cols-1 gap-8 sm:gap-x-4 md:gap-x-8  gap-x 800:grid-cols-2 1000:grid-cols-3 mb-8'>
 
         {modelsArray.map(content => <div key={content.id} className='bg-mid-color relative text-xl rounded-md p-4 pb-8'>
           <div className="flex justify-center   mb-5"><p className='text-center font-semibold'>{content.title}</p></div>
-          <div className='text-lg mb-5'><p className='  text-gray-600 '>{content.excerpt}</p></div>
+          <div className='dangerous-html !text-xl mb-5'><div dangerouslySetInnerHTML={{ __html: content.excerpt }} className='  text-gray-600 '>
+            {}
+          </div></div>
           
          <div className='text-sm absolute  bottom-3   '> <button  onClick={()=>{router.push(`/models/${content.id}`)}} className='font-semibold text-pry-color hover:text-blue-500 duration-300'>Learn More</button></div>
         </div> )}

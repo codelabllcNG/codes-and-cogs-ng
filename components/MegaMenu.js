@@ -237,7 +237,7 @@ function MegaMenu() {
             <div>
               <p
                 onClick={() => {
-                  router.push("/what-we-do/#hackathon");
+                  router.push("/coming-soon");
                   setMegaMenu(false);
                 }}
               >
@@ -257,7 +257,7 @@ function MegaMenu() {
             <div>
               <p
                 onClick={() => {
-                  router.push("/what-we-do/#infrastructure");
+                  router.push("/coming-soon");
                   setMegaMenu(false);
                 }}
               >
@@ -277,7 +277,7 @@ function MegaMenu() {
             <div>
               <p
                 onClick={() => {
-                  router.push("/what-we-do/#workspace");
+                  router.push("/coming-soon");
                   setMegaMenu(false);
                 }}
               >
@@ -297,7 +297,7 @@ function MegaMenu() {
             <div>
               <p
                 onClick={() => {
-                  router.push("/what-we-do/#salary-estimator");
+                  router.push("/coming-soon");
                   setMegaMenu(false);
                 }}
               >

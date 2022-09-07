@@ -64,7 +64,7 @@ function WhatWeDoID(props) {
     
 
       <div className="flex  justify-center md:text-center md:mb-2">
-        <h2 className="font-bold text-xs 400:text-xl  md:text-5xl">
+        <h2 className="font-bold header">
           {selectedWhatWeDo.name}
         </h2>
       </div>

@@ -29,12 +29,12 @@ function MobileNav() {
   return (
     <div
       className={`890:hidden duration-300 ${
-        menuIsClicked ? "-translate-x-0 " : " -translate-x-full "
+        menuIsClicked ? "translate-x-0 " : " -translate-x-full "
       } -my-4 w-full h-screen flex   fixed z-[10] overflow-y-hidden
 `}
     >
       <div
-        className={`w-[60%] sm:w-[50%] h-screen pl-3 pr-3 400:pl-5 pt-10 bg-mid-color shadow-md `}
+        className={`w-[75%] sm:w-[65%] h-screen pl-3 pr-3 400:pl-5 pt-10 bg-mid-color shadow-md `}
       >
         <div className="flex mb-8">
           <div className="mr-2">
@@ -120,26 +120,93 @@ function MobileNav() {
               </h2>
               <div
                 id="flush-collapseOne"
-                className="accordion-collapse border-0 collapse show"
+                className="accordion-collapse border-0 collapse show "
                 aria-labelledby="flush-headingOne"
                 data-bs-parent="#accordionFlushExample"
               >
-                <div className="accordion-body space-y-4 py-4 px-4 font-normal">
+                <div className="accordion-body space-y-4 py-4 px-2 font-normal text-[0.7rem] 400:text-base">
                   <div
-                    onClick={() => {
-                      router.push("/what-we-do/#enterprise-services");
-                      setMenuIsClicked(false);
-                    }}
+                  // onClick={() => {
+                  //   router.push("/what-we-do/#enterprise-services");
+                  //   setMenuIsClicked(false);
+                  // }}
                   >
-                    <button>Enterprise Services</button>
+                    <div
+                      className="accordion accordion-flush"
+                      id="accordionFlushExample2"
+                    >
+                      <div className="accordion-item  mb-">
+                        <h2 className="accordion-header ">
+                          <button
+                            className="accordion-button  relative flex items-center w-full    text-left border-0 rounded-none transition focus:outline-none !bg-transparent !shadow-none font-sans !text-pry-color text-sm font collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne2"
+                            aria-expanded="false"
+                            aria-controls="flush-collapseOne2"
+                          >
+                            Enterprise Packages
+                          </button>
+                        </h2>
+                        <div
+                          id="flush-collapseOne2"
+                          className="accordion-collapse border-0 collapse "
+                          aria-labelledby="flush-headingOne"
+                          data-bs-parent="#accordionFlushExample2"
+                        >
+                          <div className="accordion-body space-y-3 py-4 px-2  font-normal">
+                            <button onClick={() =>{router.push('/what-we-do/remote-development-services');  setMenuIsClicked(false);}}>Remote Dev Services</button>
+                            <button onClick={() =>{router.push('/what-we-do/enterprise-packages');  setMenuIsClicked(false);}}>Enterprise Packages</button>
+                            <button onClick={() =>{router.push('/what-we-do/hiring-as-a-service');  setMenuIsClicked(false);}}>Hiring as a Service</button>
+                            <button onClick={() =>{router.push('/what-we-do/training');  setMenuIsClicked(false);}}>Training</button>
+                            <button onClick={() =>{router.push('/what-we-do/global-payroll');  setMenuIsClicked(false);}}>Global Payroll</button>
+                            <button onClick={() =>{router.push('/what-we-do/internship');  setMenuIsClicked(false);}}>Internship</button>
+                            <button onClick={() =>{router.push('/what-we-do/conpliance-and-hr-services');  setMenuIsClicked(false);}}>Compliance and HR Services</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div
-                    onClick={() => {
-                      router.push("/what-we-do/#solution-as-a-service");
-                      setMenuIsClicked(false);
-                    }}
-                  >
-                    <button> Solutions</button>
+
+                  <div>
+                    <div
+                      className="accordion accordion-flush"
+                      id="accordionFlushExample3"
+                    >
+                      <div className="accordion-item  mb-">
+                        <h2 className="accordion-header ">
+                          <button
+                            className="accordion-button  relative flex items-center w-full    text-left border-0 rounded-none transition focus:outline-none !bg-transparent !shadow-none font-sans !text-pry-color text-sm collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne3"
+                            aria-expanded="false"
+                            aria-controls="flush-collapseOne3"
+                          >
+                            Solutions
+                          </button>
+                        </h2>
+                        <div
+                          id="flush-collapseOne3"
+                          className="accordion-collapse border-0 collapse "
+                          aria-labelledby="flush-headingOne"
+                          data-bs-parent="#accordionFlushExample3"
+                        >
+                          <div className="accordion-body space-y-3 py-4 px-2  font-normal">
+                            <button onClick={() =>{router.push('/coming-soon');
+                           setMenuIsClicked(false);}}>Hackathon</button><br />
+                            <button onClick={() =>{router.push('/coming-soon');
+                           setMenuIsClicked(false);}}>Infrastructure</button><br />
+                            <button onClick={() =>{router.push('/coming-soon');
+                           setMenuIsClicked(false);}}>Workspace</button> <br />
+                            <button onClick={() =>{router.push('/coming-soon');
+                           setMenuIsClicked(false);}}>Salary Estimator</button>
+
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -190,7 +257,7 @@ function MobileNav() {
         onClick={() => {
           setMenuIsClicked(false);
         }}
-        className={`w-[40%]    duration-300  h-screen`}
+        className={`w-[50%]    duration-300  h-screen`}
       ></div>
     </div>
   );
