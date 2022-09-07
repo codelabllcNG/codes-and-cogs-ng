@@ -248,7 +248,7 @@ function PostAJob(props) {
               >
                 <option className="w-1/2 " value=""></option>
 
-             {engineerType.map(engineer =>    <option className="w-1/2 " value={engineer}>
+             {engineerType.map(engineer =>    <option key={engineer} className="w-1/2 " value={engineer}>
                  {engineer}
                 </option>)}
 
