@@ -81,7 +81,9 @@ function Index(props) {
                   </div>
 
                   <div className="px-2 400:text-lg font-semibold text-pry-color mb-1 text-center">
-                    <div dangerouslySetInnerHTML={{__html: article.title}} >{}</div>
+                    <div dangerouslySetInnerHTML={{ __html: article.title }} >
+                      { }
+                    </div>
                   </div>
 
                   <div className="px-2 text-xs mb-4 text-gray-500 text-center">
