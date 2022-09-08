@@ -5,7 +5,7 @@ function BotIcon() {
   return (
     <div className="hidden  items-center  mb-16">
       {" "}
-      <Image
+      <Image alt="Image alt text"
         src="/images/logos-and-icons/bot.png"
         width={45}
         height={55}

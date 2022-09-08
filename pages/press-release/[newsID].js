@@ -35,7 +35,7 @@ function NewsID(props) {
       </div>
       <div className="flex justify-center mb-8">
         <div className=" w-[75px] md:w-[150px]">
-          <Image
+          <Image alt="Image alt text"
             src="/images/logos-and-icons/red-underline.png"
             width={150}
             height={20}
@@ -47,10 +47,10 @@ function NewsID(props) {
       <div className='flex' >
       <div className="  justify-between md: ">
         <div className="w-[40%]  lg:mr-8 float-left h-full hidden lg:flex">
-          <Image className='rounded-lg' src={selectedNews.imageUrl} width={500} height={700} />{" "}
+          <Image alt="Image alt text" className='rounded-lg' src={selectedNews.imageUrl} width={500} height={700} />{" "}
         </div>
         <div className="w-[100%] mb-5 flex justify-center lg:hidden">
-          <Image src={selectedNews.imageUrl} width={500} height={300} />{" "}
+          <Image alt="Image alt text" src={selectedNews.imageUrl} width={500} height={300} />{" "}
         </div>
         <div className=' w-full   '>
           <div

@@ -26,7 +26,7 @@ function RemoteLocations(props) {
       </div>
       <div className="flex justify-center mb-4">
         <div className=" w-[75px] md:w-[150px]">
-          <Image
+          <Image alt="Image alt text"
             src="/images/logos-and-icons/red-underline.png"
             width={150}
             height={20}
@@ -35,11 +35,11 @@ function RemoteLocations(props) {
       </div>
 
       <div className="flex justify-center mb-4">
-        <Image
+        <Image alt="Image alt text"
           src="/images/remote-location-map.png"
           height="300"
           width="700"
-          alt=""
+      
         />
       </div>
 
@@ -53,12 +53,12 @@ function RemoteLocations(props) {
             className={`bg-white cursor-pointer rounded-lg   hover:scale-95 duration-300 shrink-0 snap-center shadow-md`}
           >
             <div className="w-[250px] 400:w-[300px] duration-200">
-              <Image
+              <Image alt="Image alt text"
                 className="rounded-t-lg"
                 src={location.imageUrl}
                 width={300}
                 height={200}
-                alt=""
+              
               />
             </div>
 

@@ -34,7 +34,7 @@ function FeasibilityID(props) {
       </div>
       <div className="flex justify-center mb-10 ">
         <div className=" [150px]">
-          <Image
+          <Image alt="Image alt text"
             src="/images/logos-and-icons/red-underline.png"
             width={150}
             height={20}

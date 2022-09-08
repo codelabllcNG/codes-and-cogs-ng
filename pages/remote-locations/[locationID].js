@@ -35,7 +35,7 @@ function LocationID(props) {
       </div>
       <div className="flex justify-center mb-4">
         <div className=" w-[75px] md:w-[150px]">
-          <Image
+          <Image alt="Image alt text"
             src="/images/logos-and-icons/red-underline.png"
             width={150}
             height={20}
@@ -56,12 +56,12 @@ function LocationID(props) {
         </div>
 
         <div className="md:w-[40%]  flex justify-center mb-5 md:mb-0">
-          <Image
+          <Image alt="Image alt text"
             width={400}
             height={300}
             className="w-300px rounded-lg"
             src={selectedLocation.imageUrl}
-            alt=""
+          
           />
         </div>
       </div>

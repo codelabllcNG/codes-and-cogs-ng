@@ -33,7 +33,7 @@ if (router.isFallback) {
   const customComponents = {
     img(img) {
       return (
-        <Image
+        <Image 
           src={`/images/blog/in-article/${img.src}`}
           alt={img.alt}
           width={600}
@@ -65,7 +65,7 @@ if (router.isFallback) {
         </div>
         <div className="flex justify-center mb-4">
           <div className=" w-[75px] md:w-[150px]">
-            <Image
+            <Image alt="Image alt text"
               src="/images/logos-and-icons/red-underline.png"
               width={150}
               height={20}
@@ -85,7 +85,7 @@ if (router.isFallback) {
         </div>
 
         <div className="hidden md:flex justify-center px-5 md:px-10">
-          <Image
+          <Image alt="Image alt text"
             className="rounded-lg"
             src={selectedBlogPost.imageUrl}
             width={400}
@@ -95,7 +95,7 @@ if (router.isFallback) {
       </div>
 
       <div className="flex md:hidden justify-center px-5 md:px-10 mb-8">
-        <Image
+        <Image alt="Image alt text"
           className="rounded-lg"
           src={selectedBlogPost.imageUrl}
           width={400}

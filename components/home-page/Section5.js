@@ -41,7 +41,7 @@ function Section5(props) {
             </div>
             <div className="flex justify-center mb-4">
               <div className=" w-[75px] md:w-[150px]">
-                <Image
+                <Image alt="Image alt text"
                   src="/images/logos-and-icons/red-underline.png"
                   width={150}
                   height={20}
@@ -51,14 +51,14 @@ function Section5(props) {
             <div className="flex justify-between mb-4 space-x-2">
               {trusteeLogos.map((trusted) => (
                 <div key={trusted.id}>
-                  <Image
+                  <Image alt="Image alt text"
                     layout="intrinsic"
                     width="80"
                     height="80"
                     // className="w-[30px] 340:w-[40px] sm:w-[50px] md:w-[60px] lg:w-[80px] "
 
                     src={trusted.imageUrl}
-                    alt=""
+              
                   />
                 </div>
               ))}
@@ -161,7 +161,7 @@ function Section5(props) {
           </h2>
         </div>{" "}
         <div className=" flex justify-center  400:justify-end">
-          <Image src="/images/we-love-ukrain.png" width="150" height="150" />
+          <Image alt="Image alt text" src="/images/we-love-ukrain.png" width="150" height="150" />
         </div>
       </div>
     </section>

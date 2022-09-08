@@ -52,7 +52,7 @@ const { skillsArray,
         </div>
         <div className="flex justify-center mb-4">
           <div className=" w-[75px] md:w-[150px]">
-            <Image
+            <Image alt="Image alt text"
               src="/images/logos-and-icons/red-underline.png"
               width={150}
               height={20}
@@ -77,7 +77,7 @@ const { skillsArray,
             >
               <div className="flex justify-center">
                 {" "}
-                <Image src={tool.imageUrl || '/images/default-skill.png'} width={35} height={31} />{" "}
+                <Image alt="Image alt text" src={tool.imageUrl || '/images/default-skill.png'} width={35} height={31} />{" "}
               </div>
               <div className="flex justify-center">
                 <p className="text-xs font-semibold">{tool.name}</p>
@@ -98,7 +98,7 @@ const { skillsArray,
             >
               <div className="flex justify-center">
                 {" "}
-                <Image src={tool.imageUrl || '/images/default-skill.png'} width={35} height={31} />{" "}
+                <Image alt="Image alt text" src={tool.imageUrl || '/images/default-skill.png'} width={35} height={31} />{" "}
               </div>
               <div className="flex justify-center">
                 <p className="text-xs font-semibold">{tool.name}</p>
@@ -120,7 +120,7 @@ const { skillsArray,
               >
                 <div className="flex justify-center">
                   {" "}
-                  <Image src={tool.imageUrl || '/images/default-skill.png'} width={35} height={31} />{" "}
+                  <Image alt="Image alt text" src={tool.imageUrl || '/images/default-skill.png'} width={35} height={31} />{" "}
                 </div>
                 <div className="flex justify-center">
                   <p className="text-xs font-semibold">{tool.name}</p>
@@ -143,7 +143,7 @@ const { skillsArray,
               >
                 <div className="flex justify-center">
                   {" "}
-                  <Image src={tool.imageUrl || '/images/default-skill.png'} width={35} height={31} />{" "}
+                  <Image alt="Image alt text" src={tool.imageUrl || '/images/default-skill.png'} width={35} height={31} />{" "}
                 </div>
                 <div className="flex justify-center">
                   <p className="text-xs font-semibold text-center">{tool.name}</p>
@@ -166,7 +166,7 @@ const { skillsArray,
               >
                 <div className="flex justify-center">
                   {" "}
-                  <Image src={tool.imageUrl || '/images/default-skill.png'} width={35} height={31} />{" "}
+                  <Image alt="Image alt text" src={tool.imageUrl || '/images/default-skill.png'} width={35} height={31} />{" "}
                 </div>
                 <div className="flex justify-center">
                   <p className="text-xs font-semibold">{tool.name}</p>
@@ -189,7 +189,7 @@ const { skillsArray,
               >
                 <div className="flex justify-center">
                   {" "}
-                  <Image src={tool.imageUrl || '/images/default-skill.png'} width={35} height={31} />{" "}
+                  <Image alt="Image alt text" src={tool.imageUrl || '/images/default-skill.png'} width={35} height={31} />{" "}
                 </div>
                 <div className="flex justify-center">
                   <p className="text-xs font-semibold text-center">{tool.name}</p>
@@ -212,7 +212,7 @@ const { skillsArray,
               >
                 <div className="flex justify-center">
                   {" "}
-                  <Image src={tool.imageUrl || '/images/default-skill.png'} width={35} height={31} />{" "}
+                  <Image alt="Image alt text" src={tool.imageUrl || '/images/default-skill.png'} width={35} height={31} />{" "}
                 </div>
                 <div className="flex justify-center">
                   <p className="text-xs font-semibold text-center">{tool.name}</p>
@@ -234,7 +234,7 @@ const { skillsArray,
             >
               <div className="flex justify-center">
                 {" "}
-                <Image src={tool.imageUrl || '/images/default-skill.png'} width={35} height={31} />{" "}
+                <Image alt="Image alt text" src={tool.imageUrl || '/images/default-skill.png'} width={35} height={31} />{" "}
               </div>
               <div className="flex justify-center">
                 <p className="text-xs font-semibold">{tool.name}</p>
@@ -255,7 +255,7 @@ const { skillsArray,
             >
               <div className="flex justify-center">
                 {" "}
-                <Image src={tool.imageUrl || '/images/default-skill.png'} width={35} height={31} />{" "}
+                <Image alt="Image alt text" src={tool.imageUrl || '/images/default-skill.png'} width={35} height={31} />{" "}
               </div>
               <div className="flex justify-center">
                 <p className="text-xs font-semibold">{tool.name}</p>
@@ -293,7 +293,7 @@ const { skillsArray,
               >
                 <div className="flex justify-center w-20 select-none ">
                   {" "}
-                  <Image src={icon.imageUrl || '/images/default-skill.png'} layout=""  width='35' height='31' />
+                  <Image alt="Image alt text" src={icon.imageUrl || '/images/default-skill.png'} layout=""  width='35' height='31' />
                 </div>
                 <div className="flex justify-center select-none">
                   <p className="text-xs text-center ">{icon.name}</p>
@@ -340,7 +340,7 @@ const { skillsArray,
             >
               <div className="flex justify-center w-20 select-none ">
                 {" "}
-                <Image src={icon.imageUrl || '/images/default-skill.png'} layout="" width='35' height='31' />
+                <Image alt="Image alt text" src={icon.imageUrl || '/images/default-skill.png'} layout="" width='35' height='31' />
               </div>
               <div className="flex justify-center select-none">
                 <p className="text-xs text-center ">{icon.name}</p>

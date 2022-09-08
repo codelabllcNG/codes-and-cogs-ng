@@ -143,7 +143,7 @@ function Section1(props) {
         <form onSubmit={findTalents} className="flex items-center mt-8 ">
           <div className="flex border-2 border-pry-color border-opacity-80 px-1 py-1 md:py-2  rounded-full  md:mr-7 mr-2 text-sm w-[80%] md:w-[40%]">
             {" "}
-            <Image
+            <Image alt="Image alt text"
               src="/images/logos-and-icons/search.png"
               width={23}
               height={23}

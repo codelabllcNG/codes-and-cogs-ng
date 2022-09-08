@@ -58,7 +58,7 @@ function MegaMenu() {
         <div className="w-[500px] h-[18rem] rounded-r-lg grid grid-cols-2 bg-mid-color    p-5 ">
           <div className="flex items-center  hover:text-blue-600 cursor-pointer">
             <div>
-              <Image
+              <Image alt="Image alt text"
                 src="/images/logos-and-icons/mega7.png"
                 width="55"
                 height="55"
@@ -78,7 +78,7 @@ function MegaMenu() {
 
           <div className="flex items-center  hover:text-blue-600 cursor-pointer">
             <div>
-              <Image
+              <Image alt="Image alt text"
                 src="/images/logos-and-icons/mega5.png"
                 width="55"
                 height="55"
@@ -98,7 +98,7 @@ function MegaMenu() {
 
           <div className="flex items-center  hover:text-blue-600 cursor-pointer">
             <div>
-              <Image
+              <Image alt="Image alt text"
                 src="/images/logos-and-icons/mega6.png"
                 width="55"
                 height="55"
@@ -118,7 +118,7 @@ function MegaMenu() {
 
           <div className="flex items-center  hover:text-blue-600 cursor-pointer">
             <div>
-              <Image
+              <Image alt="Image alt text"
                 src="/images/logos-and-icons/mega3.png"
                 width="55"
                 height="55"
@@ -138,7 +138,7 @@ function MegaMenu() {
 
           <div className="flex items-center  hover:text-blue-600 cursor-pointer">
             <div>
-              <Image
+              <Image alt="Image alt text"
                 src="/images/logos-and-icons/mega2.png"
                 width="55"
                 height="55"
@@ -162,7 +162,7 @@ function MegaMenu() {
 
           <div className="flex items-center  hover:text-blue-600 cursor-pointer">
             <div>
-              <Image
+              <Image alt="Image alt text"
                 src="/images/logos-and-icons/mega1.png"
                 width="55"
                 height="55"
@@ -182,7 +182,7 @@ function MegaMenu() {
 
           <div className="flex items-center  hover:text-blue-600 cursor-pointer">
             <div>
-              <Image
+              <Image alt="Image alt text"
                 src="/images/logos-and-icons/mega4.png"
                 width="55"
                 height="55"
@@ -202,7 +202,7 @@ function MegaMenu() {
 
           <div className="flex items-center  hover:text-blue-600 cursor-pointer">
             <div>
-              <Image
+              <Image alt="Image alt text"
                 src="/images/logos-and-icons/mega5.png"
                 width="55"
                 height="55"
@@ -228,7 +228,7 @@ function MegaMenu() {
         <div className="w-[500px] h-[18rem] rounded-r-lg grid grid-cols-2 bg-mid-color    p-5 ">
           <div className="flex items-center  hover:text-blue-600 cursor-pointer">
             <div>
-              <Image
+              <Image alt="Image alt text"
                 src="/images/logos-and-icons/solution1.png"
                 width="55"
                 height="55"
@@ -248,7 +248,7 @@ function MegaMenu() {
 
           <div className="flex items-center  hover:text-blue-600 cursor-pointer">
             <div>
-              <Image
+              <Image alt="Image alt text"
                 src="/images/logos-and-icons/solution2.png"
                 width="55"
                 height="55"
@@ -268,7 +268,7 @@ function MegaMenu() {
 
           <div className="flex items-center  hover:text-blue-600 cursor-pointer">
             <div>
-              <Image
+              <Image alt="Image alt text"
                 src="/images/logos-and-icons/solution3.png"
                 width="55"
                 height="55"
@@ -288,7 +288,7 @@ function MegaMenu() {
 
           <div className="flex items-center  hover:text-blue-600 cursor-pointer">
             <div>
-              <Image
+              <Image alt="Image alt text"
                 src="/images/logos-and-icons/solution4.png"
                 width="55"
                 height="55"

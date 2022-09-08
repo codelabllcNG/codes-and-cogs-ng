@@ -25,7 +25,7 @@ function Footer() {
         </div>
         <div className="flex justify-center mb-4">
           <div className=" w-[75px] md:w-[150px]">
-            <Image
+            <Image alt="Image alt text"
               src="/images/logos-and-icons/red-underline.png"
               width={150}
               height={20}

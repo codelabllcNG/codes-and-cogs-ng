@@ -33,7 +33,7 @@ function Ticket() {
 
       {CONVERSATIONS.map(conversation => 
      <div key={conversation.id} className={`flex ${!conversation.isAdmin ? 'flex flex-row-reverse ' : ''} items-start `}>
-       <div> <Image src='/images/logos-and-icons/conversation-icon.png' width={ 40} height={40} />  </div> 
+       <div> <Image alt="Image alt text" src='/images/logos-and-icons/conversation-icon.png' width={ 40} height={40} />  </div> 
        <div className=' shadow-md rounded-md bg-white w-[90%]  sm:w-[60%] mb-2 '>
          <div className='bg-semi-sec-color p-2 text-sm rounded-t-md '> <p>{conversation.timeStamp}</p> </div> 
          <div className='p-2 text-sm'> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure culpa qui officia deserunt .</p> </div>
@@ -43,7 +43,7 @@ function Ticket() {
 
            
 </div>
-<div className='flex mt-10 items-center '><textarea placeholder='Message' onChange={(e)=>{setMessage(e.target.value)}} className='z-[111] focus:outline focus:bg-white pl-2 w-full mr-2 resize-none py-1 sm:py-2 md:py-3 lg:py-4 rounded-md bg-gray-100' name="" id=""  rows={message.length > 60 ? '4' : '1'}/> <Image className='cursor-pointer' src='/images/logos-and-icons/send.png' width='30' height='25'/></div>
+<div className='flex mt-10 items-center '><textarea placeholder='Message' onChange={(e)=>{setMessage(e.target.value)}} className='z-[111] focus:outline focus:bg-white pl-2 w-full mr-2 resize-none py-1 sm:py-2 md:py-3 lg:py-4 rounded-md bg-gray-100' name="" id=""  rows={message.length > 60 ? '4' : '1'}/> <Image alt="Image alt text" className='cursor-pointer' src='/images/logos-and-icons/send.png' width='30' height='25'/></div>
 
  
     </div>

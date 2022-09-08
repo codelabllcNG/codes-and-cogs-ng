@@ -53,7 +53,7 @@ function PressRelease(props) {
         </div>
         <div className="flex justify-center mb-4">
           <div className=" w-[75px] md:w-[150px]">
-            <Image
+            <Image alt="Image alt text"
               src="/images/logos-and-icons/red-underline.png"
               width={150}
               height={20}
@@ -95,7 +95,7 @@ function PressRelease(props) {
               router.push(`/press-release/${featuredNews.id}`);
             }}  className="px-5 bg-mid-color cursor-pointer">
               <div className="flex justify-center mt-5">
-                <Image src={featuredNews.imageUrl} width="400" height="250" />
+                <Image alt="Image alt text" src={featuredNews.imageUrl} width="400" height="250" />
               </div>
               <div className="bg-mid-color py-5 text-center">
                 <div className="px-3">
@@ -137,7 +137,7 @@ function PressRelease(props) {
                     <div className="flex items-center justify-between">
                       <p className="font-semibold">{news.title}</p>{" "}
                       <div>
-                        <Image src={news.imageUrl} width="60" height="60" />{" "}
+                        <Image alt="Image alt text" src={news.imageUrl} width="60" height="60" />{" "}
                       </div>
                     </div>
                     <div className="h-[0.1rem] bg-sec-color my-2"></div>
@@ -180,7 +180,7 @@ function PressRelease(props) {
                         </p>
                       </div>
                       <div>
-                        <Image src={news.imageUrl} width="60" height="60" />{" "}
+                        <Image alt="Image alt text" src={news.imageUrl} width="60" height="60" />{" "}
                       </div>
                     </div>
                     <div className="h-[0.1rem] bg-sec-color my-2"></div>
@@ -218,7 +218,7 @@ function PressRelease(props) {
                   <div className="flex items-center justify-between">
                     <p className="font-semibold">{news.title}</p>{" "}
                     <div>
-                      <Image src={news.imageUrl} width="60" height="60" />{" "}
+                      <Image alt="Image alt text" src={news.imageUrl} width="60" height="60" />{" "}
                     </div>
                   </div>
                   <div className="h-[0.1rem] bg-sec-color my-2"></div>
@@ -243,7 +243,7 @@ function PressRelease(props) {
                 }}
                 className="flex justify-center mt-5 w-full cursor-pointer "
               >
-                <Image
+                <Image alt="Image alt text"
                   className="w-full"
                   src={featuredNews.imageUrl}
                   width="400"
@@ -299,7 +299,7 @@ function PressRelease(props) {
                       </p>
                     </div>
                     <div>
-                      <Image src={news.imageUrl} width="60" height="60" />{" "}
+                      <Image alt="Image alt text" src={news.imageUrl} width="60" height="60" />{" "}
                     </div>
                   </div>
                   <div className="h-[0.1rem] bg-sec-color my-2"></div>

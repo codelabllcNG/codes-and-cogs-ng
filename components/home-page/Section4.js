@@ -52,7 +52,7 @@ function Section4(props) {
         </div>
         <div className="flex justify-center mb-4">
           <div className=" w-[75px] md:w-[150px]">
-            <Image
+            <Image alt="Image alt text"
               src="/images/logos-and-icons/red-underline.png"
               width={150}
               height={20}
@@ -79,12 +79,12 @@ function Section4(props) {
             <hr className="border-[1px] border-[#404033]" />
             <div className="flex py-2 items-center  justify-between mb-4">
               <div className="flex mr-1">
-                <Image
+                <Image alt="Image alt text"
                   height='40'
                   width='40'
                   className="mr-3 w-[40px] h-[40px] "
                   src={content.iconUrl}
-                  alt=""
+            
                 />{" "}
                 <div className="ml-1 flex items-center ">
                   {" "}

@@ -46,7 +46,7 @@ function Index(props) {
       </div>
       <div className="flex justify-center mb-4">
         <div className=" w-[75px] md:w-[150px]">
-          <Image
+          <Image alt="Image alt text"
             src="/images/logos-and-icons/red-underline.png"
             width={150}
             height={20}
@@ -71,7 +71,7 @@ function Index(props) {
                   className="bg-gray-100 text-sm pb-2 cursor-pointer hover:scale-95 duration-300"
                 >
                   <div className="mb-4 flex justify-center">
-                    <Image
+                    <Image alt="Image alt text"
                       className="rounded-t-lg "
                       width={400}
                       height={250}

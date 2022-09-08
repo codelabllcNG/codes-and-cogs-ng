@@ -42,7 +42,7 @@ function Navbar() {
           className=" flex items-center cursor-pointer w-[4rem] 380:w-[5rem] md:w-[6rem]     "
         >
           {" "}
-          <Image
+          <Image alt="Image alt text"
             className=""
             src="/images/logos-and-icons/logo.svg"
             width={180}
@@ -173,7 +173,7 @@ function Navbar() {
         >
           {" "}
           {!menuIsClicked && (
-            <Image
+            <Image alt="Image alt text"
               className="cursor-pointer"
               src="/images/logos-and-icons/hamburger-menu.svg"
               width={40}

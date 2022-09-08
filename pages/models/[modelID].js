@@ -31,7 +31,7 @@ function ModelID(props) {
       </div>
       <div className="flex justify-center mb-10 ">
         <div className=" [150px]">
-          <Image
+          <Image alt="Image alt text"
             src="/images/logos-and-icons/red-underline.png"
             width={150}
             height={20}
@@ -56,7 +56,7 @@ function ModelID(props) {
         </div>
 
         <div className="900:w-[40%] items-center flex justify-center mb-5 900:mb-0">
-          <Image height={300} width={400} src={selectedModel.imageUrl} alt="" />
+          <Image alt="Image alt text" height={300} width={400} src={selectedModel.imageUrl}  />
         </div>
       </div>
     </div>

@@ -15,7 +15,7 @@ function section3(props) {
       </div>
       <div className="flex justify-center -mb-4">
         <div className=" w-[75px] md:w-[150px]">
-          <Image
+          <Image alt="Image alt text"
             src="/images/logos-and-icons/red-underline.png"
             width={150}
             height={20}
@@ -34,7 +34,7 @@ function section3(props) {
             >
               <div className="text-pry-color flex items-center justify-center space-x-3 mb-2 700:mb-5">
                 <div className="w-[3rem]  h-[4rem] 700:w-[4rem] 700:h-[5rem] ">
-                  <Image
+                  <Image 
                     height={70}
                     width={64}
                     className=""

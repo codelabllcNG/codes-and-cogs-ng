@@ -31,7 +31,7 @@ function Section4(props) {
       </div>
       <div className="flex justify-center mb-3 ">
         <div className=" w-[75px] md:w-[150px]">
-          <Image
+          <Image alt="Image alt text"
             src="/images/logos-and-icons/red-underline.png"
             width={150}
             height={20}
@@ -90,7 +90,7 @@ function Section4(props) {
                 className="bg-mid-color hover:bg-[#ECF1FA] hover:scale-105 duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
               >
                 <div className="w-10 560:w-14">
-                  <Image height={75} width={64} src={designer.icon || "/images/default-dp.png"} alt="" />
+                  <Image alt="Image alt text" height={75} width={64} src={designer.icon || "/images/default-dp.png"} />
                 </div>{" "}
                 <div>
                   {" "}
@@ -113,7 +113,7 @@ function Section4(props) {
                 className="bg-mid-color hover:bg-[#ECF1FA] duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
               >
                 <div className="w-10 560:w-14">
-                  <Image height={75} width={64} src={engineer.icon || "/images/default-dp.png"} alt="" />
+                  <Image alt="Image alt text" height={75} width={64} src={engineer.icon || "/images/default-dp.png"} />
                 </div>{" "}
                 <div>
                   {" "}
@@ -136,7 +136,7 @@ function Section4(props) {
                 className="bg-mid-color hover:bg-[#ECF1FA] duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
               >
                 <div className="w-10 560:w-14 ">
-                  <Image height={75} width={64} src={developer.icon || "/images/default-dp.png"} alt="" />
+                  <Image alt="Image alt text" height={75} width={64} src={developer.icon || "/images/default-dp.png"}  />
                 </div>{" "}
                 <div>
                   {" "}

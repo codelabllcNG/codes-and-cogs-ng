@@ -107,7 +107,7 @@ function SearchTalents(props) {
         </div>
         <div className="flex justify-center  ">
           <div className=" w-[75px] md:w-[150px] mb-5">
-            <Image
+            <Image alt="Image alt text"
               src="/images/logos-and-icons/red-underline.png"
               width={150}
               height={20}
@@ -135,7 +135,7 @@ function SearchTalents(props) {
           >
             <div className="flex border border-pry-color border-opacity-80 px-1 py-1 md:py-2  rounded-full   mr-2 text-sm w-[80%]">
               {" "}
-              <Image
+              <Image alt="Image alt text"
                 src="/images/logos-and-icons/search.png"
                 width={23}
                 height={23}
@@ -185,11 +185,11 @@ function SearchTalents(props) {
                 className="bg-mid-color hover:bg-[#ECF1FA] hover:scale-105 duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
               >
                 <div className="w-10 560:w-14">
-                  <Image
+                  <Image alt="Image alt text"
                     height={75}
                     width={64}
                     src={talent.icon || "/images/default-dp.png"}
-                    alt=""
+                   
                   />
                 </div>{" "}
                 <div>
@@ -252,11 +252,11 @@ function SearchTalents(props) {
                     className="bg-mid-color hover:bg-[#ECF1FA] hover:scale-105 duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
                   >
                     <div className="w-10 560:w-14">
-                      <Image
+                      <Image alt="Image alt text"
                         height={75}
                         width={64}
                         src={designer.icon || "/images/default-dp.png"}
-                        alt=""
+                     
                       />
                     </div>{" "}
                     <div>
@@ -280,11 +280,11 @@ function SearchTalents(props) {
                     className="bg-mid-color hover:bg-[#ECF1FA] duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
                   >
                     <div className="w-10 560:w-14">
-                      <Image
+                      <Image alt="Image alt text"
                         height={75}
                         width={64}
                         src={engineer.icon || "/images/default-dp.png"}
-                        alt=""
+                      
                       />
                     </div>{" "}
                     <div>
@@ -308,11 +308,11 @@ function SearchTalents(props) {
                     className="bg-mid-color hover:bg-[#ECF1FA] duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
                   >
                     <div className="w-10 560:w-14 ">
-                      <Image
+                      <Image alt="Image alt text"
                         height={75}
                         width={64}
                         src={developer.icon || "/images/default-dp.png"}
-                        alt=""
+                       
                       />
                     </div>{" "}
                     <div>

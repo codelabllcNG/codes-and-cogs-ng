@@ -36,7 +36,7 @@ function TalentID(props) {
       </div>
       <div className="flex md:justify-center mb-3 ">
         <div className=" w-[75px] md:w-[150px]">
-          <Image
+          <Image alt="Image alt text"
             src="/images/logos-and-icons/red-underline.png"
             width={150}
             height={20}
@@ -74,12 +74,12 @@ function TalentID(props) {
               </div>
             </div>{" "}
             <div className=" float-right">
-              <Image
+              <Image alt="Image alt text"
                 height={80}
                 width={70}
                 className=""
                 src={selectedTalent.icon || "/images/default-dp.png"}
-                alt=""
+            
               />
             </div>
           </div>
@@ -146,12 +146,12 @@ function TalentID(props) {
                   {selectedTalent.hobbies.map((hobby) => (
                     <div key={hobby}>
                       <div className="flex justify-center items-center  mb-1 ">
-                        {/* <Image
+                        {/* <Image alt="Image alt text"
                         height={20}
                         width={20}
                         className="h-5 w-5"
                         src="/images/logos-and-icons/soccer-hobby.png"
-                        alt=""
+                      
                       /> */}
                         {hobby.name?.trim() === "Reading" ? (
                           <FaBookReader className="w-[20px] h-[20px] text-pry-color " />
@@ -198,7 +198,7 @@ function TalentID(props) {
                         {" "}
                         {project.value.includes("http") ? (
                           (
-                            <Image src={project.value} height="20" width="20" />
+                            <Image alt="Image alt text" src={project.value} height="20" width="20" />
                           ) || "Nil"
                         ) : (
                           <p>{project.value || 0}</p>
@@ -237,22 +237,22 @@ function TalentID(props) {
                     {" "}
                     <div className="400:flex border-pry-color border-2 justify-center items-center bg-white h-8 w-8 hidden 400:h-12 400:w-12 rounded-full">
                       {" "}
-                      <Image
+                      <Image alt="Image alt text"
                         height={30}
                         width={30}
                         className="w-4 h-4  400:h-auto 400:w-auto"
                         src={skill.icon || "/images/default-skill.png"}
-                        alt=""
+                   
                       />{" "}
                     </div>
                     <div className="flex border-pry-color border-2 justify-center items-center bg-white h-8 w-8 400:hidden 400:h-12 400:w-12 rounded-full">
                       {" "}
-                      <Image
+                      <Image alt="Image alt text"
                         height={20}
                         width={20}
                         className="w-4 h-4  400:h-auto 400:w-auto"
                         src={skill.icon || "/images/default-skill.png"}
-                        alt=""
+                       
                       />{" "}
                     </div>
                   </div>
@@ -263,7 +263,7 @@ function TalentID(props) {
                     {skill.rating == 1 &&
                       oneRating.map((star, i) => (
                         <div key={i}>
-                          <Image
+                          <Image alt="Image alt text"
                             src="/images/logos-and-icons/star.png"
                             height="10"
                             width="10"
@@ -274,7 +274,7 @@ function TalentID(props) {
                     {skill.rating == 2 &&
                       twoRating.map((star, i) => (
                         <div key={i}>
-                          <Image
+                          <Image alt="Image alt text"
                             src="/images/logos-and-icons/star.png"
                             height="10"
                             width="10"
@@ -285,7 +285,7 @@ function TalentID(props) {
                     {skill.rating == 3 &&
                       threeRating.map((star, i) => (
                         <div key={i}>
-                          <Image
+                          <Image alt="Image alt text"
                             src="/images/logos-and-icons/star.png"
                             height="10"
                             width="10"
@@ -296,7 +296,7 @@ function TalentID(props) {
                     {skill.rating == 4 &&
                       fourRating.map((star, i) => (
                         <div key={i}>
-                          <Image
+                          <Image alt="Image alt text"
                             src="/images/logos-and-icons/star.png"
                             height="10"
                             width="10"
@@ -307,7 +307,7 @@ function TalentID(props) {
                     {skill.rating == 5 &&
                       fiveRating.map((star, i) => (
                         <div key={i}>
-                          <Image
+                          <Image alt="Image alt text"
                             src="/images/logos-and-icons/star.png"
                             height="10"
                             width="10"
@@ -342,22 +342,22 @@ function TalentID(props) {
                       {" "}
                       <div className="400:flex hidden border-pry-color border-2 justify-center items-center bg-white h-8 w-8 400:h-12 400:w-12 rounded-full">
                         {" "}
-                        <Image
+                        <Image alt="Image alt text"
                           height={30}
                           width={30}
                           className="w-4 h-4  400:h-auto 400:w-auto"
                           src={skill.icon || "/images/default-skill.png"}
-                          alt=""
+                         
                         />{" "}
                       </div>
                       <div className="flex 400:hidden border-pry-color border-2 justify-center items-center bg-white h-8 w-8 400:h-12 400:w-12 rounded-full">
                         {" "}
-                        <Image
+                        <Image alt="Image alt text"
                           height={20}
                           width={20}
                           className="w-4 h-4  400:h-auto 400:w-auto"
                           src={skill.icon || "/images/default-skill.png"}
-                          alt=""
+                        
                         />{" "}
                       </div>
                     </div>
@@ -369,7 +369,7 @@ function TalentID(props) {
                       {skill.rating == 1 &&
                         oneRating.map((star, i) => (
                           <div key={i}>
-                            <Image
+                            <Image alt="Image alt text"
                               src="/images/logos-and-icons/star.png"
                               height="10"
                               width="10"
@@ -380,7 +380,7 @@ function TalentID(props) {
                       {skill.rating == 2 &&
                         twoRating.map((star, i) => (
                           <div key={i}>
-                            <Image
+                            <Image alt="Image alt text"
                               src="/images/logos-and-icons/star.png"
                               height="10"
                               width="10"
@@ -391,7 +391,7 @@ function TalentID(props) {
                       {skill.rating == 3 &&
                         threeRating.map((star, i) => (
                           <div key={i}>
-                            <Image
+                            <Image alt="Image alt text"
                               src="/images/logos-and-icons/star.png"
                               height="10"
                               width="10"
@@ -402,7 +402,7 @@ function TalentID(props) {
                       {skill.rating == 4 &&
                         fourRating.map((star, i) => (
                           <div key={i}>
-                            <Image
+                            <Image alt="Image alt text"
                               src="/images/logos-and-icons/star.png"
                               height="10"
                               width="10"
@@ -413,7 +413,7 @@ function TalentID(props) {
                       {skill.rating == 5 &&
                         fiveRating.map((star, i) => (
                           <div key={i}>
-                            <Image
+                            <Image alt="Image alt text"
                               src="/images/logos-and-icons/star.png"
                               height="10"
                               width="10"

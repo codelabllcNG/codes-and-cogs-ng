@@ -70,7 +70,7 @@ function WhatWeDoID(props) {
       </div>
       <div className="flex justify-center mb-8">
         <div className=" w-[75px] md:w-[150px]">
-          <Image
+          <Image alt="Image alt text"
             src="/images/logos-and-icons/red-underline.png"
             width={150}
             height={20}
@@ -81,7 +81,7 @@ function WhatWeDoID(props) {
         
       <div className="  justify-between md:flex ">
         <div className="w-[40%]  md:mr-8  h-full hidden md:flex">
-          <Image
+          <Image alt="Image alt text"
             className="rounded-lg"
             src={selectedWhatWeDo.imageUrl}
             width={500}
@@ -89,7 +89,7 @@ function WhatWeDoID(props) {
           />{" "}
         </div>
         <div className="w-[100%] mb-5 flex justify-center md:hidden">
-          <Image src={selectedWhatWeDo.imageUrl} width={400} height={300} />{" "}
+          <Image alt="Image alt text" src={selectedWhatWeDo.imageUrl} width={400} height={300} />{" "}
         </div>
         <div className=" prose-h1:text-3xl prose-h1:font-bold w-full md:w-[55%]  ">
           <div
