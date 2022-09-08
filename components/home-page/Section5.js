@@ -74,10 +74,10 @@ function Section5(props) {
                 <div className='w-1/3 '>
                   <div className="flex justify-center text-white">
                     <div>
-                      <img
+                      <img alt="Image alt text"
                         className="340:w-[30px] 340:h-[40px] w-[20px] h-[30px]"
                         src="/images/logos-and-icons/location.svg"
-                        alt=""
+                     
                       />
                     </div>
                   </div>
@@ -96,10 +96,10 @@ function Section5(props) {
                 <div className='w-1/3'>
                   <div className="flex justify-center text-white">
                     <div >
-                      <img
+                      <img alt="Image alt text"
                         className="340:w-[30px] 340:h-[40px] w-[20px] h-[30px]"
                         src="/images/logos-and-icons/people.svg"
-                        alt=""
+                      
                       />
                     </div>
                   </div>
@@ -118,10 +118,10 @@ function Section5(props) {
                 <div className='w-1/3'>
                   <div className="flex justify-center text-white">
                     <div>
-                      <img
+                      <img alt="Image alt text"
                         className="340:w-[30px] 340:h-[40px] w-[20px] h-[30px]"
                         src="/images/logos-and-icons/people.svg"
-                        alt=""
+                       
                       />
                     </div>
                   </div>

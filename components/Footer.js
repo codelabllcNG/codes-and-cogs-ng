@@ -64,27 +64,27 @@ function Footer() {
                   router.push("/");
                 }} className=" md:flex justify-center md:mb-16 cursor-pointer ">
               {" "}
-              <img
+              <img alt="Image alt text"
                 className="w-20" 
                 src="/images/logos-and-icons/logo.svg"  
-                alt=""
+                
               />
             </div>{" "}
             <div className="w-52 md:w-[10rem] flex justify-between  items-center">
               <div className="md:w-5">
-                <img src="/images/logos-and-icons/twitter.svg" alt="" />
+                <img alt="Image alt text" src="/images/logos-and-icons/twitter.svg"  />
               </div>
               <div className="md:w-5">
-                <img src="/images/logos-and-icons/instagram.svg" alt="" />
+                <img alt="Image alt text" src="/images/logos-and-icons/instagram.svg"  />
               </div>
               <div className="md:w-5">
-                <img src="/images/logos-and-icons/facebook.svg" alt="" />
+                <img alt="Image alt text" src="/images/logos-and-icons/facebook.svg"  />
               </div>
               <div className="md:w-5">
-                <img src="/images/logos-and-icons/youtube.svg" alt="" />
+                <img alt="Image alt text" src="/images/logos-and-icons/youtube.svg"  />
               </div>
               <div className="md:w-5">
-                <img src="/images/logos-and-icons/linkedin.svg" alt="" />
+                <img alt="Image alt text" src="/images/logos-and-icons/linkedin.svg"  />
               </div>
             </div>
           </div>

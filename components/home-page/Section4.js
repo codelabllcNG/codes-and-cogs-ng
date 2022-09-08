@@ -94,7 +94,7 @@ function Section4(props) {
                 </div>{" "}
               </div>{" "}
               <div className="flex">
-                <img
+                <img alt="Image alt text"
                 height='40'
                  width='40'
                   onClick={() => {
@@ -104,9 +104,9 @@ function Section4(props) {
                     selectedContent !== content.id ? "" : "hidden"
                   } ml-2 w-[40px] h-[40px] cursor-pointer`}
                   src="/images/logos-and-icons/plus.svg"
-                  alt=""
+               
                 />{" "}
-                <img
+                <img alt="Image alt text"
                 height='40'
                  width='40'
                   onClick={() => {
@@ -116,7 +116,7 @@ function Section4(props) {
                     selectedContent === content.id ? "" : "hidden"
                   } w-[40px] h-[40px] cursor-pointer`}
                   src="/images/logos-and-icons/minus.svg"
-                  alt=""
+                 
                 />
               </div>
             </div>
