@@ -39,7 +39,7 @@ const router = useRouter();
       </div>
       <div className="flex justify-center mb-5 md:mb-10 ">
         <div className=" w-[75px] md:[150px]">
-          <Image
+          <img alt="Image alt text"
             src="/images/logos-and-icons/red-underline.png"
             width={150}
             height={20}
@@ -54,7 +54,7 @@ const router = useRouter();
 
         <div className=" flex space-x-5 mt-5 md:mt-16 text-xl sm:text-2xl md:text-3xl  items-center mb-5 md:mb-16">
           {" "}
-          <Image
+          <img alt="Image alt text"
             src="/images/logos-and-icons/enterprise.png"
             width="35"
             height="35"
@@ -68,7 +68,7 @@ const router = useRouter();
 
         <div className=" flex space-x-5 text-xl sm:text-2xl md:text-3xl items-center mb-4">
           {" "}
-          <Image
+          <img alt="Image alt text"
             src="/images/logos-and-icons/solutions.png"
             width="35"
             height="35"
@@ -92,7 +92,7 @@ const router = useRouter();
         </div>
         <div className="flex justify-center mb-3 ">
           <div className=" w-[75px] md:[150px]">
-            <Image
+            <img alt="Image alt text"
               src="/images/logos-and-icons/red-underline.png"
               width={150}
               height={20}
@@ -132,7 +132,7 @@ const router = useRouter();
             </div>
 
             <div className="sm:w-[40%] items-center flex justify-center mb-5 sm:mb-0">
-              <Image width={400} height={300} className="w-300px" src={enterpriseService.imageUrl} alt="" />
+              <img alt="Image alt text" width={400} height={300} className="w-300px" src={enterpriseService.imageUrl}  />
             </div>
           </div>
           
@@ -147,7 +147,7 @@ const router = useRouter();
         </div>
         <div className="flex justify-center mb-3 ">
           <div className=" [150px]">
-            <Image
+            <img alt="Image alt text"
               src="/images/logos-and-icons/red-underline.png"
               width={150}
               height={20}
@@ -165,7 +165,7 @@ const router = useRouter();
           </div>
           {/* <div className="flex md:justify-center mb-3 ">
           <div className=" [150px]">
-            <Image
+            <img alt="Image alt text"
               src="/images/logos-and-icons/red-underline.png"
               width={150}
               height={20}
@@ -196,7 +196,7 @@ const router = useRouter();
             </div>
 
             <div className="sm:w-[40%] items-center flex justify-center mb-5 sm:mb-0">
-              <Image height={300} width={400} className="w-300px" src={solution.imageUrl} alt="" />
+              <img alt="Image alt text" height={300} width={400} className="w-300px" src={solution.imageUrl} />
             </div>
           </div>
         </div>
