@@ -33,11 +33,11 @@ const router = useRouter();
       </Head>
 
 
-      <div className="h-[80vh] md:bg-[url('/images/what-we-do-bg.png')]  bg-contain bg-right-top bg-no-repeat ">
+      <div className="md:h-[80vh] md:bg-[url('/images/what-we-do-bg.png')]  bg-contain bg-right-top bg-no-repeat ">
       <div className="flex text-center justify-center ">
         <h2 className="font-bold header">What We Do</h2>
       </div>
-      <div className="flex justify-center mb-10 ">
+      <div className="flex justify-center mb-5 md:mb-10 ">
         <div className=" w-[75px] md:[150px]">
           <Image
             src="/images/logos-and-icons/red-underline.png"
@@ -52,7 +52,7 @@ const router = useRouter();
           </div>
         </div>
 
-        <div className=" flex space-x-5 mt-16 text-xl sm:text-2xl md:text-3xl  items-center mb-16">
+        <div className=" flex space-x-5 mt-5 md:mt-16 text-xl sm:text-2xl md:text-3xl  items-center mb-5 md:mb-16">
           {" "}
           <Image
             src="/images/logos-and-icons/enterprise.png"
@@ -61,7 +61,7 @@ const router = useRouter();
           />{" "}
           <Link passHref href={`#enterprise-services`}>
             <button className="font-semibold text-pry-color hover:text-blue-600">
-              Enterprise Services
+              Enterprise Services 
             </button>
           </Link>{" "}
         </div>
@@ -80,13 +80,13 @@ const router = useRouter();
           </Link>{" "}
         </div>
 
-        <div className=" mt-16">
+        {/* <div className=" mt-16">
           {" "}
           <BotIcon />
-        </div>
+        </div> */}
       </div>
 
-      <div id="enterprise-services" className="mb-10">
+      <div id="enterprise-services" className="mb-10 mt-10">
         <div className="flex  justify-center mb-2">
           <h2 className="font-bold header">Enterprise Packages</h2>
         </div>

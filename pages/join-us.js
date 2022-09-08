@@ -18,9 +18,6 @@ function JoinUS(props) {
   const [confirmBox, setConfirmBox] = useState(false);
   // const [countDownTimer, setCountDownTimer] = useState('__ : __ : __')
 
-  
-
-
   useEffect(() => {
     if (testData) {
       router.push("/take-a-test");
@@ -33,13 +30,11 @@ function JoinUS(props) {
       : (document.body.style.overflow = "auto");
   }, [confirmBox]);
 
-
-
   const nameRef = useRef();
   const emailRef = useRef();
   const phoneRef = useRef();
   const categoryRef = useRef();
-  const roleRef = useRef(); 
+  const roleRef = useRef();
 
   async function triggerConfirmBox(e) {
     e.preventDefault();
@@ -67,7 +62,7 @@ function JoinUS(props) {
     }
 
     setConfirmBox(true);
-  } 
+  }
 
   async function takeTest(e) {
     try {
@@ -106,7 +101,7 @@ function JoinUS(props) {
 
         return;
       }
- 
+
       if (!response.ok) {
         setResponse("Something went wrong, retry!");
         console.log(data);
@@ -116,7 +111,11 @@ function JoinUS(props) {
       }
 
       setTestData(data);
-      setExpiryTime(new Date(`${data.expireTime}`).setMinutes(new Date(`${data.expireTime}`).getMinutes() - 1))
+      setExpiryTime(
+        new Date(`${data.expireTime}`).setMinutes(
+          new Date(`${data.expireTime}`).getMinutes() - 1
+        )
+      );
       setResponse("Test questions fetched successfully!");
       console.log("Test questions fetched successfully!");
       // console.log(data);
@@ -138,7 +137,7 @@ function JoinUS(props) {
 
   // async function takeDemoTest() {
   //   try {
-   
+
   //     setResponse("Fetching questions...");
   //     setFetchingQuestions(true);
   //     const response = await fetch(
@@ -167,7 +166,7 @@ function JoinUS(props) {
 
   //       return;
   //     }
- 
+
   //     if (!response.ok) {
   //       setResponse("Something went wrong, retry!");
   //       console.log(data);
@@ -246,12 +245,15 @@ function JoinUS(props) {
           </div>
         </div>
       )}
-{/* PAGE CONTENT */}
+      {/* PAGE CONTENT */}
       <div className="md:bg-[url('/images/sections-watermark.png')] bg-cover bg-right-bottom  px-5 md:px-10 bg-no-repeat">
         <div className="flex  justify-center md:mb-2">
-          <h2 className="font-bold header">
-            {title}
-          </h2>
+          <div
+            dangerouslySetInnerHTML={{ __html: title }}
+            className="font-bold header font-larken"
+          >
+            {}
+          </div>
         </div>
         <div className="flex justify-center mb-4">
           <div className=" w-[75px] md:w-[150px]">
@@ -279,7 +281,9 @@ function JoinUS(props) {
         </div>
 
         <div className=" text-center flex justify-center px-5 md:px-14">
-          <p className="text-sm  w-[80%] text-pry-color">{subtitle}</p>
+          <div dangerouslySetInnerHTML={{__html: subtitle}} className="text-sm  w-[80%] text-pry-color">
+            {}
+          </div>
         </div>
 
         <div>
@@ -293,8 +297,8 @@ function JoinUS(props) {
 
           <div className="px-5 md:px-14 mt-2 justify-center flex decoration-blue-600 underline text-cyan-400 font-semibold ">
             {" "}
-            <Link passHref href="">
-              <a>Take a demo test.</a>
+            <Link passHref href="/demo-test">
+              <a>Take a demo test.</a> 
             </Link>
           </div>
         </div>

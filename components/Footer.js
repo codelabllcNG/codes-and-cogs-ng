@@ -65,8 +65,8 @@ function Footer() {
                 }} className=" md:flex justify-center md:mb-16 cursor-pointer ">
               {" "}
               <img
-                className="w-20"
-                src="/images/logos-and-icons/footer-logo.svg"
+                className="w-20" 
+                src="/images/logos-and-icons/logo.svg"  
                 alt=""
               />
             </div>{" "}
