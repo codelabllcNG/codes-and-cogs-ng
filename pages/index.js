@@ -161,6 +161,7 @@ export default function Home(props) {
         remoteDesigners={remoteDesigners}
         remoteBgImage={remoteBgImage}
         trusteeLogos={trusteeLogos}
+        projectEngineerPhone={projectEngineerPhone}
       />
       {/* <Footer /> */}
     </div>

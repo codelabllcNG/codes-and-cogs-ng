@@ -33,7 +33,11 @@ const router = useRouter();
       </Head>
 
 
-      <div className="md:h-[80vh] md:bg-[url('/images/what-we-do-bg.png')]  bg-contain bg-right-top bg-no-repeat ">
+      <div className="lg:h-[80vh]   md:bg-contain md:bg-right-top md:bg-no-repeat mb10"
+      //md:bg-[url('/images/what-we-do-bg.png')]
+        
+      style={{ backgroundImage: `url(${bgImage})` }}
+      >
       <div className="flex text-center justify-center ">
         <h2 className="font-bold header">What We Do</h2>
       </div>
@@ -187,12 +191,12 @@ const router = useRouter();
             <div
               className={`prose max-w-none sm:w-[55%] text-justify  mb-5 sm:mb-0 text-pry-color `}
             >
-              <div dangerouslySetInnerHTML={{__html: solution.summary || "Coming Soon"}} className="sm:leading-7 lg:leading-10   ">
+              <div onClick={()=>{router.push(`/coming-soon`)}} dangerouslySetInnerHTML={{__html: solution.summary || "Coming Soon"}} className="sm:leading-7 lg:leading-10 text-center cursor-pointer text-xl underline  ">
                 {}
               </div>
 
               {/* /what-we-do/${solution.id} */}
-              <div onClick={()=>{router.push(`/coming-soon`)}} className='mt-5 text-pry-color text-sm font-semibold'><button>Read More</button></div>
+              {/* <div onClick={()=>{router.push(`/coming-soon`)}} className='mt-5 text-pry-color text-sm font-semibold'><button>Read More</button></div> */}
             </div>
 
             <div className="sm:w-[40%] items-center flex justify-center mb-5 sm:mb-0">

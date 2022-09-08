@@ -2,6 +2,7 @@ import React from "react";
 import BotIcon from "../BotIcon";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import { useEffect } from "react";
 
 
 function Section1(props) {
@@ -15,8 +16,10 @@ function Section1(props) {
 
   let router = useRouter();
 
+
+
   return (
-    <div className="px-5 md:pb-24  md:px-14   "
+    <div className="px-5   md:px-14   "
 
  
     >
@@ -35,7 +38,7 @@ function Section1(props) {
               </div>
             </div>
 
-      <div className="md:space-x-2"
+      <div className="md:flex md:space-x-2"
            >
       <div className='md:w-1/2 w-full'>
       <div className="dangerous-html  md:mb-5">
@@ -53,14 +56,14 @@ function Section1(props) {
         >
           Open a New Ticket
         </button>{" "}
-        <button
+        {/* <button
           onClick={() => {
             router.push("#ticket-status");
           }}
           className="bg-pry-color text-white px-3 500:px-5 py-2 500:py-2 rounded-lg text-[0.6rem] 400:text-sm font-semibold"
         >
           Check Ticket Status
-        </button>
+        </button> */}
       </div>
 
       <div className="md:mb-32">

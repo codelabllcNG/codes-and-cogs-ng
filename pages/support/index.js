@@ -29,10 +29,10 @@ function Index(props) {
         newTicketTitle={newTicketTitle}
         newTicketSubtitle={newTicketSubtitle}
       />
-      <Section3
+      {/* <Section3
         ticketStatusTitle={ticketStatusTitle}
         ticketStatusSubtitle={ticketStatusSubtitle}
-      />
+      /> */}
     </div>
   );
 }

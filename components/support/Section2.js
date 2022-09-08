@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import BotIcon from "../BotIcon";
 
@@ -27,6 +27,36 @@ function Section2(props) {
     console.log(nameInput, emailInput, subjectInput, messageInput);
   }
 
+  useEffect(() => {  
+    const script = document.createElement("script");
+    script.src = "//js.hsforms.net/forms/v2.js?pre=1";
+    document.body.appendChild(script);
+
+    script.addEventListener("load", () => {
+      if (window.hbspt) {
+        window.hbspt.forms.create({
+          region: "na1",
+          portalId: "22606943",
+          formId: "c7613910-f4bb-407a-b6e0-3cfd1b84b602",
+          target: "#support-form",
+        });
+      }
+    });
+
+    return () => {
+      script.removeEventListener('load', () => {
+        if (window.hbspt) {
+          window.hbspt.forms.create({
+            region: "na1",
+            portalId: "22606943",
+            formId: "c7613910-f4bb-407a-b6e0-3cfd1b84b602",
+            target: "#support-form",
+          });
+        }
+      })
+   };
+  }, []);
+
   return (
     <div id='create-ticket' className="px-5 pt-16 md:px-14 md:bg-[url('/images/sections-watermark.png')] bg-contain bg-right-bottom  bg-no-repeat">
       <div className="flex  justify-center md:mb-2">
@@ -50,7 +80,14 @@ function Section2(props) {
         </div>
       </div>
 
-      <div className="flex justify-center">
+      <div className='flex justify-center mt-5  '>
+        
+        <div id="support-form" className='w-full md:w-[70%]'>
+      
+      </div> 
+        </div>
+
+      {/* <div className="flex justify-center">
         <form
           onSubmit={submitRequirement}
           className="py-5 bg-mid-color rounded-3xl px-4 sm:px-8 md:w-[80%] w-full mb-10"
@@ -147,7 +184,7 @@ function Section2(props) {
               </form>
               
           
-          </div>
+          </div> */}
           <BotIcon/>
     </div>
   );
