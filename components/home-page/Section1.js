@@ -121,7 +121,7 @@ function Section1(props) {
 
   return (
     <div
-      className="  md:bg-cover   md:bg-center md:bg-no-repeat px-5 md:px-10 lg:px-16  md:h-[600px] lg:h-[650px] "
+      className="  md:bg-contain   md:bg-center md:bg-no-repeat px-5 md:px-10 lg:px-16   lg:h-[650px] "
       // md:bg-[url('/images/hero.png')]
       style={{ backgroundImage: `url(${bgUrl})` }}
     >

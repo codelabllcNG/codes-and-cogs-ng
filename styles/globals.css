@@ -64,6 +64,12 @@ h1, h2 {
   }
 }
 
+input:focus,
+select:focus,
+textarea:focus {
+  font-size: 16px;
+}
+
 
 @font-face {
   font-family: 'KyivType Sans';

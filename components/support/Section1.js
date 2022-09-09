@@ -72,7 +72,7 @@ function Section1(props) {
       </div>
         </div>
         
-        <div className="hidden md:flex w-1/2 md:bg-cover md:bg-center md:bg-no-repeat"
+        <div className="hidden md:flex w-1/2 md:bg-contain md:bg-center md:bg-no-repeat"
             //  md:bg-[url('/images/support-bg.png')]
         style={{ backgroundImage: `url(${supportBgImage})` }}
         >
