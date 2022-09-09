@@ -191,7 +191,7 @@ function Section1(props) {
         </div>
 
         <div>
-          <p className='font-semibold text-lg'>Not sure of what talent you need for your project?</p>
+          <p className='font-semibold text-lg'>Need help finding the right talent for your project?</p>
           <div><Image alt='Curve arrow' width={70} height={62} src='/images/logos-and-icons/curve-arrow.png'/> </div>
           <Link passHref href={`tel:${projectEngineerPhone}`}>
           <button className="flex  items-center  cursor-pointer animate-bounce" >
