@@ -43,13 +43,13 @@ function LocationID(props) {
         </div>
       </div>
 
-      <div className={`px-5 md:px-10 md:flex  justify-between  `}>
+      <div className={`px-5 md:px-10 md:flex   justify-between  `}>
         <div
           className={`prose max-w-none prose-h1:text-3xl prose-h1:font-bold md:w-[55%] text-justify mb-5 md:mb-0 text-pry-color `}
         >
           <div
             dangerouslySetInnerHTML={{ __html: selectedLocation.content }}
-            className="md:leading-10  "
+            className="  "
           >
             {}
           </div>

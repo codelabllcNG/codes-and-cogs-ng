@@ -266,7 +266,7 @@ function TakeATest() {
                 <div key={question.id}>
                   <div>
                   <div className="flex  justify-center md:mb-2">
-        <h2 className="font-bold text-xs 400:text-xl  md:text-3xl">
+        <h2 className="font-bold header">
          Codes and Cogs TEST
         </h2>
       </div>

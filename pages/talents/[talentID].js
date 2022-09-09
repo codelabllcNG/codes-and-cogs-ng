@@ -30,7 +30,7 @@ function TalentID(props) {
   return (
     <div className="px-5 md:px-10">
       <div className="flex  md:justify-center md:mb-2">
-        <h2 className="font-bold text-xs 400:text-xl  md:text-3xl">
+        <h2 className="font-bold header">
           Talent Profile
         </h2>
       </div>

@@ -7,7 +7,7 @@ import { REMOTE_LOCATIONS } from "../../a-store/content-store/REMOTE_LOCATIONS";
 function RemoteLocations(props) {
   const router = useRouter();
 
-  const { title, locations } = props;
+  const { title, locations, generalMap } = props;
 
   return (
     <div>
@@ -36,7 +36,7 @@ function RemoteLocations(props) {
 
       <div className="flex justify-center mb-4">
         <Image alt="Image alt text"
-          src="/images/remote-location-map.png"
+          src={generalMap || `/images/remote-location-map.png`}
           height="300"
           width="700"
       
@@ -90,11 +90,13 @@ export async function getStaticProps() {
 
   const title = data.title;
   const locations = data.locations;
+  const generalMap = data.locationMap
 
   return {
     props: {
       title,
       locations,
+      generalMap
     },
     revalidate: 300,
   };

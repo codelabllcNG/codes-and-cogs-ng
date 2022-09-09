@@ -59,7 +59,7 @@ if (router.isFallback) {
 
 
       <div className="flex  justify-center md:mb-2">
-          <h2 className="font-bold text-xs 400:text-5xl font-larken md:text-5xl">
+          <h2 className="font-bold header font-larken ">
            Blog
           </h2>
         </div>
