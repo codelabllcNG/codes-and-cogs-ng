@@ -38,7 +38,7 @@ const { skillsArray,
   }
 
   return (
-    <div className="md:bg-[url('/images/sections-watermark.png')] bg-cover bg-right-bottom  bg-no-repeat px-5 md:px-10 lg:p-16">
+    <div className="md:bg-[url('/images/sections-watermark.png')] bg-cover bg-right-bottom  bg-no-repeat px-5 md:px-10 lg:p-16 mt-10">
        <section
       id="section2"
       ref={divHeightRef}

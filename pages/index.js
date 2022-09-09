@@ -137,6 +137,7 @@ export default function Home(props) {
         heroTitle={heroTitle}
         bgUrl={bgUrl}
         heroSubtitle={heroSubtitle}
+        projectEngineerPhone = {projectEngineerPhone}
       />
       <Section2
         skillsArray={skillsArray}

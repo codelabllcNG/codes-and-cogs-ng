@@ -9,7 +9,7 @@ import BotIcon from "../BotIcon";
 function Section1(props) {
   const router = useRouter();
   const { setSectionOneHeight, sectionOneHeight } = AllCtx();
-  const { heroTitle, heroSubtitle, bgUrl } = props;
+  const { heroTitle, heroSubtitle, bgUrl, projectEngineerPhone } = props;
 
   const divHeightRef = useRef();
 
@@ -187,10 +187,31 @@ function Section1(props) {
               : "text-red-600"
           } text-sm`}
         >
-          <p className="font-semibold">{searchResponse}</p>
+          <p className="font-semibold text-lg sm:text-xl">{searchResponse}</p>
         </div>
 
-        <BotIcon />
+        <div>
+          <p className='font-semibold text-lg'>Not sure of what talent you need for your project?</p>
+          <div><Image alt='Curve arrow' width={70} height={62} src='/images/logos-and-icons/curve-arrow.png'/> </div>
+          <Link passHref href={`tel:${projectEngineerPhone}`}>
+          <button className="flex  items-center  cursor-pointer animate-bounce" >
+      
+      <Image alt="Image alt text"
+        src="/images/logos-and-icons/bot.png"
+        width={45}
+        height={55}
+      />
+      <div
+        className="bg-mid-color h-[45px] flex items-center -ml-10 -mb-1 rounded-full ring-2 ring-mid-color ring-opacity-50
+    "
+      >
+        <p className="pl-11 pr-2 text-xs text-pry-color  font-semibold ">
+          Talk to a Project Engineer{" "}
+        </p>
+      </div>{" "}
+    </button>
+     </Link>
+   </div>
       </section>
     </div>
   );
