@@ -121,7 +121,7 @@ function Section1(props) {
 
   return (
     <div
-      className="  md:bg-contain   md:bg-center md:bg-no-repeat px-5 md:px-10 lg:px-16   lg:h-[650px] "
+      className="  md:bg-contain   md:bg-right-top md:bg-no-repeat px-5 md:px-10 lg:px-16   lg:h-[650px] "
       // md:bg-[url('/images/hero.png')]
       style={{ backgroundImage: `url(${bgUrl})` }}
     >
@@ -130,8 +130,8 @@ function Section1(props) {
         ref={divHeightRef}
         className=" md:pb-8 md:mb-0   md:ml-8"
       >
-        <div className="lg:w-[85%] md:w-[80%] mt-4">
-          <div dangerouslySetInnerHTML={{__html: heroTitle}} className="font-semibold text-pry-color font-larken md:text-[#07222E] md:leading-[5rem] md:text-6xl lg:text-[4.2rem] lg:leading-[5rem] text-2xl sm:text-5xl sm:leading-[3.5rem] 340:text-[1.7rem] 340:leading-[2.2rem] ">
+        <div className="lg:w-[85%] md:w-[85%] mt-4">
+          <div dangerouslySetInnerHTML={{__html: heroTitle}} className="font-semibold text-pry-color font-larken md:text-[#07222E] md:leading-[3.5rem] md:text-5xl lg:text-[4.2rem] lg:leading-[5rem] text-2xl sm:text-5xl sm:leading-[3.5rem] 340:text-[1.7rem] 340:leading-[2.2rem] ">
             {}
           </div>
         </div>
@@ -192,9 +192,9 @@ function Section1(props) {
 
         <div>
           <p className='font-semibold text-lg'>Need help finding the right talent for your project?</p>
-          <div><Image alt='Curve arrow' width={70} height={62} src='/images/logos-and-icons/curve-arrow.png'/> </div>
+          <div><Image className='animate-bounce' alt='Curve arrow' width={70} height={62} src='/images/logos-and-icons/curve-arrow.png'/> </div>
           <Link passHref href={`tel:${projectEngineerPhone}`}>
-          <button className="flex  items-center  cursor-pointer animate-bounce" >
+          <button className="flex  items-center  cursor-pointer " >
       
       <Image alt="Image alt text"
         src="/images/logos-and-icons/bot.png"
