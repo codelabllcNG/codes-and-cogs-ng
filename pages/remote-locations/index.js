@@ -36,7 +36,7 @@ function RemoteLocations(props) {
 
       <div className="flex justify-center mb-4">
         <Image alt="Image alt text"
-          src={generalMap || `/images/remote-location-map.png`}
+          src={generalMap.includes('https') || `/images/remote-location-map.png`}
           height="300"
           width="700"
       

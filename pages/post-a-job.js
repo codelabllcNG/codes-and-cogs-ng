@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import React, { useRef, useState } from "react";
+import { useEffect } from "react";
 import BotIcon from "../components/BotIcon";
 import AllCtx from "../util-functions/allCtx";
 
@@ -11,6 +12,11 @@ function PostAJob(props) {
     idOfTalentToHire,
     setIdOfTalentToHire,
   } = AllCtx();
+
+  useEffect(() => { 
+
+    // return () => { setTalentToHire(''); setIdOfTalentToHire('')}
+  }, [])
 
   const {title,
     engineerType,

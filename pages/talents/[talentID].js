@@ -29,12 +29,12 @@ function TalentID(props) {
 
   return (
     <div className="px-5 md:px-10">
-      <div className="flex  md:justify-center md:mb-2">
+      <div className="flex  justify-center md:mb-2">
         <h2 className="font-bold header">
           Talent Profile
         </h2>
       </div>
-      <div className="flex md:justify-center mb-3 ">
+      <div className="flex justify-center mb-3 ">
         <div className=" w-[75px] md:w-[150px]">
           <Image alt="Image alt text"
             src="/images/logos-and-icons/red-underline.png"
@@ -233,8 +233,8 @@ function TalentID(props) {
             <div className=" grid grid-cols-5 gap-y-3  mt-3 ">
               {selectedTalent.skills.map((skill) => (
                 <div key={skill.id} className="">
-                  <div className="flex justify-center ">
-                    {" "}
+                  <div  className="flex justify-center cursor-pointer ">
+                  {/* onClick={()=>{router.push(`/skills/${skill.id}`)}} */}
                     <div className="400:flex border-pry-color border-2 justify-center items-center bg-white h-8 w-8 hidden 400:h-12 400:w-12 rounded-full">
                       {" "}
                       <Image alt="Image alt text"
