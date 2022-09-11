@@ -49,7 +49,7 @@ function Section4(props) {
       <div className="flex mt-10  h-[500px]">
         <div  className='mr-5  w-[25%]  overflow-y-scroll'>
           {courseArray.map((course) => (
-            <div onClick={()=>{findCurrentCourse(course.id)}}
+            <div key={course.id} onClick={()=>{findCurrentCourse(course.id)}}
               dangerouslySetInnerHTML={{ __html: course.name }}
               className={`mb-2 cursor-pointer  font-semibold sm:text-lg ${course.id === currentCourse.id ? 'text-red-600' : ''}`}
             >
