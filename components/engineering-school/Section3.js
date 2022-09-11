@@ -50,8 +50,8 @@ function Section3() {
       </div>
 
       <div className="md:flex justify-between md:space-x-3 mt-5  md:space-y-0 space-y-8">
-     {[1, 2, 3].map(video =>    <div>
-          <div key={video} className="flex justify-center mb-1 ">
+     {[1, 2, 3].map(video =>    <div key={video}>
+          <div  className="flex justify-center mb-1 ">
             <video
               // width="400"
               height="305"
