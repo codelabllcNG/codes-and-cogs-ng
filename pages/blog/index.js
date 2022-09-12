@@ -5,7 +5,7 @@ import Head from "next/head";
 
 
 function Index(props) {
-  const range = 6;
+  const range = 9;
   const [pageNum, setPageNum] = useState(1);
   const [prev, setPrev] = useState(0);
   const [next, setNext] = useState(range);
@@ -216,7 +216,7 @@ export default Index;
 
 export async function getStaticProps() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/getblog`
+    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/getblog`
   );
   const data = await response.json();
 

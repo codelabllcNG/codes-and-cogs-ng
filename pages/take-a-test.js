@@ -132,7 +132,7 @@ function TakeATest() {
       setResponse("Submitting...");
       setSubmitting(true);
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/submitquestion`,
+        `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/submitquestion`,
         {
           method: "POST",
           body: JSON.stringify({

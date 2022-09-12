@@ -76,7 +76,7 @@ function JoinUS(props) {
       setResponse("Fetching questions...");
       setFetchingQuestions(true);
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/getquestions`,
+        `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/getquestions`,
         {
           method: "POST",
           body: JSON.stringify({
@@ -141,7 +141,7 @@ function JoinUS(props) {
   //     setResponse("Fetching questions...");
   //     setFetchingQuestions(true);
   //     const response = await fetch(
-  //       `${process.env.NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/getquestions`,
+  //       `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/getquestions`,
   //       {
   //         method: "POST",
   //         body: JSON.stringify({
@@ -455,7 +455,7 @@ function JoinUS(props) {
 
 export async function getStaticProps() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/getstartedpage`
+    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/getstartedpage`
   );
   const data = await response.json();
 

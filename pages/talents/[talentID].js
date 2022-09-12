@@ -482,7 +482,7 @@ export async function getStaticProps(context) {
   const talentID = context.params.talentID;
 
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/aboutpage`
+    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/aboutpage`
   );
   const data = await response.json();
   const designerArray = data.designers;
@@ -513,7 +513,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/aboutpage`
+    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/aboutpage`
   );
   const data = await response.json();
 

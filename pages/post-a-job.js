@@ -13,10 +13,10 @@ function PostAJob(props) {
     setIdOfTalentToHire,
   } = AllCtx();
 
-  useEffect(() => { 
+  // useEffect(() => { 
 
-    // return () => { setTalentToHire(''); setIdOfTalentToHire('')}
-  }, [])
+  //   return () => { setTalentToHire(''); setIdOfTalentToHire('')}
+  // }, [])
 
   const {title,
     engineerType,
@@ -60,7 +60,7 @@ function PostAJob(props) {
         : setResponse("Posting a job...");
       setPosting(true);
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/postjobrequest`,
+        `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/postjobrequest`,
         {
           method: "POST",
           body: JSON.stringify({
@@ -323,7 +323,7 @@ function PostAJob(props) {
 export async function getStaticProps() {
 
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/jobrequest`
+    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/jobrequest`
   );
   const data = await response.json();
 

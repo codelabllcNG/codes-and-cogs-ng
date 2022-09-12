@@ -416,7 +416,7 @@ export async function getServerSideProps() {
   // Fetch data from external API
 
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/getdemoquestions`
+    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/getdemoquestions`
   );
 
   const data = await response.json();

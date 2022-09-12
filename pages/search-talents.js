@@ -39,7 +39,7 @@ function SearchTalents(props) {
       setSearchingSkills(true);
       setSearchResponse("Searching...");
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/search?s=${searchKeyword}`
+        `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/search?s=${searchKeyword}`
       );
 
       const data = await response.json();
@@ -333,7 +333,7 @@ function SearchTalents(props) {
 
 export async function getStaticProps() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/codesandcogs/dev/api/codesandcogs/v1/aboutpage`
+    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/aboutpage`
   );
   const data = await response.json();
 
