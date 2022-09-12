@@ -181,7 +181,7 @@ function Section1(props) {
           </p>
         </div>
         <div
-          className={`flex px-6 mb-5 justify-center h-5 my-3 ${
+          className={`flex px-6 mb-8 justify-center h-5 my-3 ${
             searchResponse.includes("Success")
               ? "text-green-600"
               : "text-red-600"
@@ -191,7 +191,7 @@ function Section1(props) {
         </div>
 
         <div>
-          <p className='font-semibold text-lg'>Need help finding the right talent for your project?</p>
+          <p className='font-semibold text-lg '>Need help finding the right talent for your project?</p>
           <div><Image className='animate-bounce' alt='Curve arrow' width={70} height={62} src='/images/logos-and-icons/curve-arrow.png'/> </div>
           <Link passHref href={`tel:${projectEngineerPhone}`}>
           <button className="flex  items-center  cursor-pointer " >
