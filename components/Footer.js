@@ -182,9 +182,9 @@ function Footer() {
                 }} className="cursor-pointer hover:text-red-700">
                 Apply for Jobs
               </p>
-              <p     onClick={() => {
+              {/* <p     onClick={() => {
                   // router.push("");
-                }} className="cursor-pointer hover:text-red-700">Talent Login</p>{" "}
+                }} className="cursor-pointer hover:text-red-700">Talent Login</p>{" "} */}
               <p     onClick={() => {
                   router.push("/about-us/#talent-stories");
                 }} className="cursor-pointer hover:text-red-700">

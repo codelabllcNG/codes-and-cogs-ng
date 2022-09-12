@@ -228,14 +228,14 @@ function MobileNav() {
             <button>Press Release</button>
           </div>
 
-          <div
+          {/* <div
             onClick={() => {
               router.push("/talent-login");
               setMenuIsClicked(false);
             }}
           >
             <button>Talent Login</button>
-          </div>
+          </div> */}
 
           <div
             onClick={() => {
