@@ -89,7 +89,7 @@ function WhatWeDoID(props) {
           />{" "}
         </div>
         <div className="w-[100%] mb-5 flex justify-center md:hidden">
-          <Image alt="Image alt text" src={selectedWhatWeDo.imageUrl} width={400} height={300} />{" "}
+          <Image className='rounded-lg' alt="Image alt text" src={selectedWhatWeDo.imageUrl} width={400} height={300} />{" "}
         </div>
         <div className=" prose-h1:text-3xl prose-h1:font-bold w-full md:w-[55%]  ">
           <div

@@ -136,7 +136,7 @@ const router = useRouter();
             </div>
 
             <div className="sm:w-[40%] items-center flex justify-center mb-5 sm:mb-0">
-              <img alt="Image alt text" width={400} height={300} className="w-300px" src={enterpriseService.imageUrl}  />
+              <Image alt="Image alt text" width={400} height={300} className="rounded-lg" src={enterpriseService.imageUrl}  />
             </div>
           </div>
           
@@ -200,7 +200,7 @@ const router = useRouter();
             </div>
 
             <div className="sm:w-[40%] items-center flex justify-center mb-5 sm:mb-0">
-              <img alt="Image alt text" height={300} width={400} className="w-300px" src={solution.imageUrl} />
+              <Image alt="Image alt text" height={300} width={400} className="rounded-lg" src={solution.imageUrl} />
             </div>
           </div>
         </div>
