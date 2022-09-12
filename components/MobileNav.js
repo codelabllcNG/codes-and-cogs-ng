@@ -6,7 +6,7 @@ import { HiOutlineChevronDown, HiOutlineChevronUp } from "react-icons/hi";
 function MobileNav() {
   const router = useRouter();
 
-  const { menuIsClicked, setMenuIsClicked } = AllCtx();
+  const { menuIsClicked, setMenuIsClicked, setTalentToHire,  setIdOfTalentToHire } = AllCtx();
 
   const [whatWeDoExpanded, setWhatWeDoExpanded] = useState(true);
 
@@ -67,8 +67,10 @@ function MobileNav() {
 
           <div
             onClick={() => {
+              setTalentToHire(''); setIdOfTalentToHire('')
               router.push("/post-a-job");
               setMenuIsClicked(false);
+
             }}
           >
             <button>Post A Job</button>

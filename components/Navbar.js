@@ -12,7 +12,7 @@ import MobileNav from "./MobileNav";
 function Navbar() {
   const router = useRouter();
 
-  const { megaMenu, setMegaMenu, menuIsClicked, setMenuIsClicked } = AllCtx();
+  const { megaMenu, setMegaMenu, menuIsClicked, setMenuIsClicked, setTalentToHire,  setIdOfTalentToHire } = AllCtx();
 
   // Hover functions here next
   // const [homeHover, setHomeHover] = useState(true);
@@ -102,12 +102,13 @@ function Navbar() {
           <Link passHref href="/post-a-job">
             <div
               onMouseOver={() => {
+                
                 setMegaMenu(false);
                 showHover(false, false, true, false, false);
               }}
               className="cursor-pointer"
             >
-              <div className="flex justify-center">
+              <div onClick={()=>{setTalentToHire(''); setIdOfTalentToHire('')}} className="flex justify-center">
                 {" "}
                 <a> Post a Job </a>
               </div>

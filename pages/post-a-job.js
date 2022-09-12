@@ -13,10 +13,7 @@ function PostAJob(props) {
     setIdOfTalentToHire,
   } = AllCtx();
 
-  // useEffect(() => { 
 
-  //   return () => { setTalentToHire(''); setIdOfTalentToHire('')}
-  // }, [])
 
   const {title,
     engineerType,
