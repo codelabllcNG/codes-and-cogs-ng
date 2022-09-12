@@ -47,7 +47,7 @@ function PressRelease(props) {
       
       <div className="px-5 md:px-10">
         <div className="flex  justify-center md:mb-2">
-          <h2 className="font-bold text-xs 400:text-xl  md:text-5xl">
+          <h2 className="font-bold header">
             Press Release
           </h2>
         </div>

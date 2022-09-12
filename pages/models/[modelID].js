@@ -27,7 +27,7 @@ function ModelID(props) {
       </Head>
 
       <div className="flex text-center justify-center mb-2">
-        <h2 className="font-bold text-3xl">{selectedModel.title}</h2>
+        <h2 className="font-bold header">{selectedModel.title}</h2>
       </div>
       <div className="flex justify-center mb-10 ">
         <div className=" [150px]">

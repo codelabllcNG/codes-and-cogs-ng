@@ -71,7 +71,7 @@ if (router.isFallback) {
               height={20}
             />
           </div>
-        </div>
+        </div> 
 
       <div className="flex items-center justify-center  py-3 px-5 mb-8 -mx-5 md:-mx-10 bg-semi-sec-color">
         <div>
