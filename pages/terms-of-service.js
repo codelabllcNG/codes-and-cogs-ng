@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import AllCtx from "../util-functions/allCtx";
 
-function PrivacyPolicy(props) {
+function TermsOfService(props) {
   const { content } = props;
 
   const router = useRouter();
@@ -11,7 +11,7 @@ function PrivacyPolicy(props) {
     <div className="px-5 py-5 md:px-14 leading-7 md:leading-10">
       <div>
         <div className="flex  justify-center md:mb-2">
-          <h2 className="font-bold header">Privacy Policy</h2>
+          <h2 className="font-bold header">Terms of Service</h2>
         </div>
         <div className="flex justify-center mb-4">
           <div className=" w-[75px] md:w-[150px]">
@@ -37,7 +37,7 @@ function PrivacyPolicy(props) {
 
 export async function getStaticProps() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/legal_privacy`
+    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/legal_terms`
   );
   const data = await response.json();
 
@@ -53,4 +53,4 @@ export async function getStaticProps() {
   }; 
 }
 
-export default PrivacyPolicy;
+export default TermsOfService;

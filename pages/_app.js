@@ -8,7 +8,7 @@ import "../styles/globals.css";
 import Head from "next/head";
 
 
-function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
   useEffect(() => {
     const use = async () => {
       (await import("tw-elements")).default;
@@ -47,9 +47,30 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       </AllContextProvider>
 
-      <Footer />
+      <Footer data={pageProps.data} />
     </Fragment>
   );
+
+
+
+  
 }
 
-export default MyApp;
+MyApp.getInitialProps = async () => {
+  let pageProps = {};
+
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/get_footer`
+    );
+    const data = await response.json();
+
+    // console.log(data);
+    pageProps["data"] = data;
+  } catch (error) { }
+
+  return { pageProps };
+}
+  // return { pageProps };
+
+// export default MyApp;

@@ -2,30 +2,35 @@ import React, { useEffect, useRef } from "react";
 import AllCtx from "../util-functions/allCtx";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
-function Footer() {
+function Footer(props) {
   let router = useRouter();
-  // const { setSectionSixHeight, sectionSixHeight } = AllCtx();
+  const {data } = props;
 
-  const divHeightRef = useRef();
+  // const divHeightRef = useRef();
 
   // useEffect(() => {
   //     window.addEventListener("scroll", () => {
   //        if(divHeightRef.current) { setSectionSixHeight(divHeightRef.current.clientHeight)}
   //     })
-  // },[])
+  // },[]) 
 
   return (
-    <section id="footer" ref={divHeightRef} className="mt-10">
+    <section id="footer" className="mt-10">
       <div className="px-5 md:px-20 py-4">
         <div className="flex  justify-center md:mb-2">
-          <h2 className="font-bold header font-larken  ">
-            Subscribe to our Newsletter
-          </h2>
+          <div
+            dangerouslySetInnerHTML={{ __html: data.title }}
+            className="font-bold header font-larken  "
+          >
+            {}
+          </div>
         </div>
         <div className="flex justify-center mb-4">
           <div className=" w-[75px] md:w-[150px]">
-            <Image alt="Image alt text"
+            <Image
+              alt="Image alt text"
               src="/images/logos-and-icons/red-underline.png"
               width={150}
               height={20}
@@ -34,9 +39,9 @@ function Footer() {
         </div>
 
         <div className="flex justify-center mb-5">
-          <p className="font-semibold text-pry-color">
-            Join our subscribers to receive our latest updates{" "}
-          </p>
+          <div dangerouslySetInnerHTML={{ __html: data.subTitle}} className="font-semibold text-pry-color text-center">
+            {}
+          </div>
         </div>
 
         <div className="flex items-center justify-center">
@@ -60,32 +65,68 @@ function Footer() {
       <div className="bg-[#ECF1FA] md:px-16 py-6 text-pry-color">
         <div className="md:flex px-5 justify-between">
           <div className="flex mb-7 md:mb-0 md:block items-center justify-between">
-            <div     onClick={() => {
-                  router.push("/");
-                }} className=" md:flex justify-center md:mb-16 cursor-pointer ">
+            <div
+              onClick={() => {
+                router.push("/");
+              }}
+              className=" md:flex justify-center md:mb-16 cursor-pointer "
+            >
               {" "}
-              <img alt="Image alt text"
-                className="w-20" 
-                src="/images/logos-and-icons/logo.svg"  
-                
+              <Image width={80} height={70}
+                alt="Image alt text"
+                className="w-20"
+                src="/images/logos-and-icons/logo.svg"
               />
             </div>{" "}
             <div className="w-52 md:w-[10rem] flex justify-between  items-center">
-              <div className="md:w-5">
-                <img alt="Image alt text" src="/images/logos-and-icons/twitter.svg"  />
-              </div>
-              <div className="md:w-5">
-                <img alt="Image alt text" src="/images/logos-and-icons/instagram.svg"  />
-              </div>
-              <div className="md:w-5">
-                <img alt="Image alt text" src="/images/logos-and-icons/facebook.svg"  />
-              </div>
-              <div className="md:w-5">
-                <img alt="Image alt text" src="/images/logos-and-icons/youtube.svg"  />
-              </div>
-              <div className="md:w-5">
-                <img alt="Image alt text" src="/images/logos-and-icons/linkedin.svg"  />
-              </div>
+            <Link href={data.linkedin || '/'}>
+          <a rel="noopener noreferrer" target="_blank">
+          <Image width={20} height={20}
+                  alt="LinkedIn icon"
+                  src="/images/logos-and-icons/linkedin.svg"
+                />
+          </a>
+        </Link>
+
+        <Link href={data.twitter || '/'}>
+          <a rel="noopener noreferrer" target="_blank">
+          <Image width={20} height={20}
+                  alt="Twitter icon"
+                  src="/images/logos-and-icons/twitter.svg"
+                />
+          </a>
+        </Link>
+      
+
+              <Link href={data.instagram || '/'}>
+          <a rel="noopener noreferrer" target="_blank">
+          <Image width={20} height={20}
+                  alt="Instagram icon"
+                  src={"/images/logos-and-icons/instagram.svg"}
+                />
+          </a>
+              </Link>
+              
+              <Link href={data.facebook || '/'}>
+          <a rel="noopener noreferrer" target="_blank">
+          <Image width={20} height={20}
+                  alt="Facebook icon"
+                  src="/images/logos-and-icons/facebook.svg"
+                />
+          </a>
+        </Link>
+
+        <Link href={data.youtube  || '/'}>
+          <a rel="noopener noreferrer" target="_blank">
+          <Image width={20} height={20}
+                  alt=" YouTube icon"
+                  src="/images/logos-and-icons/youtube.svg"
+                />
+          </a>
+        </Link>
+           
+          
+          
             </div>
           </div>
           <div className="grid grid-cols-2 md:flex justify-between md:w-[70%] md:text-xs lg:text-base text-xs 400:text-sm 500:text-base  ">
@@ -99,14 +140,14 @@ function Footer() {
               >
                 Hire Talents
               </p>
-              <p
+              {/* <p
                 onClick={() => {
                   // router.push("");
                 }}
                 className="cursor-pointer hover:text-red-700"
               >
                 Book a Call
-              </p>
+              </p> */}
               {/* <p
                 onClick={() => {
                   router.push("/customer-reviews");
@@ -117,7 +158,7 @@ function Footer() {
               </p> */}
               <p
                 onClick={() => {
-                  // router.push("/legal");
+                  router.push("/terms-of-service");
                 }}
                 className="cursor-pointer hover:text-red-700"
               >
@@ -168,7 +209,7 @@ function Footer() {
               </p>
               <p
                 onClick={() => {
-                  router.push("/engineering-school");
+                  router.push("/coming-soon");
                 }}
                 className="cursor-pointer hover:text-red-700"
               >
@@ -177,17 +218,23 @@ function Footer() {
             </div>{" "}
             <div className="  md:w-[20%] md:space-y-2 space-y-1 md:mb-0 mb-7">
               <button className="font-bold ">DEVELOPERS</button>
-              <p     onClick={() => {
+              <p
+                onClick={() => {
                   router.push("/join-us");
-                }} className="cursor-pointer hover:text-red-700">
+                }}
+                className="cursor-pointer hover:text-red-700"
+              >
                 Apply for Jobs
               </p>
-              {/* <p     onClick={() => {
+              {/* <p     onClick={() => { 
                   // router.push("");
                 }} className="cursor-pointer hover:text-red-700">Talent Login</p>{" "} */}
-              <p     onClick={() => {
+              <p
+                onClick={() => {
                   router.push("/about-us/#talent-stories");
-                }} className="cursor-pointer hover:text-red-700">
+                }}
+                className="cursor-pointer hover:text-red-700"
+              >
                 Talent Stories
               </p>
             </div>
@@ -273,7 +320,7 @@ function Footer() {
               </button>{" "}
               <button
                 onClick={() => {
-                  // router.push("/terms-of-service");
+                  router.push("/terms-of-service");
                 }}
                 className="hover:text-red-700"
               >
@@ -287,4 +334,34 @@ function Footer() {
   );
 }
 
+// export async function getStaticProps() {
+//   // console.log('hidkd');
+//   const response = await fetch(
+//     `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/get_footer`
+//   );
+//   const data = await response.json();
+
+//   const title = data.title;
+//   const subtitle = data.subTitle;
+//   const twitter = data.twitter;
+//   const instagram = data.instagram;
+//   const facebook = data.facebook;
+//   const youtube = data.youtube;
+//   const linkedin = data.linkedin;
+
+
+//   return {
+//     props: {
+//       title,
+//       subtitle,
+//       twitter,
+//       instagram, 
+//       facebook,
+//       youtube, 
+//       linkedin,
+//     },
+//     revalidate: 300,
+//   };
+// }
+ 
 export default Footer;

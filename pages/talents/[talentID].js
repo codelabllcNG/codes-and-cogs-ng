@@ -21,7 +21,7 @@ function TalentID(props) {
   var twoRating = [1, 2];
   var threeRating = [1, 2, 3];
   var fourRating = [1, 2, 3, 4];
-  var fiveRating = [1, 2, 3, 4, 5];
+  var fiveRating = [1, 2, 3, 4, 5]; 
 
   const { talentID, selectedTalent } = props;
 
@@ -83,6 +83,21 @@ function TalentID(props) {
               />
             </div>
           </div>
+
+{/* LOCATION */}
+
+<div className="rounded-xl bg-semi-sec-color py-4 mb-4 ">
+              <div className="pl-4">
+                <p className="font-bold text-pry-color mb-2">Location</p>
+               
+                  <div  className="flex items-center">
+                <p className="w-[70px] font-semibold">{selectedTalent.country}</p> <p>({selectedTalent.state})</p>
+                   
+                  </div>
+               
+              </div>
+            </div>
+
 
           {/* LANGUAGES  */}
           {selectedTalent.languages && (
@@ -481,7 +496,7 @@ function TalentID(props) {
 export async function getStaticProps(context) {
   const talentID = context.params.talentID;
 
-  const response = await fetch(
+  const response = await fetch( 
     `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/aboutpage`
   );
   const data = await response.json();
@@ -495,6 +510,8 @@ export async function getStaticProps(context) {
     return talentArray.find((talent) => talent.id === talentID);
   }
   const selectedTalent = talentFinder(talentID);
+
+
 
   if (!selectedTalent) {
     return {
