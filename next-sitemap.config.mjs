@@ -3,7 +3,7 @@ const config = {
   siteUrl: "https://codesandcogs.com",
   generateRobotsTxt: true, // (optional)
   // ...other options
-  // generateIndexSitemap: false,
+  generateIndexSitemap: false,
   autoLastmod: true,
   exclude: ['/support/*', '/support', '/demo-test', '/coming-soon', '/privacy-policy', '/take-a-test', '/talents/*', ],
    
