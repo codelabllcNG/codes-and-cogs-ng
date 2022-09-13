@@ -17,6 +17,13 @@ function MyApp({ Component, pageProps }) {
   return (
     <Fragment>
       <AllContextProvider>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="google-site-verification"
+          content="AoyKWu8XW_-k0WiGwNX5yoL4yA6XqAxq_pCiw6v-iT4"
+        />
+      </Head>
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
           strategy="afterInteractive"
