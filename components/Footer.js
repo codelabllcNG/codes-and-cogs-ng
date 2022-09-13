@@ -21,7 +21,7 @@ function Footer(props) {
       <div className="px-5 md:px-20 py-4">
         <div className="flex  justify-center md:mb-2">
           <div
-            dangerouslySetInnerHTML={{ __html: data.title }}
+            dangerouslySetInnerHTML={{ __html: "Subscribe to our Newsletter" }}
             className="font-bold header font-larken  "
           >
             {}
@@ -39,7 +39,7 @@ function Footer(props) {
         </div>
 
         <div className="flex justify-center mb-5">
-          <div dangerouslySetInnerHTML={{ __html: data.subTitle}} className="font-semibold text-pry-color text-center">
+          <div dangerouslySetInnerHTML={{ __html: "Want in on our exciting offers? Join our community of tech experts to receive exclusive deals and updates"}} className="font-semibold text-pry-color text-center">
             {}
           </div>
         </div>
@@ -79,7 +79,7 @@ function Footer(props) {
               />
             </div>{" "}
             <div className="w-52 md:w-[10rem] flex justify-between  items-center">
-            <Link href={data.linkedin || '/'}>
+            <Link href={"https://www.linkedin.com/company/codes-and-cogs/"}>
           <a rel="noopener noreferrer" target="_blank">
           <Image width={20} height={20}
                   alt="LinkedIn icon"
@@ -88,7 +88,7 @@ function Footer(props) {
           </a>
         </Link>
 
-        <Link href={data.twitter || '/'}>
+        <Link href={''}>
           <a rel="noopener noreferrer" target="_blank">
           <Image width={20} height={20}
                   alt="Twitter icon"
@@ -98,7 +98,7 @@ function Footer(props) {
         </Link>
       
 
-              <Link href={data.instagram || '/'}>
+              <Link href={"https://instagram.com/codesandcogs?igshid=YmMyMTA2M2Y="}>
           <a rel="noopener noreferrer" target="_blank">
           <Image width={20} height={20}
                   alt="Instagram icon"
@@ -107,7 +107,7 @@ function Footer(props) {
           </a>
               </Link>
               
-              <Link href={data.facebook || '/'}>
+              <Link href={"https://www.facebook.com/Codes-and-Cogs-100895669449690"}>
           <a rel="noopener noreferrer" target="_blank">
           <Image width={20} height={20}
                   alt="Facebook icon"
@@ -116,7 +116,7 @@ function Footer(props) {
           </a>
         </Link>
 
-        <Link href={data.youtube  || '/'}>
+        <Link href={""}>
           <a rel="noopener noreferrer" target="_blank">
           <Image width={20} height={20}
                   alt=" YouTube icon"
@@ -334,34 +334,6 @@ function Footer(props) {
   );
 }
 
-// export async function getStaticProps() {
-//   // console.log('hidkd');
-//   const response = await fetch(
-//     `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/get_footer`
-//   );
-//   const data = await response.json();
 
-//   const title = data.title;
-//   const subtitle = data.subTitle;
-//   const twitter = data.twitter;
-//   const instagram = data.instagram;
-//   const facebook = data.facebook;
-//   const youtube = data.youtube;
-//   const linkedin = data.linkedin;
-
-
-//   return {
-//     props: {
-//       title,
-//       subtitle,
-//       twitter,
-//       instagram, 
-//       facebook,
-//       youtube, 
-//       linkedin,
-//     },
-//     revalidate: 300,
-//   };
-// }
  
 export default Footer;
