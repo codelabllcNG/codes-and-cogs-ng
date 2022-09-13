@@ -1,12 +1,12 @@
 /** @type {import('next-sitemap').IConfig} */
 const config = {
-  siteUrl: "https://codes-and-cogs.com",
+  siteUrl: "https://codesandcogs.com",
   generateRobotsTxt: true, // (optional)
   // ...other options
   // generateIndexSitemap: false,
   autoLastmod: true,
-  exclude: ['/support/*', '/support', '/take-a-test', '/talents/*', ],
-  
+  exclude: ['/support/*', '/support', '/demo-test', '/coming-soon', '/privacy-policy', '/take-a-test', '/talents/*', ],
+   
 
   robotsTxtOptions: {
     policies: [
@@ -17,7 +17,7 @@ const config = {
 
       {
         userAgent: '*',
-        disallow: ['/support/*', '/support', '/take-a-test', '/talents/*'],
+        disallow: ['/support/*', '/support', '/demo-test', '/take-a-test', '/talents/*'],
       },
     ],
     additionalSitemaps: [
@@ -27,7 +27,7 @@ const config = {
     //   'https://example.com/my-custom-sitemap-3.xml',
     ],
   },
-};
+}; 
 
 // module.exports = { config };
 

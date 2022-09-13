@@ -21,7 +21,7 @@ function NewsID(props) {
         <meta name="description" content={selectedNews.title} />
         <link rel="icon" href="/favicon.ico" />
         <link
-          rel="canonical"
+          rel="canonical" 
           href={`${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/press-release/${selectedNews.id}`}
         />
       </Head>

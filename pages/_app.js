@@ -5,6 +5,8 @@ import Footer from "../components/Footer";
 import MegaMenu from "../components/MegaMenu";
 import Navbar from "../components/Navbar";
 import "../styles/globals.css";
+import Head from "next/head";
+
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {

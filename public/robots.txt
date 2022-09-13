@@ -10,8 +10,8 @@ Disallow: /take-a-test
 Disallow: /talents/*
 
 # Host
-Host: https://codes-and-cogs.com
+Host: https://codesandcogs.com
 
 # Sitemaps
-Sitemap: https://codes-and-cogs.com/sitemap.xml
+Sitemap: https://codesandcogs.com/sitemap.xml
 Sitemap: https://www.codesandcogs.com/server-sitemap.xml
