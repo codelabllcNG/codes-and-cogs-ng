@@ -50,7 +50,7 @@ export async function getStaticProps() {
   const supportSubtitle = data.supportSubtitle;
   const supportBgImage = data.supportBgImage;
   const customerCareNumber = data.csNumber;
-  const customerCareEmail = "data.csEmail";
+  const customerCareEmail = data.csEmail;
   const newTicketTitle = data.newTicketTitle;
   const newTicketSubtitle = data.newTicketSubtitle;
   const ticketStatusTitle = data.statusTicketTitle;
