@@ -44,24 +44,59 @@ function NewsID(props) {
       </div>
 
       
-      <div className='flex' >
-      <div className="  justify-between md: ">
-        <div className="w-[40%]  lg:mr-8 float-left h-full hidden lg:flex">
-          <Image alt="Image alt text" className='rounded-lg' src={selectedNews.imageUrl} width={500} height={700} />{" "}
-        </div>
-        <div className="w-[100%] mb-5 flex justify-center lg:hidden">
-          <Image alt="Image alt text" src={selectedNews.imageUrl} width={500} height={300} />{" "}
-        </div>
-        <div className=' w-full   '>
-          <div
-            className="prose-h1:text-3xl prose-h1:font-bold max-w-none text-justify md:text-lg md:leading-10 leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: selectedNews.content }}
-          >
-            {} 
+      <div className="flex items-center justify-center  py-3 px-5 mb-8 -mx-5 md:-mx-10 bg-gray-50">
+        <div>
+          <div className="text-pry-color 400:text-xl text-lg font-bold md:text-2xl text-center">
+            <div dangerouslySetInnerHTML={{__html: selectedNews.title}}>
+              {}
+            </div>
           </div>
+
+          {/* <div className="text-xs text-gray-400 font-semibold">
+            <p>{`${ordinal(day)} ${month}., ${year}`}</p>
+          </div> */}
+        </div>
+
+        <div className="hidden md:flex justify-center px-5 md:px-10">
+          <Image alt="Image alt text"
+            className="rounded-lg"
+            src={selectedNews.imageUrl}
+            width={400}
+            height={250}
+          />
         </div>
       </div>
-   </div>
+
+      <div className="flex md:hidden justify-center px-5 md:px-10 mb-8">
+        <Image alt="Image alt text"
+          className="rounded-lg"
+          src={selectedNews.imageUrl}
+          width={400}
+          height={250}
+        />
+      </div>
+
+      <div className="">
+        {/* {theSelectedBlogPost.body.map((content) => (
+          <div key={selectedBlogPost.id} className="mb-8">
+            <div className="text-pry-color font-bold md:text-lg  ">
+              <p>{content.heading}</p>
+            </div>
+
+            <div className="leading-7 text-justify">
+              <p>{content.paragraph}</p>
+            </div>
+          </div>
+        ))} */}
+
+        <div dangerouslySetInnerHTML={{__html: selectedNews.content}}
+          className="prose prose-h1:text-3xl prose-h1:font-bold max-w-none text-justify md:text-lg md:leading-10 leading-relaxed"
+         
+      
+        >
+          {}
+        </div>
+      </div>
     </div>
   );
 }

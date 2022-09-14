@@ -323,11 +323,11 @@ export async function getStaticProps() {
   );
   const data = await response.json();
 
-  const recentNew = data.posts;
-  const recentNews = [...recentNew, ...recentNew, ...recentNew, ...recentNew];
+  const recentNews = data.posts;
+  // const recentNews = [...recentNew, ...recentNew, ...recentNew, ...recentNew];
 
-  const topNew = data.posts.filter((n) => n.topNews);
-  const topNews = [...topNew, ...topNew, ...topNew, ...topNew];
+  const topNews = data.posts.filter((n) => n.topNews);
+  // const topNews = [...topNew, ...topNew, ...topNew, ...topNew];
 
   return {
     props: {

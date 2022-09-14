@@ -17,11 +17,11 @@ function TalentID(props) {
     return <Loading />;
   }
 
-  var oneRating = [1];
-  var twoRating = [1, 2];
-  var threeRating = [1, 2, 3];
-  var fourRating = [1, 2, 3, 4];
-  var fiveRating = [1, 2, 3, 4, 5]; 
+  var oneRating = [true, false, false, false, false];
+  var twoRating = [true, true, false, false, false];
+  var threeRating = [true, true, true, false, false];
+  var fourRating = [true, true, true, true, false];
+  var fiveRating = [true, true, true, true, true]; 
 
   const { talentID, selectedTalent } = props;
 
@@ -113,35 +113,35 @@ function TalentID(props) {
                         oneRating.map((value, i) => (
                           <div
                             key={i}
-                            className={`w-3 h-3 rounded-full flex bg-gray-500`}
+                            className={`w-3 h-3 rounded-full flex ${value ? 'bg-gray-600' : 'bg-gray-300'}`}
                           ></div>
                         ))}
                       {language.rating == 2 &&
                         twoRating.map((value) => (
                           <div
                             key={value}
-                            className={`w-3 h-3 rounded-full flex bg-gray-500`}
+                             className={`w-3 h-3 rounded-full flex ${value ? 'bg-gray-600' : 'bg-gray-300'}`}
                           ></div>
                         ))}
                       {language.rating == 3 &&
                         threeRating.map((value) => (
                           <div
                             key={value}
-                            className={`w-3 h-3 rounded-full flex bg-gray-500`}
+                             className={`w-3 h-3 rounded-full flex ${value ? 'bg-gray-600' : 'bg-gray-300'}`}
                           ></div>
                         ))}
                       {language.rating == 4 &&
                         fourRating.map((value) => (
                           <div
                             key={value}
-                            className={`w-3 h-3 rounded-full flex bg-gray-500`}
+                             className={`w-3 h-3 rounded-full flex ${value ? 'bg-gray-600' : 'bg-gray-300'}`}
                           ></div>
                         ))}
                       {language.rating == 5 &&
                         fiveRating.map((value) => (
                           <div
                             key={value}
-                            className={`w-3 h-3 rounded-full flex bg-gray-500`}
+                             className={`w-3 h-3 rounded-full flex ${value ? 'bg-gray-600' : 'bg-gray-300'}`}
                           ></div>
                         ))}
                     </div>
