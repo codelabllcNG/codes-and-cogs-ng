@@ -107,7 +107,7 @@ function Section1(props) {
       {
         const timer = setTimeout(() => {
           setSearchResponse("");
-        }, 20000);
+        }, 40000);
 
         return () => clearTimeout(timer);
       }
@@ -121,7 +121,7 @@ function Section1(props) {
 
   return (
     <div
-      className="  md:bg-contain   md:bg-right-top md:bg-no-repeat px-5 md:px-10 lg:px-16   lg:h-[650px] "
+      className="  md:bg-contain   md:bg-right-top md:bg-no-repeat px-5 md:px-10 lg:px-16   lg:h-[650px] lg:mb-32"
       // md:bg-[url('/images/hero.png')]
       style={{ backgroundImage: `url(${bgUrl})` }}
     >
@@ -154,7 +154,7 @@ function Section1(props) {
                 setSearchKeyword(e.target.value);
               }}
               type="text"
-              className=" ml-4 outline-0 focus:outline-0 border-0 text- w-full bg-transparent "
+              className=" ml-4 outline-0 focus:!outline-0 focus:!outline-none border-0 text- w-full bg-transparent "
               placeholder="Search for Talents"
             />
           </div>{" "}

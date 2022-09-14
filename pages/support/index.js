@@ -11,6 +11,7 @@ function Index(props) {
     supportSubtitle,
     supportBgImage,
     customerCareNumber,
+    customerCareEmail,
     newTicketTitle,
     newTicketSubtitle,
     ticketStatusTitle,
@@ -24,6 +25,7 @@ function Index(props) {
         supportSubtitle={supportSubtitle}
         supportBgImage={supportBgImage}
         customerCareNumber={customerCareNumber}
+        customerCareEmail={customerCareEmail}
       />
       <Section2
         newTicketTitle={newTicketTitle}
@@ -48,6 +50,7 @@ export async function getStaticProps() {
   const supportSubtitle = data.supportSubtitle;
   const supportBgImage = data.supportBgImage;
   const customerCareNumber = data.csNumber;
+  const customerCareEmail = "data.csEmail";
   const newTicketTitle = data.newTicketTitle;
   const newTicketSubtitle = data.newTicketSubtitle;
   const ticketStatusTitle = data.statusTicketTitle;
@@ -63,6 +66,7 @@ export async function getStaticProps() {
       newTicketSubtitle,
       ticketStatusTitle,
       ticketStatusSubtitle,
+      customerCareEmail
     },
     revalidate: 300,
   };

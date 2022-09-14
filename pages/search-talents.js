@@ -146,7 +146,7 @@ function SearchTalents(props) {
                   setSearchKeyword(e.target.value);
                 }}
                 type="text"
-                className="outline-0 focus:outline-0 border-0  text-center w-full bg-transparent "
+                className="outline-0 focus:!outline-0 focus:!outline-none border-0  text-center w-full bg-transparent "
                 placeholder="Search for Talents"
               />
             </div>{" "}

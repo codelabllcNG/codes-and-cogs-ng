@@ -3,7 +3,7 @@ import BotIcon from "../BotIcon";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { useEffect } from "react";
-
+import Link from "next/link";
 
 function Section1(props) {
 
@@ -12,6 +12,7 @@ function Section1(props) {
     supportSubtitle,
     supportBgImage,
     customerCareNumber,
+    customerCareEmail
   } = props;
 
   let router = useRouter();
@@ -67,8 +68,22 @@ function Section1(props) {
       </div>
 
       <div className="md:mb-32">
-        <p className="font-semibold">Customer Care</p>
-        <p>{customerCareNumber}</p>
+            <p className="font-semibold">Customer Care</p>
+            <Link passHref href={`tel:${customerCareNumber}`}>
+              <a dangerouslySetInnerHTML={{ __html: customerCareNumber }}>
+                {}
+            </a>
+          </Link>
+           
+            
+            <div className='mt-2'>
+            <Link passHref href={`mailto:${customerCareEmail}`}>
+              <a dangerouslySetInnerHTML={{ __html: customerCareEmail }}>
+                {}
+            </a>
+          </Link>
+            </div>
+        
       </div>
         </div>
         
