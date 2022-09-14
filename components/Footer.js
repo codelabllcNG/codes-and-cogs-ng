@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import AllCtx from "../util-functions/allCtx";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -6,7 +6,44 @@ import Link from "next/link";
 
 function Footer(props) {
   let router = useRouter();
-  const {data } = props;
+  const { data } = props;
+  
+  const [canRun, setCanRun] = useState(false)
+
+  useEffect(() => {  
+    setCanRun(true)
+    if (canRun) {
+    
+      const script = document.createElement("script");
+      script.src = "//js.hsforms.net/forms/v2.js";
+      document.body.appendChild(script);
+  
+      script.addEventListener("load", () => {
+        if (window.hbspt) {
+          window.hbspt.forms.create({
+            region: "na1",
+            portalId: "22606943",
+            formId: "b66e14cd-0804-4916-b219-789cbd466347",
+            target: "#newsletter",
+          });
+        }
+      });
+  
+      return () => { 
+        script.removeEventListener('load', () => {
+          if (window.hbspt) {
+            window.hbspt.forms.create({
+              region: "na1",
+              portalId: "22606943",
+              formId: "b66e14cd-0804-4916-b219-789cbd466347",
+              target: "#newsletter",
+            });
+          }
+        })
+     };
+    
+  }
+  }, [canRun]);
 
   // const divHeightRef = useRef();
 

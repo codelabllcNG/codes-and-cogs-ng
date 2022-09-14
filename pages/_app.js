@@ -16,35 +16,7 @@ export default function MyApp({ Component, pageProps }) {
     use();
   }, []);
 
-  useEffect(() => {  
-    const script = document.createElement("script");
-    script.src = "//js.hsforms.net/forms/v2.js";
-    document.body.appendChild(script);
 
-    script.addEventListener("load", () => {
-      if (window.hbspt) {
-        window.hbspt.forms.create({
-          region: "na1",
-          portalId: "22606943",
-          formId: "b66e14cd-0804-4916-b219-789cbd466347",
-          target: "#newsletter",
-        });
-      }
-    });
-
-    return () => { 
-      script.removeEventListener('load', () => {
-        if (window.hbspt) {
-          window.hbspt.forms.create({
-            region: "na1",
-            portalId: "22606943",
-            formId: "b66e14cd-0804-4916-b219-789cbd466347",
-            target: "#newsletter",
-          });
-        }
-      })
-   };
-  }, []);
 
   return (
     <Fragment>
