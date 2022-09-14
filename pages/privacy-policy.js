@@ -43,7 +43,7 @@ export async function getStaticProps() {
 
   const content = data.legal; 
 
-  // console.log(data);
+  // console.log(content);
 
   return {
     props: { 

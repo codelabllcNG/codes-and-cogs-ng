@@ -16,6 +16,9 @@ function Footer(props) {
   //     })
   // },[]) 
 
+
+
+
   return (
     <section id="footer" className="mt-10">
       <div className="px-5 md:px-20 py-4">
@@ -45,7 +48,12 @@ function Footer(props) {
         </div>
 
         <div className="flex items-center justify-center">
-          <div className="flex items-center border-2 border-pry-color px-2 py-1   rounded-full   mr-2   ">
+        <div id="newsletter" className='w-full md:w-[70%]'>
+      
+      </div> 
+
+
+          {/* <div className="flex items-center border-2 border-pry-color px-2 py-1   rounded-full   mr-2   ">
             {" "}
             <p className="text-pry-color font-semibold text-xs">Email</p>
             <input
@@ -58,7 +66,7 @@ function Footer(props) {
             <button className="text-white text-xs  rounded-full border-2 border-pry-color py-1 px-4 md:px-6 bg-pry-color ">
               Subscribe
             </button>{" "}
-          </div>
+          </div> */}
         </div>
       </div>
 
