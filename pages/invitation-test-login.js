@@ -99,11 +99,11 @@ const router = useRouter();
           >
             <div>
               <p className="text-pry-color 400:text-xl font-semibold">
-                Hello Participant, input you email address below to start your test.{" "}
+                Hello Participant, input your email address below to start your test.{" "}
               </p>
                   </div>
                   
-                  <div className='flex justify-center'>
+                  <div className='flex justify-center mt-2'>
                   <input  ref={emailRef} className='px-3 w-full bg-gray-50 mt-3 sm:w-[90%] md:w-[80%] lg:w-[70%] rounded-full py-1 ring-1  focus:outline outline-pry-color ' type="text" />
                 </div>
 
@@ -113,10 +113,10 @@ const router = useRouter();
 
           
             
-              <div className="flex justify-center mt-5">
+              <div className="flex justify-center mt-7">
                 <button
                   onClick={takeTest}
-                  className="bg-pry-color text-white px-5 py-1 rounded-md hover:text-pry-color hover:bg-white hover:shadow-md duration-100 hover:outline "
+                  className="bg-pry-color text-white px-5 py-1 rounded-md hover:text-pry-color  hover:bg-white hover:shadow-md duration-100 hover:outline "
                 >
                   START TEST
                 </button>{" "}
