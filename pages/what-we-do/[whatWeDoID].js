@@ -57,7 +57,7 @@ function WhatWeDoID(props) {
 
         <meta
           property="og:url"
-          content={`https://www.codesandcogs.com/blog/${newsID}`}
+          content={`https://www.codesandcogs.com/what-we-do/${whatWeDoID}`}
         />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={selectedWhatWeDo.title} />
