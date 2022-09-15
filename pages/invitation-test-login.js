@@ -94,7 +94,7 @@ const router = useRouter();
     <div>
       
       <Head>
-        <title>Codes and Cogs' Test Invitation</title>
+        <title>Codes and Cogs&apos; Test Invitation</title>
         <meta
           name="description"
           content="You are invited to take a test at Codes and Cogs."
