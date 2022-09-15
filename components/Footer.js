@@ -280,7 +280,7 @@ function Footer(props) {
                 }}
                 className="cursor-pointer hover:text-red-700"
               >
-                Talent Stories
+                Talent Stories  
               </p>
             </div>
             <div className=" md:space-y-2 space-y-1 md:mb-0 mb-7">
