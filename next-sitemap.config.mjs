@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 const config = {
-  siteUrl: "https://codesandcogs.com",
+  siteUrl: "https://www.codesandcogs.com",
   generateRobotsTxt: true, // (optional)
   // ...other options
   generateIndexSitemap: false,

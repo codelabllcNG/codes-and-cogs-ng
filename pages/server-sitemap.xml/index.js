@@ -12,7 +12,7 @@ export const getServerSideProps = async (ctx) => {
   const blogPostArray = blogData.posts;
 
   const blogSM = blogPostArray.map((blog) => ({
-    loc: `https://codesandcogs.com/blog/${blog.id}`,
+    loc: `https://www.codesandcogs.com/blog/${blog.id}`,
     lastmod: new Date().toISOString(),
     changefreq: "weekly",
     priority: 1, 
@@ -28,21 +28,21 @@ export const getServerSideProps = async (ctx) => {
   const modelsArray = homepageData.models;
 
   const feasibilitySM = feasibilityArray.map((feasibility) => ({
-    loc: `https://codesandcogs.com/feasibility/${feasibility.id}`,
+    loc: `https://www.codesandcogs.com/feasibility/${feasibility.id}`,
     lastmod: new Date().toISOString(),
     changefreq: "monthly",
     priority: 0.7, 
   }));
 
   const skillsSM = skillsArray.map((skill) => ({
-    loc: `https://codesandcogs.com/skills/${skill.id}`,
+    loc: `https://www.codesandcogs.com/skills/${skill.id}`,
     lastmod: new Date().toISOString(),
     changefreq: "monthly",
     priority: 0.7, 
   }));
 
   const modelsSM = modelsArray.map((model) => ({
-    loc: `https://codesandcogs.com/models/${model.id}`,
+    loc: `https://www.codesandcogs.com/models/${model.id}`,
     lastmod: new Date().toISOString(),
     changefreq: "monthly",
     priority: 0.7, 
@@ -56,7 +56,7 @@ export const getServerSideProps = async (ctx) => {
   const pressReleaseArray = pressReleaseData.posts;
 
   const pressReleaseSM = pressReleaseArray.map((pressRelease) => ({
-    loc: `https://codesandcogs.com/press-release/${pressRelease.id}`,
+    loc: `https://www.codesandcogs.com/press-release/${pressRelease.id}`,
     lastmod: new Date().toISOString(),
     changefreq: "weekly",
     priority: 1, 
@@ -71,10 +71,10 @@ export const getServerSideProps = async (ctx) => {
   const locationArray = locationData.posts;
 
   const locationSM = locationArray.map((location) => ({
-    loc: `https://codesandcogs.com/remote-locations/${location.id}`,
+    loc: `https://www.codesandcogs.com/remote-locations/${location.id}`,
     lastmod: new Date().toISOString(),
     changefreq: "monthly",
-    priority: 1, 
+    priority: 0.7, 
   }));
 
 const fields = [...blogSM, ...feasibilitySM, ...skillsSM, ...modelsSM, ...pressReleaseSM, ...locationSM]

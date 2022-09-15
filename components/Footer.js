@@ -85,7 +85,7 @@ function Footer(props) {
         </div>
 
         <div className="flex items-center justify-center">
-        <div id="newsletter" className='w-full md:w-[70%]'>
+        <div id="newsletter" className='w-full sm:w-[70%] md:w-[50%] xl:w-[40%]'>
       
       </div> 
 
@@ -201,14 +201,14 @@ function Footer(props) {
               >
                 Customer Reviews
               </p> */}
-              <p
+              {/* <p
                 onClick={() => {
                   router.push("/terms-of-service");
                 }}
                 className="cursor-pointer hover:text-red-700"
               >
                 Legal{" "}
-              </p>
+              </p> */}
               <p
                 onClick={() => {
                   router.push("/what-we-do/internship");
@@ -354,7 +354,7 @@ function Footer(props) {
             <p>© 2022 Codes and Cogs. All Rights Reserved.</p>
           </div>{" "}
           <div className="flex justify-center">
-            <div className="flex justify-between space-x-3">
+            {/* <div className="flex justify-between space-x-3">
               <button
                 onClick={() => {
                   router.push("/privacy-policy");
@@ -371,7 +371,7 @@ function Footer(props) {
               >
                 Terms of Service
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
