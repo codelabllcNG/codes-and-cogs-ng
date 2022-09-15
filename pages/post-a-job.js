@@ -127,8 +127,21 @@ function PostAJob(props) {
         <title>Post Your Job - Codes and Cogs</title>
         <meta
           name="description"
+          content="Post your project requirements to Codes and Cogs and be attended to in a jiffy."
+        />
+
+<meta
+          property="og:url"
+          content={`https://www.codesandcogs.com/post-a-job`}
+        />
+
+        <meta property="og:title" content="Post Your Job - Codes and Cogs" />
+        <meta
+          property="og:description"
           content="Post your job requirements to Codes and Cogs and be attended to in a jiffy."
         />
+        <meta property="og:image" content="/logo.png" />
+
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

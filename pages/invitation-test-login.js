@@ -90,7 +90,29 @@ const router = useRouter();
  }
 
   return (
-      <div>
+    <div>
+      
+      <Head>
+        <title>Codes and Cogs' Test Invitation</title>
+        <meta
+          name="description"
+          content="You are invited to take a test at Codes and Cogs."
+        />
+
+<meta
+          property="og:url"
+          content={`https://www.codesandcogs.com/invitation-test-login`}
+        />
+
+        <meta property="og:title" content="Codes and Cogs' Test Invitation" />
+        <meta
+          property="og:description"
+          content="You are invited to take a test at Codes and Cogs."
+        />
+        <meta property="og:image" content="/logo.png" />
+
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
           
           <div className="flex justify-center items-center -my-40 h-screen w-full overflow-hidden bg-black bg-opacity-30 fixed z-30 ">
           <div

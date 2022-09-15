@@ -34,6 +34,19 @@ function AboutUs(props) {
           name="description"
           content="Codes and Cogs is a global remote company that makes your web or software projects easier, and much more."
         />
+
+        <meta
+          property="og:url"
+          content={`https://www.codesandcogs.com/about-us`}
+        />
+
+        <meta property="og:title" content="About Codes and Cogs" />
+        <meta
+          property="og:description"
+          content="Codes and Cogs is a global remote company that makes your web or software projects easier, and much more."
+        />
+        <meta property="og:image" content="/logo.png" />
+
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -60,7 +73,6 @@ function AboutUs(props) {
 }
 
 export async function getStaticProps() {
-
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/aboutpage`
   );

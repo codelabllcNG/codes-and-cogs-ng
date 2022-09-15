@@ -18,7 +18,20 @@ function EngineeringSchool(props) {
             <meta
               name="description"
               content="Join our Tech Bootcamp Today! Work for some of the biggest Tech companies in the world."
-            />
+        />
+        
+        <meta
+          property="og:url"
+          content={`https://www.codesandcogs.com/engineering-school`}
+        />
+
+        <meta property="og:title" content="Codes and Cogs - Engineering School" />
+        <meta
+          property="og:description"
+          content="Join our Tech Bootcamp Today! Work for some of the biggest Tech companies in the world."
+        />
+        <meta property="og:image" content="/logo.png" />
+
             <link rel="icon" href="/favicon.ico" />
           </Head>
 

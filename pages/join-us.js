@@ -143,6 +143,19 @@ function JoinUS(props) {
           name="description"
           content="Work In our world class facility, collaborate with some of the best developers and engineers around the world."
         />
+
+<meta
+          property="og:url"
+          content={`https://www.codesandcogs.com/join-us`}
+        />
+
+        <meta property="og:title" content="Join Codes and Cogs" />
+        <meta
+          property="og:description"
+          content="Work In our world class facility, collaborate with some of the best developers and engineers around the world."
+        />
+        <meta property="og:image" content="/logo.png" />
+
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

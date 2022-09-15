@@ -40,6 +40,21 @@ function PressRelease(props) {
 <Head>
         <title>{`Codes and Cogs - Press Release`}</title>
         <meta name="description" content={`Top and recent press-release/news from Codes and Cogs`} />
+
+
+        <meta
+          property="og:url"
+          content={`https://www.codesandcogs.com/press-release`}
+        />
+      
+        <meta property="og:title" content="Codes and Cogs' Blog" />
+        <meta
+          property="og:description"
+          content="Top and recent press-release/news from Codes and Cogs."
+        />
+        <meta property="og:image" content="/logo.png" />
+
+
         <link rel="icon" href="/favicon.ico" />
        
       </Head>

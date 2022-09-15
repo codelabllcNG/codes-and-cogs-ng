@@ -1,22 +1,19 @@
 import React from "react";
 
 import Image from "next/image";
-import Loading from "../../components/Loading"
+import Loading from "../../components/Loading";
 
 import { useRouter } from "next/router";
 import Head from "next/head";
 
-
 function BlogPostID(props) {
-const router = useRouter();
+  const router = useRouter();
 
-if (router.isFallback) {
-  return <Loading/>  
-}
-  
-  const {   slug,
-    blogPostArray,
-    selectedBlogPost, } = props;
+  if (router.isFallback) {
+    return <Loading />;
+  }
+
+  const { slug, blogPostArray, selectedBlogPost } = props;
 
   const date = new Date(selectedBlogPost.date);
   const day = date.toLocaleDateString("en-US", { day: "numeric" });
@@ -25,15 +22,14 @@ if (router.isFallback) {
 
   function ordinal(n) {
     var s = ["th", "st", "nd", "rd"];
-    var v = n%100;
-    return n + (s[(v-20)%10] || s[v] || s[0]);
+    var v = n % 100;
+    return n + (s[(v - 20) % 10] || s[v] || s[0]);
   }
-  
 
   const customComponents = {
     img(img) {
       return (
-        <Image 
+        <Image
           src={`/images/blog/in-article/${img.src}`}
           alt={img.alt}
           width={600}
@@ -43,35 +39,45 @@ if (router.isFallback) {
     },
   };
 
-
-
   return (
     <div className="px-5 md:px-10">
-   <Head>
+      <Head>
         <title>{selectedBlogPost.title}</title>
+        <meta name="description" content={selectedBlogPost.title} />
+
         <meta
-          name="description"
+          property="og:url"
+          content={`https://www.codesandcogs.com/blog/${slug}`}
+        />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={selectedBlogPost.title} />
+        <meta
+          property="og:description"
           content={selectedBlogPost.title}
         />
+        <meta property="og:image" content={selectedBlogPost.imageUrl} />
+
+
         <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href={`https://www.codesandcogs.com/blog/${slug}`} />
+        <link
+          rel="canonical"
+          href={`https://www.codesandcogs.com/blog/${slug}`}
+        />
       </Head>
 
-
       <div className="flex  justify-center md:mb-2">
-          <h2 className="font-bold header font-larken ">
-           Blog
-          </h2>
+        <h2 className="font-bold header font-larken ">Blog</h2>
+      </div>
+      <div className="flex justify-center mb-4">
+        <div className=" w-[75px] md:w-[150px]">
+          <Image
+            alt="Image alt text"
+            src="/images/logos-and-icons/red-underline.png"
+            width={150}
+            height={20}
+          />
         </div>
-        <div className="flex justify-center mb-4">
-          <div className=" w-[75px] md:w-[150px]">
-            <Image alt="Image alt text"
-              src="/images/logos-and-icons/red-underline.png"
-              width={150}
-              height={20}
-            />
-          </div>
-        </div> 
+      </div>
 
       <div className="flex items-center justify-center  py-3 px-5 mb-8 -mx-5 md:-mx-10 bg-semi-sec-color">
         <div>
@@ -85,7 +91,8 @@ if (router.isFallback) {
         </div>
 
         <div className="hidden md:flex justify-center px-5 md:px-10">
-          <Image alt="Image alt text"
+          <Image
+            alt="Image alt text"
             className="rounded-lg"
             src={selectedBlogPost.imageUrl}
             width={400}
@@ -95,7 +102,8 @@ if (router.isFallback) {
       </div>
 
       <div className="flex md:hidden justify-center px-5 md:px-10 mb-8">
-        <Image alt="Image alt text"
+        <Image
+          alt="Image alt text"
           className="rounded-lg"
           src={selectedBlogPost.imageUrl}
           width={400}
@@ -116,10 +124,9 @@ if (router.isFallback) {
           </div>
         ))} */}
 
-        <div dangerouslySetInnerHTML={{__html: selectedBlogPost.content}}
+        <div
+          dangerouslySetInnerHTML={{ __html: selectedBlogPost.content }}
           className="prose prose-h1:text-3xl prose-h1:font-bold max-w-none text-justify md:text-lg md:leading-10 leading-relaxed"
-         
-      
         >
           {}
         </div>
@@ -143,8 +150,8 @@ export async function getStaticProps(context) {
 
   if (!selectedBlogPost) {
     return {
-      notFound: true
-  }
+      notFound: true,
+    };
   }
 
   return {

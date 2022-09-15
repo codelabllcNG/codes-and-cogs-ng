@@ -25,6 +25,19 @@ const router = useRouter();
 <Head>
         <title>{`What We Do - Codes and Cogs`}</title>
         <meta name="description" content={`The enterprise services and solutions we offer at Codes and Cogs. ${subtitle}`} />
+
+        <meta
+          property="og:url"
+          content={`https://www.codesandcogs.com/what-we-do`}
+        />
+      
+        <meta property="og:title" content="What We Do - Codes and Cogs" />
+        <meta
+          property="og:description"
+          content={`The enterprise services and solutions we offer at Codes and Cogs. ${subtitle}`}
+        />
+        <meta property="og:image" content="/logo.png" />
+
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="canonical"

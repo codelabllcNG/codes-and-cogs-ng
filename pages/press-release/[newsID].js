@@ -7,7 +7,7 @@ import Head from "next/head";
 
 function NewsID(props) {
   const router = useRouter();
-  const { selectedNews } = props;
+  const { selectedNews, newsID } = props;
 
   if (router.isFallback) {
     return <Loading />;
@@ -19,10 +19,24 @@ function NewsID(props) {
 <Head>
         <title>{selectedNews.title}</title>
         <meta name="description" content={selectedNews.title} />
+
+        <meta
+          property="og:url"
+          content={`https://www.codesandcogs.com/press-release/${newsID}`}
+        />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={selectedNews.title} />
+        <meta
+          property="og:description"
+          content={selectedNews.title}
+        />
+        <meta property="og:image" content={selectedNews.imageUrl} />
+
+        
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="canonical" 
-          href={`${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/press-release/${selectedNews.id}`}
+          href={`${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/press-release/${newsID}`}
         />
       </Head>
 
@@ -78,7 +92,7 @@ function NewsID(props) {
 
       <div className="">
         {/* {theSelectedBlogPost.body.map((content) => (
-          <div key={selectedBlogPost.id} className="mb-8">
+          <div key={selectedNews.id} className="mb-8">
             <div className="text-pry-color font-bold md:text-lg  ">
               <p>{content.heading}</p>
             </div>

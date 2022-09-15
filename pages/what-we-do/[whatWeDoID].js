@@ -11,7 +11,7 @@ function WhatWeDoID(props) {
   const router = useRouter();
 
 
-  const { selectedWhatWeDo } = props;
+  const { selectedWhatWeDo, whatWeDoID } = props;
 
     useEffect(() => {
     const script = document.createElement("script");
@@ -54,10 +54,24 @@ function WhatWeDoID(props) {
       <Head>
         <title>{selectedWhatWeDo.name}</title>
         <meta name="description" content={selectedWhatWeDo.name} />
+
+        <meta
+          property="og:url"
+          content={`https://www.codesandcogs.com/blog/${newsID}`}
+        />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={selectedWhatWeDo.title} />
+        <meta
+          property="og:description"
+          content={selectedWhatWeDo.title}
+        />
+        <meta property="og:image" content={selectedWhatWeDo.imageUrl} />
+
+
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="canonical"
-          href={`${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/what-we-do/${selectedWhatWeDo.id}`}
+          href={`${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/what-we-do/${whatWeDoID}`}
         />
       </Head>
        
