@@ -120,33 +120,39 @@ function Section1(props) {
   }
 
   return (
-    <div
-      className="  md:bg-contain   md:bg-right-top md:bg-no-repeat px-5 md:px-10 lg:px-16   lg:h-[650px] lg:mb-32"
+    <section
+      ref={divHeightRef}
+      id="section1"
+      className="px-5 md:px-10 lg:px-16  md:flex  "
       // md:bg-[url('/images/hero.png')]
-      style={{ backgroundImage: `url(${bgUrl})` }}
+      // style={{ backgroundImage: `url(${bgUrl})` }}
     >
-      <section
-        id="section1"
-        ref={divHeightRef}
-        className=" md:pb-8 md:mb-0   md:ml-8"
-      >
-        <div className="lg:w-[85%] md:w-[85%] mt-4">
-          <div dangerouslySetInnerHTML={{__html: heroTitle}} className="font-semibold text-pry-color font-larken md:text-[#07222E] md:leading-[3.5rem] md:text-5xl lg:text-[4.2rem] lg:leading-[5rem] text-2xl sm:text-5xl sm:leading-[3.5rem] 340:text-[1.7rem] 340:leading-[2.2rem] ">
+      <div className=" md:ml-8 890:w-[65%]">
+        <div className="">
+          <div
+            dangerouslySetInnerHTML={{ __html: heroTitle }}
+            className="890:mt-10 font-semibold text-pry-color font-larken 890:text-[#07222E] md:leading-[3.5rem] md:text-5xl xl:text-[4rem] lg:text-[3rem] lg:leading-[3.5rem] xl:leading-[5rem] text-2xl sm:text-5xl sm:leading-[3.5rem] 340:text-[1.7rem] 340:leading-[2.2rem] "
+          >
             {}
           </div>
         </div>
-        <div className="mt-5 md:leading-10 md:mt-8 md:w-[65%]  text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl xl:leading-[3.5rem] lg:mb-10">
-        <div dangerouslySetInnerHTML={{ __html: heroSubtitle }} className="text-[#07222E]">
+        <div className="mt-5 xl:leading-10 md:mt-3 890:w-[90%]  text-xl sm:text-2xl md:text-2xl xl:text-[2.2rem]  lg:mb-10">
+          <div
+            dangerouslySetInnerHTML={{ __html: heroSubtitle }}
+            className="text-[#07222E]"
+          >
             {}
           </div>
         </div>
-        <form onSubmit={findTalents} className="flex items-center mt-8 ">
-          <div className="flex border-2 border-pry-color border-opacity-80 px-1 py-1 md:py-2  rounded-full  md:mr-7 mr-2 text-sm w-[80%] md:w-[40%]">
+        <form onSubmit={findTalents} className="flex  items-center mt-8 ">
+          <div className="flex border-2 border-pry-color border-opacity-80 pl-5 py-1 md:py-2  rounded-full  md:mr-7 mr-2 text-sm w-[80%] md:w-[60%]">
             {" "}
-            <Image alt="Image alt text"
+            <Image
+              alt="Image alt text"
               src="/images/logos-and-icons/search.png"
               width={23}
               height={23}
+           
             />{" "}
             <input
               required
@@ -191,29 +197,43 @@ function Section1(props) {
         </div>
 
         <div>
-          <p className='font-semibold text-lg '>Need help finding the right talent for your project?</p>
-          <div><Image className='animate-bounce' alt='Curve arrow' width={70} height={62} src='/images/logos-and-icons/curve-arrow.png'/> </div>
+          <p className="font-semibold text-lg ">
+            Need help finding the right talent for your project?
+          </p>
+          <div>
+            <Image
+              className="animate-bounce"
+              alt="Curve arrow"
+              width={70}
+              height={62}
+              src="/images/logos-and-icons/curve-arrow.png"
+            />{" "}
+          </div>
           <Link passHref href={`tel:${projectEngineerPhone}`}>
-          <button className="flex  items-center  cursor-pointer " >
-      
-      <Image alt="Image alt text"
-        src="/images/logos-and-icons/bot.png"
-        width={45}
-        height={55}
-      />
-      <div
-        className="bg-mid-color h-[45px] flex items-center -ml-10 -mb-1 rounded-full ring-2 ring-mid-color ring-opacity-50
+            <button className="flex  items-center  cursor-pointer ">
+              <Image
+                alt="Image alt text"
+                src="/images/logos-and-icons/bot.png"
+                width={45}
+                height={55}
+              />
+              <div
+                className="bg-mid-color h-[45px] flex items-center -ml-10 -mb-1 rounded-full ring-2 ring-mid-color ring-opacity-50
     "
-      >
-        <p className="pl-11 pr-2 text-xs text-pry-color  font-semibold ">
-          Talk to a Project Engineer{" "}
-        </p>
-      </div>{" "}
-    </button>
-     </Link>
-   </div>
-      </section>
-    </div>
+              >
+                <p className="pl-11 pr-2 text-xs text-pry-color  font-semibold ">
+                  Talk to a Project Engineer{" "}
+                </p>
+              </div>{" "}
+            </button>
+          </Link>
+        </div>
+      </div> 
+
+      <div className="w-1/2 z-[-1] -mt-10 hidden 890:block absolute right-0">
+        <Image   priority='true'  alt='Hero image' width={1265} height={1086} src='/images/hero.png'/>
+      </div>
+    </section>
   );
 }
 

@@ -50,7 +50,7 @@ function Navbar() {
           />{" "}
         </div>
 
-        <div className="890:flex hidden text-sm 1130:text-base text-pry-color font-medium space-x-4 800:space-x-5 1000:space-x-7 ">
+        <div className="sm:flex hidden text-sm 1130:text-base text-pry-color font-medium space-x-4 800:space-x-5 1000:space-x-7 ">
           {/* <Link passHref href="/">
             <div
               onMouseOver={() => {
@@ -73,7 +73,7 @@ function Navbar() {
                 setMegaMenu(false);
                 showHover(true, false, false, false, false);
               }}
-              className="cursor-pointer"
+              className="cursor-pointer hidden 890:block"
             >
               <div className="flex justify-center">
                 {" "}
@@ -140,7 +140,7 @@ function Navbar() {
                 setMegaMenu(false);
                 showHover(false, false, false, false, true);
               }}
-              className="cursor-pointer"
+              className="cursor-pointer hidden 890:block"
             >
               <div className="flex justify-center">
                 {" "}

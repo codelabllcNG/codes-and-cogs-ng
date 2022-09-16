@@ -11,7 +11,10 @@ function WhatWeDoID(props) {
   const router = useRouter();
 
 
+
   const { selectedWhatWeDo, whatWeDoID } = props;
+
+
 
     useEffect(() => {
     const script = document.createElement("script");

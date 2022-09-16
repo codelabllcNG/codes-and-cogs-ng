@@ -19,7 +19,7 @@ function MegaMenu() {
       onMouseLeave={() => {
         setMegaMenu(false);
       }}
-      className="hidden  z-[10] absolute w-auto  890:flex  text-xs font-semibold text-blue-900 rounded-lg bg-white shadow-md  top-[6rem]  ml-[15%] 900:ml-[17%] 1000:ml-[20%] 1130:ml-[25%] 1200:ml-[30%]  "
+      className="hidden   z-[10] absolute 890:w-auto  sm:flex  text-xs font-semibold text-blue-900 rounded-lg bg-white shadow-md  top-[6rem] w-[80%] ml-[15%] 890:ml-[15%] 900:ml-[17%] 1000:ml-[20%] 1130:ml-[25%] 1200:ml-[30%]"
     > 
       <div className="w-[30%] space-y-5 p-5 font-bold">
         <div>

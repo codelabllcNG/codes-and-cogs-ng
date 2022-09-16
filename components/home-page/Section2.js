@@ -38,7 +38,9 @@ const { skillsArray,
   }
 
   return (
-    <div className="md:bg-[url('/images/sections-watermark.png')] bg-cover bg-right-bottom  bg-no-repeat px-5 md:px-10 lg:px-16 my-10">
+    <div className=" md:px-10 lg:px-16  mt-20"
+    // md:bg-[url('/images/sections-watermark.png')] bg-cover bg-right-bottom  bg-no-repeat px-5
+    >
        <section
       id="section2"
       ref={divHeightRef}
@@ -73,7 +75,7 @@ const { skillsArray,
               onClick={() => {
                 router.push(`/skills/${tool.id}`);
               }}
-              className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-[5rem] text-center pt-1 rounded-lg"
+              className="shadow  cursor-pointer hover:bg-gray-200  px-2 py-1 1200:p-3 w-[5rem] 1200:w-[6rem] text-center pt-1 rounded-lg"
             >
               <div className="flex justify-center">
                 {" "}
@@ -94,7 +96,7 @@ const { skillsArray,
               onClick={() => {
                 router.push(`/skills/${tool.id}`);
               }}
-              className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-[5rem] text-center pt-1 rounded-lg"
+              className="shadow cursor-pointer hover:bg-gray-200  px-2 py-1 1200:p-3 w-[5rem] 1200:w-[6rem] text-center pt-1 rounded-lg"
             >
               <div className="flex justify-center">
                 {" "}
@@ -116,7 +118,7 @@ const { skillsArray,
                 onClick={() => {
                   router.push(`/skills/${tool.id}`);
                 }}
-                className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-[5rem] text-center pt-1 rounded-lg"
+                className="shadow cursor-pointer hover:bg-gray-200  px-2 py-1 1200:p-3 w-[5rem] 1200:w-[6rem] text-center pt-1 rounded-lg"
               >
                 <div className="flex justify-center">
                   {" "}
@@ -139,7 +141,7 @@ const { skillsArray,
                 onClick={() => {
                   router.push(`/skills/${tool.id}`);
                 }}
-                className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-[5rem] text-center pt-1 rounded-lg"
+                className="shadow cursor-pointer hover:bg-gray-200  px-2 py-1 1200:p-3 w-[5rem] 1200:w-[6rem] text-center pt-1 rounded-lg"
               >
                 <div className="flex justify-center">
                   {" "}
@@ -162,7 +164,7 @@ const { skillsArray,
                 onClick={() => {
                   router.push(`/skills/${tool.id}`);
                 }}
-                className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-[5rem] text-center pt-1 rounded-lg"
+                className="shadow cursor-pointer hover:bg-gray-200  px-2 py-1 1200:p-3 w-[5rem] 1200:w-[6rem] text-center pt-1 rounded-lg"
               >
                 <div className="flex justify-center">
                   {" "}
@@ -185,7 +187,7 @@ const { skillsArray,
                 onClick={() => {
                   router.push(`/skills/${tool.id}`);
                 }}
-                className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-[5rem] text-center pt-1 rounded-lg"
+                className="shadow cursor-pointer hover:bg-gray-200  px-2 py-1 1200:p-3 w-[5rem] 1200:w-[6rem] text-center pt-1 rounded-lg"
               >
                 <div className="flex justify-center">
                   {" "}
@@ -208,7 +210,7 @@ const { skillsArray,
                 onClick={() => {
                   router.push(`/skills/${tool.id}`);
                 }}
-                className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-[5rem] text-center pt-1 rounded-lg"
+                className="shadow cursor-pointer hover:bg-gray-200  px-2 py-1 1200:p-3 w-[5rem] 1200:w-[6rem] text-center pt-1 rounded-lg"
               >
                 <div className="flex justify-center">
                   {" "}
@@ -230,7 +232,7 @@ const { skillsArray,
               onClick={() => {
                 router.push(`/skills/${tool.id}`);
               }}
-              className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-[5rem] text-center pt-1 rounded-lg"
+              className="shadow cursor-pointer hover:bg-gray-200  px-2 py-1 1200:p-3 w-[5rem] 1200:w-[6rem] text-center pt-1 rounded-lg"
             >
               <div className="flex justify-center">
                 {" "}
@@ -251,7 +253,7 @@ const { skillsArray,
               onClick={() => {
                 router.push(`/skills/${tool.id}`);
               }}
-              className="bg-mid-color cursor-pointer hover:bg-gray-200  px-2 py-1 w-[5rem] text-center pt-1 rounded-lg"
+              className="shadow cursor-pointer hover:bg-gray-200  px-2 py-1 1200:p-3 w-[5rem] 1200:w-[6rem] text-center pt-1 rounded-lg"
             >
               <div className="flex justify-center">
                 {" "}
@@ -267,14 +269,14 @@ const { skillsArray,
 
       {/* THE EXTRA ICONS FOR LARGE SCREEN   */}
       {skillsArray.length > 19 && (
-        <div className="1000:flex hidden mb-0 -mt-10 justify-between  ">
+        <div className="md:-ml-10 md:-mr-10 1000:flex hidden  justify-between  ">
           <div className="flex cursor-pointer items-center ">
             {" "}
             <FaAngleLeft
-              className="opacity-50 hover:opacity-100 text-pry-color"
+              className="opacity-50 hover:opacity-100  text-pry-color"
               onClick={() => {
                 largeScreenScroll(-200);
-                console.log(";;;DLD");
+               
               }}
               size={20}
             />
@@ -288,7 +290,7 @@ const { skillsArray,
                 onClick={() => {
                   router.push(`/skills/${icon.id}`);
                 }}
-                className="mx-3 hover:bg-semi-sec-color cursor-pointer relative justify-between p-3 rounded-md     "
+                className="mx-3 shadow hover:bg-semi-sec-color cursor-pointer relative justify-between p-3 rounded-md     "
                 key={icon.id}
               >
                 <div className="flex justify-center w-20 select-none ">
@@ -315,7 +317,7 @@ const { skillsArray,
       )}
 
       {/* SMALLER SCREEN SCREEN skillsArray  */}
-      <div className="flex 1000:hidden mb-10 ">
+      <div className="flex 1000:hidden  ">
         <div className="flex cursor-pointer items-center">
           {" "}
           <FaAngleLeft

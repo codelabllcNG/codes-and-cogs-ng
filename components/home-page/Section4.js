@@ -38,7 +38,7 @@ function Section4(props) {
   }
  
   return (
-    <div className="lg:bg-[url('/images/sections-watermark.png')] bg-contain bg-right-bottom  bg-no-repeat px-5 md:px-10 lg:px-16">
+    <div className="mt-20 lg:bg-[url('/images/sections-watermark.png')] bg-contain bg-right-bottom  bg-no-repeat px-5 md:px-10 lg:px-16">
         <section
       id="section4"
       ref={divHeightRef}
@@ -61,7 +61,7 @@ function Section4(props) {
         </div>
       </div>
 
-      <div className="dangerous-html md:flex !text-lg !md:justify-center mb-8">
+      <div className="dangerous-html md:flex !text-xl md:!justify-center  mb-8">
         <div dangerouslySetInnerHTML={{__html: feasibilityDescription}}>
 {}
         </div>
@@ -88,7 +88,7 @@ function Section4(props) {
                 />{" "}
                 <div className="ml-1 flex items-center ">
                   {" "}
-                  <p className="font-semibold text-pry-color text-sm 400:text-base">
+                  <p className="font-semibold text-pry-color text-sm 400:text-base md:text-xl">
                     {content.title}
                   </p>
                 </div>{" "}
@@ -125,7 +125,7 @@ function Section4(props) {
                 selectedContent === content.id
                   ? "block opacity-100"
                   : "opacity-0 hidden"
-              } duration-500 text-pry-color -mt-5 text-sm pl-14 pr-9 mb-2 text-justify 400:text-base`}
+              } duration-500 text-pry-color -mt-5 text-sm pl-14 pr-9 mb-2 text-justify 400:text-base md:text-lg`}
             >
               <div dangerouslySetInnerHTML={{ __html: content.excerpt }}>
                 {}

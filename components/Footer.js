@@ -57,7 +57,7 @@ function Footer(props) {
 
 
   return (
-    <section id="footer" className="mt-10">
+    <section id="footer" className="mt-20">
       <div className="px-5 md:px-20 py-4">
         <div className="flex  justify-center md:mb-2">
           <div

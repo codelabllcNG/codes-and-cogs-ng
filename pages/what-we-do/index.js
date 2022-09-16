@@ -9,12 +9,20 @@ import {
 } from "../../a-store/content-store/WHAT-WE-DO";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import AllCtx from "../../util-functions/allCtx";
+import { useEffect } from "react";
 
 
 
-function WhatWeDo(props) {
-const router = useRouter();
 
+function WhatWeDo(props) { 
+  const router = useRouter();
+  const {setMegaMenu} = AllCtx();
+  
+
+useEffect(() => { 
+  setMegaMenu(false)
+}, [])
 
   const { title, subtitle, bgImage, enterpriseServices, solutionAsServices } =
     props;
