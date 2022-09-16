@@ -131,7 +131,7 @@ function Section1(props) {
         <div className="">
           <div
             dangerouslySetInnerHTML={{ __html: heroTitle }}
-            className="890:mt-10 font-semibold text-pry-color font-larken 890:text-[#07222E] md:leading-[3.5rem] md:text-5xl xl:text-[4rem] lg:text-[3rem] lg:leading-[3.5rem] xl:leading-[5rem] text-2xl sm:text-5xl sm:leading-[3.5rem] 340:text-[1.7rem] 340:leading-[2.2rem] "
+            className="890:mt-5 font-semibold text-pry-color font-larken 890:text-[#07222E] md:leading-[3.5rem] md:text-5xl xl:text-[4rem] lg:text-[3rem] lg:leading-[3.5rem] xl:leading-[5rem] text-2xl sm:text-5xl sm:leading-[3.5rem] 340:text-[1.7rem] 340:leading-[2.2rem] "
           >
             {}
           </div>
