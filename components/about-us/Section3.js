@@ -30,7 +30,7 @@ function section3(props) {
             className={`    py-12 px-4 700:w-[32%] w-[15rem] 400:w-[17rem] shrink-0 snap-center `}
           >
             <div
-              className={`bg-mid-color  rounded-lg hover:bg-[#ECF1FA] hover:scale-110 duration-300 py-8 px-3`}
+              className={`bg-mid-color  rounded-lg hover:bg-[#ECF1FA] hover:scale-110 duration-300 py-8 px-3 lg:px-8`}
             >
               <div className="text-pry-color flex items-center justify-center space-x-3 mb-2 700:mb-5">
                 <div className="w-[3rem]  h-[4rem] 700:w-[4rem] 700:h-[5rem] ">
