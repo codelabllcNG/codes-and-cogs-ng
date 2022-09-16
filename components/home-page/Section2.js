@@ -269,7 +269,7 @@ const { skillsArray,
 
       {/* THE EXTRA ICONS FOR LARGE SCREEN   */}
       {skillsArray.length > 19 && (
-        <div className="md:-ml-10  md:-mr-10 1000:flex hidden  justify-between  ">
+        <div className="1000:-ml-3 lg:-ml-10 lg:-mr-10 1000:-mr-5 1000:flex hidden  justify-between  ">
           <div className="flex cursor-pointer items-center ">
             {" "}
             <FaAngleLeft
@@ -317,7 +317,7 @@ const { skillsArray,
       )}
 
       {/* SMALLER SCREEN SCREEN skillsArray  */}
-      <div className="mx-4 flex 1000:hidden  ">
+      <div className="mx-4 md:-mr-4 md:-ml-2 flex 1000:hidden  ">
         <div className="flex cursor-pointer items-center">
           {" "}
           <FaAngleLeft
