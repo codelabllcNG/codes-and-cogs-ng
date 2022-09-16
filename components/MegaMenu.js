@@ -211,7 +211,7 @@ function MegaMenu() {
             <div>
               <p
                 onClick={() => {
-                  router.push("/what-we-do/conpliance-and-hr-services");
+                  router.push("/what-we-do/compliance-and-hr-services");
                   setMegaMenu(false);
                 }}
               >
