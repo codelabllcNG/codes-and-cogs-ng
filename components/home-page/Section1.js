@@ -193,7 +193,7 @@ function Section1(props) {
               : "text-red-600"
           } text-sm`}
         >
-          <p className="font-semibold text-lg sm:text-xl">{searchResponse}</p>
+          <p className="sm:font-semibold text-lg sm:text-xl">{searchResponse}</p>
         </div>
 
         <div>

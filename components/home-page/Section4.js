@@ -61,7 +61,7 @@ function Section4(props) {
         </div>
       </div>
 
-      <div className="dangerous-html md:flex !text-xl md:!justify-center  mb-8">
+      <div className="dangerous-html md:flex md:!text-xl md:!justify-center  mb-8">
         <div dangerouslySetInnerHTML={{__html: feasibilityDescription}}>
 {}
         </div>
