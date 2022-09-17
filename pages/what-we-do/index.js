@@ -42,7 +42,7 @@ useEffect(() => {
         <meta property="og:title" content="What We Do - Codes and Cogs" />
         <meta
           property="og:description"
-          content={`The enterprise services and solutions we offer at Codes and Cogs. ${subtitle}`}
+          content={`The enterprise services and solutions we offer at Codes and Cogs. ${subtitle}`} 
         />
         <meta property="og:image" content="/logo.png" />
 
@@ -63,8 +63,8 @@ useEffect(() => {
         <h2 className="font-bold header">What We Do</h2>
       </div>
       <div className="flex justify-center mb-5 md:mb-10 ">
-        <div className=" w-[75px] md:[150px]">
-          <img alt="Image alt text"
+      <div className=" w-[75px] md:w-[150px]">
+          <Image alt="Image alt text"
             src="/images/logos-and-icons/red-underline.png"
             width={150}
             height={20}
@@ -78,12 +78,15 @@ useEffect(() => {
         </div>
 
         <div className=" flex space-x-5 mt-5 md:mt-16 text-xl sm:text-2xl md:text-3xl  items-center mb-5 md:mb-16">
-          {" "}
-          <img alt="Image alt text"
+          
+          <div className=' w-[43px] shadow px-2 rounded-md py-1 hover:shadow-lg cursor-pointer'>
+          <Image onClick={()=>{router.push('#enterprise-services')}} alt="Image alt text"
             src="/images/logos-and-icons/enterprise.png"
-            width="35"
-            height="35"
-          />{" "}
+            width="64"
+            height="64"
+
+          />
+         </div>
           <Link passHref href={`#enterprise-services`}>
             <button className="font-semibold text-pry-color hover:text-blue-600">
               Enterprise Services 
@@ -92,12 +95,14 @@ useEffect(() => {
         </div>
 
         <div className=" flex space-x-5 text-xl sm:text-2xl md:text-3xl items-center mb-4">
-          {" "}
-          <img alt="Image alt text"
+       
+          <div className=' w-[43px] shadow px-2 rounded-md py-1 hover:shadow-lg cursor-pointer'>
+ <Image onClick={()=>{router.push('#solution-as-a-service')}} alt="Image alt text"
             src="/images/logos-and-icons/solutions.png"
-            width="35"
-            height="35"
-          />{" "}
+            width="64"
+            height="64"
+          />  </div>
+      
           <Link passHref href={`#solution-as-a-service`}>
             <button className="font-semibold text-pry-color hover:text-blue-600">
               Solution As A Service
@@ -116,13 +121,13 @@ useEffect(() => {
           <h2 className="font-bold header">Enterprise Packages</h2>
         </div>
         <div className="flex justify-center mb-3 ">
-          <div className=" w-[75px] md:[150px]">
-            <img alt="Image alt text"
-              src="/images/logos-and-icons/red-underline.png"
-              width={150}
-              height={20}
-            />
-          </div>
+        <div className=" w-[75px] md:w-[150px]">
+          <Image alt="Image alt text"
+            src="/images/logos-and-icons/red-underline.png"
+            width={150}
+            height={20}
+          />
+        </div>
         </div>
       </div>
 
@@ -147,7 +152,7 @@ useEffect(() => {
             } justify-between items-center `}
           >
             <div
-              className={`prose max-w-none sm:w-[55%] text-justify  mb-5 sm:mb-0 text-pry-color  `}
+              className={`prose max-w-none sm:w-[55%] text-justify  mb-5 sm:mb-0   `}
             >
               <div className="sm:leading-8   sm:text-lg " dangerouslySetInnerHTML={{ __html: enterpriseService.content.length > 400 ? enterpriseService.summary.substring(0, 400) + '...' : enterpriseService.summary }}>
                 {}
@@ -210,7 +215,7 @@ useEffect(() => {
             } justify-between items-center `}
           >
             <div
-              className={`prose max-w-none sm:w-[55%] text-justify  mb-5 sm:mb-0 text-pry-color `}
+              className={`prose max-w-none sm:w-[55%] text-justify  mb-5 sm:mb-0  `}
             >
               <div onClick={()=>{router.push(`/coming-soon`)}} dangerouslySetInnerHTML={{__html: solution.summary || "Coming Soon"}} className="sm:leading-7 lg:leading-10 text-center cursor-pointer text-xl underline  ">
                 {}

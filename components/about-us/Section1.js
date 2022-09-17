@@ -21,7 +21,7 @@ const router = useRouter();
   return (
     <div className="px-5 md:px-10 lg:px-16 mb-14">
       <div className="flex  justify-center md:mb-2">
-        <h2 className="font-bold text-xs 320:text-base 350:text-xl  md:text-4xl">
+        <h2 className="font-bold header">
          {aboutTitle}
         </h2>
       </div>

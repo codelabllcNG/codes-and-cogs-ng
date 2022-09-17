@@ -249,7 +249,7 @@ function JoinUS(props) {
 
           <div className="px-5 md:px-14 mt-2 justify-center flex decoration-blue-600 underline text-cyan-400 font-semibold ">
             {" "}
-            <Link passHref href="/demo-test" as= 'test'>
+            <Link passHref href="/demo-test">
               <a>Take a demo test.</a> 
             </Link>
           </div>

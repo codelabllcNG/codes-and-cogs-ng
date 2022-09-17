@@ -53,7 +53,7 @@ function WhatWeDoID(props) {
 
 
   return (
-    <div className="px-5 lg:px-16 md:px-10 ">
+    <div className="px-5 lg:px-20 md:px-10 ">
       <Head>
         <title>{selectedWhatWeDo.name}</title>
         <meta name="description" content={selectedWhatWeDo.name} />
@@ -96,7 +96,7 @@ function WhatWeDoID(props) {
       </div>
       <div>
         
-      <div className="  justify-between md:flex ">
+      <div className="  justify-between items-center md:flex ">
         <div className="w-[40%]  md:mr-8  h-full hidden md:flex">
           <Image alt="Image alt text"
             className="rounded-lg"
@@ -108,7 +108,7 @@ function WhatWeDoID(props) {
         <div className="w-[100%] mb-5 flex justify-center md:hidden">
           <Image className='rounded-lg' alt="Image alt text" src={selectedWhatWeDo.imageUrl} width={400} height={300} />{" "}
         </div>
-        <div className=" prose-h1:text-3xl prose-h1:font-bold w-full md:w-[55%]  ">
+        <div className=" prose-h1:text-3xl prose-h1:font-bold w-full md:w-[60%]  ">
           <div
             className=" max-w-none text-justify md:text-lg "
             dangerouslySetInnerHTML={{ __html: selectedWhatWeDo.summary }}

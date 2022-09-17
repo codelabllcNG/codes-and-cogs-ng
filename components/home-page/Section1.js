@@ -145,7 +145,7 @@ function Section1(props) {
           </div>
         </div>
         <form onSubmit={findTalents} className="flex  items-center mt-8 ">
-          <div className="flex border-2 border-pry-color border-opacity-80 pl-5 py-1 md:py-2  rounded-full  md:mr-7 mr-2 text-sm w-[80%] md:w-[60%]">
+          <div className="items-center flex border-2 border-pry-color border-opacity-80 pl-3 py-1 md:py-2  rounded-full  md:mr-7 mr-2 text-sm w-[80%] md:w-[60%]">
             {" "}
             <Image
               alt="Image alt text"

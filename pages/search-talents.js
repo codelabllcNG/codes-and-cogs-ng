@@ -133,7 +133,7 @@ function SearchTalents(props) {
             onSubmit={findTalents}
             className="flex items-center  w-[80%] md:w-[60%] "
           >
-            <div className="flex border border-pry-color border-opacity-80 px-1 py-1 md:py-2  rounded-full   mr-2 text-sm w-[80%]">
+            <div className="pl-3 flex border border-pry-color border-opacity-80 px-1 py-1 md:py-2  rounded-full   mr-2 text-sm w-[80%]">
               {" "}
               <Image alt="Image alt text"
                 src="/images/logos-and-icons/search.png"
@@ -146,7 +146,7 @@ function SearchTalents(props) {
                   setSearchKeyword(e.target.value);
                 }}
                 type="text"
-                className="outline-0 focus:!outline-0 focus:!outline-none border-0  text-center w-full bg-transparent "
+                className="outline-0 focus:!outline-0 focus:!outline-none border-0  ml-4 w-full bg-transparent "
                 placeholder="Search for Talents"
               />
             </div>{" "}

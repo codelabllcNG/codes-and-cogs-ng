@@ -51,7 +51,7 @@ function Section3(props) {
       <div className='md:mr-5 grid grid-cols-1 gap-8 sm:gap-x-4 md:gap-x-8  gap-x 800:grid-cols-2 1000:grid-cols-3 mb-8'>
 
         {modelsArray.map(content => <div key={content.id} className='bg-mid-color relative  rounded-md p-4 pb-8'>
-          <div className="flex justify-center   mb-5"><p className=' font-semibold text-2xl'>{content.title}</p></div>
+          <div className="flex   mb-5"><p className=' font-semibold text-2xl'>{content.title}</p></div>
           <div className='dangerous-html !text-base mb-5'><div dangerouslySetInnerHTML={{ __html: content.excerpt }} className='  text-gray-600 '>
             {}
           </div></div>

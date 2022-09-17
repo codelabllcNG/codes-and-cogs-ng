@@ -211,8 +211,10 @@ function TakeATest(props) {
                   </button>   <button
                     onClick={() => {
                       setShowConfirmBox(false);
-                      // setDemoTestData();
-                      router.push("/join-us/#take-a-test");
+                  
+                      // router.push("/join-us/#take-a-test");
+
+                       location.reload()
                     }}
                     className="bg-pry-color text-white px-5 py-1 rounded-md hover:text-pry-color hover:bg-white hover:shadow-md duration-100"
                   >
@@ -224,8 +226,8 @@ function TakeATest(props) {
                   <button
                     onClick={() => {
                       setShowConfirmBox(false);
-                      router.push('/demo-test', 'test')
-                      // location.reload()
+                      // router.push('/demo-test', 'test')
+                      location.reload()
                     }}
                     className="bg-pry-color text-white px-5 py-1 rounded-md hover:text-pry-color hover:bg-white hover:shadow-md duration-100"
                   >
