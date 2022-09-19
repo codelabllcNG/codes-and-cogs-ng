@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import BotIcon from "../BotIcon";
 import { useRouter } from "next/router";
+import HeaderBanner from "../HeaderBanner";
 
 
 function Section1(props) {
@@ -20,12 +21,12 @@ const router = useRouter();
 
   return (
     <div className="px-5 md:px-10 lg:px-16 mb-14">
-      <div className="flex  justify-center md:mb-2">
+      {/* <div className="flex  justify-center md:mb-2">
         <h2 className="font-bold header">
          {aboutTitle}
         </h2>
-      </div>
-      <div className="flex justify-center mb-4">
+      </div> */}
+      {/* <div className="flex justify-center mb-4">
         <div className=" w-[75px] md:w-[150px]">
           <Image alt="Image alt text"
             src="/images/logos-and-icons/red-underline.png"
@@ -33,7 +34,9 @@ const router = useRouter();
             height={20}
           />
         </div>
-      </div>
+      </div> */}
+
+      <HeaderBanner title={ aboutTitle} />
 
       <div>
         <div className="dangerous-html text-justify mb-3">
@@ -63,9 +66,9 @@ const router = useRouter();
       </div>
 
           <div className="text-center">
-            <p className="text-sm text-pry-color">
-           {noPaymentText}
-            </p>
+            <div dangerouslySetInnerHTML={{ __html: noPaymentText}} className="text-sm text-pry-color">
+           {}
+            </div>
           </div>
         </div>
 
@@ -88,9 +91,9 @@ const router = useRouter();
 
       
           <div className="text-center">
-            <p className="text-sm text-pry-color">
-            {remoteLocationsText}
-            </p>
+            <div dangerouslySetInnerHTML={{ __html: remoteLocationsText}} className="text-sm text-pry-color">
+            {}
+            </div>
           </div>
         </div>
 
@@ -112,9 +115,9 @@ const router = useRouter();
 
         
           <div className="text-center">
-            <p className="text-sm text-pry-color">
-            {timeAndLanguageText}
-            </p>
+            <div dangerouslySetInnerHTML={{ __html: timeAndLanguageText}} className="text-sm text-pry-color">
+            {}
+            </div>
           </div>
         </div>
       </div>
