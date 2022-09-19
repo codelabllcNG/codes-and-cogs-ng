@@ -176,7 +176,7 @@ function TakeATest() {
   return (
     <div>
       <Head>
-        <title>Codes Codes and Cogs' Invitation Test</title>
+        <title>Codes Codes and Cogs&apos; Invitation Test</title>
         <meta
           name="description"
           content="You have been invited to take this test."
