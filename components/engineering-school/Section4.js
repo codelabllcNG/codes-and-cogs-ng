@@ -56,8 +56,8 @@ function Section4(props) {
           ))}
         </div>
 
-        <div className='w-[70%]'>
-        <div className='dangerous-html overflow-y-auto ' dangerouslySetInnerHTML={{ __html: currentCourse.courseOutline}}>
+        <div className='w-[70%] overflow-y-auto h-[500px]'>
+        <div className='dangerous-html  ' dangerouslySetInnerHTML={{ __html: currentCourse.courseOutline}}>
           {}
           </div>
           <p className='mt-5 text-pry-color cursor-pointer'>BUY {currentCourse.courseName.toUpperCase() } COURSE</p>

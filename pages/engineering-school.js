@@ -55,6 +55,7 @@ function EngineeringSchool(props) {
       </Head>
 
       <Section1 bgImage={bgImage} />
+      
       <Section2
         whyBePart1={whyBePart1}
         whyBePart2={whyBePart2}
