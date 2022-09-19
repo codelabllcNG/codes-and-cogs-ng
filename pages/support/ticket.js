@@ -15,7 +15,7 @@ function Ticket() {
 
 
   return (
-    <div className="px-5 md:px-14  ">
+    <div className="px-5 md:px-10 lg:px-16  ">
       <div className="500:flex text-sm px-2 justify-evenly items-center bg-pry-color rounded-md py-4 text-white mb-2">
         <div className="space-y-1 500:space-y-3 mb-5 500:mb-0">
           <p className='font-semibold'>Basic Ticket Information</p>

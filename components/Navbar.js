@@ -32,9 +32,9 @@ function Navbar() {
   }
 
   return (
-    <div className={``}>
+    <div className={`px-5 md:px-10 lg:px-16`}>
       <MobileNav />
-      <div className="flex items-center pt-4 justify-between mx-5 my-3 md:mx-10 lg:px-14">
+      <div className="flex items-center pt-4 justify-between  my-3  ">
         <div
           onClick={() => {
             router.push("/");

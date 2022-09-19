@@ -8,7 +8,7 @@ function TermsOfService(props) {
 
   const router = useRouter();
   return (
-    <div className="px-5 py-5 md:px-14 leading-7 md:leading-10">
+    <div className="px-5 py-5 md:px-10 lg:px-16 leading-7 md:leading-10">
       <div>
         <div className="flex  justify-center md:mb-2">
           <h2 className="font-bold header">Terms of Service</h2>

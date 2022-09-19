@@ -217,7 +217,7 @@ function JoinUS(props) {
           </div>
         </div>
 
-        <div className="flex justify-center px-5 md:px-14">
+        <div className="flex justify-center px-5 md:px-10 lg:px-16">
           <video
             // width="400"
             height="250"
@@ -232,14 +232,14 @@ function JoinUS(props) {
           </video>
         </div>
 
-        <div className=" text-center flex justify-center px-5 md:px-14">
+        <div className=" text-center flex justify-center px-5 md:px-10 lg:px-16">
           <div dangerouslySetInnerHTML={{__html: subtitle}} className="text-sm  w-[80%] text-pry-color">
             {}
           </div>
         </div>
 
         <div>
-          <div className="px-5 md:px-14 mt-5 justify-center flex decoration-blue-600 underline text-cyan-400 font-semibold ">
+          <div className="px-5 md:px-10 lg:px-16 mt-5 justify-center flex decoration-blue-600 underline text-cyan-400 font-semibold ">
             {" "}
             <Link passHref href="#take-a-test">
               <a> Fill in your details to take a test!</a>
@@ -247,7 +247,7 @@ function JoinUS(props) {
           </div>
           <p className="text-center font-semibold mt-2">OR</p>
 
-          <div className="px-5 md:px-14 mt-2 justify-center flex decoration-blue-600 underline text-cyan-400 font-semibold ">
+          <div className="px-5 md:px-10 lg:px-16 mt-2 justify-center flex decoration-blue-600 underline text-cyan-400 font-semibold ">
             {" "}
             <Link passHref href="/demo-test">
               <a>Take a demo test.</a> 
@@ -259,12 +259,12 @@ function JoinUS(props) {
       <div className="md:bg-[url('/images/sections-watermark.png')] bg-cover bg-right-bottom  bg-no-repeat">
         <div
           id="take-a-test"
-          className="scroll-mt-10 mb-5 mt-16 px-5 md:px-14 flex justify-center font-bold text-pry-color md:text-2xl"
+          className="scroll-mt-10 mb-5 mt-16 px-5 md:px-10 lg:px-16 flex justify-center font-bold text-pry-color md:text-2xl"
         >
           <p>Fill Your Details</p>
         </div>
 
-        <div className="flex justify-center px-5 md:px-14">
+        <div className="flex justify-center px-5 md:px-10 lg:px-16">
           <form
             onSubmit={triggerConfirmBox}
             className="py-5 bg-mid-color rounded-3xl px-4 sm:px-8 md:w-[80%] w-full mb-10"

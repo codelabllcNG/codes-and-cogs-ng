@@ -145,7 +145,7 @@ function PostAJob(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="flex text-center justify-center mb-2">
+      {/* <div className="flex text-center justify-center mb-2">
         <h2 className="font-bold header">Submit Requirement</h2>
       </div>
       <div className="flex justify-center mb-10 ">
@@ -156,14 +156,14 @@ function PostAJob(props) {
             height={20}
           />
         </div>
-      </div>
+      </div> */}
 
-      <div className="flex  px-5 md:px-14 md:-mr-10 md:space-x-2 "
+      <div className="flex  px-5 md:px-10 lg:px-16  890:space-x-2 "
       
       >
-        <div className='w-full md:w-1/2'>
-        <div className="mb-5">
-        <p className="font-semibold text-gray-700 text-xl font-larken md:text-xl">
+        <div className='w-full 890:w-1/2'>
+        <div className="my-5">
+        <p className="font-semibold text-gray-700 text-xl font-larken 890:text-2xl lg:text-4xl lg:leading-relaxed">
           {talentToHire
             ? `Submit a request to hire ${talentToHire}`
             : "   Post your requirements and get a perfect fit"}
@@ -305,7 +305,7 @@ function PostAJob(props) {
         </div>
 
         <div className=" mt-3 text-center font-bold">
-          <button
+          <button 
             type="submit"
             className={`bg-pry-color ${
               posting ? "bg-gray-400 pointer-events-none" : ""
@@ -317,12 +317,16 @@ function PostAJob(props) {
       </form>
         </div> 
 
-        <div className="hidden  md:flex w-1/2   md:bg-cover md:bg-center md:bg-no-repeat"
+        {/* <div className="hidden  890:flex w-1/2   890:bg-cover 890:bg-center 890:bg-no-repeat"
           // md:bg-[url('/images/post-a-job-bg.png')]
           style={{ backgroundImage: `url(${bgImage})` }}
         >
 
-        </div>
+        </div> */}
+
+        <div className="890:w-1/2 z-[-1]  hidden 890:flex  absolute right-0 ">
+          <Image alt='Hero image' width={1039} height={1100} src={ bgImage} />
+      </div>
   </div>
 
       <BotIcon />

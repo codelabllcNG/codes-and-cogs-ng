@@ -5,6 +5,7 @@ import BotIcon from "../components/BotIcon";
 import AllCtx from "../util-functions/allCtx";
 
 import { useRouter } from "next/router";
+import HeaderBanner from "../components/HeaderBanner";
 
 function SearchTalents(props) {
   const {
@@ -100,12 +101,12 @@ function SearchTalents(props) {
   }
 
   return (
-    <div className="md:px-10 px-5 mb-8">
+    <div className="md:px-10 px-5 lg:px-16 mb-8">
       <div>
-        <div className="flex  justify-center md:mb-2">
+        {/* <div className="flex  justify-center md:mb-2">
           <h2 className="font-bold header">Search Talents</h2>
-        </div>
-        <div className="flex justify-center  ">
+        </div> */}
+        {/* <div className="flex justify-center  ">
           <div className=" w-[75px] md:w-[150px] mb-5">
             <Image alt="Image alt text"
               src="/images/logos-and-icons/red-underline.png"
@@ -113,17 +114,21 @@ function SearchTalents(props) {
               height={20}
             />
           </div>
-        </div>
+        </div> */}
 
-        <div className="flex justify-center  mb-2">
-          <p className="400:text-2xl lg:text-3xl text-center font-semibold text-pry-color">
+        <HeaderBanner title={'Search Talents'}/>
+
+        <div className="flex justify-center mt-5  mb-2">
+          <p className="400:text-2xl lg:text-3xl  text-center font-semibold text-pry-color">
             Build game-changing projects with the right talents.
           </p>
         
         </div>
 
-        <div className="flex md:px-20 400:text-lg lg:text-2xl justify-center  mb-6">
-        <p className='leading-8'>With the right team, you can build anything. Get access to our hub of engineering specialists who have been rigorously vetted, tested, and trained.</p>
+        <div className="flex md:px-20  justify-center  mb-6">
+          <div dangerouslySetInnerHTML={{ __html: "With the right team, you can build anything. Get access to our hub of engineering specialists who have been rigorously vetted, tested, and trained." }} className=' text-center'>
+            {}
+        </div>
         </div>
       </div>
 

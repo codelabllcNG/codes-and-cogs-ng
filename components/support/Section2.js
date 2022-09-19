@@ -58,7 +58,7 @@ function Section2(props) {
   }, []);
 
   return (
-    <div id='create-ticket' className="px-5 pt-16 md:px-14 md:bg-[url('/images/sections-watermark.png')] bg-contain bg-right-bottom  bg-no-repeat">
+    <div id='create-ticket' className="px-5 pt-16 md:px-10 lg:px-16 md:bg-[url('/images/sections-watermark.png')] bg-contain bg-right-bottom  bg-no-repeat">
       <div className="flex  justify-center md:mb-2">
         <h2 className="font-bold header">
       {newTicketTitle}

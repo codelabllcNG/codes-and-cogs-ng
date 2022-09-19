@@ -266,7 +266,7 @@ function TakeATest(props) {
         </div>
       )}
 
-      <div className="px-5 md:px-14">
+      <div className="px-5 md:px-10 lg:px-16">
         {loading ? (
           <p>Loading...</p>
         ) : (

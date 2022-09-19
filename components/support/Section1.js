@@ -20,7 +20,7 @@ function Section1(props) {
 
 
   return (
-    <div className="px-5   md:px-14   "
+    <div className="px-5 md:px-10  lg:px-16   "
 
  
     >

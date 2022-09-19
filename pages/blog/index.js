@@ -28,7 +28,7 @@ function Index(props) {
   const blogPostLength = blogPostArray.length;
 
   return (
-    <div className="px-5 md:px-14">
+    <div className="px-5 md:px-10 lg:px-16">
    <Head>
         <title>Codes and Cogs - Blog</title>
         <meta
