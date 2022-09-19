@@ -4,6 +4,7 @@ import { selectedNews, TOP_NEWS } from "../../a-store/content-store/TOP_NEWS";
 import Loading from "../../components/Loading";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import HeaderBanner from "../../components/HeaderBanner";
 
 function NewsID(props) {
   const router = useRouter();
@@ -42,7 +43,7 @@ function NewsID(props) {
 
 
       
-      <div className="flex  justify-center md:text-center md:mb-2">
+      {/* <div className="flex  justify-center md:text-center md:mb-2">
         <h2 className="font-bold header">
           {selectedNews.title}
         </h2>
@@ -55,10 +56,13 @@ function NewsID(props) {
             height={20}
           />
         </div>
-      </div>
+      </div> */}
+
+
+      <HeaderBanner title={"Press Release"}/>
 
       
-      <div className="flex items-center justify-center  py-3 px-5 mb-8 -mx-5 md:-mx-10 bg-gray-50">
+      <div className="flex items-center justify-center  py-3 px-5 mb-8 -mx-5 md:-mx-10 lg:-mx-16 bg-gray-50 ">
         <div>
           <div className="text-pry-color 400:text-xl text-lg font-bold md:text-2xl text-center">
             <div dangerouslySetInnerHTML={{__html: selectedNews.title}}>

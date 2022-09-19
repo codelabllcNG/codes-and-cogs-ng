@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
+import HeaderBanner from "../../components/HeaderBanner";
 import Loading from "../../components/Loading";
 
 function LocationID(props) {
@@ -14,7 +15,7 @@ function LocationID(props) {
   const { locationID, locationArray, selectedLocation } = props;
 
   return (
-    <div>
+    <div className='px-5 md:px-10 lg:px-16'>
       <Head>
         <title>Codes and Cogs in {selectedLocation.name}</title>
         <meta
@@ -28,7 +29,7 @@ function LocationID(props) {
         />
       </Head>
 
-      <div className="flex  justify-center md:mb-2">
+      {/* <div className="flex  justify-center md:mb-2">
         <h2 className="font-bold header">
           {selectedLocation.name}
         </h2>
@@ -41,9 +42,11 @@ function LocationID(props) {
             height={20}
           />
         </div>
-      </div>
+      </div> */}
 
-      <div className={`px-5 md:px-10 md:flex   justify-between  `}>
+      <HeaderBanner title={selectedLocation.name}/>
+
+      <div className={` md:flex  mt-10 justify-between  `}>
         <div
           className={`prose max-w-none prose-h1:text-3xl prose-h1:font-bold md:w-[55%] text-justify mb-5 md:mb-0 text-pry-color `}
         >

@@ -4,6 +4,7 @@ import { TOP_NEWS } from "../../a-store/content-store/TOP_NEWS";
 import { RECENT_NEWS } from "../../a-store/content-store/RECENT_NEWS";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import HeaderBanner from "../../components/HeaderBanner";
 
 function PressRelease(props) {
   const { recentNews, topNews } = props;
@@ -35,7 +36,7 @@ function PressRelease(props) {
   }
 
   return (
-    <div className="">
+    <div className="px-5 md:px-10 lg:px-16">
 
 <Head>
         <title>{`Codes and Cogs - Press Release`}</title>
@@ -60,7 +61,7 @@ function PressRelease(props) {
       </Head>
 
       
-      <div className="px-5 md:px-10">
+      {/* <div className="px-5 md:px-10">
         <div className="flex  justify-center md:mb-2">
           <h2 className="font-bold header">
             Press Release
@@ -75,10 +76,13 @@ function PressRelease(props) {
             />
           </div>
         </div>
-      </div>
+      </div> */}
+
+
+      <HeaderBanner title={"Press Release"}/>
 
       {/* MOBILE SCREEN  */}
-      <div className="md:hidden">
+      <div className="md:hidden mt-10">
         <div className="flex mx-2">
           <div
             onClick={() => {
@@ -212,7 +216,7 @@ function PressRelease(props) {
       </div>
 
       {/* LARGE SCREEN  */}
-      <div className="md:flex justify-center hidden px-3">
+      <div className="mt-10 md:flex justify-center hidden px-3 -mx-5 md:-mx-10 lg:-mx-16">
         <div className="px-2 w-[30%] text-sm h-[500px] overflow-y-auto scrollbar-hide">
           <div className="flex items-center justify-center mb-2">
             <div className="h-5 w-5 bg-pry-color mr-1"></div>{" "}

@@ -4,6 +4,8 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import AllCtx from "../util-functions/allCtx";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import Head from "next/head";
+
 
 function TakeATest() {
   const router = useRouter();
@@ -49,13 +51,12 @@ function TakeATest() {
   }, [showConfirmBox]);
 
   useEffect(() => {
-   
     var countDownTime = setInterval(() => {
       console.log("still running", submitted);
       if (submitted) {
         console.log("INTENTIONALLY SUBMITTED! ", submitted);
         clearInterval(countDownTime);
-        return
+        return;
       }
 
       var now = new Date().getTime();
@@ -79,11 +80,13 @@ function TakeATest() {
         setCountDownTimer("TIME OUT");
         console.log("TIME OUT SUBMITTED! ", submitted);
         setShowConfirmBox(true);
-       if(!submitted) { handleSubmit()}
-        return 
+        if (!submitted) {
+          handleSubmit();
+        }
+        return;
       }
     }, 1000);
-    return ()=> clearInterval(countDownTime)
+    return () => clearInterval(countDownTime);
   }, [submitted]);
 
   function navigateQuestions(value) {
@@ -119,12 +122,8 @@ function TakeATest() {
 
   async function handleSubmit() {
     if (!testData) {
-      setResponse(
-        "You are not authorized to submit."
-      );
-      console.log(
-        "You are not authorized to submit."
-      );
+      setResponse("You are not authorized to submit.");
+      console.log("You are not authorized to submit.");
       return;
     }
 
@@ -138,7 +137,6 @@ function TakeATest() {
           body: JSON.stringify({
             participants_info: {
               id: testData.participants_info.email,
-          
             },
             answers: answersArray,
           }),
@@ -177,6 +175,33 @@ function TakeATest() {
 
   return (
     <div>
+      <Head>
+        <title>Codes Codes and Cogs' Invitation Test</title>
+        <meta
+          name="description"
+          content="You have been invited to take this test."
+        />
+
+        <meta name="robots" content="noindex" />
+
+        <meta
+          property="og:url"
+          content={`https://www.codesandcogs.com/take-invitation-test`}
+        />
+
+        <meta
+          property="og:title"
+          content="Codes Codes and Cogs' Invitation Test"
+        />
+        <meta
+          property="og:description"
+          content="You have been invited to take this test."
+        />
+        <meta property="og:image" content="/logo.png" />
+
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       {/* CONFIRM BOX */}
 
       {showConfirmBox && (
@@ -265,24 +290,29 @@ function TakeATest() {
               .map((question) => (
                 <div key={question.id}>
                   <div>
-                  <div className="flex  justify-center md:mb-2">
-        <h2 className="font-bold header">
-         Codes and Cogs JOB-FAIR TEST
-        </h2>
-      </div>
-      <div className="flex justify-center mb-4">
-        <div className=" w-[75px] md:w-[150px]">
-          <Image alt="Image alt text"
-            src="/images/logos-and-icons/red-underline.png"
-            width={150}
-            height={20}
-          />
-        </div>
-      </div>
+                    <div className="flex  justify-center md:mb-2">
+                      <h2 className="font-bold header">
+                        Codes and Cogs JOB-FAIR TEST
+                      </h2>
+                    </div>
+                    <div className="flex justify-center mb-4">
+                      <div className=" w-[75px] md:w-[150px]">
+                        <Image
+                          alt="Image alt text"
+                          src="/images/logos-and-icons/red-underline.png"
+                          width={150}
+                          height={20}
+                        />
+                      </div>
+                    </div>
                   </div>
                   <div className="flex  justify-between  mb-10">
-                    <div className=' text-pry-color font-semibold 400: text-xl sm:text-2xl md:text-3xl'>{testData.participants_info.name}</div>
-                    <div  className=' text-pry-color font-semibold 400: text-xl sm:text-2xl md:text-3xl'>{countDownTimer}</div>
+                    <div className=" text-pry-color font-semibold 400: text-xl sm:text-2xl md:text-3xl">
+                      {testData.participants_info.name}
+                    </div>
+                    <div className=" text-pry-color font-semibold 400: text-xl sm:text-2xl md:text-3xl">
+                      {countDownTimer}
+                    </div>
                   </div>
                   <div className="flex space-x-3 text-xl">
                     <div>
@@ -400,7 +430,8 @@ function TakeATest() {
       ) : (
         <div className="text-xl text-center px-5 md:px-10">
           <p>
-            You have previously taken a test or you are yet to apply for a test. Click{" "}
+            You have previously taken a test or you are yet to apply for a test.
+            Click{" "}
             <span
               className="text-blue-700 underline cursor-pointer"
               onClick={() => {

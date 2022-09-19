@@ -5,6 +5,7 @@ import Loading from "../../components/Loading";
 
 import { useRouter } from "next/router";
 import Head from "next/head";
+import HeaderBanner from "../../components/HeaderBanner";
 
 function BlogPostID(props) {
   const router = useRouter();
@@ -40,7 +41,7 @@ function BlogPostID(props) {
   };
 
   return (
-    <div className="px-5 md:px-10">
+    <div className="px-5 md:px-10 lg:px-16">
       <Head>
         <title>{selectedBlogPost.title}</title>
         <meta name="description" content={selectedBlogPost.title} />
@@ -65,7 +66,7 @@ function BlogPostID(props) {
         />
       </Head>
 
-      <div className="flex  justify-center md:mb-2">
+      {/* <div className="flex  justify-center md:mb-2">
         <h2 className="font-bold header font-larken ">Blog</h2>
       </div>
       <div className="flex justify-center mb-4">
@@ -77,9 +78,11 @@ function BlogPostID(props) {
             height={20}
           />
         </div>
-      </div>
+      </div> */}
 
-      <div className="flex items-center justify-center  py-3 px-5 mb-8 -mx-5 md:-mx-10 bg-semi-sec-color">
+      <HeaderBanner title={"Blog"}/>
+
+      <div className="flex items-center justify-center  py-3 px-5 mb-8 -mx-5 md:-mx-10 lg:-mx-16 bg-gray-50">
         <div>
           <div className="text-pry-color 400:text-xl text-lg font-bold md:text-2xl">
             <p>{selectedBlogPost.title}</p>

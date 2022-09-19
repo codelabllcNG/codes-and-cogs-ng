@@ -25,7 +25,7 @@ const {subtitle, bgImage, title} = props
     </div> */}
           <div className='890:w-[65%]'>
           <div className="   ">
-        <div className='  lg:text-4xl   890:mt-5 text-pry-color font-larken 890:text-[#07222E] md:leading-[3.5rem] md:text-5xl xl:text-[4rem] lg:text-[3rem] lg:leading-[3.5rem] xl:leading-[5rem] text-2xl sm:text-5xl sm:leading-[3.5rem] 340:text-[1.7rem] 340:leading-[2.2rem] '  dangerouslySetInnerHTML={{__html: subtitle}}>
+        <div className='  lg:text-4xl  font-semibold 890:mt-5 font-larken  md:leading-[3.5rem] md:text-5xl xl:text-[4rem] lg:text-[3rem] lg:leading-[3.5rem] xl:leading-[5rem] text-2xl sm:text-5xl sm:leading-[3.5rem] 340:text-[1.7rem] 340:leading-[2.2rem] '  dangerouslySetInnerHTML={{__html: subtitle}}>
           {}
         </div>
       </div>

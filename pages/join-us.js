@@ -3,6 +3,8 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import HeaderBanner from "../components/HeaderBanner";
+
 import AllCtx from "../util-functions/allCtx";
 
 function JoinUS(props) {
@@ -198,8 +200,8 @@ function JoinUS(props) {
         </div>
       )}
       {/* PAGE CONTENT */}
-      <div className="md:bg-[url('/images/sections-watermark.png')] bg-cover bg-right-bottom  px-5 md:px-10 bg-no-repeat">
-        <div className="flex  justify-center md:mb-2">
+      <div className="md:bg-[url('/images/sections-watermark.png')] bg-cover bg-right-bottom  px-5 md:px-10 lg:px-16 bg-no-repeat">
+        {/* <div className="flex  justify-center md:mb-2">
           <div
             dangerouslySetInnerHTML={{ __html: title }}
             className="font-bold header font-larken"
@@ -215,9 +217,11 @@ function JoinUS(props) {
               height={20}
             />
           </div>
-        </div>
+        </div> */}
 
-        <div className="flex justify-center px-5 md:px-10 lg:px-16">
+        <HeaderBanner title={title}/> 
+
+        <div className="flex justify-center mt-10 ">
           <video
             // width="400"
             height="250"

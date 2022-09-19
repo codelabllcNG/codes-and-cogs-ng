@@ -24,7 +24,7 @@ function Section1(props) {
 
  
     >
-       <div className="flex  justify-center md:mb-2">
+       {/* <div className="flex  justify-center md:mb-2">
               <h2 className="font-bold header font-larken  ">
                 {supportTitle}
               </h2>
@@ -37,13 +37,16 @@ function Section1(props) {
                   height={20}
                 />
               </div>
-            </div>
+            </div> */}
 
-      <div className="md:flex md:space-x-2"
+      <div className="890:flex md:space-x-2"
            >
-      <div className='md:w-1/2 w-full'>
+        <div className='890:w-1/2 w-full'>
+          <div dangerouslySetInnerHTML={{__html: supportTitle}} className='890:mt-5 font-semibold text-pry-color font-larken 890:text-[#07222E] md:leading-[3.5rem] md:text-5xl xl:text-[4rem] lg:text-[3rem] lg:leading-[3.5rem] xl:leading-[5rem] text-2xl sm:text-5xl sm:leading-[3.5rem] 340:text-[1.7rem] 340:leading-[2.2rem]'>
+            {}
+          </div>
       <div className="dangerous-html  md:mb-5">
-        <div dangerouslySetInnerHTML={{__html: supportSubtitle}} className="text-pry-color text-lg md:leading-7 lg:text-xl">
+        <div dangerouslySetInnerHTML={{__html: supportSubtitle}} className="text-pry-color text-lg md:text-xl md:leading-7 lg:text-2xl">
        {}
         </div>
       </div>
@@ -87,7 +90,7 @@ function Section1(props) {
       </div>
         </div>
         
-        <div className="hidden md:flex w-1/2 md:bg-contain md:bg-center md:bg-no-repeat"
+        <div className="hidden 890:flex w-1/2 890:bg-contain 890:bg-top 890:bg-no-repeat"
             //  md:bg-[url('/images/support-bg.png')]
         style={{ backgroundImage: `url(${supportBgImage})` }}
         >

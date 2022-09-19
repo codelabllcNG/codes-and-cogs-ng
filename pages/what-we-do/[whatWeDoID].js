@@ -4,6 +4,7 @@ import Loading from "../../components/Loading";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Script from "next/script";
+import HeaderBanner from "../../components/HeaderBanner";
 // import HubspotForm from 'react-hubspot-form'
 
 
@@ -53,7 +54,7 @@ function WhatWeDoID(props) {
 
 
   return (
-    <div className="px-5 lg:px-20 md:px-10 ">
+    <div className="px-5 md:px-10  lg:px-16 ">
       <Head>
         <title>{selectedWhatWeDo.name}</title>
         <meta name="description" content={selectedWhatWeDo.name} />
@@ -80,7 +81,7 @@ function WhatWeDoID(props) {
        
     
 
-      <div className="flex  justify-center md:text-center md:mb-2">
+      {/* <div className="flex  justify-center md:text-center md:mb-2">
         <h2 className="font-bold header">
           {selectedWhatWeDo.name}
         </h2>
@@ -93,10 +94,13 @@ function WhatWeDoID(props) {
             height={20}
           />
         </div>
-      </div>
+      </div> */}
+
+<HeaderBanner title={selectedWhatWeDo.name}/>
+
       <div>
         
-      <div className="  justify-between items-center md:flex ">
+      <div className=" mt-10 justify-between items-center md:flex ">
         <div className="w-[40%]  md:mr-8  h-full hidden md:flex">
           <Image alt="Image alt text"
             className="rounded-lg"

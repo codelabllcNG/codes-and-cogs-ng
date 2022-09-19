@@ -7,6 +7,7 @@ import Image from "next/image";
 import Loading from "../../components/Loading";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import HeaderBanner from "../../components/HeaderBanner";
 
 function FeasibilityID(props) {
   const router = useRouter();
@@ -18,7 +19,7 @@ function FeasibilityID(props) {
   }
 
   return (
-    <div className="px-5 md:px-10">
+    <div className="px-5 md:px-10 lg:px-16">
       <Head>
         <title>{selectedFeasibility.title}</title>
         <meta name="description" content={selectedFeasibility.title} />
@@ -29,7 +30,7 @@ function FeasibilityID(props) {
         />
       </Head>
 
-      <div className="flex  justify-center mb-2">
+      {/* <div className="flex  justify-center mb-2">
         <h2 className="font-bold header">{selectedFeasibility.title}</h2>
       </div>
       <div className="flex justify-center mb-10 ">
@@ -40,9 +41,11 @@ function FeasibilityID(props) {
             height={20}
           />
         </div>
-      </div>
+      </div> */}
 
-      <div className="900:flex justify-between items-center ">
+      <HeaderBanner title={selectedFeasibility.title}/>
+
+      <div className="900:flex justify-between items-center mt-10">
         <div className="900:w-[40%] items-center flex justify-center mb-5 900:mb-0">
           {" "}
           <video
@@ -65,9 +68,9 @@ function FeasibilityID(props) {
          
         >
           {}
-        </div>   <div     onClick={() => {
+        </div>   <div     className='mt-3 flex justify-end'><button  onClick={() => {
                   router.push("/post-a-job");
-                }} className='mt-3 flex justify-end'><button className='font-bold ring-pry-color px-2 hover:bg-blue-50 rounded ring-1'>I am interested</button></div>
+                }} className='font-bold ring-pry-color px-2 hover:bg-blue-50 rounded ring-1'>I am interested</button></div>
         </div>
      
       </div>

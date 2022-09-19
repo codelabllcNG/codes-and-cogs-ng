@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import HeaderBanner from "../../components/HeaderBanner";
 
 
 function Index(props) {
@@ -52,7 +53,7 @@ function Index(props) {
       </Head>
 
 
-      <div className="flex  justify-center md:mb-2">
+      {/* <div className="flex  justify-center md:mb-2">
         <h2 className="font-bold header">
           Blog
         </h2>
@@ -65,9 +66,11 @@ function Index(props) {
             height={20}
           />
         </div>
-      </div>
+      </div> */}
 
-      <div className="grid grid-cols-1 gap-x-3 gap-y-6 sm:grid-cols-2 md:grid-cols-3">
+      <HeaderBanner title={"Blog"}/>
+
+      <div className="mt-10 grid grid-cols-1 gap-x-3 gap-y-6 sm:grid-cols-2 md:grid-cols-3">
         {blogPostArray
           .map(
             (article) => (

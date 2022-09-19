@@ -4,6 +4,7 @@ import Image from "next/image";
 import Loading from "../../components/Loading";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import HeaderBanner from "../../components/HeaderBanner";
 
 function ModelID(props) {
   const router = useRouter();
@@ -15,7 +16,7 @@ function ModelID(props) {
   }
 
   return (
-    <div className="px-5 md:px-10">
+    <div className="px-5 md:px-10 lg:px-16">
       <Head>
         <title>{selectedModel.title}</title>
         <meta name="description" content={selectedModel.title} />
@@ -26,7 +27,7 @@ function ModelID(props) {
         />
       </Head>
 
-      <div className="flex text-center justify-center mb-2">
+      {/* <div className="flex text-center justify-center mb-2">
         <h2 className="font-bold header">{selectedModel.title}</h2>
       </div>
       <div className="flex justify-center mb-10 ">
@@ -37,9 +38,11 @@ function ModelID(props) {
             height={20}
           />
         </div>
-      </div>
+      </div> */}
 
-      <div className="flex justify-center items-center text-justify 900:text-center mb-1 900:mb-8 text-pry-color ">
+      <HeaderBanner title={selectedModel.title}/>
+
+      <div className="mt-10 flex justify-center items-center text-justify 900:text-center mb-1 900:mb-8 text-pry-color ">
         <p>{selectedModel.excerpt}</p>
       </div>
 

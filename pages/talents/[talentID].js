@@ -8,6 +8,7 @@ import { FaBookReader, FaHiking } from "react-icons/fa";
 import { IoFootballOutline, IoGameControllerSharp } from "react-icons/io5";
 import { GiLoveSong } from "react-icons/gi";
 import { SiYourtraveldottv } from "react-icons/si";
+import HeaderBanner from "../../components/HeaderBanner";
 function TalentID(props) {
   const router = useRouter();
 
@@ -28,8 +29,8 @@ function TalentID(props) {
   // console.log(talentID);
 
   return (
-    <div className="px-5 md:px-10">
-      <div className="flex  justify-center md:mb-2">
+    <div className="px-5 md:px-10 lg:px-16">
+      {/* <div className="flex  justify-center md:mb-2">
         <h2 className="font-bold header">
           Talent Profile
         </h2>
@@ -42,9 +43,13 @@ function TalentID(props) {
             height={20}
           />
         </div>
-      </div>
+      </div> */}
 
-      <div className=" 900:space-x-4 900:flex">
+      <HeaderBanner title={"Talent Profile"}/>
+
+
+
+      <div className=" 900:space-x-4 mt-10 900:flex">
         <div className=" 900:w-[40%]">
           <div className="flex items-center px-4 text-pry-color bg-semi-sec-color py-4  rounded-l-3xl rounded-r-full mb-4">
             <div className="w-[75%]">

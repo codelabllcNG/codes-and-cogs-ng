@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 import { REMOTE_LOCATIONS } from "../../a-store/content-store/REMOTE_LOCATIONS";
+import HeaderBanner from "../../components/HeaderBanner";
 
 function RemoteLocations(props) {
   const router = useRouter();
@@ -10,7 +11,7 @@ function RemoteLocations(props) {
   const { title, locations, generalMap } = props;
 
   return (
-    <div>
+    <div className='px-5 md:px-10 lg:px-16'>
 <Head>
         <title>{`Remote Locations - Codes and Cogs`}</title>
         <meta name="description" content={`Our remote locations across the world.`} />
@@ -19,7 +20,7 @@ function RemoteLocations(props) {
       </Head>
 
 
-      <div className="flex  justify-center md:mb-2">
+      {/* <div className="flex  justify-center md:mb-2">
         <h2 className="font-bold header">
           {title}
         </h2>
@@ -32,9 +33,11 @@ function RemoteLocations(props) {
             height={20}
           />
         </div>
-      </div>
+      </div> */}
 
-      <div className="flex justify-center mb-4">
+      <HeaderBanner title={title}/>
+
+      <div className="flex justify-center mb-4 mt-10">
         <Image alt="Image alt text"
           src={generalMap || `/images/remote-location-map.png`}
           height="300"
@@ -43,7 +46,7 @@ function RemoteLocations(props) {
         />
       </div>
 
-      <div className="flex  justify-between scroll-smooth  overflow-x-scroll hover:overscroll-x-none  duration-500 scrollbar-hide space-x-5 px-3">
+      <div className="flex  justify-between scroll-smooth  overflow-x-scroll hover:overscroll-x-none  duration-500 scrollbar-hide space-x-5 px-3 -mx-5 md:-mx-10 lg:-mx-16">
         {locations.map((location) => (
           <div
             onClick={() => {

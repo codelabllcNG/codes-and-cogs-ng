@@ -4,6 +4,7 @@ import AllCtx from "../../util-functions/allCtx";
 import { useRouter } from "next/router";
 import Loading from "../../components/Loading";
 import Head from "next/head";
+import HeaderBanner from "../../components/HeaderBanner";
 
 function ToolID(props) {
   const router = useRouter();
@@ -94,7 +95,7 @@ function ToolID(props) {
   }
 
   return (
-    <div className="px-5 md:px-10">
+    <div className="px-5 md:px-10 lg:px-16">
       <Head>
         <title>About {selectedSkill.name} on Codes and Cogs</title>
         <meta name="description" content={selectedSkill.name} />
@@ -105,7 +106,7 @@ function ToolID(props) {
         />
       </Head>
 
-      <div className="flex  justify-center md:mb-2">
+      {/* <div className="flex  justify-center md:mb-2">
         <h2 className="font-bold header">{selectedSkill.name}</h2>
       </div>
       <div className="flex justify-center mb-10 ">
@@ -116,18 +117,13 @@ function ToolID(props) {
             height={20}
           />
         </div>
-      </div>
+      </div> */}
 
-      <div className=" 900:flex justify-between items-center ">
-        <div className="900:w-[55%] prose max-w-none prose-h1:text-3xl prose-h1:font-bold text-justify lg:leading-8 mb-5 900:mb-0 text-pry-color">
-          <p
-            className=""
-            dangerouslySetInnerHTML={{ __html: selectedSkill.toolInfo }}
-          >
-            {}
-          </p>
-        </div>
-        <div className="900:w-[40%] flex justify-center">
+      <HeaderBanner title={selectedSkill.name}/>
+
+      <div className="mt-10  justify-between items-center ">
+     
+        <div className=" flex justify-center">
           {" "}
           <video
             width="400"
@@ -141,6 +137,15 @@ function ToolID(props) {
             <source src={selectedSkill.videoUrl} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
+        </div>
+
+        <div className=" prose max-w-none prose-h1:text-3xl prose-h1:font-bold text-justify lg:leading-8 mb-5 900:mb-0 text-pry-color">
+          <p
+            className=""
+            dangerouslySetInnerHTML={{ __html: selectedSkill.toolInfo }}
+          >
+            {}
+          </p>
         </div>
       </div>
 

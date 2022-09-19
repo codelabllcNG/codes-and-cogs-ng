@@ -105,6 +105,11 @@ const router = useRouter();
           content={`https://www.codesandcogs.com/invitation-test-login`}
         />
 
+
+<meta name="robots" content="noindex"/>
+
+
+
         <meta property="og:title" content="Codes and Cogs' Test Invitation" />
         <meta
           property="og:description"
