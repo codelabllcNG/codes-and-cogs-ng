@@ -11,6 +11,9 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import AllCtx from "../../util-functions/allCtx";
 import { useEffect } from "react";
+import Section1 from "../../components/what-we-do/Section1";
+import Section2 from "../../components/what-we-do/Section2";
+import Section3 from "../../components/what-we-do/Section3";
 
 
 
@@ -54,183 +57,11 @@ useEffect(() => {
       </Head>
 
 
-      <div className="lg:h-[80vh]   md:bg-contain md:bg-right-top md:bg-no-repeat mb10"
-      //md:bg-[url('/images/what-we-do-bg.png')]
-        
-      style={{ backgroundImage: `url(${bgImage})` }}
-      >
-      <div className="flex text-center justify-center ">
-        <h2 className="font-bold header">What We Do</h2>
-      </div>
-      <div className="flex justify-center mb-5 md:mb-10 ">
-      <div className=" w-[75px] md:w-[150px]">
-          <Image alt="Image alt text"
-            src="/images/logos-and-icons/red-underline.png"
-            width={150}
-            height={20}
-          />
-        </div>
-      </div>
-        <div className=" md:w-[60%] lg:w-[70%]  ">
-          <div className='text-xl md:leading-10 sm:text-2xl md:text-3xl lg:text-4xl lg:leading-[3.5rem]  font-semibold '  dangerouslySetInnerHTML={{__html: subtitle}}>
-            {}
-          </div>
-        </div>
+      <Section1 subtitle={subtitle} bgImage={bgImage} title={title} />
 
-        <div className=" flex space-x-5 mt-5 md:mt-16 text-xl sm:text-2xl md:text-3xl  items-center mb-5 md:mb-16">
-          
-          <div className=' w-[43px] shadow px-2 rounded-md py-1 hover:shadow-lg cursor-pointer'>
-          <Image onClick={()=>{router.push('#enterprise-services')}} alt="Image alt text"
-            src="/images/logos-and-icons/enterprise.png"
-            width="64"
-            height="64"
+      <Section2 enterpriseServices={enterpriseServices}    />
 
-          />
-         </div>
-          <Link passHref href={`#enterprise-services`}>
-            <button className="font-semibold text-pry-color hover:text-blue-600">
-              Enterprise Services 
-            </button>
-          </Link>{" "}
-        </div>
-
-        <div className=" flex space-x-5 text-xl sm:text-2xl md:text-3xl items-center mb-4">
-       
-          <div className=' w-[43px] shadow px-2 rounded-md py-1 hover:shadow-lg cursor-pointer'>
- <Image onClick={()=>{router.push('#solution-as-a-service')}} alt="Image alt text"
-            src="/images/logos-and-icons/solutions.png"
-            width="64"
-            height="64"
-          />  </div>
-      
-          <Link passHref href={`#solution-as-a-service`}>
-            <button className="font-semibold text-pry-color hover:text-blue-600">
-              Solution As A Service
-            </button>
-          </Link>{" "}
-        </div>
-
-        {/* <div className=" mt-16">
-          {" "}
-          <BotIcon />
-        </div> */}
-      </div>
-
-      <div id="enterprise-services" className="scroll-mt-10 mb-10 mt-10">
-        <div className="flex  justify-center mb-2">
-          <h2 className="font-bold header">Enterprise Packages</h2>
-        </div>
-        <div className="flex justify-center mb-3 ">
-        <div className=" w-[75px] md:w-[150px]">
-          <Image alt="Image alt text"
-            src="/images/logos-and-icons/red-underline.png"
-            width={150}
-            height={20}
-          />
-        </div>
-        </div>
-      </div>
-
-      {enterpriseServices.map((enterpriseService, i) => (
-        <div key={enterpriseService.id} className="mb-20" id={`${enterpriseService.id}`}>
-          <div className="flex  justify-center mb-2">
-            <div dangerouslySetInnerHTML={{__html: enterpriseService.name}} className="font-bold text-2xl">
-              {}
-            </div>
-          </div>
-      
-
-          <div className="mb-5">
-            <div dangerouslySetInnerHTML={{ __html: enterpriseService.excerpt }} className="text-center">
-              {}
-            </div>
-          </div>
-
-          <div
-            className={`sm:flex ${
-              i % 2 !== 0 ? "sm:flex-row-reverse" : ""
-            } justify-between items-center `}
-          >
-            <div
-              className={`prose max-w-none sm:w-[55%] text-justify  mb-5 sm:mb-0   `}
-            >
-              <div className="sm:leading-8   sm:text-lg " dangerouslySetInnerHTML={{ __html: enterpriseService.content.length > 400 ? enterpriseService.summary.substring(0, 400) + '...' : enterpriseService.summary }}>
-                {}
-              </div>
-
-              <div onClick={()=>{router.push(`/what-we-do/${enterpriseService.id}`)}} className='mt-5 text-pry-color text-sm font-semibold'><button>Read More</button></div>
-            </div>
-
-            <div className="sm:w-[40%] items-center flex justify-center mb-5 sm:mb-0">
-              <Image alt="Image alt text" width={400} height={300} className="rounded-lg" src={enterpriseService.imageUrl}  />
-            </div>
-          </div>
-          
-     
-        </div>
-        
-      ))}
-
-      <div id="solution-as-a-service" className="scroll-mt-10 mb-10 ">
-        <div className="flex  justify-center mb-2">
-          <h2 className="font-bold header">Solution As A Service</h2>
-        </div>
-        <div className="flex justify-center mb-3 ">
-          <div className=" [150px]">
-            <img alt="Image alt text"
-              src="/images/logos-and-icons/red-underline.png"
-              width={150}
-              height={20}
-            />
-          </div>
-        </div>
-      </div>
-
-      {solutionAsServices.map((solution, i) => (
-        <div key={solution.id} className="mb-20" id={`${solution.id}`}>
-          <div className="flex  justify-center mb-2">
-            <div dangerouslySetInnerHTML={{ __html: solution.name }} className="font-bold text-2xl">
-              {}
-            </div>
-          </div>
-          {/* <div className="flex md:justify-center mb-3 ">
-          <div className=" [150px]">
-            <img alt="Image alt text"
-              src="/images/logos-and-icons/red-underline.png"
-              width={150}
-              height={20}
-            /> 
-          </div>
-    </div> */}
-
-          <div className="mb-5">
-            <div dangerouslySetInnerHTML={{ __html: solution.excerpt }} className="text-center">
-              {}
-            </div>
-          </div>
-
-          <div
-            className={`sm:flex ${
-              i % 2 !== 0 ? "sm:flex-row-reverse" : ""
-            } justify-between items-center `}
-          >
-            <div
-              className={`prose max-w-none sm:w-[55%] text-justify  mb-5 sm:mb-0  `}
-            >
-              <div onClick={()=>{router.push(`/coming-soon`)}} dangerouslySetInnerHTML={{__html: solution.summary || "Coming Soon"}} className="sm:leading-7 lg:leading-10 text-center cursor-pointer text-xl underline  ">
-                {}
-              </div>
-
-              {/* /what-we-do/${solution.id} */}
-              {/* <div onClick={()=>{router.push(`/coming-soon`)}} className='mt-5 text-pry-color text-sm font-semibold'><button>Read More</button></div> */}
-            </div>
-
-            <div className="sm:w-[40%] items-center flex justify-center mb-5 sm:mb-0">
-              <Image alt="Image alt text" height={300} width={400} className="rounded-lg" src={solution.imageUrl} />
-            </div>
-          </div>
-        </div>
-      ))}
+     <Section3 solutionAsServices={solutionAsServices}/>
     </div>
   );
 }
