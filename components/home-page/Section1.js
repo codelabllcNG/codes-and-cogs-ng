@@ -123,7 +123,7 @@ function Section1(props) {
     <section
       ref={divHeightRef}
       id="section1"
-      className="px-5 md:px-10 lg:px-16  md:flex  "
+      className="scroll-mt-10 px-5 md:px-10 lg:px-16  md:flex  "
       // md:bg-[url('/images/hero.png')]
       // style={{ backgroundImage: `url(${bgUrl})` }}
     >
@@ -231,7 +231,7 @@ function Section1(props) {
       </div> 
 
       <div className="w-1/2 z-[-1] -mt-10 hidden 890:block absolute right-0">
-        <Image   priority='true'  alt='Hero image' width={1265} height={1086} src='/images/hero.png'/>
+        <Image    alt='Hero image' width={1039} height={917} src='/images/hero.webp'/>
       </div>
     </section>
   );

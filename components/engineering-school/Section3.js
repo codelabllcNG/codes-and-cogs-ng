@@ -1,7 +1,13 @@
 import Image from "next/image";
 import React from "react";
 
-function Section3() {
+function Section3(props) {
+
+  const {numberOfGraduates,
+    numberOfFacilitators,
+    courseIntroTitle,
+    courseIntro, numberOfCourses} = props
+
   return (
     <div className="px-5 md:px-10 lg:px-16 mt-10">
       <div className=" flex justify-around bg-[url('/images/sch-bg.png')] bg-cover rounded-3xl  bg-center bg-no-repeat text-white  text-lg sm:text-xl md:text-2xl py-5 md:py-10 ">
@@ -14,7 +20,7 @@ function Section3() {
               src="/images/logos-and-icons/icon1.png"
             />
           </div>
-          <div className="text-center h-12">20</div>
+          <div className="text-center h-12">{ numberOfCourses}</div>
           <div className="text-center h-10">Courses</div>
         </div>
 
@@ -27,7 +33,7 @@ function Section3() {
               src="/images/logos-and-icons/icon2.png"
             />
           </div>
-          <div className="text-center h-12">100</div>
+          <div className="text-center h-12">{numberOfFacilitators}</div>
           <div className="text-center h-10">Qualified Facilitators</div>
         </div>
 
@@ -40,17 +46,17 @@ function Section3() {
               src="/images/logos-and-icons/icon3.png"
             />
           </div>
-          <div className="text-center h-12">50</div>
+          <div className="text-center h-12">{numberOfGraduates}</div>
           <div className="text-center h-10">Graduates Placed</div>
         </div>
       </div>
 
       <div className="text-center  mt-8 text-lg sm:text-xl md:text-2xl font-bold">
-        Introduction to some of our courses
+        {courseIntroTitle}
       </div>
 
       <div className="md:flex justify-between md:space-x-3 mt-5  md:space-y-0 space-y-8">
-     {[1, 2, 3].map(video =>    <div key={video}>
+     {courseIntro.map(video =>    <div key={video.videoUrl}>
           <div  className="flex justify-center mb-1 ">
             <video
               // width="400"
@@ -61,13 +67,13 @@ function Section3() {
               // muted
               className="rounded-lg mb-2 h-auto"
             >
-              <source src={"https://example.com"} />
+              <source src={video.videoUrl} />
               Your browser does not support the video tag.
             </video>
           </div>
 
           <p className=" text-lg sm:text-lg font-semibold  text-center ">
-            Introduction to Java
+            {video.videoCaption}
           </p>
         </div>) }
       </div>

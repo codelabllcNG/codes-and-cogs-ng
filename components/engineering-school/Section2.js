@@ -2,19 +2,25 @@ import Image from "next/image";
 import React from "react";
 
 
-function Section2() {
-
+function Section2(props) {
+const {title,
+  subtitle,
+  bulletinImage,
+  whyBePartTitle,
+  bulletin,   whyBePart1,
+  whyBePart2,
+  whyBePart3,} = props
 
 
   return (
-    <div className="px-5 md:px-10 lg:px-16">
-      <div className="mb-3" id='kick-start'>
-        <div className="flex  justify-center md:mb-2">
+    <div className="px-5 md:px-10 lg:px-16 scroll-smooth">
+      <div className="mb-3 scroll-mt-10"  id='kick-start'>
+        <div className="flex scroll-mt-40 justify-center md:mb-2">
           <div
             dangerouslySetInnerHTML={{
-              __html: "Want to Kick-start a Career in Tech?",
+              __html: title
             }}
-            className="font-bold header font-larken  "
+            className="font-bold header  font-larken  "
           >
             {}
           </div>
@@ -33,8 +39,7 @@ function Section2() {
       <div
         className="text-center text-xl mb-8"
         dangerouslySetInnerHTML={{
-          __html:
-            "Whether you're an experienced techie looking to increase your knowledge, transitioning into tech, or completely new to the industry and wish to explore more opportunities, learn in-demand tech skills from industry experts in our Software Engineering School.",
+          __html: subtitle
         }}
       >
         {}
@@ -48,15 +53,14 @@ function Section2() {
             alt="Career image"
             width={566}
             height={352}
-            src={"/images/career.png"}
+            src={bulletinImage}
           />
         </div>
 
         <div
           className="dangerous-html md:w-[55%] mt-3 md:mt-0"
           dangerouslySetInnerHTML={{
-            __html:
-              "•	We go beyond the basics and delve deeper into the technologies we teach. <br/> •	We provide you with not just “theories” but real-life projects to learn from.<br/>•	Our facilitators are in the top 7% in Europe and we only offer the best modules according to industry standards. <br/>•After the course, you can take a test to intern with us or top global tech companies and launch your career in tech immediately.<br/>•After the course, you can take a test to intern with us or top global tech companies and launch your career in tech immediately.",
+            __html: bulletin
           }}
         >
           {}
@@ -65,7 +69,7 @@ function Section2() {
 {/* WHY BE PART OF THIS  */}
       <div>
         <div
-          dangerouslySetInnerHTML={{ __html: "WHY BE PART OF THIS?" }}
+          dangerouslySetInnerHTML={{ __html: whyBePartTitle }}
           className="text-center text-2xl font-semibold mt-8"
         >
           {}
@@ -78,12 +82,12 @@ function Section2() {
                 className="w-24 h-24 bg-mid-color rounded-full flex
                       justify-center items-center -mb-12 border-8 border-white"
               >
-                <Image alt="Icon" width='60' height='37' src='/images/logos-and-icons/why-be-part1.png'/>
+                <Image alt="Icon" width='60' height='37' src={whyBePart1.icon}/>
               </div>
             </div>
             <div
               dangerouslySetInnerHTML={{
-                __html: "High-quality training from industry experts",
+                __html: whyBePart1.text
               }}
               className="pt-16 pb-8 bg-mid-color px-3 lg:px-10 rounded-3xl hover:bg-gray-200 duration-300  font-semibold text-xl sm:text-2xl  text-center h-48"
             >
@@ -97,12 +101,12 @@ function Section2() {
                 className="w-24 h-24 bg-mid-color rounded-full flex
                       justify-center items-center -mb-12 border-8 border-white"
               >
-                <Image alt="Icon" width='36' height='44' src='/images/logos-and-icons/why-be-part2.png'/>
+                <Image alt="Icon" width='36' height='44' src={whyBePart2.icon}/>
               </div>
             </div>
             <div
               dangerouslySetInnerHTML={{
-                __html: "Real-life projects",
+                __html: whyBePart2.text
               }}
               className="pt-16 pb-8 bg-mid-color px-3 lg:px-10 rounded-3xl hover:bg-gray-200 duration-300  font-semibold text-xl sm:text-2xl  text-center h-48"
             >
@@ -116,12 +120,12 @@ function Section2() {
                 className="w-24 h-24 bg-mid-color rounded-full flex
                       justify-center items-center -mb-12 border-8 border-white"
               >
-                <Image alt="Icon" width='40' height='38' src='/images/logos-and-icons/why-be-part3.png'/>
+                <Image alt="Icon" width='40' height='38' src={whyBePart3.icon}/>
               </div>
             </div>
             <div
               dangerouslySetInnerHTML={{
-                __html: "Access to community",
+                __html: whyBePart3.text
               }}
               className="pt-16 pb-8 bg-mid-color px-3 lg:px-10 rounded-3xl hover:bg-gray-200 duration-300  font-semibold text-xl sm:text-2xl  text-center h-48"
             >

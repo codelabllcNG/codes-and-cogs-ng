@@ -34,7 +34,7 @@ function Section5(props) {
   return (
     <section className="px-5 mt-20 md:px-10 lg:px-16">
       <div className="lg:bg-[url('/images/sections-watermark.png')] bg-contain bg-right-bottom  bg-no-repeat ">
-        <section id="section5" ref={divHeightRef} className=" md:ml-8 ">
+        <section id="section5" ref={divHeightRef} className="scroll-mt-10 md:ml-8 ">
           <div className="mb-10">
             <div className="flex  justify-center md:mb-2">
               <h2 className="font-bold header font-larken  ">

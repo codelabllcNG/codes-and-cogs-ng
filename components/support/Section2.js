@@ -82,7 +82,7 @@ function Section2(props) {
 
       <div className='flex justify-center mt-5  '>
         
-        <div id="support-form" className='w-full md:w-[70%]'>
+        <div id="support-form" className='scroll-mt-10 w-full md:w-[70%]'>
       
       </div> 
         </div>

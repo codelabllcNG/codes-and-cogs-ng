@@ -43,7 +43,7 @@ function Ticket() {
 
            
 </div>
-<div className='flex mt-10 items-center '><textarea placeholder='Message' onChange={(e)=>{setMessage(e.target.value)}} className='z-[111] focus:outline focus:bg-white pl-2 w-full mr-2 resize-none py-1 sm:py-2 md:py-3 lg:py-4 rounded-md bg-gray-100' name="" id=""  rows={message.length > 60 ? '4' : '1'}/> <Image alt="Image alt text" className='cursor-pointer' src='/images/logos-and-icons/send.png' width='30' height='25'/></div>
+<div className='flex mt-10 items-center '><textarea placeholder='Message' onChange={(e)=>{setMessage(e.target.value)}} className='scroll-mt-10 z-[111] focus:outline focus:bg-white pl-2 w-full mr-2 resize-none py-1 sm:py-2 md:py-3 lg:py-4 rounded-md bg-gray-100' name="" id=""  rows={message.length > 60 ? '4' : '1'}/> <Image alt="Image alt text" className='cursor-pointer' src='/images/logos-and-icons/send.png' width='30' height='25'/></div>
 
  
     </div>

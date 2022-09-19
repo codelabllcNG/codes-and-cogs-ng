@@ -57,7 +57,7 @@ function Footer(props) {
 
 
   return (
-    <section id="footer" className="mt-20">
+    <section id="footer" className="mt-20 scroll-mt-10">
       <div className="px-5 md:px-20 py-4">
         <div className="flex  justify-center md:mb-2">
           <div
@@ -84,7 +84,7 @@ function Footer(props) {
           </div>
         </div>
 
-        <div className="flex items-center justify-center">
+        <div className="scroll-mt-10 flex items-center justify-center">
         <div id="newsletter" className='w-full sm:w-[70%] md:w-[50%] xl:w-[40%]'>
       
       </div> 

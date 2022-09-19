@@ -42,7 +42,7 @@ function Section4(props) {
         <section
       id="section4"
       ref={divHeightRef}
-      className=" md:ml-8 "
+      className="scroll-mt-10 md:ml-8 "
     >
       <div>
         <div className="flex text-center justify-center md:mb-2">

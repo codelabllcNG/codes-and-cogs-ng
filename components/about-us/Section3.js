@@ -7,7 +7,7 @@ function section3(props) {
   const { storiesTitle, storiesArray } = props;
 
   return (
-    <div id="talent-stories" className="md:px-10 px-5 lg:px-16 mb-8">
+    <div id="talent-stories" className="scroll-mt-10 md:px-10 px-5 lg:px-16 mb-8">
       <div className="flex  justify-center md:mb-2">
         <h2 className="font-bold header">
           {storiesTitle}

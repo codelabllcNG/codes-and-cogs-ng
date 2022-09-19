@@ -116,7 +116,7 @@ useEffect(() => {
         </div> */}
       </div>
 
-      <div id="enterprise-services" className="mb-10 mt-10">
+      <div id="enterprise-services" className="scroll-mt-10 mb-10 mt-10">
         <div className="flex  justify-center mb-2">
           <h2 className="font-bold header">Enterprise Packages</h2>
         </div>
@@ -171,7 +171,7 @@ useEffect(() => {
         
       ))}
 
-      <div id="solution-as-a-service" className="mb-10 ">
+      <div id="solution-as-a-service" className="scroll-mt-10 mb-10 ">
         <div className="flex  justify-center mb-2">
           <h2 className="font-bold header">Solution As A Service</h2>
         </div>

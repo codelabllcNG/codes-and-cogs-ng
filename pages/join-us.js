@@ -259,7 +259,7 @@ function JoinUS(props) {
       <div className="md:bg-[url('/images/sections-watermark.png')] bg-cover bg-right-bottom  bg-no-repeat">
         <div
           id="take-a-test"
-          className="mb-5 mt-16 px-5 md:px-14 flex justify-center font-bold text-pry-color md:text-2xl"
+          className="scroll-mt-10 mb-5 mt-16 px-5 md:px-14 flex justify-center font-bold text-pry-color md:text-2xl"
         >
           <p>Fill Your Details</p>
         </div>
