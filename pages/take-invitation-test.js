@@ -191,7 +191,7 @@ function TakeATest() {
 
         <meta
           property="og:title"
-          content="Codes Codes and Cogs' Invitation Test"
+          content="Codes Codes and Cogs&apos; Invitation Test"
         />
         <meta
           property="og:description"
