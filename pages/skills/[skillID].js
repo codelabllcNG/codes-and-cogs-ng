@@ -48,10 +48,11 @@ function ToolID(props) {
         }
 
         if (typeof data.talents === "string") {
+         
           setSearchingTalents(false);
-          setResponse("No Talent currently matches this tool.");
+          setResponse("Talents that match this skill are currently on other projects, you can browse through our available talents below.");
           setTalentsFound([]);
-          console.log("No Talent currently matches this tool.");
+          console.log(data.talents);
           return;
         }
 
@@ -140,28 +141,28 @@ function ToolID(props) {
         </div>
 
         <div className=" prose max-w-none prose-h1:text-3xl prose-h1:font-bold text-justify lg:leading-8 mb-5 900:mb-0 text-pry-color">
-          <p
+          <div
             className=""
             dangerouslySetInnerHTML={{ __html: selectedSkill.toolInfo }}
           >
             {}
-          </p>
+          </div>
         </div>
       </div>
 
-      <div className="mt-10">
+      <div className="mt-10 ">
         {searchingTalents ? (
           <div className="flex justify-center text-lg font-semibold">
             <p>{response}</p>
           </div>
         ) : talentsFound.length < 1 ? (
-          <div className="flex justify-center text-lg font-semibold text-red-600">
-            <div>
+          <div className="flex  justify-center text-lg font-semibold text-red-600">
+            <div className='w-full'>
               <p className='mb-5'>{response}</p>
-              <div>
+              <div className=''>
                 <div className="flex justify-center bg-transparent text-pry-color font-semibold text-xs 400:text-sm 560:text-base  ">
                   <div
-                    onClick={() => {
+                    onClick={() => { 
                       setCategory("designers");
                     }}
                     className={`${
@@ -199,7 +200,7 @@ function ToolID(props) {
                 </div>
 
                 {category === "designers" && (
-                  <div className="grid gap-2 560:gap-4 grid-cols-2 md:grid-cols-3 mt-10 text-xs 400:text-sm sm:text-base">
+                  <div className="grid gap-2 560:gap-4 grid-cols-2 md:grid-cols-3 mt-10 text-xs 400:text-sm sm:text-base ">
                     {designersArray.map((designer) => (
                       <div
                         key={designer.id}

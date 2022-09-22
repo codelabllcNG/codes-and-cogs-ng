@@ -4,6 +4,7 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import AllCtx from "../util-functions/allCtx";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import HeaderBanner from "../components/HeaderBanner";
 
 function TakeATest() {
   const router = useRouter();
@@ -264,10 +265,10 @@ function TakeATest() {
             questionArray
               .map((question) => (
                 <div key={question.id}>
-                  <div>
+                  {/* <div>
                   <div className="flex  justify-center md:mb-2">
         <h2 className="font-bold header">
-         Codes and Cogs TEST
+         Codes  &amp; Cogs TEST
         </h2>
       </div>
       <div className="flex justify-center mb-4">
@@ -279,8 +280,11 @@ function TakeATest() {
           />
         </div>
       </div>
-                  </div>
-                  <div className="flex  justify-between  mb-10">
+                  </div> */}
+
+<HeaderBanner title={"Codes  &amp; Cogs TEST"}/>
+
+                  <div className="flex  justify-between mt-10 mb-10">
                     <div className=' text-pry-color font-semibold 400: text-xl sm:text-2xl md:text-3xl'>{testData.participants_info.name}</div>
                     <div  className=' text-pry-color font-semibold 400: text-xl sm:text-2xl md:text-3xl'>{countDownTimer}</div>
                   </div>

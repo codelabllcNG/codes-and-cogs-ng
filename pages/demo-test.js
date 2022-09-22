@@ -4,6 +4,8 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import AllCtx from "../util-functions/allCtx";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import HeaderBanner from "../components/HeaderBanner";
+
 
 function TakeATest(props) {
   const router = useRouter();
@@ -273,8 +275,8 @@ function TakeATest(props) {
           testData.questions
             .map((question) => (
               <div key={question.id}>
-                <div>
-                  <div className="flex  justify-center md:mb-2">
+                {/* <div>
+                 <div className="flex  justify-center md:mb-2">
                     <h2 className="font-bold header">
                       Codes and Cogs DEMO TEST
                     </h2>
@@ -287,9 +289,12 @@ function TakeATest(props) {
                         height={20}
                       />
                     </div>
-                  </div>
-                </div>
-                <div className="flex  justify-between  mb-10">
+                  </div> 
+                </div> */}
+                
+                <HeaderBanner title={"DEMO TEST"}/>
+                
+                <div className="flex  justify-between mt-5 mb-10">
                   <div className=" text-pry-color font-semibold 400: text-xl sm:text-2xl md:text-3xl">
                     {testData.participants_info.name}
                   </div>

@@ -5,6 +5,7 @@ import AllCtx from "../util-functions/allCtx";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Head from "next/head";
+import HeaderBanner from "../components/HeaderBanner";
 
 
 function TakeATest() {
@@ -179,7 +180,7 @@ function TakeATest() {
         <title>Codes Codes and Cogs&apos; Invitation Test</title>
         <meta
           name="description"
-          content="You have been invited to take this test."
+          content="You were invited to take this test."
         />
 
         <meta name="robots" content="noindex" />
@@ -195,7 +196,7 @@ function TakeATest() {
         />
         <meta
           property="og:description"
-          content="You have been invited to take this test."
+          content="You were invited to take this test."
         />
         <meta property="og:image" content="/logo.png" />
 
@@ -289,10 +290,10 @@ function TakeATest() {
             questionArray
               .map((question) => (
                 <div key={question.id}>
-                  <div>
+                  {/* <div>
                     <div className="flex  justify-center md:mb-2">
                       <h2 className="font-bold header">
-                        Codes and Cogs JOB-FAIR TEST
+                        JOB-FAIR TEST
                       </h2>
                     </div>
                     <div className="flex justify-center mb-4">
@@ -305,8 +306,12 @@ function TakeATest() {
                         />
                       </div>
                     </div>
-                  </div>
-                  <div className="flex  justify-between  mb-10">
+                  </div> */}
+
+<HeaderBanner title={" JOB-FAIR TEST"} />
+
+
+                  <div className="flex  justify-between mt-10 mb-10">
                     <div className=" text-pry-color font-semibold 400: text-xl sm:text-2xl md:text-3xl">
                       {testData.participants_info.name}
                     </div>

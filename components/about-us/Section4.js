@@ -23,7 +23,7 @@ function Section4(props) {
   // }
 
   return (
-    <div className="md:px-10 px-5 lg:px-16 mb-8">
+    <div className="md:px-10 px-5 lg:px-16 mt-20">
       <div className="flex  justify-center md:mb-2">
         <div dangerouslySetInnerHTML={{ __html: ourTalentTitle}} className="font-bold header">
         {}

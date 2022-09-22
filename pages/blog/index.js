@@ -42,7 +42,7 @@ function Index(props) {
           content={`https://www.codesandcogs.com/blog`}
         />
       
-        <meta property="og:title" content="Codes and Cogs' Blog" />
+        <meta property="og:title" content="Codes and Cogs - Blog" />
         <meta
           property="og:description"
           content="Codes and Cogs' official blog for both freelancers and entrepreneurs, where strategies, tips, and ideas are disseminated."

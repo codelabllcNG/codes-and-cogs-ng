@@ -125,7 +125,7 @@ function Section1(props) {
       id="section1"
       className="scroll-mt-10 px-5 md:px-10 lg:px-16  md:flex  "
       // md:bg-[url('/images/hero.png')]
-      // style={{ backgroundImage: `url(${bgUrl})` }}
+      
     >
       <div className=" md:ml-8 890:w-[65%]">
         <div className="">
@@ -231,7 +231,9 @@ function Section1(props) {
       </div> 
 
       <div className="w-1/2 z-[-1] -mt-10 hidden 890:block absolute right-0">
-        <Image    alt='Hero image' width={1039} height={917} src='/images/hero.webp'/>
+        <Image    alt='Hero image' width={1039} height={917} src={bgUrl}
+        // style={{ backgroundImage: `url(${bgUrl})` }}
+        />
       </div>
     </section>
   );

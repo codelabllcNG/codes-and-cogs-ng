@@ -2,8 +2,13 @@ import React from "react";
 import Image from "next/image";
 import { TALENT_STORIES } from "../../a-store/content-store/TALENT_STORIES";
 import BotIcon from "../BotIcon";
+import SectionBanner from "../SectionBanner";
+
+
 
 function section3(props) {
+
+
   const { storiesTitle, storiesArray } = props;
 
   return (
@@ -30,7 +35,7 @@ function section3(props) {
             className={`    py-12 px-4 700:w-[32%] w-[15rem] 400:w-[17rem] shrink-0 snap-center `}
           >
             <div
-              className={`bg-mid-color  rounded-lg hover:bg-[#ECF1FA] hover:scale-110 duration-300 py-8 px-3 lg:px-8`}
+              className={`bg-mid-color  rounded-lg hover:bg-[#ECF1FA] hover:scale-110 duration-300 py-3 px-3 lg:px-8 `}
             >
               <div className="text-pry-color flex items-center justify-center space-x-3 mb-2 700:mb-5">
                 <div className="w-[3rem]  h-[4rem] 700:w-[4rem] 700:h-[5rem] ">
@@ -52,9 +57,9 @@ function section3(props) {
                 </div>
               </div>
 
-              <div className="prose max-w-none text-xs 350:text-sm 700:text-base text-justify mb-3 700:mb-10">
+              <div className="prose max-w-none text-xs 350:text-sm 700:text-base text-justify mb-3 700:mb-10 h-[300px] md:h-[450px] lg:h-[350px] overflow-y-auto scrollbar-hide">
                 {" "}
-                <div dangerouslySetInnerHTML={{ __html: story.story }}>
+                <div className='' dangerouslySetInnerHTML={{ __html: story.story }}>
                   {}
                 </div>
               </div>
@@ -62,6 +67,8 @@ function section3(props) {
           </div>
         ))}
       </div>
+
+      <SectionBanner bgUrl={"/images/about-us-banner.webp"} title={"Hire top-tier and vetted tech talents that fit your project requirements."} btnText={"Hire Now"} btnUrl={"/search-talents"} />
 
       {/* <BotIcon />  */}
     </div>
