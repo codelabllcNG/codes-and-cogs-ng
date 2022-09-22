@@ -68,8 +68,8 @@ function section3(props) {
         ))}
       </div>
 
-      <SectionBanner bgUrl={"/images/about-us-banner.webp"} title={"Hire top-tier and vetted tech talents that fit your project requirements."} btnText={"Hire Now"} btnUrl={"/search-talents"} />
-
+      <SectionBanner bgUrl={"/images/hire-talent-banner.webp"} title={"Hire top-tier and vetted tech talents that fit your project requirements."} btnText={"Hire Now"} btnUrl={"/search-talents"} />
+ 
       {/* <BotIcon />  */}
     </div>
   );

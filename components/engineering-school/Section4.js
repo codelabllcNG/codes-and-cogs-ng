@@ -60,7 +60,7 @@ function Section4(props) {
         <div className='dangerous-html  ' dangerouslySetInnerHTML={{ __html: currentCourse.courseOutline}}>
           {}
           </div>
-          <p className='mt-5 text-pry-color cursor-pointer'>BUY {currentCourse.courseName.toUpperCase() } COURSE</p>
+          <p className='mt-5 text-pry-color cursor-pointer'>BUY {currentCourse.courseName.toUpperCase() }</p>
         </div>
       </div>
     </div>

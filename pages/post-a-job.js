@@ -3,7 +3,9 @@ import Image from "next/image";
 import React, { useRef, useState } from "react";
 import { useEffect } from "react";
 import BotIcon from "../components/BotIcon";
+import SectionBanner from "../components/SectionBanner";
 import AllCtx from "../util-functions/allCtx";
+
 
 function PostAJob(props) {
   const {
@@ -122,7 +124,7 @@ function PostAJob(props) {
   }
 
   return (
-    <div >
+    <div className=' px-5 md:px-10 lg:px-16'>
       <Head>
         <title>Post Your Job - Codes and Cogs</title>
         <meta
@@ -158,7 +160,7 @@ function PostAJob(props) {
         </div>
       </div> */}
 
-      <div className="flex  px-5 md:px-10 lg:px-16  890:space-x-2 "
+      <div className="flex   890:space-x-2 "
       
       >
         <div className='w-full 890:w-1/2'>
@@ -326,8 +328,13 @@ function PostAJob(props) {
 
         <div className="890:w-1/2 z-[-1]  hidden 890:flex  absolute right-0 ">
           <Image alt='Hero image' width={1039} height={1100} src={ bgImage} />
-      </div>
+        </div>
+        
+
+        
   </div>
+
+  <SectionBanner bgUrl={"/images/post-a-job-banner.webp"} title={"Get connected to highly skilled tech experts in 3 days."} btnText={"See More"} btnUrl={"/search-talents"} />
 
       <BotIcon />
     </div>
@@ -357,3 +364,4 @@ export async function getStaticProps() {
 }
 
 export default PostAJob;
+
