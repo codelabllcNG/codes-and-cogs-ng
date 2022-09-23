@@ -6,15 +6,37 @@ import MegaMenu from "../components/MegaMenu";
 import Navbar from "../components/Navbar";
 import "../styles/globals.css";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 
 export default function MyApp({ Component, pageProps }) {
+const router = useRouter();
+
   useEffect(() => {
     const use = async () => {
       (await import("tw-elements")).default;
     };
     use();
   }, []);
+
+
+  useEffect(() => {
+
+     const pageView = () => {
+      window.fbq('track', 'PageView')
+    }
+    // This pageView only triggers the first time (it's important for Pixel to have real information)
+    pageView()
+
+    const handleRouteChange = () => {
+      pageView()
+    }
+
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
 
 
 
@@ -53,9 +75,7 @@ export default function MyApp({ Component, pageProps }) {
           }}
 
 />
-<noscript><img height="1" width="1" 
-src="https://www.facebook.com/tr?id=453085319950484&ev=PageView&noscript=1"
-/></noscript>
+
 
 
         <Script id="google-analytics" strategy="afterInteractive">

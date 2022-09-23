@@ -168,7 +168,7 @@ function Section1(props) {
             {" "}
             <button
               onClick={() => {
-                fbq('track', 'Finding Talents', {searchKeyword: {searchKeyword}})
+                fbq('track', 'Searching Talents', {searchWord: `${searchKeyword}`})
               }}
               type="submit"
               // onClick={() => {
