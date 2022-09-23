@@ -9,7 +9,7 @@ import SectionBanner from "../SectionBanner";
 function section3(props) {
 
 
-  const { storiesTitle, storiesArray } = props;
+  const { storiesTitle, storiesArray,  bannerImage, bannerText, } = props;
 
   return (
     <div id="talent-stories" className="scroll-mt-10 md:px-10 px-5 lg:px-16 mb-8">
@@ -68,7 +68,7 @@ function section3(props) {
         ))}
       </div>
 
-      <SectionBanner bgUrl={"/images/hire-talent-banner.webp"} title={"Hire top-tier and vetted tech talents that fit your project requirements."} btnText={"Hire Now"} btnUrl={"/search-talents"} />
+      <SectionBanner bgUrl={bannerImage || "/images/about-us-banner.webp"} title={bannerText || "Build game-changing projects with the right talents."} btnText={"Search Talents"} btnUrl={"/search-talents"} />
  
       {/* <BotIcon />  */}
     </div>

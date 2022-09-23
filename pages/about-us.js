@@ -23,7 +23,7 @@ function AboutUs(props) {
     ourTalentTitle,
     designersArray,
     developersArray,
-    engineersArray,
+    engineersArray,  bannerImage, bannerText,
   } = props;
 
   return (
@@ -61,7 +61,7 @@ function AboutUs(props) {
         timeAndLanguageText={timeAndLanguageText}
       />
       {/* <Section2 reviewsTitle={reviewsTitle} reviewsArray={reviewsArray} /> */}
-      <Section3 storiesTitle={storiesTitle} storiesArray={storiesArray} />
+      <Section3 storiesTitle={storiesTitle} storiesArray={storiesArray}  bannerImage={bannerImage} bannerText={bannerText} />
       <Section4
         ourTalentTitle={ourTalentTitle}
         designersArray={designersArray}
@@ -94,9 +94,13 @@ export async function getStaticProps() {
   const designersArray = data.designers;
   const developersArray = data.developers;
   const engineersArray = data.engineers;
+  const bannerImage = data.bannerImage
+  const bannerText = data.bannerText 
+
 
   return {
     props: {
+      bannerImage, bannerText, 
       aboutTitle,
       aboutBody,
       noPaymentVideo,

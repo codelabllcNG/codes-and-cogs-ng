@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import BotIcon from "../components/BotIcon";
-
+import SectionBanner from "../components/SectionBanner"
 import AllCtx from "../util-functions/allCtx";
 
 import { useRouter } from "next/router";
@@ -21,7 +21,7 @@ function SearchTalents(props) {
     prodUrl,
   } = AllCtx();
 
-  const { designersArray, developersArray, engineersArray } = props;
+  const { designersArray, developersArray, engineersArray, searchBannerText, searchBannerImage } = props;
 
   const router = useRouter();
 
@@ -132,7 +132,7 @@ function SearchTalents(props) {
         </div>
       </div>
 
-      <div>
+      <div className='mb-10'>
         <div className="flex justify-center  mt-1">
           <form
             onSubmit={findTalents}
@@ -332,6 +332,10 @@ function SearchTalents(props) {
           </div>
         )}
       </div>
+
+      <SectionBanner  bgUrl={searchBannerImage || "/images/hire-talent-banner.webp"} title={searchBannerText || "Hire top-tier and vetted tech talents that fit your project requirements."} btnText={"Learn More"} btnUrl={"/what-we-do"} />
+
+
     </div>
   );
 }
@@ -346,9 +350,12 @@ export async function getStaticProps() {
   const developersArray = data.developers;
   const engineersArray = data.engineers;
 
+  const searchBannerImage = data.searchBannerImage || "/images/hire-talent-banner.webp"
+  const searchBannerText = data.searchBannerText || "Hire top-tier and vetted tech talents that fit your project requirements."
+
   return {
     props: {
-      designersArray,
+      designersArray, searchBannerImage, searchBannerText, 
       developersArray,
       engineersArray,
     },

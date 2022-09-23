@@ -6,7 +6,6 @@ import BotIcon from "../components/BotIcon";
 import SectionBanner from "../components/SectionBanner";
 import AllCtx from "../util-functions/allCtx";
 
-
 function PostAJob(props) {
   const {
     talentToHire,
@@ -15,11 +14,8 @@ function PostAJob(props) {
     setIdOfTalentToHire,
   } = AllCtx();
 
-
-
-  const {title,
-    engineerType,
-    bgImage,} = props
+  const { title, engineerType, bgImage,    bannerImage,
+    bannerText, } = props;
 
   const [posting, setPosting] = useState(false);
   const [response, setResponse] = useState("");
@@ -124,7 +120,7 @@ function PostAJob(props) {
   }
 
   return (
-    <div className=' px-5 md:px-10 lg:px-16'>
+    <div className=" px-5 md:px-10 lg:px-16">
       <Head>
         <title>Post Your Job - Codes and Cogs</title>
         <meta
@@ -132,7 +128,7 @@ function PostAJob(props) {
           content="Post your project requirements to Codes and Cogs and be attended to in a jiffy."
         />
 
-<meta
+        <meta
           property="og:url"
           content={`https://www.codesandcogs.com/post-a-job`}
         />
@@ -160,164 +156,165 @@ function PostAJob(props) {
         </div>
       </div> */}
 
-      <div className="flex   890:space-x-2 "
-      
-      >
-        <div className='w-full 890:w-1/2'>
-        <div className="my-5">
-        <p className="font-semibold text-gray-700 text-xl font-larken 890:text-2xl lg:text-4xl lg:leading-relaxed">
-          {talentToHire
-            ? `Submit a request to hire ${talentToHire}`
-            : "   Post your requirements and get a perfect fit"}
-        </p>
-      </div>
-
-      <form
-        onSubmit={submitRequirement}
-        className="py-5 bg-mid-color rounded-3xl px-4 sm:px-8  mb-10"
-      >
-        <div className="mb-5">
-          <div>
-            <p className="text-xs mb-1 md:text-sm font-semibold text-gray-500">
-              Your Name
-            </p>
-          </div>
-          <div>
-            <input
-              ref={nameRef}
-              className="w-full h-[2rem] text-sm focus:outline outline-1 outline-blue-900 rounded-lg px-3"
-              type="text"
-              name=""
-              id=""
-            />
-          </div>
-        </div>
-
-        <div className="mb-5">
-          <div>
-            <p className="text-xs mb-1 md:text-sm font-semibold text-gray-500">
-              Email Address
+      <div className="flex   890:space-x-2 ">
+        <div className="w-full 890:w-1/2">
+          <div className="my-5">
+            <p className="font-semibold text-gray-700 text-xl font-larken 890:text-2xl lg:text-4xl lg:leading-relaxed">
+              {talentToHire
+                ? `Submit a request to hire ${talentToHire}`
+                : "   Post your requirements and get a perfect fit"}
             </p>
           </div>
 
-          <div>
-            <input
-              ref={emailRef}
-              className="w-full h-[2rem] text-sm focus:outline outline-1 outline-blue-900 rounded-lg px-3"
-              type="text"
-              name=""
-              id=""
-            />
-          </div>
-        </div>
-
-        <div className="mb-5">
-          <div>
-            <p className="text-xs mb-1 md:text-sm font-semibold text-gray-500">
-              Proposed Duration
-            </p>
-          </div>
-
-          <div>
-            <input
-              ref={durationRef}
-              placeholder="e.g three months"
-              className="w-full h-[2rem] text-sm focus:outline outline-1 outline-blue-900 rounded-lg px-3"
-              type="text"
-              name=""
-              id=""
-            />
-          </div>
-        </div>
-
-        {talentToHire ? (
-          <div disabled className="mb-5 ">
-            <div>
-              <p className="text-xs mb-1 md:text-sm font-semibold text-gray-500">
-                Talent to Hire
-              </p>
-            </div>
-
-            <div>
-              <input
-                // ref={}
-                defaultValue={talentToHire}
-                className="w-full h-[2rem] text-sm focus:outline outline-1 outline-blue-900 rounded-lg px-3"
-                type="text"
-                name=""
-                id=""
-              />
-            </div>
-          </div>
-        ) : (
-          <div className="mb-5">
-            <div>
-              <p className="text-xs mb-1 md:text-sm font-semibold text-gray-500">
-                Type of Engineer
-              </p>
-            </div>
-            <div>
-              <select
-                ref={engineerRef}
-                className="w-full h-[2rem] text-sm   focus:outline outline-1 outline-blue-900 rounded-lg px-3"
-                type="text"
-                name=""
-                id=""
-              >
-                <option className="w-1/2 " value=""></option>
-
-             {engineerType.map(engineer =>    <option key={engineer} className="w-1/2 " value={engineer}>
-                 {engineer}
-                </option>)}
-
-              
-             
-              </select>
-            </div>
-          </div>
-        )}
-
-        <div className="mb-5">
-          <div>
-            <p className="text-xs mb-1 md:text-sm font-semibold text-gray-500">
-              Project Description
-            </p>
-          </div>
-          <div>
-            <textarea
-              ref={descriptionRef}
-              //   required
-              rows={5}
-              className="w-full resize-none invalid:outline-red-600  focus:outline outline-1 outline-blue-900 rounded-lg px-3"
-              type="text"
-              name=""
-              id=""
-            />
-          </div>
-        </div>
-
-        <div
-          className={`h-9 text-sm flex justify-center  ${
-            response.includes("successfully")
-              ? "text-green-600"
-              : "text-red-600"
-          }`}
-        >
-          <p>{response}</p>
-        </div>
-
-        <div className=" mt-3 text-center font-bold">
-          <button 
-            type="submit"
-            className={`bg-pry-color ${
-              posting ? "bg-gray-400 pointer-events-none" : ""
-            } text-white h-[2.5rem] w-full rounded-lg sm:text-lg hover:bg-opacity-80`}
+          <form
+            onSubmit={submitRequirement}
+            className="py-5 bg-mid-color rounded-3xl px-4 sm:px-8  mb-10"
           >
-            {talentToHire ? "Hire Talent" : "Submit Requirement"}
-          </button>
+            <div className="mb-5">
+              <div>
+                <p className="text-xs mb-1 md:text-sm font-semibold text-gray-500">
+                  Your Name
+                </p>
+              </div>
+              <div>
+                <input
+                  ref={nameRef}
+                  className="w-full h-[2rem] text-sm focus:outline outline-1 outline-blue-900 rounded-lg px-3"
+                  type="text"
+                  name=""
+                  id=""
+                />
+              </div>
+            </div>
+
+            <div className="mb-5">
+              <div>
+                <p className="text-xs mb-1 md:text-sm font-semibold text-gray-500">
+                  Email Address
+                </p>
+              </div>
+
+              <div>
+                <input
+                  ref={emailRef}
+                  className="w-full h-[2rem] text-sm focus:outline outline-1 outline-blue-900 rounded-lg px-3"
+                  type="text"
+                  name=""
+                  id=""
+                />
+              </div>
+            </div>
+
+            <div className="mb-5">
+              <div>
+                <p className="text-xs mb-1 md:text-sm font-semibold text-gray-500">
+                  Proposed Duration
+                </p>
+              </div>
+
+              <div>
+                <input
+                  ref={durationRef}
+                  placeholder="e.g three months"
+                  className="w-full h-[2rem] text-sm focus:outline outline-1 outline-blue-900 rounded-lg px-3"
+                  type="text"
+                  name=""
+                  id=""
+                />
+              </div>
+            </div>
+
+            {talentToHire ? (
+              <div disabled className="mb-5 ">
+                <div>
+                  <p className="text-xs mb-1 md:text-sm font-semibold text-gray-500">
+                    Talent to Hire
+                  </p>
+                </div>
+
+                <div>
+                  <input
+                    // ref={}
+                    defaultValue={talentToHire}
+                    className="w-full h-[2rem] text-sm focus:outline outline-1 outline-blue-900 rounded-lg px-3"
+                    type="text"
+                    name=""
+                    id=""
+                  />
+                </div>
+              </div>
+            ) : (
+              <div className="mb-5">
+                <div>
+                  <p className="text-xs mb-1 md:text-sm font-semibold text-gray-500">
+                    Type of Engineer
+                  </p>
+                </div>
+                <div>
+                  <select
+                    ref={engineerRef}
+                    className="w-full h-[2rem] text-sm   focus:outline outline-1 outline-blue-900 rounded-lg px-3"
+                    type="text"
+                    name=""
+                    id=""
+                  >
+                    <option className="w-1/2 " value=""></option>
+
+                    {engineerType.map((engineer) => (
+                      <option
+                        key={engineer}
+                        className="w-1/2 "
+                        value={engineer}
+                      >
+                        {engineer}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            )}
+
+            <div className="mb-5">
+              <div>
+                <p className="text-xs mb-1 md:text-sm font-semibold text-gray-500">
+                  Project Description
+                </p>
+              </div>
+              <div>
+                <textarea
+                  ref={descriptionRef}
+                  //   required
+                  rows={5}
+                  className="w-full resize-none invalid:outline-red-600  focus:outline outline-1 outline-blue-900 rounded-lg px-3"
+                  type="text"
+                  name=""
+                  id=""
+                />
+              </div>
+            </div>
+
+            <div
+              className={`h-9 text-sm flex justify-center  ${
+                response.includes("successfully")
+                  ? "text-green-600"
+                  : "text-red-600"
+              }`}
+            >
+              <p>{response}</p>
+            </div>
+
+            <div className=" mt-3 text-center font-bold">
+              <button
+                type="submit"
+                className={`bg-pry-color ${
+                  posting ? "bg-gray-400 pointer-events-none" : ""
+                } text-white h-[2.5rem] w-full rounded-lg sm:text-lg hover:bg-opacity-80`}
+              >
+                {talentToHire ? "Hire Talent" : "Submit Requirement"}
+              </button>
+            </div>
+          </form>
         </div>
-      </form>
-        </div> 
 
         {/* <div className="hidden  890:flex w-1/2   890:bg-cover 890:bg-center 890:bg-no-repeat"
           // md:bg-[url('/images/post-a-job-bg.png')]
@@ -327,14 +324,16 @@ function PostAJob(props) {
         </div> */}
 
         <div className="890:w-1/2 z-[-1]  hidden 890:flex  absolute right-0 ">
-          <Image alt='Hero image' width={1039} height={1100} src={ bgImage} />
+          <Image alt="Hero image" width={1039} height={1100} src={bgImage} />
         </div>
-        
+      </div>
 
-        
-  </div>
-
-  <SectionBanner bgUrl={"/images/post-a-job-banner.webp"} title={"Get connected to highly skilled tech experts in 3 days."} btnText={"See More"} btnUrl={"/search-talents"} />
+      <SectionBanner
+        bgUrl={bannerImage || "/images/post-a-job-banner.webp"}
+        title={bannerText || "Get connected to highly skilled tech experts in 3 days."}
+        btnText={"See More"}
+        btnUrl={"/search-talents"}
+      />
 
       <BotIcon />
     </div>
@@ -342,7 +341,6 @@ function PostAJob(props) {
 }
 
 export async function getStaticProps() {
-
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/jobrequest`
   );
@@ -350,18 +348,20 @@ export async function getStaticProps() {
 
   const title = data.jobRequestTitle;
   const engineerType = data.jobRequestEngineerType;
-  const bgImage = data.JobRequestBgImage 
-  
+  const bgImage = data.JobRequestBgImage;
+  const bannerImage = data.bannerImage;
+  const bannerText = data.bannerText;
 
   return {
     props: {
       title,
       engineerType,
       bgImage,
+      bannerImage,
+      bannerText,
     },
     revalidate: 300,
   };
 }
 
 export default PostAJob;
-
