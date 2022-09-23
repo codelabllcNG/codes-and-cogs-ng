@@ -167,6 +167,9 @@ function Section1(props) {
           <div>
             {" "}
             <button
+              onClick={() => {
+                fbq('track', 'Finding Talents', {searchKeyword: {searchKeyword}})
+              }}
               type="submit"
               // onClick={() => {
               //   router.push("/search-talents");
