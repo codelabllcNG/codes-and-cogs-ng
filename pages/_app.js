@@ -8,9 +8,8 @@ import "../styles/globals.css";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-
 export default function MyApp({ Component, pageProps }) {
-const router = useRouter();
+  const router = useRouter();
 
   useEffect(() => {
     const use = async () => {
@@ -19,48 +18,46 @@ const router = useRouter();
     use();
   }, []);
 
+  
+  const pageView = () => {
+    window.fbq("track", "PageView");
+  };
 
   useEffect(() => {
-
-     const pageView = () => {
-      window.fbq('track', 'PageView')
-    }
-    // This pageView only triggers the first time (it's important for Pixel to have real information)
-    pageView()
+    pageView();
 
     const handleRouteChange = () => {
-      pageView()
-    }
+      pageView();
+    };
 
-    router.events.on('routeChangeComplete', handleRouteChange)
+    router.events.on("routeChangeComplete", handleRouteChange);
     return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events])
-
-
+      router.events.off("routeChangeComplete", () => {
+        window.fbq("track", "PageView");
+      });
+    };
+  }, [router.events]);
 
   return (
     <Fragment>
       <AllContextProvider>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta
-          name="google-site-verification"
-          content="AoyKWu8XW_-k0WiGwNX5yoL4yA6XqAxq_pCiw6v-iT4"
-        />
-      </Head>
+        <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta
+            name="google-site-verification"
+            content="AoyKWu8XW_-k0WiGwNX5yoL4yA6XqAxq_pCiw6v-iT4"
+          />
+        </Head>
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
           strategy="afterInteractive"
         />
 
-
-<Script strategy="afterInteractive" id="fb-pixel"
-      
+        <Script
+          strategy="afterInteractive"
+          id="fb-pixel"
           dangerouslySetInnerHTML={{
-            __html:
-              `
+            __html: `
               !function(f,b,e,v,n,t,s)
           {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
           n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -73,10 +70,7 @@ const router = useRouter();
           fbq('track', 'PageView');
               `,
           }}
-
-/>
-
-
+        />
 
         <Script id="google-analytics" strategy="afterInteractive">
           {`
@@ -88,8 +82,6 @@ const router = useRouter();
         `}
         </Script>
 
- 
-
         <Navbar />
         <Component {...pageProps} />
       </AllContextProvider>
@@ -98,10 +90,6 @@ const router = useRouter();
       {/* data={pageProps.data} */}
     </Fragment>
   );
-
-
-
-  
 }
 
 // MyApp.getInitialProps = async () => {
@@ -119,6 +107,6 @@ const router = useRouter();
 
 //   return { pageProps };
 // }
-  // return { pageProps };
+// return { pageProps };
 
 // export default MyApp;

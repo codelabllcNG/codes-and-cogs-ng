@@ -164,12 +164,13 @@ function Section1(props) {
               placeholder="Search for Talents"
             />
           </div>{" "}
-          <div>
+          <div    onClick={() => {
+                fbq('track', 'SearchingTalents'), {searchWord: `${searchKeyword}`}
+                // , {searchWord: `${searchKeyword}`}
+              }}>
             {" "}
             <button
-              onClick={() => {
-                fbq('track', 'Searching Talents', {searchWord: `${searchKeyword}`})
-              }}
+           
               type="submit"
               // onClick={() => {
               //   router.push("/search-talents");
