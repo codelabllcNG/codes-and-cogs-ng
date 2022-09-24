@@ -165,8 +165,9 @@ function Section1(props) {
             />
           </div>{" "}
           <div    onClick={() => {
-                fbq('track', 'SearchingTalents'), {searchWord: `${searchKeyword}`}
+                fbq('trackCustom', 'SearchingTalents'), {searchWord: `${searchKeyword}`}
                 // , {searchWord: `${searchKeyword}`}
+            console.log('Event should trigger');
               }}>
             {" "}
             <button
