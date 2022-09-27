@@ -61,7 +61,7 @@ const {    whatWeDoID,
         {contentArray.map((content) => (
           <div key={content.name} onClick={()=>{findCurrentContent(content.name)}}
             dangerouslySetInnerHTML={{ __html: content.name }}
-            className={`hover:text-pry-color mb-4 cursor-pointer  font-semibold sm:text-lg ${content.name === currentContent.name ? 'text-red-600' : ''}`}
+            className={`hover:text-red-600 mb-4 cursor-pointer  font-semibold sm:text-lg ${content.name === currentContent.name ? 'text-red-600' : ''}`}
           >
             {}
           </div>
