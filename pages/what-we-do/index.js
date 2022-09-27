@@ -78,6 +78,8 @@ export async function getStaticProps() {
   const enterpriseServices = data.enterprize_services;
   const solutionAsServices = data.solution_as_services;
 
+
+
   return {
     props: {
       title,
@@ -85,6 +87,7 @@ export async function getStaticProps() {
       bgImage,
       enterpriseServices,
       solutionAsServices,
+      
     },
     revalidate: 300,
   };

@@ -5,7 +5,7 @@ const config = {
   // ...other options
   generateIndexSitemap: false,
   autoLastmod: true,
-  exclude: ['/support/*', '/support', '/demo-test', '/coming-soon', '/privacy-policy', '/take-a-test', '/talents/*', ],
+  exclude: ['/support/*', '/demo-test', '/coming-soon', '/privacy-policy', '/take-a-test', ],
    
 
   robotsTxtOptions: {
@@ -17,7 +17,7 @@ const config = {
 
       {
         userAgent: '*',
-        disallow: ['/support/*', '/support', '/demo-test', '/take-a-test', '/talents/*'],
+        disallow: ['/support/*', '/demo-test', '/take-a-test'],
       },
     ],
     additionalSitemaps: [

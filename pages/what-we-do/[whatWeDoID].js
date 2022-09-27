@@ -124,12 +124,12 @@ function WhatWeDoID(props) {
         
         <div className=" prose  max-w-none prose-h1:text-3xl prose-h1:font-semibold w-full md:mt-3 ">
           <div
-            className=" text-justify md:text-lg  "
+            className=" text-justify md:text-lg dangerous-html "
             dangerouslySetInnerHTML={{ __html: selectedWhatWeDo.content }}
           >
             {}
           </div>
-        </div>
+        </div> 
 </div>
 
       <div className=' mt-5 lg:mt-20 '>
@@ -156,15 +156,17 @@ export async function getStaticProps(context) {
   const whatWeDoArray = [
     ...data.enterprize_services,
     ...data.solution_as_services,
-  ];
+  ]
+
+
 
   function whatWiDoFinder() {
     return whatWeDoArray.find((whatWeDo) => whatWeDo.id === whatWeDoID);
   }
   const selectedWhatWeDo = whatWiDoFinder(whatWeDoID);
-
-  if (!selectedWhatWeDo) {
-    return {
+ 
+  if (!selectedWhatWeDo) { 
+    return { 
       notFound: true,
     };
   }
@@ -188,9 +190,11 @@ export async function getStaticPaths() {
   const whatWeDoArray = [
     ...data.enterprize_services,
     ...data.solution_as_services,
-  ];
+  ]
 
-  const whatWeDoPaths = whatWeDoArray.map((whatWeDo) => whatWeDo.id);
+  const whatWeDoPaths = whatWeDoArray.map((whatWeDo) => whatWeDo.id).filter(wwd => wwd !== "enterprise-packages")
+
+  // console.log(whatWeDoPaths); 
 
   return {
     paths: whatWeDoPaths.map((whatWeDoID) => ({

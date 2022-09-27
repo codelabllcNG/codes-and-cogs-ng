@@ -5,10 +5,8 @@ Allow: /
 # *
 User-agent: *
 Disallow: /support/*
-Disallow: /support
 Disallow: /demo-test
 Disallow: /take-a-test
-Disallow: /talents/*
 
 # Host
 Host: https://www.codesandcogs.com
