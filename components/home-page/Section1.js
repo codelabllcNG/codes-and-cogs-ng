@@ -153,7 +153,7 @@ function Section1(props) {
               width={23}
               height={23}
            
-            />{" "}
+            />{" "} 
             <input
               required
               onChange={(e) => {

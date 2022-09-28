@@ -66,7 +66,7 @@ export default function MyApp({ Component, pageProps }) {
           t.src=v;s=b.getElementsByTagName(e)[0];
           s.parentNode.insertBefore(t,s)}(window, document,'script',
           'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '453085319950484');
+          fbq('init', '671379057370383');
           fbq('track', 'PageView');
               `,
           }}
