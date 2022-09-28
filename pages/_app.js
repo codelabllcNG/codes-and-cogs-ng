@@ -47,8 +47,11 @@ export default function MyApp({ Component, pageProps }) {
             name="google-site-verification"
             content="AoyKWu8XW_-k0WiGwNX5yoL4yA6XqAxq_pCiw6v-iT4"
           />
-
-<meta name="facebook-domain-verification" content="bclmu5021fhn4gb51pl3l47o576971" />
+{/* LIVE VERSION  */}
+          <meta name="facebook-domain-verification" content="bclmu5021fhn4gb51pl3l47o576971" />
+          
+          {/* DEV VERSION  */}
+          <meta name="facebook-domain-verification" content="cdtzab6dg5iu52azrz30ek3p55i0bj" />
 
 
         </Head>
