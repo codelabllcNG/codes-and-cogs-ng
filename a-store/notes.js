@@ -1,99 +1,37 @@
-const note = {
-  aboutTitle: "",
-  aboutBody: "",
-  noPaymentVideo: "",
-  remoteLocationVideo: "",
-  timeAndLanguageVideo: "",
+const data = {
+  pageTitle: "Staffing",
+  pageVideo: "",
+  firstDescription:
+    "With the demand for highly skilled tech professionals, locating the right expertise for your web and software projects becomes an increasing challenge for employers. After all, having the right team is paramount to the success of a business.",
 
-  reviewsTitle: "",
-  reviews: [
+  challengesHeader: "Some of these challenges could include:",
+  challenges: [
     {
-      id: "",
-      name: "",
-      icon: "",
-      title: "",
-      review: "",
-    },
+      title: "The limitation of talent sourcing platforms",
+      body: "LinkedIn, Indeed and a host of others are great platforms to find multiple talents. However, they do not guarantee that you find the right candidate.      "
+    }
+  ],
+  secondDescription: "From web developers to cloud experts, we help you hire the right talent for your project in only a few hours. At Codes and Cogs, we take recruiting seriously and are committed to providing businesses with the finest technical talent that meets your criteria and resonates with your company's value.  ",
+
+  whatMakesUsDifferentHeader: "What makes us different:",
+  whatMakesUsDifferent: [
+    {
+      title: "Local Talent Hub",
+      body: "Just like LinkedIn, Indeed, and other talent sourcing platforms, we are constantly scanning, vetting, and recruiting tech experts to our talent hub. (hyperlink this to the list of talents for the staffing sections…). We rely on market trend data to sign on the best in-demand tech specialists across North America. That said, we are most likely to have your tech needs local to you."
+    }
   ],
 
-  storiesTitle: "",
-  stories: [
+  howItWorksHeader: "How it Works",
+  howItWorks: [
     {
-      id: "",
-      icon: "",
-      name: "",
-      title: "",
-      story: "",
-    },
+      title: "Discuss your hiring needs",
+      imageUrl: "",
+      body: "In order to develop and personalize the best hiring strategy for you, we collaborate to identify your objectives and examine the market's situation. Not sure what you're searching for exactly? We got you. We have highly skilled experts for every tech stack."
+  }
   ],
-
-  ourTalentsTitle: "",
-  designers: [
-    {
-      id: "",
-      name: "",
-      icon: "",
-      title: "",
-      overview: "",
-
-      languages: [
-        {
-          name: "",
-          rating: 0,
-        },
-      ],
-
-      hobbies: [
-        {
-          name: "",
-          icon: "",
-        },
-      ],
-
-      projects: [
-        {
-          status: "Assigned",
-          value: 9,
-        },
-
-        {
-          status: "Completed",
-          value: 5,
-        },
-
-        {
-          status: "Badge",
-          value: "Icon Url",
-        },
-      ],
-
-      skills: [
-        {
-          name: "",
-          icon: "",
-        },
-      ],
-
-      otherSkills: [
-        {
-          name: "",
-          icon: "",
-        },
-          ],
-      
-          featuredProjects: [
-              {
-                  title: '',
-                  projectUrl: ''
-           }
-      ]
-    },
-    ],
   
- //Same structure for engineers and developers
+  banner: {
+    bannerUrl: "",
+    text: "Ready to learn more and how we can help take your hiring process to the next level?"
+  }
 };
-
-const note2 = {
-  whatWeDoTitle: '',
-  whatW
-}
