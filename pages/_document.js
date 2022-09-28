@@ -25,7 +25,7 @@ class MyDocument extends Document {
               height="1"
               width="1"
               style={{ display: "none" }}
-              src="https://www.facebook.com/tr?id=671379057370383&ev=PageView&noscript=1"
+              src="https://www.facebook.com/tr?id=648475550125111&ev=PageView&noscript=1"
             />
           </noscript>
          
