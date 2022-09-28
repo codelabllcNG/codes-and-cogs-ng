@@ -75,7 +75,7 @@ export default function MyApp({ Component, pageProps }) {
         
 <Script
           // strategy="afterInteractive"
-          // id="fb-pixel"
+          id="gta"
           dangerouslySetInnerHTML={{
             __html: `
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
