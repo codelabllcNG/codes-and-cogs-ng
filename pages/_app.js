@@ -74,8 +74,8 @@ export default function MyApp({ Component, pageProps }) {
 
         
 <Script
-          // strategy="afterInteractive"
-          id="gta"
+          strategy="afterInteractive"
+          id="gtag-base"
           dangerouslySetInnerHTML={{
             __html: `
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

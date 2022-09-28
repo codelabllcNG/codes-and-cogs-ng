@@ -15,8 +15,12 @@ class MyDocument extends Document {
             src="//js-na1.hs-scripts.com/22606943.js"
           ></script>
 
-          {/* META PIXEL */}
-          <noscript>
+        
+        </Head>
+        <body>
+
+            {/* META PIXEL */}
+            <noscript>
             <img
               height="1"
               width="1"
@@ -34,8 +38,6 @@ class MyDocument extends Document {
               width="0"
             ></iframe>
           </noscript>
-        </Head>
-        <body>
           <Main />
           <NextScript />
         </body>
