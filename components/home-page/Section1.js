@@ -165,11 +165,14 @@ function Section1(props) {
               placeholder="Search for Talents"
             />
           </div>{" "}
-          <div    onClick={() => {
-                fbq.event('trackCustom', 'Searching Talents'), {searchWord: `${searchKeyword}`}
-                // , {searchWord: `${searchKeyword}`}
-            // console.log('Event should trigger');
-              }}>
+          <div    
+               onClick={() => {
+                window.fbq('trackCustom', 'Talent Search'), {
+                  searchWord: `${searchKeyword}`,
+                  page: "Landing Page"
+                }
+                }}
+          >
             {" "}
             <button
            

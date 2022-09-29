@@ -80,9 +80,19 @@ function Section4(props) {
         </div>
 
         {category === "designers" && (
-          <div className="grid gap-2 560:gap-4 grid-cols-2 md:grid-cols-3 mt-10 text-xs 350:text-sm sm:text-base">
+          <div 
+         
+            
+            className="grid gap-2 560:gap-4 grid-cols-2 md:grid-cols-3 mt-10 text-xs 350:text-sm sm:text-base">
             {designersArray.map((designer) => (
               <div
+              onMouseOver={() => {
+                window.fbq('trackCustom', 'Talent Profile View'), {
+                  clickedTalent: `${designer.name}`,
+                  page: "AboutUs Page"
+                }
+                }}
+                
                 key={designer.id}
                 onClick={() => {
                   router.push(`/talents/${designer.id}`);

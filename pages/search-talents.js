@@ -3,7 +3,7 @@ import Image from "next/image";
 import BotIcon from "../components/BotIcon";
 import SectionBanner from "../components/SectionBanner"
 import AllCtx from "../util-functions/allCtx";
-
+import * as fbq from "../util-functions/meta-pixel"
 import { useRouter } from "next/router";
 import HeaderBanner from "../components/HeaderBanner";
 
@@ -155,9 +155,18 @@ function SearchTalents(props) {
                 placeholder="Search for Talents"
               />
             </div>{" "}
-            <div>
+            <div
+                onClick={() => {
+                window.fbq('trackCustom', 'Talent Search'), {
+                  searchWord: `${searchKeyword}`,
+                  page: "HireTalent Page"
+                }
+                }}
+            >
               {" "}
               <button
+
+            
                 // onClick={() => {
                 //   router.push("/search-talents");
                 // }}
