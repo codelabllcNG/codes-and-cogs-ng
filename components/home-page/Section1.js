@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import * as fbq from '../../util-functions/meta-pixel'
 
 import AllCtx from "../../util-functions/allCtx";
 import BotIcon from "../BotIcon";
@@ -165,7 +166,7 @@ function Section1(props) {
             />
           </div>{" "}
           <div    onClick={() => {
-                fbq('trackCustom', 'Searching Talents'), {searchWord: `${searchKeyword}`}
+                fbq.event('trackCustom', 'Searching Talents'), {searchWord: `${searchKeyword}`}
                 // , {searchWord: `${searchKeyword}`}
             // console.log('Event should trigger');
               }}>

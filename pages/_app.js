@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar";
 import "../styles/globals.css";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import * as fbq from "../util-functions/meta-pixel";
 
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -18,23 +19,16 @@ export default function MyApp({ Component, pageProps }) {
     use();
   }, []);
 
-  
-  const pageView = () => {
-    window.fbq("track", "PageView");
-  };
-
   useEffect(() => {
-    pageView();
+    fbq.pageView();
 
     const handleRouteChange = () => {
-      pageView();
+      fbq.pageView();
     };
 
     router.events.on("routeChangeComplete", handleRouteChange);
     return () => {
-      router.events.off("routeChangeComplete", () => {
-        window.fbq("track", "PageView");
-      });
+      router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, [router.events]);
 
@@ -47,37 +41,24 @@ export default function MyApp({ Component, pageProps }) {
             name="google-site-verification"
             content="AoyKWu8XW_-k0WiGwNX5yoL4yA6XqAxq_pCiw6v-iT4"
           />
-{/* LIVE VERSION  */}
-          <meta name="facebook-domain-verification" content="bclmu5021fhn4gb51pl3l47o576971" />
-          
+          {/* LIVE VERSION  */}
+          <meta
+            name="facebook-domain-verification"
+            content="bclmu5021fhn4gb51pl3l47o576971"
+          />
+
           {/* DEV VERSION  */}
-          <meta name="facebook-domain-verification" content="cdtzab6dg5iu52azrz30ek3p55i0bj" />
-
-          <Script
-          strategy="afterInteractive"
-          id="fb-pixel"
-          dangerouslySetInnerHTML={{
-            __html: `
-              !function(f,b,e,v,n,t,s)
-          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-          n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t,s)}(window, document,'script',
-          'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '648475550125111');
-          fbq('track', 'PageView');
-              `,
-          }}
-        />
-
+          <meta
+            name="facebook-domain-verification"
+            content="cdtzab6dg5iu52azrz30ek3p55i0bj"
+          />
         </Head>
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
           strategy="afterInteractive"
         />
 
+        {/* META PIXEL */}
         <Script
           strategy="afterInteractive"
           id="fb-pixel"
@@ -96,9 +77,8 @@ export default function MyApp({ Component, pageProps }) {
               `,
           }}
         />
-
-        
-<Script
+        {/* GOOGLE TAG MANAGER  */}
+        <Script
           strategy="afterInteractive"
           id="gtag-base"
           dangerouslySetInnerHTML={{
