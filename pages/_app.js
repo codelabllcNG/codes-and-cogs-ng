@@ -44,7 +44,7 @@ export default function MyApp({ Component, pageProps }) {
           {/* LIVE VERSION  */}
           <meta
             name="facebook-domain-verification"
-            content="bclmu5021fhn4gb51pl3l47o576971"
+            content="4d1q0iqw8cdum8puv1jrxgm4c0z9fn"
           />
 
           {/* DEV VERSION  */}
