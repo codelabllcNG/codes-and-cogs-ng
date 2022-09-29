@@ -29,15 +29,7 @@ class MyDocument extends Document {
             />
           </noscript>
 
-               {/* META PIXEL DEV MODE */}
-               <noscript>
-            <img
-              height="1"
-              width="1"
-              style={{ display: "none" }}
-              src="https://www.facebook.com/tr?id=518807819994424&ev=PageView&noscript=1"
-            />
-          </noscript>
+         
          
           {/* GOOGLE TAG MANAGER */}
           <noscript>
