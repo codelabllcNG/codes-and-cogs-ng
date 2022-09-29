@@ -48,10 +48,10 @@ export default function MyApp({ Component, pageProps }) {
           />
 
           {/* DEV VERSION  */}
-          <meta
+          {/* <meta
             name="facebook-domain-verification"
             content="cdtzab6dg5iu52azrz30ek3p55i0bj"
-          />
+          /> */}
         </Head>
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
