@@ -25,13 +25,17 @@ function Section4(props) {
   return (
     <div className="md:px-10 px-5 lg:px-16 mt-20">
       <div className="flex  justify-center md:mb-2">
-        <div dangerouslySetInnerHTML={{ __html: ourTalentTitle}} className="font-bold header">
-        {}
+        <div
+          dangerouslySetInnerHTML={{ __html: ourTalentTitle }}
+          className="font-bold header"
+        >
+          {}
         </div>
       </div>
       <div className="flex justify-center mb-3 ">
         <div className=" w-[75px] md:w-[150px]">
-          <Image alt="Image alt text"
+          <Image
+            alt="Image alt text"
             src="/images/logos-and-icons/red-underline.png"
             width={150}
             height={20}
@@ -80,27 +84,27 @@ function Section4(props) {
         </div>
 
         {category === "designers" && (
-          <div 
-         
-            
-            className="grid gap-2 560:gap-4 grid-cols-2 md:grid-cols-3 mt-10 text-xs 350:text-sm sm:text-base">
+          <div className="grid gap-2 560:gap-4 grid-cols-2 md:grid-cols-3 mt-10 text-xs 350:text-sm sm:text-base">
             {designersArray.map((designer) => (
               <div
-              onMouseOver={() => {
-                window.fbq('trackCustom', 'Talent Profile View'), {
-                  clickedTalent: `${designer.name}`,
-                  page: "AboutUs Page"
-                }
-                }}
-                
+                onMouseOver={() => {}}
                 key={designer.id}
                 onClick={() => {
+                  window.fbq("trackCustom", "Talent Profile View", {
+                    viewedTalent: `${designer.name}`,
+                    page: "About Us Page",
+                  });
                   router.push(`/talents/${designer.id}`);
                 }}
                 className="bg-mid-color hover:bg-[#ECF1FA] hover:scale-105 duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
               >
                 <div className="w-10 560:w-14">
-                  <Image alt="Image alt text" height={75} width={64} src={designer.icon || "/images/default-dp.png"} />
+                  <Image
+                    alt="Image alt text"
+                    height={75}
+                    width={64}
+                    src={designer.icon || "/images/default-dp.png"}
+                  />
                 </div>{" "}
                 <div>
                   {" "}
@@ -118,12 +122,21 @@ function Section4(props) {
               <div
                 key={engineer.id}
                 onClick={() => {
+                  window.fbq("trackCustom", "Talent Profile View", {
+                    viewedTalent: `${engineer.name}`,
+                    page: "About Us Page",
+                  });
                   router.push(`/talents/${engineer.id}`);
                 }}
                 className="bg-mid-color hover:bg-[#ECF1FA] duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
               >
                 <div className="w-10 560:w-14">
-                  <Image alt="Image alt text" height={75} width={64} src={engineer.icon || "/images/default-dp.png"} />
+                  <Image
+                    alt="Image alt text"
+                    height={75}
+                    width={64}
+                    src={engineer.icon || "/images/default-dp.png"}
+                  />
                 </div>{" "}
                 <div>
                   {" "}
@@ -141,12 +154,21 @@ function Section4(props) {
               <div
                 key={developer.id}
                 onClick={() => {
+                  window.fbq("trackCustom", "Talent Profile View", {
+                    viewedTalent: `${developer.name}`,
+                    page: "About Us Page",
+                  });
                   router.push(`/talents/${developer.id}`);
                 }}
                 className="bg-mid-color hover:bg-[#ECF1FA] duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
               >
                 <div className="w-10 560:w-14 ">
-                  <Image alt="Image alt text" height={75} width={64} src={developer.icon || "/images/default-dp.png"}  />
+                  <Image
+                    alt="Image alt text"
+                    height={75}
+                    width={64}
+                    src={developer.icon || "/images/default-dp.png"}
+                  />
                 </div>{" "}
                 <div>
                   {" "}

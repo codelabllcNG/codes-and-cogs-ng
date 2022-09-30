@@ -14,8 +14,7 @@ function PostAJob(props) {
     setIdOfTalentToHire,
   } = AllCtx();
 
-  const { title, engineerType, bgImage,    bannerImage,
-    bannerText, } = props;
+  const { title, engineerType, bgImage, bannerImage, bannerText } = props;
 
   const [posting, setPosting] = useState(false);
   const [response, setResponse] = useState("");
@@ -25,6 +24,58 @@ function PostAJob(props) {
   const durationRef = useRef();
   const engineerRef = useRef();
   const descriptionRef = useRef();
+
+  function eventPostAJobFullyFilled() {
+    const nameInput = nameRef.current.value;
+    const emailInput = emailRef.current.value;
+    const durationInput = durationRef.current.value;
+    const engineerInput = engineerRef.current?.value || "I chose a talent.";
+    const descriptionInput = descriptionRef.current.value;
+
+    if (talentToHire) {
+      if (
+        nameInput &&
+        nameInput.trim() !== "" &&
+        durationInput &&
+        durationInput.trim() !== "" &&
+        emailInput &&
+        emailInput.trim() !== "" &&
+        descriptionInput &&
+        descriptionInput.trim() !== "" &&
+        talentToHire &&
+        talentToHire.trim() !== ""
+      ) {
+        window.fbq("trackCustom", "Talent Request Form Filled", {
+          name: `${nameInput}`,
+          email: `${emailInput}`,
+          duration: `${durationInput}`,
+          talentNeeded: `${talentToHire}`,
+          description: `${descriptionInput}`,
+        });
+      }
+    } else {
+      if (
+        nameInput &&
+        nameInput.trim() !== "" &&
+        durationInput &&
+        durationInput.trim() !== "" &&
+        emailInput &&
+        emailInput.trim() !== "" &&
+        descriptionInput &&
+        descriptionInput.trim() !== "" &&
+        engineerInput &&
+        engineerInput.trim() !== ""
+      ) {
+        window.fbq("trackCustom", "Job Posting Form Filled", {
+          name: `${nameInput}`,
+          email: `${emailInput}`,
+          duration: `${durationInput}`,
+          engineerType: `${engineerInput}`,
+          description: `${descriptionInput}`,
+        });
+      }
+    }
+  }
 
   async function submitRequirement(e) {
     e.preventDefault();
@@ -103,6 +154,25 @@ function PostAJob(props) {
             "Job posted successfully! You will be contacted very soon."
           );
       console.log(data);
+
+      if (talentToHire) {
+        window.fbq("trackCustom", "Talent Request Form Submitted", {
+          name: `${nameInput}`,
+          email: `${emailInput}`,
+          duration: `${durationInput}`,
+          talentNeeded: `${talentToHire}`,
+          description: `${descriptionInput}`,
+        });
+      } else {
+        window.fbq("trackCustom", "Job Posting Form Submitted", {
+          name: `${nameInput}`,
+          email: `${emailInput}`,
+          duration: `${durationInput}`,
+          engineerType: `${engineerInput}`,
+          description: `${descriptionInput}`,
+        });
+      }
+      
       nameRef.current.value = "";
       emailRef.current.value = "";
       durationRef.current.value = "";
@@ -178,6 +248,9 @@ function PostAJob(props) {
               </div>
               <div>
                 <input
+                  onChange={(e) => {
+                    eventPostAJobFullyFilled();
+                  }}
                   ref={nameRef}
                   className="w-full h-[2rem] text-sm focus:outline outline-1 outline-blue-900 rounded-lg px-3"
                   type="text"
@@ -196,6 +269,9 @@ function PostAJob(props) {
 
               <div>
                 <input
+                  onChange={(e) => {
+                    eventPostAJobFullyFilled();
+                  }}
                   ref={emailRef}
                   className="w-full h-[2rem] text-sm focus:outline outline-1 outline-blue-900 rounded-lg px-3"
                   type="text"
@@ -214,6 +290,9 @@ function PostAJob(props) {
 
               <div>
                 <input
+                  onChange={(e) => {
+                    eventPostAJobFullyFilled();
+                  }}
                   ref={durationRef}
                   placeholder="e.g three months"
                   className="w-full h-[2rem] text-sm focus:outline outline-1 outline-blue-900 rounded-lg px-3"
@@ -235,6 +314,9 @@ function PostAJob(props) {
                 <div>
                   <input
                     // ref={}
+                    onChange={(e) => {
+                      eventPostAJobFullyFilled();
+                    }}
                     defaultValue={talentToHire}
                     className="w-full h-[2rem] text-sm focus:outline outline-1 outline-blue-900 rounded-lg px-3"
                     type="text"
@@ -252,6 +334,9 @@ function PostAJob(props) {
                 </div>
                 <div>
                   <select
+                    onChange={(e) => {
+                      eventPostAJobFullyFilled();
+                    }}
                     ref={engineerRef}
                     className="w-full h-[2rem] text-sm   focus:outline outline-1 outline-blue-900 rounded-lg px-3"
                     type="text"
@@ -282,6 +367,9 @@ function PostAJob(props) {
               </div>
               <div>
                 <textarea
+                  onChange={(e) => {
+                    eventPostAJobFullyFilled();
+                  }}
                   ref={descriptionRef}
                   //   required
                   rows={5}
@@ -330,7 +418,10 @@ function PostAJob(props) {
 
       <SectionBanner
         bgUrl={bannerImage || "/images/post-a-job-banner.webp"}
-        title={bannerText || "Get connected to highly skilled tech experts in 3 days."}
+        title={
+          bannerText ||
+          "Get connected to highly skilled tech experts in 3 days."
+        }
         btnText={"See More"}
         btnUrl={"/search-talents"}
       />

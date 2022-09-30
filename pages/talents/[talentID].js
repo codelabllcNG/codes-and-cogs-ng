@@ -67,6 +67,10 @@ function TalentID(props) {
               </div>{" "}
               <div
                 onClick={() => {
+                  window.fbq('trackCustom', 'Talent Profile Hire Button Clicked', {
+                    talentToHire: `${selectedTalent.name}`,
+                  
+                  })
                   setTalentToHire(selectedTalent.name);
                   setIdOfTalentToHire(selectedTalent.id);
                   router.push("/post-a-job");
@@ -484,6 +488,10 @@ function TalentID(props) {
         <div className=" rounded-md w-[80%] md:w-[50%] flex justify-center bg-pry-color py-3 text-white 400:text-lg 400:font-semibold hover:shadow-lg cursor-pointer">
           <button
             onClick={() => {
+              window.fbq('trackCustom', 'Talent Profile Hire Button Clicked', {
+                talentToHire: `${selectedTalent.name}`,
+              
+              })
               setTalentToHire(selectedTalent.name);
               setIdOfTalentToHire(selectedTalent.id);
 

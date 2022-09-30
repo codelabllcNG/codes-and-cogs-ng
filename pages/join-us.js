@@ -67,6 +67,9 @@ function JoinUS(props) {
   }
 
   async function takeTest(e) {
+
+
+    
     try {
       const nameInput = nameRef.current.value;
       const emailInput = emailRef.current.value;
@@ -118,6 +121,7 @@ function JoinUS(props) {
           new Date(`${data.expireTime}`).getMinutes() - 1
         )
       );
+      window.fbq('trackCustom', 'Real Test Button Clicked')
       setResponse("Test questions fetched successfully!");
       console.log("Test questions fetched successfully!");
       // console.log(data);
@@ -251,7 +255,13 @@ function JoinUS(props) {
           </div>
           <p className="text-center font-semibold mt-2">OR</p>
 
-          <div className="px-5 md:px-10 lg:px-16 mt-2 justify-center flex decoration-blue-600 underline text-cyan-400 font-semibold ">
+          <div
+            onClick={() => {
+              window.fbq('trackCustom', 'Demo Test Button Clicked'), {
+                  
+              }
+              }}
+            className="px-5 md:px-10 lg:px-16 mt-2 justify-center flex decoration-blue-600 underline text-cyan-400 font-semibold ">
             {" "}
             <Link passHref href="/demo-test">
               <a>Take a demo test.</a> 
@@ -393,7 +403,8 @@ function JoinUS(props) {
             </div>
 
             <div className=" text-center font-bold">
-              <button
+              <button 
+                
                 type="submit"
                 className={`bg-pry-color text-white h-[2.5rem] w-full rounded-lg sm:text-lg hover:bg-opacity-80 ${
                   fetchingQuestions ? "bg-gray-400 pointer-events-none" : ""

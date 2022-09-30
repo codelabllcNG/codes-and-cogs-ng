@@ -15,7 +15,6 @@ function ToolID(props) {
 
   const [category, setCategory] = useState("designers");
 
-
   const {
     skillID,
     selectedSkill,
@@ -48,9 +47,10 @@ function ToolID(props) {
         }
 
         if (typeof data.talents === "string") {
-         
           setSearchingTalents(false);
-          setResponse("Talents that match this skill are currently on other projects, you can browse through our available talents below.");
+          setResponse(
+            "Talents that match this skill are currently on other projects, you can browse through our available talents below."
+          );
           setTalentsFound([]);
           console.log(data.talents);
           return;
@@ -120,10 +120,9 @@ function ToolID(props) {
         </div>
       </div> */}
 
-      <HeaderBanner title={selectedSkill.name}/>
+      <HeaderBanner title={selectedSkill.name} />
 
       <div className="mt-10  justify-between items-center ">
-     
         <div className=" flex justify-center">
           {" "}
           <video
@@ -157,12 +156,12 @@ function ToolID(props) {
           </div>
         ) : talentsFound.length < 1 ? (
           <div className="flex  justify-center text-lg font-semibold text-red-600">
-            <div className='w-full'>
-              <p className='mb-5'>{response}</p>
-              <div className=''>
+            <div className="w-full">
+              <p className="mb-5">{response}</p>
+              <div className="">
                 <div className="flex justify-center bg-transparent text-pry-color font-semibold text-xs 400:text-sm 560:text-base  ">
                   <div
-                    onClick={() => { 
+                    onClick={() => {
                       setCategory("designers");
                     }}
                     className={`${
@@ -205,16 +204,20 @@ function ToolID(props) {
                       <div
                         key={designer.id}
                         onClick={() => {
+                          window.fbq("trackCustom", "Talent Profile View", {
+                            viewedTalent: `${designer.name}`,
+                            page: "Skills Page",
+                          });
                           router.push(`/talents/${designer.id}`);
                         }}
                         className="bg-mid-color hover:bg-[#ECF1FA] hover:scale-105 duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
                       >
                         <div className="w-10 560:w-14">
-                          <Image alt="Image alt text"
+                          <Image
+                            alt="Image alt text"
                             height={75}
                             width={64}
                             src={designer.icon || "/images/default-dp.png"}
-                           
                           />
                         </div>{" "}
                         <div>
@@ -235,16 +238,20 @@ function ToolID(props) {
                       <div
                         key={engineer.id}
                         onClick={() => {
+                          window.fbq("trackCustom", "Talent Profile View", {
+                            viewedTalent: `${engineer.name}`,
+                            page: "Skills Page",
+                          });
                           router.push(`/talents/${engineer.id}`);
                         }}
                         className="bg-mid-color hover:bg-[#ECF1FA] duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
                       >
                         <div className="w-10 560:w-14">
-                          <Image alt="Image alt text"
+                          <Image
+                            alt="Image alt text"
                             height={75}
                             width={64}
                             src={engineer.icon || "/images/default-dp.png"}
-                           
                           />
                         </div>{" "}
                         <div>
@@ -265,16 +272,20 @@ function ToolID(props) {
                       <div
                         key={developer.id}
                         onClick={() => {
+                          window.fbq("trackCustom", "Talent Profile View", {
+                            viewedTalent: `${developer.name}`,
+                            page: "Skills Page",
+                          });
                           router.push(`/talents/${developer.id}`);
                         }}
                         className="bg-mid-color hover:bg-[#ECF1FA] duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
                       >
                         <div className="w-10 560:w-14 ">
-                          <Image alt="Image alt text"
+                          <Image
+                            alt="Image alt text"
                             height={75}
                             width={64}
                             src={developer.icon || "/images/default-dp.png"}
-                         
                           />
                         </div>{" "}
                         <div>
@@ -300,7 +311,8 @@ function ToolID(props) {
             </div>
             <div className="flex justify-center mb-4">
               <div className=" w-[75px] md:w-[150px]">
-                <Image alt="Image alt text"
+                <Image
+                  alt="Image alt text"
                   src="/images/logos-and-icons/red-underline.png"
                   width={150}
                   height={20}
@@ -313,16 +325,20 @@ function ToolID(props) {
                 <div
                   key={talent.id}
                   onClick={() => {
+                    window.fbq("trackCustom", "Talent Profile View", {
+                      viewedTalent: `${talent.name}`,
+                      page: "Skills Page",
+                    });
                     router.push(`/talents/${talent.id}`);
                   }}
                   className="bg-mid-color hover:bg-[#ECF1FA] hover:scale-105 duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
                 >
                   <div className="w-10 560:w-14">
-                    <Image alt="Image alt text"
+                    <Image
+                      alt="Image alt text"
                       height={75}
                       width={64}
                       src={talent.icon || "/images/default-dp.png"}
-                 
                     />
                   </div>{" "}
                   <div>

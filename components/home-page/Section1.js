@@ -167,10 +167,10 @@ function Section1(props) {
           </div>{" "}
           <div    
                onClick={() => {
-                window.fbq('trackCustom', 'Talent Search'), {
-                  searchWord: `${searchKeyword}`,
+                window.fbq('trackCustom', 'Talent Search',  {
+                  searchKeyword: `${searchKeyword}`,
                   page: "Landing Page"
-                }
+                })
                 }}
           >
             {" "}

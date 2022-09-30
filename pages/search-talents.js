@@ -157,11 +157,11 @@ function SearchTalents(props) {
             </div>{" "}
             <div
                 onClick={() => {
-                window.fbq('trackCustom', 'Talent Search'), {
-                  searchWord: `${searchKeyword}`,
-                  page: "HireTalent Page"
-                }
-                }}
+                  window.fbq('trackCustom', 'Talent Search',  {
+                    searchKeyword: `${searchKeyword}`,
+                    page: "Hire Talent Page"
+                  })
+                  }}
             >
               {" "}
               <button
