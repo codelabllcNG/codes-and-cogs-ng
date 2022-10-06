@@ -1,7 +1,6 @@
 // pages/server-sitemap.xml/index.tsx
 
 import { getServerSideSitemap } from "next-sitemap";
-import { BLOG_POSTS } from "../../a-store/content-store/BLOG_POSTS";
 
 export const getServerSideProps = async (ctx) => {
   const blogRes = await fetch(
