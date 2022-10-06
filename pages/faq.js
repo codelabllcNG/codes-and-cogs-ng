@@ -15,8 +15,8 @@ const {faqs} = props;
       </div>
 
           <div className='  grid grid-cols-1 md:grid-cols-2 gap-5' >
-              {faqs.map(faq => <div className=''>
-                  <div key={faq.title} className="text-pry-color text-2xl mt-5 font-semibold " dangerouslySetInnerHTML={{ __html: faq.title}}>
+              {faqs.map(faq => <div key={faq.title} className=''>
+                  <div  className="text-pry-color text-2xl mt-5 font-semibold " dangerouslySetInnerHTML={{ __html: faq.title}}>
                       {}
                   </div>
 
