@@ -51,6 +51,21 @@ function MegaMenu() {
             Solutions
           </p>
         </div>
+
+        <div
+          onClick={() => {
+            router.push("/faq")
+            setMegaMenu(false);
+          }}
+        >
+          <p
+            className={`cursor-pointer ${
+              !solutionsClicked ? "font-normal" : ""
+            }`}
+          >
+            FAQ
+          </p>
+        </div>
       </div>
 
       {/* SERVICES MEGA MENU  */}

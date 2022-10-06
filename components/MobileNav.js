@@ -6,17 +6,20 @@ import { HiOutlineChevronDown, HiOutlineChevronUp } from "react-icons/hi";
 function MobileNav() {
   const router = useRouter();
 
-  const { menuIsClicked, setMenuIsClicked, setTalentToHire,  setIdOfTalentToHire } = AllCtx();
+  const {
+    menuIsClicked,
+    setMenuIsClicked,
+    setTalentToHire,
+    setIdOfTalentToHire,
+  } = AllCtx();
 
   const [whatWeDoExpanded, setWhatWeDoExpanded] = useState(true);
 
-//   useEffect (() => {
-//     window.addEventListener('scroll', ()=>{
-     
-//     })
-// })
+  //   useEffect (() => {
+  //     window.addEventListener('scroll', ()=>{
 
-
+  //     })
+  // })
 
   return (
     <div
@@ -67,10 +70,10 @@ function MobileNav() {
 
           <div
             onClick={() => {
-              setTalentToHire(''); setIdOfTalentToHire('')
+              setTalentToHire("");
+              setIdOfTalentToHire("");
               router.push("/post-a-job");
               setMenuIsClicked(false);
-
             }}
           >
             <button>Post A Job</button>
@@ -101,10 +104,11 @@ function MobileNav() {
             <div className="accordion-item  mb-10">
               {" "}
               <h2 className="accordion-header ">
-                <button     onClick={() => {
-                  router.push("/what-we-do");
-                  // setMenuIsClicked(false);
-                }}
+                <button
+                  onClick={() => {
+                    router.push("/what-we-do");
+                    // setMenuIsClicked(false);
+                  }}
                   className="accordion-button  relative flex items-center w-full  text-base   text-left border-0 rounded-none transition focus:outline-none !bg-transparent !shadow-none font-sans !text-pry-color"
                   type="button"
                   data-bs-toggle="collapse"
@@ -152,13 +156,73 @@ function MobileNav() {
                           data-bs-parent="#accordionFlushExample2"
                         >
                           <div className="accordion-body  space-y-3 py-4 px-2  font-[500]">
-                            <button onClick={() =>{router.push('/what-we-do/remote-development-services');  setMenuIsClicked(false);}}>Remote Dev Services</button><br />
-                            <button onClick={() =>{router.push('/what-we-do/enterprise-packages');  setMenuIsClicked(false);}}>Enterprise Packages</button><br />
-                            <button onClick={() =>{router.push('/what-we-do/hiring-as-a-service');  setMenuIsClicked(false);}}>Hiring as a Service</button><br />
-                            <button onClick={() =>{router.push('/what-we-do/training');  setMenuIsClicked(false);}}>Training</button><br />
-                            <button onClick={() =>{router.push('/what-we-do/global-payroll');  setMenuIsClicked(false);}}>Global Payroll</button><br />
-                            <button onClick={() =>{router.push('/what-we-do/internship');  setMenuIsClicked(false);}}>Internship</button><br />
-                            <button className='!text-left' onClick={() =>{router.push('/what-we-do/compliance-and-hr-services');  setMenuIsClicked(false);}}>Compliance and HR Services</button>
+                            <button
+                              onClick={() => {
+                                router.push(
+                                  "/what-we-do/remote-development-services"
+                                );
+                                setMenuIsClicked(false);
+                              }}
+                            >
+                              Remote Dev Services
+                            </button>
+                            <br />
+                            <button
+                              onClick={() => {
+                                router.push("/what-we-do/enterprise-packages");
+                                setMenuIsClicked(false);
+                              }}
+                            >
+                              Enterprise Packages
+                            </button>
+                            <br />
+                            <button
+                              onClick={() => {
+                                router.push("/what-we-do/hiring-as-a-service");
+                                setMenuIsClicked(false);
+                              }}
+                            >
+                              Hiring as a Service
+                            </button>
+                            <br />
+                            <button
+                              onClick={() => {
+                                router.push("/what-we-do/training");
+                                setMenuIsClicked(false);
+                              }}
+                            >
+                              Training
+                            </button>
+                            <br />
+                            <button
+                              onClick={() => {
+                                router.push("/what-we-do/global-payroll");
+                                setMenuIsClicked(false);
+                              }}
+                            >
+                              Global Payroll
+                            </button>
+                            <br />
+                            <button
+                              onClick={() => {
+                                router.push("/what-we-do/internship");
+                                setMenuIsClicked(false);
+                              }}
+                            >
+                              Internship
+                            </button>
+                            <br />
+                            <button
+                              className="!text-left"
+                              onClick={() => {
+                                router.push(
+                                  "/what-we-do/compliance-and-hr-services"
+                                );
+                                setMenuIsClicked(false);
+                              }}
+                            >
+                              Compliance and HR Services
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -190,19 +254,54 @@ function MobileNav() {
                           data-bs-parent="#accordionFlushExample3"
                         >
                           <div className="accordion-body space-y-3 py-4 px-2  font-[500]">
-                            <button onClick={() =>{router.push('/coming-soon');
-                           setMenuIsClicked(false);}}>Hackathon</button><br />
-                            <button onClick={() =>{router.push('/coming-soon');
-                           setMenuIsClicked(false);}}>Infrastructure</button><br />
-                            <button onClick={() =>{router.push('/coming-soon');
-                           setMenuIsClicked(false);}}>Workspace</button> <br />
-                            <button onClick={() =>{router.push('/coming-soon');
-                           setMenuIsClicked(false);}}>Salary Estimator</button>
-
-                            
+                            <button
+                              onClick={() => {
+                                router.push("/coming-soon");
+                                setMenuIsClicked(false);
+                              }}
+                            >
+                              Hackathon
+                            </button>
+                            <br />
+                            <button
+                              onClick={() => {
+                                router.push("/coming-soon");
+                                setMenuIsClicked(false);
+                              }}
+                            >
+                              Infrastructure
+                            </button>
+                            <br />
+                            <button
+                              onClick={() => {
+                                router.push("/coming-soon");
+                                setMenuIsClicked(false);
+                              }}
+                            >
+                              Workspace
+                            </button>{" "}
+                            <br />
+                            <button
+                              onClick={() => {
+                                router.push("/coming-soon");
+                                setMenuIsClicked(false);
+                              }}
+                            >
+                              Salary Estimator
+                            </button>
                           </div>
                         </div>
                       </div>
+                    
+                      <button
+                        onClick={() => {
+                          router.push("/faq");
+                          setMenuIsClicked(false);
+                        }}
+                        className="text-[0.9rem] font-semibold mt-3"
+                      >
+                        FAQ
+                      </button>
                     </div>
                   </div>
                 </div>

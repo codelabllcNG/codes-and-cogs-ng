@@ -40,11 +40,20 @@ export function AllContextProvider(props) {
   const [talentToHire, setTheTalentToHire] = useState("");
   const [idOfTalentToHire, setTheIdOfTalentToHire] = useState("");
 
+  const [talentsNearYouResponse, setTheTalentsNearYouResponse] = useState("");
+  const [geolocationSupported, setTheGeolocationSupported] = useState(true);
+  const [locationGranted, setTheLocationGranted] = useState(false);
+  const [coordinates, setTheCoordinates] = useState();
+
   const devUrl = "http://dev.codesandcogs.com";
   const prodUrl = "https://dev.codesandcogs.com";
 
   const context = {
     menuIsClicked,
+    talentsNearYouResponse,
+    geolocationSupported,
+    locationGranted,
+    coordinates,
     idOfTalentToHire,
     demoTestData,
     demoCountDownTimer,
@@ -75,7 +84,12 @@ export function AllContextProvider(props) {
     searchingSkills,
     talentsFound,
 
-    setTestData, setDemoTestData, setDemoExpiryTime, setDemoCountDownTimer,
+    setTestData,
+    setDemoTestData,
+    setDemoExpiryTime,
+    setLocationGranted,
+    setTalentsNearYouResponse,
+    setDemoCountDownTimer,
     setIdOfTalentToHire,
     setExpiryTime,
     setCountDownTimer,
@@ -94,6 +108,8 @@ export function AllContextProvider(props) {
     setSearchingSkills,
     setTalentsFound,
     setTalentToHire,
+    setGeolocationSupported,
+    setCoordinates,
   };
 
   return (
@@ -102,16 +118,32 @@ export function AllContextProvider(props) {
 
   // functions below
 
+  function setCoordinates(value) {
+    setTheCoordinates(value);
+  }
+
+  function setLocationGranted(value) {
+    setTheLocationGranted(value);
+  }
+
+  function setGeolocationSupported(value) {
+    setTheGeolocationSupported(value);
+  }
+
+  function setTalentsNearYouResponse(value) {
+    setTheTalentsNearYouResponse(value);
+  }
+
   function setDemoTestData(value) {
-    setTheDemoTestData(value)
+    setTheDemoTestData(value);
   }
 
   function setDemoExpiryTime(value) {
-    setTheDemoExpiryTime(value)
+    setTheDemoExpiryTime(value);
   }
 
   function setDemoCountDownTimer(value) {
-    setTheDemoCountDownTimer(value)
+    setTheDemoCountDownTimer(value);
   }
 
   function setTalentToHire(value) {

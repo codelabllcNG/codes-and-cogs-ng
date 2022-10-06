@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import { QUESTIONS } from "../a-store/content-store/QUESTIONS";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import AllCtx from "../util-functions/allCtx";
 import { useRouter } from "next/router";

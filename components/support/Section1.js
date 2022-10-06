@@ -46,7 +46,7 @@ function Section1(props) {
             {}
           </div>
       <div className="dangerous-html  md:mb-5">
-        <div dangerouslySetInnerHTML={{__html: supportSubtitle}} className="text-pry-color text-lg md:text-xl md:leading-7 lg:text-2xl">
+        <div dangerouslySetInnerHTML={{__html: supportSubtitle}} className=" text-lg md:text-xl md:leading-7 lg:text-2xl">
        {}
         </div>
       </div>

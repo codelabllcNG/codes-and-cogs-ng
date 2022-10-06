@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-// import { QUESTIONS } from "../a-store/content-store/QUESTIONS";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import AllCtx from "../util-functions/allCtx";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Head from "next/head";
 import HeaderBanner from "../components/HeaderBanner";
-
 
 function TakeATest() {
   const router = useRouter();
@@ -32,6 +30,17 @@ function TakeATest() {
 
   const [timeUp, setTimeUp] = useState(false);
   const [showConfirmBox, setShowConfirmBox] = useState(false);
+
+  const [fireUseEffect, setFireUseEffect] = useState(false);
+
+  useEffect(() => {
+    setFireUseEffect(true);
+    if (fireUseEffect) {
+      window.fbq("trackCustom", "Invitation Test Taken", {
+        participantEmail: `${testData.participants_info.email}`,
+      });
+    }
+  }, [fireUseEffect]);
 
   useEffect(() => {
     if (!testData) {
@@ -156,6 +165,10 @@ function TakeATest() {
         return;
       }
 
+      window.fbq("trackCustom", "Invitation Test Submissions", {
+        participantEmail: `${testData.participants_info.email}`,
+      });
+
       setSubmitted(true);
       setCountDownTimer("__:__:__");
       setResponse(
@@ -192,7 +205,7 @@ function TakeATest() {
 
         <meta
           property="og:title"
-          content="Codes Codes and Cogs&apos; Invitation Test"
+          content="Codes Codes and Cogs' Invitation Test"
         />
         <meta
           property="og:description"
@@ -308,8 +321,7 @@ function TakeATest() {
                     </div>
                   </div> */}
 
-<HeaderBanner title={" JOB-FAIR TEST"} />
-
+                  <HeaderBanner title={" JOB-FAIR TEST"} />
 
                   <div className="flex  justify-between mt-10 mb-10">
                     <div className=" text-pry-color font-semibold 400: text-xl sm:text-2xl md:text-3xl">

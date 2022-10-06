@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
-import { TOOLS } from "../../a-store/content-store/TOOLS";
 import AllCtx from "../../util-functions/allCtx";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import BotIcon from "../BotIcon";

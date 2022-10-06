@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import BotIcon from "../components/BotIcon";
-import SectionBanner from "../components/SectionBanner"
+import SectionBanner from "../components/SectionBanner";
 import AllCtx from "../util-functions/allCtx";
-import * as fbq from "../util-functions/meta-pixel"
+import * as fbq from "../util-functions/meta-pixel";
 import { useRouter } from "next/router";
 import HeaderBanner from "../components/HeaderBanner";
 
@@ -21,7 +21,13 @@ function SearchTalents(props) {
     prodUrl,
   } = AllCtx();
 
-  const { designersArray, developersArray, engineersArray, searchBannerText, searchBannerImage } = props;
+  const {
+    designersArray,
+    developersArray,
+    engineersArray,
+    searchBannerText,
+    searchBannerImage,
+  } = props;
 
   const router = useRouter();
 
@@ -37,6 +43,9 @@ function SearchTalents(props) {
     }
 
     try {
+      window.fbq("trackCustom", "Talent Search", {
+        searchKeyword: `${searchKeyword}`,
+      });
       setSearchingSkills(true);
       setSearchResponse("Searching...");
       const response = await fetch(
@@ -116,23 +125,28 @@ function SearchTalents(props) {
           </div>
         </div> */}
 
-        <HeaderBanner title={'Search Talents'}/>
+        <HeaderBanner title={"Search Talents"} />
 
         <div className="flex justify-center mt-5  mb-2">
           <p className="400:text-2xl lg:text-3xl  text-center font-semibold text-pry-color">
             Build game-changing projects with the right talents.
           </p>
-        
         </div>
 
         <div className="flex md:px-20  justify-center  mb-6">
-          <div dangerouslySetInnerHTML={{ __html: "With the right team, you can build anything. Get access to our hub of engineering specialists who have been rigorously vetted, tested, and trained." }} className=' text-center'>
+          <div
+            dangerouslySetInnerHTML={{
+              __html:
+                "With the right team, you can build anything. Get access to our hub of engineering specialists who have been rigorously vetted, tested, and trained.",
+            }}
+            className=" text-center"
+          >
             {}
-        </div>
+          </div>
         </div>
       </div>
 
-      <div className='mb-10'>
+      <div className="mb-10">
         <div className="flex justify-center  mt-1">
           <form
             onSubmit={findTalents}
@@ -140,7 +154,8 @@ function SearchTalents(props) {
           >
             <div className="pl-3 flex border border-pry-color border-opacity-80 px-1 py-1 md:py-2  rounded-full   mr-2 text-sm w-[80%]">
               {" "}
-              <Image alt="Image alt text"
+              <Image
+                alt="Image alt text"
                 src="/images/logos-and-icons/search.png"
                 width={23}
                 height={23}
@@ -155,18 +170,9 @@ function SearchTalents(props) {
                 placeholder="Search for Talents"
               />
             </div>{" "}
-            <div
-                onClick={() => {
-                  window.fbq('trackCustom', 'Talent Search',  {
-                    searchKeyword: `${searchKeyword}`,
-                    page: "Hire Talent Page"
-                  })
-                  }}
-            >
+            <div>
               {" "}
               <button
-
-            
                 // onClick={() => {
                 //   router.push("/search-talents");
                 // }}
@@ -199,11 +205,11 @@ function SearchTalents(props) {
                 className="bg-mid-color hover:bg-[#ECF1FA] hover:scale-105 duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
               >
                 <div className="w-10 560:w-14">
-                  <Image alt="Image alt text"
+                  <Image
+                    alt="Image alt text"
                     height={75}
                     width={64}
-                    src={talent.icon || "/images/default-dp.png"}
-                   
+                    src={talent.icon || "/images/default-dp.svg"}
                   />
                 </div>{" "}
                 <div>
@@ -266,11 +272,11 @@ function SearchTalents(props) {
                     className="bg-mid-color hover:bg-[#ECF1FA] hover:scale-105 duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
                   >
                     <div className="w-10 560:w-14">
-                      <Image alt="Image alt text"
+                      <Image
+                        alt="Image alt text"
                         height={75}
                         width={64}
-                        src={designer.icon || "/images/default-dp.png"}
-                     
+                        src={designer.icon || "/images/default-dp.svg"}
                       />
                     </div>{" "}
                     <div>
@@ -291,14 +297,14 @@ function SearchTalents(props) {
                     onClick={() => {
                       router.push(`/talents/${engineer.id}`);
                     }}
-                    className="bg-mid-color hover:bg-[#ECF1FA] duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
+                    className="bg-mid-color hover:bg-[#ECF1FA] hover:scale-105 duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
                   >
                     <div className="w-10 560:w-14">
-                      <Image alt="Image alt text"
+                      <Image
+                        alt="Image alt text"
                         height={75}
                         width={64}
-                        src={engineer.icon || "/images/default-dp.png"}
-                      
+                        src={engineer.icon || "/images/default-dp.svg"}
                       />
                     </div>{" "}
                     <div>
@@ -319,14 +325,14 @@ function SearchTalents(props) {
                     onClick={() => {
                       router.push(`/talents/${developer.id}`);
                     }}
-                    className="bg-mid-color hover:bg-[#ECF1FA] duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
+                    className="bg-mid-color hover:bg-[#ECF1FA] hover:scale-105 duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
                   >
                     <div className="w-10 560:w-14 ">
-                      <Image alt="Image alt text"
+                      <Image
+                        alt="Image alt text"
                         height={75}
                         width={64}
-                        src={developer.icon || "/images/default-dp.png"}
-                       
+                        src={developer.icon || "/images/default-dp.svg"}
                       />
                     </div>{" "}
                     <div>
@@ -342,9 +348,15 @@ function SearchTalents(props) {
         )}
       </div>
 
-      <SectionBanner  bgUrl={searchBannerImage || "/images/hire-talent-banner.webp"} title={searchBannerText || "Hire top-tier and vetted tech talents that fit your project requirements."} btnText={"Learn More"} btnUrl={"/what-we-do"} />
-
-
+      <SectionBanner
+        bgUrl={searchBannerImage || "/images/hire-talent-banner.webp"}
+        title={
+          searchBannerText ||
+          "Hire top-tier and vetted tech talents that fit your project requirements."
+        }
+        btnText={"Learn More"}
+        btnUrl={"/what-we-do"}
+      />
     </div>
   );
 }
@@ -359,12 +371,17 @@ export async function getStaticProps() {
   const developersArray = data.developers;
   const engineersArray = data.engineers;
 
-  const searchBannerImage = data.searchBannerImage || "/images/hire-talent-banner.webp"
-  const searchBannerText = data.searchBannerText || "Hire top-tier and vetted tech talents that fit your project requirements."
+  const searchBannerImage =
+    data.searchBannerImage || "/images/hire-talent-banner.webp";
+  const searchBannerText =
+    data.searchBannerText ||
+    "Hire top-tier and vetted tech talents that fit your project requirements.";
 
   return {
     props: {
-      designersArray, searchBannerImage, searchBannerText, 
+      designersArray,
+      searchBannerImage,
+      searchBannerText,
       developersArray,
       engineersArray,
     },

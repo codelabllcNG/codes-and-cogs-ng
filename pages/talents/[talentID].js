@@ -22,7 +22,7 @@ function TalentID(props) {
   var twoRating = [true, true, false, false, false];
   var threeRating = [true, true, true, false, false];
   var fourRating = [true, true, true, true, false];
-  var fiveRating = [true, true, true, true, true]; 
+  var fiveRating = [true, true, true, true, true];
 
   const { talentID, selectedTalent } = props;
 
@@ -45,9 +45,7 @@ function TalentID(props) {
         </div>
       </div> */}
 
-      <HeaderBanner title={"Talent Profile"}/>
-
-
+      <HeaderBanner title={"Talent Profile"} />
 
       <div className=" 900:space-x-4 mt-10 900:flex">
         <div className=" 900:w-[40%]">
@@ -67,10 +65,13 @@ function TalentID(props) {
               </div>{" "}
               <div
                 onClick={() => {
-                  window.fbq('trackCustom', 'Talent Profile Hire Button Clicked', {
-                    talentToHire: `${selectedTalent.name}`,
-                  
-                  })
+                  window.fbq(
+                    "trackCustom",
+                    "Talent Profile Hire Button Clicked",
+                    {
+                      talentToHire: `${selectedTalent.name}`,
+                    }
+                  );
                   setTalentToHire(selectedTalent.name);
                   setIdOfTalentToHire(selectedTalent.id);
                   router.push("/post-a-job");
@@ -82,31 +83,31 @@ function TalentID(props) {
                 </button>
               </div>
             </div>{" "}
-            <div className=" float-right">
-              <Image alt="Image alt text"
+            <div className="ml-3 float-right">
+              <Image
+                alt="Talent DP"
                 height={80}
                 width={70}
                 className=""
-                src={selectedTalent.icon || "/images/default-dp.png"}
-            
+                src={selectedTalent.icon || "/images/default-dp.svg"}
               />
             </div>
           </div>
 
-{/* LOCATION */}
+          {/* LOCATION */}
 
-<div className="rounded-xl bg-semi-sec-color py-4 mb-4 ">
-              <div className="pl-4">
-                <p className="font-bold text-pry-color mb-2">Location</p>
-               
-                  <div  className="flex items-center">
-                <p className="w-[70px] font-semibold">{selectedTalent.country}</p> <p>({selectedTalent.state})</p>
-                   
-                  </div>
-               
+          <div className="rounded-xl bg-semi-sec-color py-4 mb-4 ">
+            <div className="pl-4">
+              <p className="font-bold text-pry-color mb-2">Location</p>
+
+              <div className="flex items-center">
+                <p className="w-[70px] font-semibold">
+                  {selectedTalent.country || "N/A"}
+                </p>{" "}
+                <p>({selectedTalent.state || "N/A"})</p>
               </div>
             </div>
-
+          </div>
 
           {/* LANGUAGES  */}
           {selectedTalent.languages && (
@@ -122,35 +123,45 @@ function TalentID(props) {
                         oneRating.map((value, i) => (
                           <div
                             key={i}
-                            className={`w-3 h-3 rounded-full flex ${value ? 'bg-gray-600' : 'bg-gray-300'}`}
+                            className={`w-3 h-3 rounded-full flex ${
+                              value ? "bg-gray-600" : "bg-gray-300"
+                            }`}
                           ></div>
                         ))}
                       {language.rating == 2 &&
                         twoRating.map((value) => (
                           <div
                             key={value}
-                             className={`w-3 h-3 rounded-full flex ${value ? 'bg-gray-600' : 'bg-gray-300'}`}
+                            className={`w-3 h-3 rounded-full flex ${
+                              value ? "bg-gray-600" : "bg-gray-300"
+                            }`}
                           ></div>
                         ))}
                       {language.rating == 3 &&
                         threeRating.map((value) => (
                           <div
                             key={value}
-                             className={`w-3 h-3 rounded-full flex ${value ? 'bg-gray-600' : 'bg-gray-300'}`}
+                            className={`w-3 h-3 rounded-full flex ${
+                              value ? "bg-gray-600" : "bg-gray-300"
+                            }`}
                           ></div>
                         ))}
                       {language.rating == 4 &&
                         fourRating.map((value) => (
                           <div
                             key={value}
-                             className={`w-3 h-3 rounded-full flex ${value ? 'bg-gray-600' : 'bg-gray-300'}`}
+                            className={`w-3 h-3 rounded-full flex ${
+                              value ? "bg-gray-600" : "bg-gray-300"
+                            }`}
                           ></div>
                         ))}
                       {language.rating == 5 &&
                         fiveRating.map((value) => (
                           <div
                             key={value}
-                             className={`w-3 h-3 rounded-full flex ${value ? 'bg-gray-600' : 'bg-gray-300'}`}
+                            className={`w-3 h-3 rounded-full flex ${
+                              value ? "bg-gray-600" : "bg-gray-300"
+                            }`}
                           ></div>
                         ))}
                     </div>
@@ -199,7 +210,7 @@ function TalentID(props) {
                       </div>
                       <div className="flex justify-center items-center text-xs ">
                         {" "}
-                        <p>{hobby.name}</p>{" "}
+                        <p>{hobby.name || "N/A"}</p>{" "}
                       </div>
                     </div>
                   ))}
@@ -222,7 +233,12 @@ function TalentID(props) {
                         {" "}
                         {project.value.includes("http") ? (
                           (
-                            <Image alt="Image alt text" src={project.value} height="20" width="20" />
+                            <Image
+                              alt="Image alt text"
+                              src={project.value}
+                              height="20"
+                              width="20"
+                            />
                           ) || "Nil"
                         ) : (
                           <p>{project.value || 0}</p>
@@ -257,26 +273,26 @@ function TalentID(props) {
             <div className=" grid grid-cols-5 gap-y-3  mt-3 ">
               {selectedTalent.skills.map((skill) => (
                 <div key={skill.id} className="">
-                  <div  className="flex justify-center cursor-pointer ">
-                  {/* onClick={()=>{router.push(`/skills/${skill.id}`)}} */}
+                  <div className="flex justify-center cursor-pointer ">
+                    {/* onClick={()=>{router.push(`/skills/${skill.id}`)}} */}
                     <div className="400:flex border-pry-color border-2 justify-center items-center bg-white h-8 w-8 hidden 400:h-12 400:w-12 rounded-full">
                       {" "}
-                      <Image alt="Image alt text"
+                      <Image
+                        alt="Image alt text"
                         height={30}
                         width={30}
                         className="w-4 h-4  400:h-auto 400:w-auto"
                         src={skill.icon || "/images/default-skill.png"}
-                   
                       />{" "}
                     </div>
                     <div className="flex border-pry-color border-2 justify-center items-center bg-white h-8 w-8 400:hidden 400:h-12 400:w-12 rounded-full">
                       {" "}
-                      <Image alt="Image alt text"
+                      <Image
+                        alt="Image alt text"
                         height={20}
                         width={20}
                         className="w-4 h-4  400:h-auto 400:w-auto"
                         src={skill.icon || "/images/default-skill.png"}
-                       
                       />{" "}
                     </div>
                   </div>
@@ -287,7 +303,8 @@ function TalentID(props) {
                     {skill.rating == 1 &&
                       oneRating.map((star, i) => (
                         <div key={i}>
-                          <Image alt="Image alt text"
+                          <Image
+                            alt="Image alt text"
                             src="/images/logos-and-icons/star.png"
                             height="10"
                             width="10"
@@ -298,7 +315,8 @@ function TalentID(props) {
                     {skill.rating == 2 &&
                       twoRating.map((star, i) => (
                         <div key={i}>
-                          <Image alt="Image alt text"
+                          <Image
+                            alt="Image alt text"
                             src="/images/logos-and-icons/star.png"
                             height="10"
                             width="10"
@@ -309,7 +327,8 @@ function TalentID(props) {
                     {skill.rating == 3 &&
                       threeRating.map((star, i) => (
                         <div key={i}>
-                          <Image alt="Image alt text"
+                          <Image
+                            alt="Image alt text"
                             src="/images/logos-and-icons/star.png"
                             height="10"
                             width="10"
@@ -320,7 +339,8 @@ function TalentID(props) {
                     {skill.rating == 4 &&
                       fourRating.map((star, i) => (
                         <div key={i}>
-                          <Image alt="Image alt text"
+                          <Image
+                            alt="Image alt text"
                             src="/images/logos-and-icons/star.png"
                             height="10"
                             width="10"
@@ -331,7 +351,8 @@ function TalentID(props) {
                     {skill.rating == 5 &&
                       fiveRating.map((star, i) => (
                         <div key={i}>
-                          <Image alt="Image alt text"
+                          <Image
+                            alt="Image alt text"
                             src="/images/logos-and-icons/star.png"
                             height="10"
                             width="10"
@@ -366,22 +387,22 @@ function TalentID(props) {
                       {" "}
                       <div className="400:flex hidden border-pry-color border-2 justify-center items-center bg-white h-8 w-8 400:h-12 400:w-12 rounded-full">
                         {" "}
-                        <Image alt="Image alt text"
+                        <Image
+                          alt="Image alt text"
                           height={30}
                           width={30}
                           className="w-4 h-4  400:h-auto 400:w-auto"
                           src={skill.icon || "/images/default-skill.png"}
-                         
                         />{" "}
                       </div>
                       <div className="flex 400:hidden border-pry-color border-2 justify-center items-center bg-white h-8 w-8 400:h-12 400:w-12 rounded-full">
                         {" "}
-                        <Image alt="Image alt text"
+                        <Image
+                          alt="Image alt text"
                           height={20}
                           width={20}
                           className="w-4 h-4  400:h-auto 400:w-auto"
                           src={skill.icon || "/images/default-skill.png"}
-                        
                         />{" "}
                       </div>
                     </div>
@@ -393,7 +414,8 @@ function TalentID(props) {
                       {skill.rating == 1 &&
                         oneRating.map((star, i) => (
                           <div key={i}>
-                            <Image alt="Image alt text"
+                            <Image
+                              alt="Image alt text"
                               src="/images/logos-and-icons/star.png"
                               height="10"
                               width="10"
@@ -404,7 +426,8 @@ function TalentID(props) {
                       {skill.rating == 2 &&
                         twoRating.map((star, i) => (
                           <div key={i}>
-                            <Image alt="Image alt text"
+                            <Image
+                              alt="Image alt text"
                               src="/images/logos-and-icons/star.png"
                               height="10"
                               width="10"
@@ -415,7 +438,8 @@ function TalentID(props) {
                       {skill.rating == 3 &&
                         threeRating.map((star, i) => (
                           <div key={i}>
-                            <Image alt="Image alt text"
+                            <Image
+                              alt="Image alt text"
                               src="/images/logos-and-icons/star.png"
                               height="10"
                               width="10"
@@ -426,7 +450,8 @@ function TalentID(props) {
                       {skill.rating == 4 &&
                         fourRating.map((star, i) => (
                           <div key={i}>
-                            <Image alt="Image alt text"
+                            <Image
+                              alt="Image alt text"
                               src="/images/logos-and-icons/star.png"
                               height="10"
                               width="10"
@@ -437,7 +462,8 @@ function TalentID(props) {
                       {skill.rating == 5 &&
                         fiveRating.map((star, i) => (
                           <div key={i}>
-                            <Image alt="Image alt text"
+                            <Image
+                              alt="Image alt text"
                               src="/images/logos-and-icons/star.png"
                               height="10"
                               width="10"
@@ -488,10 +514,9 @@ function TalentID(props) {
         <div className=" rounded-md w-[80%] md:w-[50%] flex justify-center bg-pry-color py-3 text-white 400:text-lg 400:font-semibold hover:shadow-lg cursor-pointer">
           <button
             onClick={() => {
-              window.fbq('trackCustom', 'Talent Profile Hire Button Clicked', {
+              window.fbq("trackCustom", "Talent Profile Hire Button Clicked", {
                 talentToHire: `${selectedTalent.name}`,
-              
-              })
+              });
               setTalentToHire(selectedTalent.name);
               setIdOfTalentToHire(selectedTalent.id);
 
@@ -509,7 +534,7 @@ function TalentID(props) {
 export async function getStaticProps(context) {
   const talentID = context.params.talentID;
 
-  const response = await fetch( 
+  const response = await fetch(
     `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/aboutpage`
   );
   const data = await response.json();
@@ -523,8 +548,6 @@ export async function getStaticProps(context) {
     return talentArray.find((talent) => talent.id === talentID);
   }
   const selectedTalent = talentFinder(talentID);
-
-
 
   if (!selectedTalent) {
     return {

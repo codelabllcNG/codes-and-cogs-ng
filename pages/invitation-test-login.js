@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useRef } from 'react'
+import { useEffect } from 'react';
 import { useState } from 'react';
 import AllCtx from '../util-functions/allCtx';
 
@@ -13,6 +14,13 @@ const router = useRouter();
 
     const emailRef = useRef(); 
 
+  const [fireUseEffect, setFireUseEffect] = useState(false)
+
+  useEffect(() => {
+    setFireUseEffect(true)
+    if (fireUseEffect) { window.fbq('trackCustom', 'Invitation Test Auth Page'); }
+   
+  },[fireUseEffect])
 
   async  function takeTest(e) {
         e.preventDefault();

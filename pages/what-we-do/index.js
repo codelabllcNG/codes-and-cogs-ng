@@ -2,11 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import BotIcon from "../../components/BotIcon";
-import {
-  selectedService,
-  SERVICES,
-  SOLUTIONS,
-} from "../../a-store/content-store/WHAT-WE-DO";
+
 import Head from "next/head";
 import { useRouter } from "next/router";
 import AllCtx from "../../util-functions/allCtx";

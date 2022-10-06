@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import AllCtx from "../../util-functions/allCtx";
 import Image from "next/image";
-import {modelsArray} from '../../a-store/content-store/OUR-MODELS'
 import BotIcon from '../BotIcon';
 import { useRouter } from 'next/router';
 
@@ -42,7 +41,7 @@ function Section3(props) {
         </div>
       </div>
 
-         <div className="dangerous-html md:flex md:justify-center mb-8">
+         <div className="dangerous-html !text-[22px] md:flex md:justify-center mb-8">
           <div dangerouslySetInnerHTML={{ __html: modelsSubtitle }}>
             { }
           </div>

@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  selectedFeasibility,
-  FEASIBILITY,
-} from "../../a-store/content-store/FEASIBILITY";
+
 import Image from "next/image";
 import Loading from "../../components/Loading";
 import { useRouter } from "next/router";

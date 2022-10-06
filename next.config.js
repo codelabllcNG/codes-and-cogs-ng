@@ -21,7 +21,9 @@ const nextConfig = {
     domains: ['orgsapi.com'],
   },
 
+  
 
 }
 
 module.exports = nextConfig
+ 

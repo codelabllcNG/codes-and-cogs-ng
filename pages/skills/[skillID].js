@@ -206,7 +206,7 @@ function ToolID(props) {
                         onClick={() => {
                           window.fbq("trackCustom", "Talent Profile View", {
                             viewedTalent: `${designer.name}`,
-                            page: "Skills Page",
+                            // page: "Skills Page",
                           });
                           router.push(`/talents/${designer.id}`);
                         }}
@@ -217,7 +217,7 @@ function ToolID(props) {
                             alt="Image alt text"
                             height={75}
                             width={64}
-                            src={designer.icon || "/images/default-dp.png"}
+                            src={designer.icon || "/images/default-dp.svg"}
                           />
                         </div>{" "}
                         <div>
@@ -240,18 +240,18 @@ function ToolID(props) {
                         onClick={() => {
                           window.fbq("trackCustom", "Talent Profile View", {
                             viewedTalent: `${engineer.name}`,
-                            page: "Skills Page",
+                            // page: "Skills Page",
                           });
                           router.push(`/talents/${engineer.id}`);
                         }}
-                        className="bg-mid-color hover:bg-[#ECF1FA] duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
+                        className="bg-mid-color hover:bg-[#ECF1FA] hover:scale-105 duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
                       >
                         <div className="w-10 560:w-14">
                           <Image
                             alt="Image alt text"
                             height={75}
                             width={64}
-                            src={engineer.icon || "/images/default-dp.png"}
+                            src={engineer.icon || "/images/default-dp.svg"}
                           />
                         </div>{" "}
                         <div>
@@ -274,18 +274,18 @@ function ToolID(props) {
                         onClick={() => {
                           window.fbq("trackCustom", "Talent Profile View", {
                             viewedTalent: `${developer.name}`,
-                            page: "Skills Page",
+                            // page: "Skills Page",
                           });
                           router.push(`/talents/${developer.id}`);
                         }}
-                        className="bg-mid-color hover:bg-[#ECF1FA] duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
+                        className="bg-mid-color hover:bg-[#ECF1FA] hover:scale-105 duration-300 cursor-pointer rounded-lg flex px-2 560:px-4 py-2 560:py-4 space-x-1 560:space-x-3 text-pry-color items-center"
                       >
                         <div className="w-10 560:w-14 ">
                           <Image
                             alt="Image alt text"
                             height={75}
                             width={64}
-                            src={developer.icon || "/images/default-dp.png"}
+                            src={developer.icon || "/images/default-dp.svg"}
                           />
                         </div>{" "}
                         <div>
@@ -327,7 +327,7 @@ function ToolID(props) {
                   onClick={() => {
                     window.fbq("trackCustom", "Talent Profile View", {
                       viewedTalent: `${talent.name}`,
-                      page: "Skills Page",
+                      // page: "Skills Page",
                     });
                     router.push(`/talents/${talent.id}`);
                   }}
@@ -338,7 +338,7 @@ function ToolID(props) {
                       alt="Image alt text"
                       height={75}
                       width={64}
-                      src={talent.icon || "/images/default-dp.png"}
+                      src={talent.icon || "/images/default-dp.svg"}
                     />
                   </div>{" "}
                   <div>
@@ -369,6 +369,7 @@ export async function getStaticProps(context) {
   }
 
   const selectedSkill = skillFinder(skillID);
+
   if (!selectedSkill) {
     return {
       notFound: true,

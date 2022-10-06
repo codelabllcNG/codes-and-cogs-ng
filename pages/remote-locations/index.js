@@ -2,7 +2,6 @@ import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
-import { REMOTE_LOCATIONS } from "../../a-store/content-store/REMOTE_LOCATIONS";
 import HeaderBanner from "../../components/HeaderBanner";
 
 function RemoteLocations(props) {

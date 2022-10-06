@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { TOP_NEWS } from "../../a-store/content-store/TOP_NEWS";
-import { RECENT_NEWS } from "../../a-store/content-store/RECENT_NEWS";
+
 import { useRouter } from "next/router";
 import Head from "next/head";
 import HeaderBanner from "../../components/HeaderBanner";

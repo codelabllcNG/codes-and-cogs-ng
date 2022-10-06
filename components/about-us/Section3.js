@@ -1,26 +1,23 @@
 import React from "react";
 import Image from "next/image";
-import { TALENT_STORIES } from "../../a-store/content-store/TALENT_STORIES";
 import BotIcon from "../BotIcon";
 import SectionBanner from "../SectionBanner";
 
-
-
 function section3(props) {
-
-
-  const { storiesTitle, storiesArray,  bannerImage, bannerText, } = props;
+  const { storiesTitle, storiesArray, bannerImage, bannerText } = props;
 
   return (
-    <div id="talent-stories" className="scroll-mt-10 md:px-10 px-5 lg:px-16 mb-8">
+    <div
+      id="talent-stories"
+      className="scroll-mt-10 md:px-10 px-5 lg:px-16 mb-8"
+    >
       <div className="flex  justify-center md:mb-2">
-        <h2 className="font-bold header">
-          {storiesTitle}
-        </h2>
+        <h2 className="font-bold header">{storiesTitle}</h2>
       </div>
       <div className="flex justify-center -mb-4">
         <div className=" w-[75px] md:w-[150px]">
-          <Image alt="Image alt text"
+          <Image
+            alt="Image alt text"
             src="/images/logos-and-icons/red-underline.png"
             width={150}
             height={20}
@@ -39,11 +36,11 @@ function section3(props) {
             >
               <div className="text-pry-color flex items-center justify-center space-x-3 mb-2 700:mb-5">
                 <div className="w-[3rem]  h-[4rem] 700:w-[4rem] 700:h-[5rem] ">
-                  <Image 
+                  <Image
                     height={70}
                     width={64}
                     className=""
-                    src={story.icon || "/images/default-dp.png"}
+                    src={story.icon || "/images/default-dp.svg"}
                     alt={story.name}
                   />
                 </div>{" "}
@@ -56,10 +53,13 @@ function section3(props) {
                   </div>{" "}
                 </div>
               </div>
-
+ 
               <div className="prose max-w-none text-xs 350:text-sm 700:text-base text-justify mb-3 700:mb-10 h-[300px] md:h-[450px] lg:h-[350px] overflow-y-auto scrollbar-hide">
                 {" "}
-                <div className='' dangerouslySetInnerHTML={{ __html: story.story }}>
+                <div
+                  className=""
+                  dangerouslySetInnerHTML={{ __html: story.story }}
+                >
                   {}
                 </div>
               </div>
@@ -68,8 +68,15 @@ function section3(props) {
         ))}
       </div>
 
-      <SectionBanner bgUrl={bannerImage || "/images/about-us-banner.webp"} title={bannerText || "Build game-changing projects with the right talents."} btnText={"Search Talents"} btnUrl={"/search-talents"} />
- 
+      <SectionBanner
+        bgUrl={bannerImage || "/images/about-us-banner.webp"}
+        title={
+          bannerText || "Build game-changing projects with the right talents."
+        }
+        btnText={"Search Talents"}
+        btnUrl={"/search-talents"}
+      />
+
       {/* <BotIcon />  */}
     </div>
   );

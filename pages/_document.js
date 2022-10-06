@@ -1,10 +1,20 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+// import crypto from "crypto"
+
+// const cspHashOf = (text) => {
+//   const hash = crypto.createHash('sha256')
+//   hash.update(text)
+//   return `'sha256-${hash.digest('base64')}'`
+// }
 
 class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
         <Head>
+
+        {/* <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script> */}
+
          
           {/* GOOGLE ANALYTICS */}
           <script
@@ -19,7 +29,7 @@ class MyDocument extends Document {
         </Head>
         <body>
 
-            {/* META PIXEL */}
+            {/* META PIXEL */} 
             <noscript>
             <img
               height="1"

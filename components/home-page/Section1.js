@@ -42,6 +42,10 @@ function Section1(props) {
     }
 
     try {
+          window.fbq('trackCustom', 'Talent Search',  {
+          searchKeyword: `${searchKeyword}`,
+                 })
+        
       setSearchingSkills(true);
       setSearchResponse("Searching...");
       const response = await fetch(
@@ -59,7 +63,7 @@ function Section1(props) {
         return;
       }
 
-      // console.log(data);
+      // console.log(data); 
 
       // return
 
@@ -124,11 +128,11 @@ function Section1(props) {
     <section
       ref={divHeightRef}
       id="section1"
-      className="scroll-mt-10 px-5 md:px-10 lg:px-16  md:flex  "
+      className="scroll-mt-10  px-5 md:px-10 lg:px-16  md:flex  "
       // md:bg-[url('/images/hero.png')]
       
     >
-      <div className=" md:ml-8 890:w-[65%]">
+      <div className=" md:ml-8 890:w-[65%] ">
         <div className="">
           <div
             dangerouslySetInnerHTML={{ __html: heroTitle }}
@@ -166,12 +170,7 @@ function Section1(props) {
             />
           </div>{" "}
           <div    
-               onClick={() => {
-                window.fbq('trackCustom', 'Talent Search',  {
-                  searchKeyword: `${searchKeyword}`,
-                  page: "Landing Page"
-                })
-                }}
+           
           >
             {" "}
             <button
@@ -196,7 +195,7 @@ function Section1(props) {
           </p>
         </div>
         <div
-          className={`flex px-6 mb-8 justify-center h-5 my-3 ${
+          className={`flex  px-6 mb-8 justify-center h-5 my-3 ${
             searchResponse.includes("Success")
               ? "text-green-600"
               : "text-red-600"
@@ -239,8 +238,8 @@ function Section1(props) {
         </div>
       </div> 
 
-      <div className="w-1/2 z-[-1] -mt-10 hidden 890:block absolute right-0">
-        <Image    alt='Hero image' width={1039} height={917} src={bgUrl}
+      <div className="w-1/2 z-[-1]  -mt-10  hidden 890:block absolute right-0">
+        <Image  alt='Hero image' className='' width={1039} height={917} src={bgUrl}
         // style={{ backgroundImage: `url(${bgUrl})` }}
         />
       </div>

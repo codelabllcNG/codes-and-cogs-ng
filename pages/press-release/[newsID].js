@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import { selectedNews, TOP_NEWS } from "../../a-store/content-store/TOP_NEWS";
 import Loading from "../../components/Loading";
 import { useRouter } from "next/router";
 import Head from "next/head";

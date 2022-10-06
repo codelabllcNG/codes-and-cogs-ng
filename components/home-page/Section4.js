@@ -1,10 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import AllCtx from "../../util-functions/allCtx";
 import Image from "next/image";
-import {
-  FEASIBILITY,
-  selectedFeasibility,
-} from "../../a-store/content-store/FEASIBILITY";
+
 import BotIcon from "../BotIcon";
 import { useRouter } from "next/router";
 

@@ -1,5 +1,4 @@
 import React from "react";
-// import { selectedModel, OUR_MODELS } from "../../a-store/content-store/OUR-MODELS"
 import Image from "next/image";
 import Loading from "../../components/Loading";
 import { useRouter } from "next/router";
