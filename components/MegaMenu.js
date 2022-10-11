@@ -33,7 +33,7 @@ function MegaMenu() {
           <p
             className={`cursor-pointer ${
               !servicesClicked ? "font-normal" : ""
-            }`}
+            } hover:text-blue-700`}
           >
             Enterprise Packages
           </p>
@@ -46,7 +46,7 @@ function MegaMenu() {
           <p
             className={`cursor-pointer ${
               !solutionsClicked ? "font-normal" : ""
-            }`}
+            } hover:text-blue-700`}
           >
             Solutions
           </p>
@@ -54,18 +54,31 @@ function MegaMenu() {
 
         <div
           onClick={() => {
+            router.push("/staffing")
+            setMegaMenu(false);
+          }}
+        >
+          <p
+            className={`cursor-pointer font-normal hover:text-blue-700 `}
+          >
+            Staffing
+          </p>
+        </div>
+        
+        <div
+          onClick={() => {
             router.push("/faq")
             setMegaMenu(false);
           }}
         >
           <p
-            className={`cursor-pointer ${
-              !solutionsClicked ? "font-normal" : ""
-            }`}
+            className={`cursor-pointer font-normal hover:text-blue-700 `}
           >
             FAQ
           </p>
         </div>
+
+        
       </div>
 
       {/* SERVICES MEGA MENU  */}

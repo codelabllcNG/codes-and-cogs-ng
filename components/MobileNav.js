@@ -293,15 +293,30 @@ function MobileNav() {
                         </div>
                       </div>
                     
+                      <div className='mt-3'>
+                      <button
+                        onClick={() => {
+                          router.push("/staffing");
+                          setMenuIsClicked(false);
+                        }}
+                        className="text-[0.9rem] font-semibold "
+                      >
+                        Staffing
+                      </button>
+                   </div>
+                 
+                 
+                      <div className='mt-3'>
                       <button
                         onClick={() => {
                           router.push("/faq");
                           setMenuIsClicked(false);
                         }}
-                        className="text-[0.9rem] font-semibold mt-3"
+                        className="text-[0.9rem] font-semibold "
                       >
                         FAQ
                       </button>
+                   </div>
                     </div>
                   </div>
                 </div>
