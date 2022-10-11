@@ -44,6 +44,11 @@ function TalentsNearYou() {
   async function fetchTalents() {
     const searchKeywordInput = searchKeywordRef.current.value;
 
+    if (!locationGranted) {
+      
+    }
+
+
     try {
       setSearchingTalents(true);
       const response = await fetch(
@@ -68,7 +73,7 @@ function TalentsNearYou() {
         setSearchingTalents(false);
         setTalentsFound([]);
         // console.log(data.talents);
-        setTalentsNearYouResponse(`Seems you are in ${country} not in the United States. Select a state to find US based talents.`);
+        setTalentsNearYouResponse(`Seems you are in ${country+"," || "another country,"} not in the United States; or your location permission is denied. Select a state to find US based talents.`);
         console.log("Seems you are not in the United States. Select A state to find US based talents.");
         return
     }
