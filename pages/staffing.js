@@ -131,7 +131,7 @@ function Staffing(props) {
       {/* HOW IT WORKS NUMBERING    */}
       <div className="mt-5 flex justify-evenly">
         {staffing.howItWorks.map((item, i) => (
-          <div
+          <div 
             onClick={() => {
               setSelectedStep(item.title);
             }}
@@ -199,7 +199,7 @@ function Staffing(props) {
 
                     <div className="grid grid-cols-1 gap-4 mt-8 md:grid-cols-3 ">
                       {item.vettingProcess.process.map((vp, i) => (
-                        <div className="shadow p-5 relative hover:bg-gray-50 mt5">
+                        <div key={vp.title} className="shadow p-5 relative hover:bg-gray-50 mt5">
                           <div className="flex justify-center">
                             <p className="text-center flex justify-center items-center text-xl border-pry-color w-14 h-14 rounded-full border font-semibold">
                               {i + 1}
