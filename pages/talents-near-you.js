@@ -73,7 +73,7 @@ function TalentsNearYou() {
         setSearchingTalents(false);
         setTalentsFound([]);
         // console.log(data.talents);
-        setTalentsNearYouResponse(`Seems you are in ${country+"," || "another country,"} not in the United States; or your location permission is denied. Select a state to find US based talents.`);
+        setTalentsNearYouResponse(`Seems you are in ${country ? country+"," : "another country,"} not in the United States; or your location permission is denied. Select a state to find US based talents.`);
         console.log("Seems you are not in the United States. Select A state to find US based talents.");
         return
     }
