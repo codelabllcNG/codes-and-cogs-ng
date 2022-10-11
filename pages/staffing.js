@@ -234,7 +234,7 @@ function Staffing(props) {
 
       {/* HOW IT WORKS BANNER  */}
 
-      <Banner />
+      <Banner staffing={staffing} />
     </div>
   );
 }
