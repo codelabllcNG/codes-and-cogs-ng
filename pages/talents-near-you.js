@@ -2,7 +2,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { useRef } from "react";
 import HeaderBanner from "../components/HeaderBanner";
-import { USA_COUNTRIES } from "../a-store/content-store/USA_COUNTRIES";
+import { USA_STATES } from "../a-store/content-store/USA_STATES";
 import AllCtx from "../util-functions/allCtx";
 import { useRouter } from "next/router";
 
@@ -16,33 +16,38 @@ function TalentsNearYou() {
   const [response, setResponse] = useState("");
   const [searchingTalents, setSearchingTalents] = useState(false);
   const [talentsFound, setTalentsFound] = useState([]);
-  const [state, setState] = useState("");
+  // const [country, setCountry] = useState("");
 
   const {
     talentsNearYouResponse,
     setGeolocationSupported,
     geolocationSupported,
     locationGranted,
-    setLocationGranted,
+    setLocationGranted,  
     setTalentsNearYouResponse,
     coordinates,
-    setCoordinates,
+    setCoordinates, state, setState, country, setCountry
   } = AllCtx();
 
+  const [condition, setCondition] = useState(false) //So that useEffect does not rerun
+
   useEffect(() => {
+    // setRunUseEffect(true) 
     const fetchData = async () => {
-      getCoordinates();
+   getCoordinates()
       return;
     };
 
-    fetchData();
-  }, []);
+  fetchData() 
+  }, [condition]);
 
   async function fetchTalents() {
+    const searchKeywordInput = searchKeywordRef.current.value;
+
     try {
       setSearchingTalents(true);
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/search?s=javascript` //Using this to mimic correct endpoint
+        `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/search?country=US&state=${state}&s=${searchKeywordInput}`
       );
 
       const data = await response.json();
@@ -59,11 +64,20 @@ function TalentsNearYou() {
         return;
       }
 
+      if (country !== "United States") {
+        setSearchingTalents(false);
+        setTalentsFound([]);
+        // console.log(data.talents);
+        setTalentsNearYouResponse(`Seems you are in ${country} not in the United States. Select a state to find US based talents.`);
+        console.log("Seems you are not in the United States. Select A state to find US based talents.");
+        return
+    }
+
       if (typeof data.talents === "string") {
         setSearchingTalents(false);
         setTalentsFound([]);
         setTalentsNearYouResponse(
-          "Our US based talents are currently on other projects, please check again later or reach out to us for further assistance."
+          "The talents near you are currently on other projects, please try another state or reach out to us for further assistance."
         );
 
         // console.log(data.talents);
@@ -86,25 +100,38 @@ function TalentsNearYou() {
         setSearchingTalents(false);
         setTalentsFound([]);
         setTalentsNearYouResponse(
-          "Our US based talents are currently on other projects, please check again later or reach out to us for further assistance."
+          "The talents near you are currently on other projects, please try another state or reach out to us for further assistance."
         );
 
         console.log(
-          "Our US based talents are currently on other projects, please check again later or reach out to us for further assistance."
+          "The talents near you are currently on other projects, please try another state or reach out to us for further assistance."
         );
 
         return;
       }
 
-      //Success messages will be differentiated based on what is returned. For now, the general one is there.
+  
 
-      console.log("Success! We have US based talents for you.");
-      setTalentsNearYouResponse("Success! We have US based talents for you.");
+      if (state === "none") {
+        setSearchingTalents(false);
+        setTalentsFound(data.talents);
+        console.log(data.talents);
+        setTalentsNearYouResponse("We could not get talents near you but we got you some talents from the United States.");
+        console.log("We could not get talents near you but we got you some talents from the United States.");
+        return
+      }
 
-      setSearchingTalents(false);
-      setTalentsFound(data.talents);
-      console.log(data.talents);
+      if (state !== "none") {
+        setSearchingTalents(false);
+        setTalentsFound(data.talents);
+        console.log(data.talents);
+        setTalentsNearYouResponse("Success! We have some talents near you!");
+        return
+     }
+
+     
     } catch (error) {
+      console.log(error);
       setSearchingTalents(false);
       setTalentsFound([]);
       setTalentsNearYouResponse(
@@ -114,6 +141,86 @@ function TalentsNearYou() {
       console.log("An error occurred while loading talents, reload or retry.");
     }
   }
+
+  // async function fetchTalents(e) {
+  //   // e.preventDefault();
+  //   const searchKeywordInput = searchKeywordRef.current.value;
+
+  //   try {
+  //     setSearchingTalents(true);
+  //     const response = await fetch(
+  //       `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/search?country=US&state=${state}&s=${searchKeywordInput}`
+  //     );
+
+  //     const data = await response.json();
+
+  //     if (!response.ok) {
+  //       setSearchingTalents(false);
+  //       setTalentsFound([]);
+  //       setTalentsNearYouResponse(
+  //         "Something went wrong. Could not load Talents, please refresh page."
+  //       );
+  //       console.log(
+  //         "Something went wrong. Could not load Talents, please refresh page."
+  //       );
+  //       return;
+  //     }
+
+  //     if (typeof data.talents === "string") {
+  //       setSearchingTalents(false);
+  //       setTalentsFound([]);
+  //       setTalentsNearYouResponse(
+  //         "Our US based talents are currently on other projects, please check again later or reach out to us for further assistance."
+  //       );
+
+  //       // console.log(data.talents);
+  //       return;
+  //     }
+
+  //     if (data.status !== "success") {
+  //       setSearchingTalents(false);
+  //       setTalentsFound([]);
+  //       setTalentsNearYouResponse(
+  //         "Something went wrong. Could not load Talents, please refresh page."
+  //       );
+  //       console.log(
+  //         "Something went wrong. Could not load Talents, please refresh page."
+  //       );
+  //       return;
+  //     }
+
+  //     if (data.talents.length < 1) {
+  //       setSearchingTalents(false);
+  //       setTalentsFound([]);
+  //       setTalentsNearYouResponse(
+  //         "Our US based talents are currently on other projects, please check again later or reach out to us for further assistance."
+  //       );
+
+  //       console.log(
+  //         "Our US based talents are currently on other projects, please check again later or reach out to us for further assistance."
+  //       );
+
+  //       return;
+  //     }
+
+  //     //Success messages will be differentiated based on what is returned. For now, the general one is there.
+
+  //     console.log("Success! We have US based talents for you.");
+  //     setTalentsNearYouResponse("Success! We have US based talents for you.");
+
+  //     setSearchingTalents(false);
+  //     setTalentsFound(data.talents);
+  //     console.log(data.talents);
+  //   } catch (error) {
+  //     setSearchingTalents(false);
+  //     setTalentsFound([]);
+  //     setTalentsNearYouResponse(
+  //       "An error occurred while loading talents, reload or retry."
+  //     );
+  //     setResponse("");
+  //     console.log("An error occurred while loading talents, reload or retry.");
+  //   }
+  // }
 
   function getCoordinates() {
     navigator.geolocation.getCurrentPosition(success, error, options);
@@ -144,8 +251,8 @@ function TalentsNearYou() {
       //TO SEARCH COORDINATES
       try {
         const response = await fetch(
-          //   `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${crd.latitude}&lon=${crd.longitude}`
-          `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=32.91660&lon=-86.63937`
+            `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${crd.latitude}&lon=${crd.longitude}`
+        //   `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=35.64302&lon=-79.03621`
         );
 
         if (!response.ok) {
@@ -153,16 +260,24 @@ function TalentsNearYou() {
         }
 
         const data = await response.json();
-        setState(data.address.state);
+        const address = data.address
+        setState(address['ISO3166-2-lvl4'].substr(3));
+if (country !== "United States") {setCountry(data.address.country)}
+    
 
-        console.log(data.address.state);
+        console.log(address['ISO3166-2-lvl4'].substr(3));
+        console.log(data.address.country);
+        console.log(country);
+  
         fetchTalents();
         return;
       } catch (error) {
         console.log(error);
         setSearchingTalents(false);
-        setState("");
+        
+        setState("none");
         fetchTalents();
+
       }
     }
 
@@ -202,7 +317,12 @@ function TalentsNearYou() {
       </div>
 
       {/* SEARCH AND SORT BAR   */}
-      <form className="md:flex justify-evenly space-y-3 md:space-y-0 mt-3">
+      <div
+        // onSubmit={() => {
+        //   fetchTalents();
+        // }}
+        className="md:flex justify-evenly space-y-3 md:space-y-0 mt-3"
+      >
         {/* Country and State  */}
         <div className="flex justify-between items-center md:w-[50%] ">
           {/* Country  */}
@@ -239,19 +359,22 @@ function TalentsNearYou() {
               required
               //   ref={stateRef}
               onChange={(e) => {
+                setCountry("United States")
                 setState(e.target.value);
               }}
               type="text"
               className=" ml-4 placeholder:text-xs text-xs outline-0 focus:!outline-0 focus:!outline-none border-0 text- w-full bg-transparent mr-2"
               placeholder="Select State"
             >
-              {USA_COUNTRIES.map((country) => (
+               <option value="">Select State</option>
+              {USA_STATES.map((state) => (
+              
                 <option
-                  key={country.name}
+                  key={state.name}
                   className="text-sm"
-                  value={country.value}
+                  value={state.value}
                 >
-                  {country.name}
+                  {state.name}
                 </option>
               ))}
             </select>
@@ -293,16 +416,17 @@ function TalentsNearYou() {
             {" "}
             <button
               onClick={() => {
-                getReverseGeocodingData(6.5568768, 3.3718272);
+                // getReverseGeocodingData(6.5568768, 3.3718272);
+                fetchTalents()
               }}
               type="submit"
-              className="text-white text-sm md:text-lg w-full ring-pry-color md:ring-transparent ring rounded-full md:py-2 pt-[0.37rem] pb-[0.37rem] px-4 md:px-5 bg-pry-color "
+              className="text-white text-sm md:text-lg w-full ring-pry-color md:ring-transparent ring rounded-full md:py-2 pt-[0.37rem] pb-[0.37rem] px-4 md:px-5 bg-pry-color hover:bg-blue-800"
             >
               Search
             </button>{" "}
           </div>
         </div>
-      </form>
+      </div>
       <div
         className="text-center text-sm text-gray-400 mt-2"
         dangerouslySetInnerHTML={{

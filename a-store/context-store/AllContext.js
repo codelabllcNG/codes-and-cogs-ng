@@ -45,11 +45,14 @@ export function AllContextProvider(props) {
   const [locationGranted, setTheLocationGranted] = useState(false);
   const [coordinates, setTheCoordinates] = useState();
 
+  const [state, setTheState] = useState("")
+  const [country, setTheCountry] = useState("")
+
   const devUrl = "http://dev.codesandcogs.com";
   const prodUrl = "https://dev.codesandcogs.com";
 
   const context = {
-    menuIsClicked,
+    menuIsClicked, state, country,
     talentsNearYouResponse,
     geolocationSupported,
     locationGranted,
@@ -84,7 +87,7 @@ export function AllContextProvider(props) {
     searchingSkills,
     talentsFound,
 
-    setTestData,
+    setTestData, setState, setCountry,
     setDemoTestData,
     setDemoExpiryTime,
     setLocationGranted,
@@ -117,6 +120,14 @@ export function AllContextProvider(props) {
   );
 
   // functions below
+
+  function setCountry(value) {
+    setTheCountry(value)
+  }
+
+  function setState(value) {
+    setTheState(value)
+  }
 
   function setCoordinates(value) {
     setTheCoordinates(value);
