@@ -72,6 +72,8 @@ function Navbar() {
             <div
               onMouseOver={() => {
                 setMegaMenu(false);
+                setHireTalentDropdown(false)
+
                 showHover(true, false, false, false, false);
               }}
               className="cursor-pointer hidden 890:block"
@@ -84,28 +86,30 @@ function Navbar() {
             </div>
           </Link>
 
-          <Link passHref href="/search-talents">
+          {/* <Link passHref href="/search-talents"> */}
             <div
               onMouseOver={() => {
-                setMegaMenu(false);
+              setMegaMenu(false);
+              setHireTalentDropdown(true)
                 showHover(false, true, false, false, false);
               }}
               className="cursor-pointer"
             >
-              <div className="flex justify-center">
+              <div className="flex justify-center relative">
                 {" "}
                 <a> Hire Talent </a>
               </div>
               {hireHover && <RedUnderline />}
-            <HireTalentDropdown/>
+           {hireTalentDropdown && <HireTalentDropdown/>}
             </div>
-          </Link>
+          {/* </Link> */}
 
           <Link passHref href="/post-a-job">
             <div
               onMouseOver={() => {
                 
                 setMegaMenu(false);
+                setHireTalentDropdown(false)
                 showHover(false, false, true, false, false);
               }}
               className="cursor-pointer"
@@ -121,6 +125,7 @@ function Navbar() {
             <div
               onMouseOver={() => {
                 setMegaMenu(true);
+              setHireTalentDropdown(false)
                 showHover(false, false, false, true, false);
               }}
               className="cursor-pointer"
@@ -140,6 +145,7 @@ function Navbar() {
             <div
               onMouseOver={() => {
                 setMegaMenu(false);
+                setHireTalentDropdown(false)
                 showHover(false, false, false, false, true);
               }}
               className="cursor-pointer hidden 890:block"
