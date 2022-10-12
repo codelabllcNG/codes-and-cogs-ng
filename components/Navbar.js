@@ -8,11 +8,12 @@ import MegaMenu from "./MegaMenu";
 import AllCtx from "../util-functions/allCtx";
 import { MdExpandMore } from "react-icons/md";
 import MobileNav from "./MobileNav";
+import HireTalentDropdown from "./HireTalentDropdown";
 
 function Navbar() {
   const router = useRouter();
 
-  const { megaMenu, setMegaMenu, menuIsClicked, setMenuIsClicked, setTalentToHire,  setIdOfTalentToHire } = AllCtx();
+  const { megaMenu, setMegaMenu, menuIsClicked, setMenuIsClicked, setTalentToHire,  setIdOfTalentToHire, hireTalentDropdown, setHireTalentDropdown } = AllCtx();
 
   // Hover functions here next
   // const [homeHover, setHomeHover] = useState(true);
@@ -96,6 +97,7 @@ function Navbar() {
                 <a> Hire Talent </a>
               </div>
               {hireHover && <RedUnderline />}
+            <HireTalentDropdown/>
             </div>
           </Link>
 

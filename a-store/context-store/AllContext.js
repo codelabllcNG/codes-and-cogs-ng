@@ -11,6 +11,8 @@ export function AllContextProvider(props) {
   const [isSectionSix, setTheIsSectionSix] = useState(false);
   const [megaMenu, setTheMegaMenu] = useState(false);
 
+  const [hireTalentDropdown, setTheHireTalentDropdown] = useState(false)
+
   const [sectionOneHeight, setTheSectionOneHeight] = useState();
   const [sectionTwoHeight, setTheSectionTwoHeight] = useState();
   const [sectionThreeHeight, setTheSectionThreeHeight] = useState();
@@ -52,7 +54,7 @@ export function AllContextProvider(props) {
   const prodUrl = "https://dev.codesandcogs.com";
 
   const context = {
-    menuIsClicked, state, country,
+    menuIsClicked, state, country, hireTalentDropdown,
     talentsNearYouResponse,
     geolocationSupported,
     locationGranted,
@@ -87,7 +89,7 @@ export function AllContextProvider(props) {
     searchingSkills,
     talentsFound,
 
-    setTestData, setState, setCountry,
+    setTestData, setState, setCountry, setHireTalentDropdown,
     setDemoTestData,
     setDemoExpiryTime,
     setLocationGranted,
@@ -120,6 +122,10 @@ export function AllContextProvider(props) {
   );
 
   // functions below
+
+  function setHireTalentDropdown(value) {
+    setTheHireTalentDropdown(value)
+  }
 
   function setCountry(value) {
     setTheCountry(value)
