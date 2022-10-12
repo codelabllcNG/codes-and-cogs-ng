@@ -97,6 +97,75 @@ function MobileNav() {
           <div><button>Solutions</button></div>
           </div> */}
 
+<div
+            className="accordion accordion-flush "
+            id="accordionFlushExample"
+          >
+            <div className="accordion-item  ">
+              {" "}
+              <h2 className="accordion-header ">
+                <button
+                  onClick={() => {
+                    // router.push("/what-we-do");
+                    // setMenuIsClicked(false);
+                  }}
+                  className="accordion-button  relative flex items-center w-full  text-base   text-left border-0 rounded-none transition focus:outline-none !bg-transparent !shadow-none font-sans !text-pry-color"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseOne"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseOne"
+                >
+                  Hire Talents
+                </button>
+              </h2>
+              <div
+                id="flush-collapseOne"
+                className="accordion-collapse border-0 collapse show "
+                aria-labelledby="flush-headingOne"
+                data-bs-parent="#accordionFlushExample"
+              >
+                <div className="accordion-body space-y-4  px-2 font-[500] text-[0.7rem] 350:text-[0.8rem]">
+                 
+
+                  <div>
+                    <div
+                      className="accordion accordion-flush"
+                      id="accordionFlushExample3"
+                    >
+                    
+                    
+                      <div className='mt-3'>
+                      <button
+                        onClick={() => {
+                          router.push("/staffing");
+                          setMenuIsClicked(false);
+                        }}
+                        className="text-[0.9rem] font-semibold "
+                      >
+                        Local Talents
+                      </button>
+                   </div>
+                 
+                 
+                      <div className='mt-3'>
+                      <button
+                        onClick={() => {
+                          router.push("/search-talents");
+                          setMenuIsClicked(false);
+                        }}
+                        className="text-[0.9rem] font-semibold "
+                      >
+                        Global Talents
+                      </button>
+                   </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div
             className="accordion accordion-flush "
             id="accordionFlushExample"
@@ -292,31 +361,9 @@ function MobileNav() {
                           </div>
                         </div>
                       </div>
-                    
-                      <div className='mt-3'>
-                      <button
-                        onClick={() => {
-                          router.push("/staffing");
-                          setMenuIsClicked(false);
-                        }}
-                        className="text-[0.9rem] font-semibold "
-                      >
-                        Staffing
-                      </button>
-                   </div>
+                
                  
-                 
-                      <div className='mt-3'>
-                      <button
-                        onClick={() => {
-                          router.push("/faq");
-                          setMenuIsClicked(false);
-                        }}
-                        className="text-[0.9rem] font-semibold "
-                      >
-                        FAQ
-                      </button>
-                   </div>
+              
                     </div>
                   </div>
                 </div>
@@ -360,6 +407,15 @@ function MobileNav() {
             }}
           >
             <button>Support</button>
+          </div>
+
+          <div
+            onClick={() => {
+              router.push("/faq");
+              setMenuIsClicked(false);
+            }}
+          >
+            <button>FAQ</button>
           </div>
         </div>
       </div>

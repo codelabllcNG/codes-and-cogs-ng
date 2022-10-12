@@ -13,11 +13,11 @@ function HireTalentDropdown() {
       }}
       className="flex justify-center"
     >
-      <div className="hidden bg-mid-color duration-200 mt-2  z-[10] absolute sm:block  rounded-md shadow">
+      <div className="hidden bg-mid-color duration-200 mt-2  z-[5] absolute sm:block  rounded-md shadow">
         <div
           onClick={() => {
                       setHireTalentDropdown(false);
-                      router.push("/staffing")
+                      router.push("/search-talents")
           }}
           className="hover:bg-white rounded-md py-2 px-4"
         >
@@ -26,7 +26,7 @@ function HireTalentDropdown() {
         <div
           onClick={() => {
                       setHireTalentDropdown(false);
-                      router.push("/search-talents")
+                      router.push("/staffing")
           }}
           className="hover:bg-white rounded-md py-2 px-4"
         >
