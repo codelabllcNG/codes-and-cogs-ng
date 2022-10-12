@@ -361,7 +361,7 @@ function Footer(props) {
               <p className="cursor-pointer hover:text-red-700">
              Salary  Estimator
               </p> */}
-            </div>
+            </div> 
           </div>{" "}
         </div>
         <hr className="border-pry-color border-2 mx-5" />
