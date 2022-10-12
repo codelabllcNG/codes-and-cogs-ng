@@ -217,6 +217,14 @@ function Footer(props) {
               >
                 Internship{" "}
               </p>
+              <p
+                onClick={() => {
+                  router.push("/staffing");
+                }}
+                className="cursor-pointer hover:text-red-700"
+              >
+                Staffing
+              </p>
             </div>{" "}
             <div className="  md:w-[25%] md:space-y-2 space-y-1 md:mb-0 mb-7 ">
               <button className="font-bold ">CODES AND COGS</button>
@@ -259,6 +267,14 @@ function Footer(props) {
                 className="cursor-pointer hover:text-red-700"
               >
                 Software Engineering School
+              </p>
+              <p
+                onClick={() => {
+                  router.push("/faq");
+                }}
+                className="cursor-pointer pb-1 hover:text-red-700"
+              >
+                FAQ
               </p>
             </div>{" "}
             <div className="  md:w-[20%] md:space-y-2 space-y-1 md:mb-0 mb-7">

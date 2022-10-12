@@ -32,8 +32,8 @@ function MegaMenu() {
         >
           <p
             className={`cursor-pointer ${
-              !servicesClicked ? "font-normal" : ""
-            } hover:text-blue-700`}
+              servicesClicked ? "text-blue-700" : ""
+            } hover:text-blue-700 `}
           >
             Enterprise Packages
           </p>
@@ -45,7 +45,7 @@ function MegaMenu() {
         >
           <p
             className={`cursor-pointer ${
-              !solutionsClicked ? "font-normal" : ""
+              solutionsClicked ? "text-blue-700" : ""
             } hover:text-blue-700`}
           >
             Solutions
@@ -59,13 +59,13 @@ function MegaMenu() {
           }}
         >
           <p
-            className={`cursor-pointer font-normal hover:text-blue-700 `}
+            className={`cursor-pointer  hover:text-blue-700 `}
           >
             Staffing
           </p>
         </div>
         
-        <div
+        {/* <div
           onClick={() => {
             router.push("/faq")
             setMegaMenu(false);
@@ -76,7 +76,7 @@ function MegaMenu() {
           >
             FAQ
           </p>
-        </div>
+        </div> */}
 
         
       </div>

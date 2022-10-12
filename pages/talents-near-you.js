@@ -44,9 +44,9 @@ function TalentsNearYou() {
   async function fetchTalents() {
     const searchKeywordInput = searchKeywordRef.current.value;
 
-    if (!locationGranted) {
+    // if (!locationGranted) {
       
-    }
+    // }
 
 
     try {
@@ -147,85 +147,6 @@ function TalentsNearYou() {
     }
   }
 
-  // async function fetchTalents(e) {
-  //   // e.preventDefault();
-  //   const searchKeywordInput = searchKeywordRef.current.value;
-
-  //   try {
-  //     setSearchingTalents(true);
-  //     const response = await fetch(
-  //       `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/search?country=US&state=${state}&s=${searchKeywordInput}`
-  //     );
-
-  //     const data = await response.json();
-
-  //     if (!response.ok) {
-  //       setSearchingTalents(false);
-  //       setTalentsFound([]);
-  //       setTalentsNearYouResponse(
-  //         "Something went wrong. Could not load Talents, please refresh page."
-  //       );
-  //       console.log(
-  //         "Something went wrong. Could not load Talents, please refresh page."
-  //       );
-  //       return;
-  //     }
-
-  //     if (typeof data.talents === "string") {
-  //       setSearchingTalents(false);
-  //       setTalentsFound([]);
-  //       setTalentsNearYouResponse(
-  //         "Our US based talents are currently on other projects, please check again later or reach out to us for further assistance."
-  //       );
-
-  //       // console.log(data.talents);
-  //       return;
-  //     }
-
-  //     if (data.status !== "success") {
-  //       setSearchingTalents(false);
-  //       setTalentsFound([]);
-  //       setTalentsNearYouResponse(
-  //         "Something went wrong. Could not load Talents, please refresh page."
-  //       );
-  //       console.log(
-  //         "Something went wrong. Could not load Talents, please refresh page."
-  //       );
-  //       return;
-  //     }
-
-  //     if (data.talents.length < 1) {
-  //       setSearchingTalents(false);
-  //       setTalentsFound([]);
-  //       setTalentsNearYouResponse(
-  //         "Our US based talents are currently on other projects, please check again later or reach out to us for further assistance."
-  //       );
-
-  //       console.log(
-  //         "Our US based talents are currently on other projects, please check again later or reach out to us for further assistance."
-  //       );
-
-  //       return;
-  //     }
-
-  //     //Success messages will be differentiated based on what is returned. For now, the general one is there.
-
-  //     console.log("Success! We have US based talents for you.");
-  //     setTalentsNearYouResponse("Success! We have US based talents for you.");
-
-  //     setSearchingTalents(false);
-  //     setTalentsFound(data.talents);
-  //     console.log(data.talents);
-  //   } catch (error) {
-  //     setSearchingTalents(false);
-  //     setTalentsFound([]);
-  //     setTalentsNearYouResponse(
-  //       "An error occurred while loading talents, reload or retry."
-  //     );
-  //     setResponse("");
-  //     console.log("An error occurred while loading talents, reload or retry.");
-  //   }
-  // }
 
   function getCoordinates() {
     navigator.geolocation.getCurrentPosition(success, error, options);

@@ -234,7 +234,7 @@ function Staffing(props) {
 
       {/* HOW IT WORKS BANNER  */}
 
-      <Banner staffing={staffing} />
+      <Banner getCoordinates={getCoordinates} staffing={staffing} />
     </div>
   );
 }
