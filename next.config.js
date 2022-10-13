@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  httpAgentOptions: {
+    keepAlive: false,
+  },
+
   webpack5: true,
   fs: false,
   path: false,
@@ -21,9 +25,7 @@ const nextConfig = {
     domains: ['orgsapi.com'],
   },
 
-  // httpAgentOptions: {
-  //   keepAlive: false,
-  // },
+
 
   // staticPageGenerationTimeout: 1000
 
