@@ -54,7 +54,7 @@ function Staffing(props) {
       setGeolocationSupported(true);
       setTalentsNearYouResponse("Wait, while we find talents near you.");
       setCoordinates({ latitude: crd.latitude, longitude: crd.longitude });
-      console.log("Coordinates got!");
+      console.log("Coordinates got!"); 
 
          //TO SEARCH COORDINATES   
          try {
