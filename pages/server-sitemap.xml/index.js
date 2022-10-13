@@ -1,13 +1,13 @@
 // pages/server-sitemap.xml/index.tsx
 
 import { getServerSideSitemap } from "next-sitemap";
-import { Agent } from 'https'
-
+import { Agent } from "https";
 
 export const getServerSideProps = async (ctx) => {
   const blogRes = await fetch(
-    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/getblog`
-    , new Agent({ keepAlive: false }));
+    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/getblog`,
+    new Agent({ keepAlive: true })
+  );
   const blogData = await blogRes.json();
 
   const blogPostArray = blogData.posts;
@@ -31,7 +31,8 @@ export const getServerSideProps = async (ctx) => {
   ];
 
   const homepageRes = await fetch(
-    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/homepage` , new Agent({ keepAlive: false })
+    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/homepage`,
+    new Agent({ keepAlive: true })
   );
   const homepageData = await homepageRes.json();
 

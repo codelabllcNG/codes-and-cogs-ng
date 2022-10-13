@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { Agent } from 'https'
+import { Agent } from "https";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import HeaderBanner from "../../components/HeaderBanner";
-
 
 function Index(props) {
   const range = 9;
@@ -31,18 +30,15 @@ function Index(props) {
 
   return (
     <div className="px-5 md:px-10 lg:px-16">
-   <Head>
+      <Head>
         <title>Codes and Cogs - Blog</title>
         <meta
           name="description"
           content="Codes and Cogs' official blog for both freelancers and entrepreneurs, where strategies, tips, and ideas are disseminated."
         />
 
-<meta
-          property="og:url"
-          content={`https://www.codesandcogs.com/blog`}
-        />
-      
+        <meta property="og:url" content={`https://www.codesandcogs.com/blog`} />
+
         <meta property="og:title" content="Codes and Cogs - Blog" />
         <meta
           property="og:description"
@@ -52,7 +48,6 @@ function Index(props) {
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
 
       {/* <div className="flex  justify-center md:mb-2">
         <h2 className="font-bold header">
@@ -69,7 +64,7 @@ function Index(props) {
         </div>
       </div> */}
 
-      <HeaderBanner title={"Blog"}/>
+      <HeaderBanner title={"Blog"} />
 
       <div className="mt-10 grid grid-cols-1 gap-x-3 gap-y-6 sm:grid-cols-2 md:grid-cols-3">
         {blogPostArray
@@ -88,7 +83,8 @@ function Index(props) {
                   className="bg-gray-100 text-sm pb-2 cursor-pointer hover:scale-95 duration-300"
                 >
                   <div className="mb-4 flex justify-center">
-                    <Image alt="Image alt text"
+                    <Image
+                      alt="Image alt text"
                       className="rounded-t-lg "
                       width={400}
                       height={250}
@@ -98,8 +94,8 @@ function Index(props) {
                   </div>
 
                   <div className="px-2 400:text-lg font-semibold text-pry-color mb-1 text-center">
-                    <div dangerouslySetInnerHTML={{ __html: article.title }} >
-                      { }
+                    <div dangerouslySetInnerHTML={{ __html: article.title }}>
+                      {}
                     </div>
                   </div>
 
@@ -233,8 +229,9 @@ export default Index;
 
 export async function getStaticProps() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/getblog`
-  , new Agent({ keepAlive: false }));
+    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/getblog`,
+    new Agent({ keepAlive: true })
+  );
   const data = await response.json();
 
   const blogPostArray = data.posts;

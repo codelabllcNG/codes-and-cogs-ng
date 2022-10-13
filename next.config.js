@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   httpAgentOptions: {
-    keepAlive: false,
+    keepAlive: true,
   },
 
   webpack5: true,
@@ -12,7 +12,7 @@ const nextConfig = {
 
     return config;
   },
-  
+
   reactStrictMode: true,
   swcMinify: true,
 
@@ -22,14 +22,10 @@ const nextConfig = {
 
   images: {
     // domains: ['dev.codesandcogs.com'],
-    domains: ['orgsapi.com'],
+    domains: ["orgsapi.com"],
   },
 
-
-
   // staticPageGenerationTimeout: 1000
+};
 
-}
-
-module.exports = nextConfig
- 
+module.exports = nextConfig;

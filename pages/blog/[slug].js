@@ -1,5 +1,5 @@
 import React from "react";
-import { Agent } from 'https'
+import { Agent } from "https";
 
 import Image from "next/image";
 import Loading from "../../components/Loading";
@@ -53,12 +53,8 @@ function BlogPostID(props) {
         />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={selectedBlogPost.title} />
-        <meta
-          property="og:description"
-          content={selectedBlogPost.title}
-        />
+        <meta property="og:description" content={selectedBlogPost.title} />
         <meta property="og:image" content={selectedBlogPost.imageUrl} />
-
 
         <link rel="icon" href="/favicon.ico" />
         <link
@@ -81,7 +77,7 @@ function BlogPostID(props) {
         </div>
       </div> */}
 
-      <HeaderBanner title={"Blog"}/>
+      <HeaderBanner title={"Blog"} />
 
       <div className="flex items-center justify-center  py-3 px-5 mb-8 -mx-5 md:-mx-10 lg:-mx-16 bg-gray-50">
         <div>
@@ -142,8 +138,9 @@ function BlogPostID(props) {
 export async function getStaticProps(context) {
   const slug = context.params.slug;
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/getblog`
-    , new Agent({ keepAlive: false }));
+    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/getblog`,
+    new Agent({ keepAlive: true })
+  );
   const data = await response.json();
   const blogPostArray = data.posts;
 
@@ -170,8 +167,9 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/getblog`
-    , new Agent({ keepAlive: false }));
+    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/getblog`,
+    new Agent({ keepAlive: true })
+  );
   const data = await response.json();
 
   const blogPostArray = data.posts;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Agent } from 'https'
+import { Agent } from "https";
 
 import Image from "next/image";
 import AllCtx from "../../util-functions/allCtx";
@@ -361,7 +361,8 @@ function ToolID(props) {
 export async function getStaticProps(context) {
   const skillID = context.params.skillID;
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/homepage` , new Agent({ keepAlive: false })
+    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/homepage`,
+    new Agent({ keepAlive: true })
   );
   const data = await response.json();
   const skillsArray = data.skills;
@@ -403,7 +404,8 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/homepage` , new Agent({ keepAlive: false })
+    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/homepage`,
+    new Agent({ keepAlive: true })
   );
   const data = await response.json();
 

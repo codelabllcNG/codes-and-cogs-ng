@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import { Agent } from 'https'
+import { Agent } from "https";
 
 import AllCtx from "../util-functions/allCtx";
 import NavIndicator from "../components/home-page/NavIndicator";
@@ -31,7 +31,7 @@ export default function Home(props) {
     remoteDesigners,
     remoteBgImage,
     trusteeLogos,
-    projectEngineerPhone
+    projectEngineerPhone,
   } = props;
 
   const {
@@ -139,7 +139,7 @@ export default function Home(props) {
         heroTitle={heroTitle}
         bgUrl={bgUrl}
         heroSubtitle={heroSubtitle}
-        projectEngineerPhone = {projectEngineerPhone}
+        projectEngineerPhone={projectEngineerPhone}
       />
       <Section2
         skillsArray={skillsArray}
@@ -172,8 +172,10 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
-
-  const response = await fetch(`${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/homepage` , new Agent({ keepAlive: false }));
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/homepage`,
+    new Agent({ keepAlive: true })
+  );
   const data = await response.json();
 
   const heroTitle = await data.heroTitle;
@@ -199,7 +201,7 @@ export async function getStaticProps() {
   const remoteDesigners = data.remoteDesigners;
   const remoteBgImage = data.remoteBgImage;
   const trusteeLogos = data.trusteeIcons;
-  const projectEngineerPhone = data.phone
+  const projectEngineerPhone = data.phone;
 
   return {
     props: {
@@ -219,14 +221,14 @@ export async function getStaticProps() {
       feasibilitySubtitle,
       feasibilityArray,
       feasibilityDescription,
-   
+
       trusteeTitle,
       remoteLocations,
       remoteEngineers,
       remoteDesigners,
       remoteBgImage,
       trusteeLogos,
-      projectEngineerPhone
+      projectEngineerPhone,
     },
     revalidate: 300,
   };

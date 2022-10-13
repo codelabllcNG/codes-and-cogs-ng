@@ -1,5 +1,5 @@
 import React from "react";
-import { Agent } from 'https'
+import { Agent } from "https";
 
 import Image from "next/image";
 import Loading from "../../components/Loading";
@@ -41,7 +41,7 @@ function ModelID(props) {
         </div>
       </div> */}
 
-      <HeaderBanner title={selectedModel.title}/>
+      <HeaderBanner title={selectedModel.title} />
 
       <div className="mt-10 flex justify-center items-center text-justify 900:text-center mb-1 900:mb-8 text-pry-color ">
         <p>{selectedModel.excerpt}</p>
@@ -54,13 +54,26 @@ function ModelID(props) {
             className=" leading-7 900:leading-10 lg:leading-8"
           >
             {}
-          </div> <div     onClick={() => {
-                  router.push("/post-a-job");
-                }} className='mt-3 flex justify-end'><button className='font-bold ring-pry-color px-2 hover:bg-blue-50 rounded ring-1'>I am interested</button></div>
+          </div>{" "}
+          <div
+            onClick={() => {
+              router.push("/post-a-job");
+            }}
+            className="mt-3 flex justify-end"
+          >
+            <button className="font-bold ring-pry-color px-2 hover:bg-blue-50 rounded ring-1">
+              I am interested
+            </button>
+          </div>
         </div>
 
         <div className="900:w-[40%] items-center flex justify-center mb-5 900:mb-0">
-          <Image alt="Image alt text" height={300} width={400} src={selectedModel.imageUrl}  />
+          <Image
+            alt="Image alt text"
+            height={300}
+            width={400}
+            src={selectedModel.imageUrl}
+          />
         </div>
       </div>
     </div>
@@ -70,7 +83,8 @@ function ModelID(props) {
 export async function getStaticProps(context) {
   const modelID = context.params.modelID;
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/homepage` , new Agent({ keepAlive: false })
+    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/homepage`,
+    new Agent({ keepAlive: true })
   );
   const data = await response.json();
 
@@ -100,7 +114,8 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/homepage` , new Agent({ keepAlive: false })
+    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/homepage`,
+    new Agent({ keepAlive: true })
   );
   const data = await response.json();
 
