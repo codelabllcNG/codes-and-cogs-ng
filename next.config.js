@@ -25,7 +25,7 @@ const nextConfig = {
   //   keepAlive: false,
   // },
 
-  staticPageGenerationTimeout: 1000
+  // staticPageGenerationTimeout: 1000
 
 }
 
