@@ -56,7 +56,7 @@ function Staffing(props) {
       setCoordinates({ latitude: crd.latitude, longitude: crd.longitude });
       console.log("Coordinates got!");
 
-         //TO SEARCH COORDINATES
+         //TO SEARCH COORDINATES   
          try {
           const response = await fetch(
               `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${crd.latitude}&lon=${crd.longitude}`
