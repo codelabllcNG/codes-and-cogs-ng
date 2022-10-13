@@ -22,7 +22,7 @@ const nextConfig = {
   },
 
   httpAgentOptions: {
-    keepAlive: false,
+    keepAlive: true,
   },
 
 }
