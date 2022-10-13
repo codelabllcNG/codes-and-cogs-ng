@@ -1,4 +1,5 @@
 import React from "react";
+import { Agent } from 'https'
 
 import Image from "next/image";
 import Loading from "../../components/Loading";
@@ -142,7 +143,7 @@ export async function getStaticProps(context) {
   const slug = context.params.slug;
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/getblog`
-  );
+    , new Agent({ keepAlive: false }));
   const data = await response.json();
   const blogPostArray = data.posts;
 
@@ -170,7 +171,7 @@ export async function getStaticProps(context) {
 export async function getStaticPaths() {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/getblog`
-  );
+    , new Agent({ keepAlive: false }));
   const data = await response.json();
 
   const blogPostArray = data.posts;
