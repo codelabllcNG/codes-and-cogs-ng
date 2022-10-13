@@ -1,5 +1,7 @@
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
+import { Agent } from 'https'
+
 import AllCtx from "../util-functions/allCtx";
 import NavIndicator from "../components/home-page/NavIndicator";
 import Section1 from "../components/home-page/Section1";
@@ -171,7 +173,7 @@ export default function Home(props) {
 
 export async function getStaticProps() {
 
-  const response = await fetch(`${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/homepage`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/homepage` , new Agent({ keepAlive: false }));
   const data = await response.json();
 
   const heroTitle = await data.heroTitle;

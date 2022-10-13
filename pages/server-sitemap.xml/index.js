@@ -31,7 +31,7 @@ export const getServerSideProps = async (ctx) => {
   ];
 
   const homepageRes = await fetch(
-    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/homepage`
+    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/homepage` , new Agent({ keepAlive: false })
   );
   const homepageData = await homepageRes.json();
 
