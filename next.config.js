@@ -21,9 +21,11 @@ const nextConfig = {
     domains: ['orgsapi.com'],
   },
 
-  httpAgentOptions: {
-    keepAlive: false,
-  },
+  // httpAgentOptions: {
+  //   keepAlive: false,
+  // },
+
+  staticPageGenerationTimeout: "1000"
 
 }
 
