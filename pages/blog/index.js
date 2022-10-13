@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import { Agent } from 'https'
 import { useRouter } from "next/router";
 import Head from "next/head";
 import HeaderBanner from "../../components/HeaderBanner";
@@ -233,7 +234,7 @@ export default Index;
 export async function getStaticProps() {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/getblog`
-  );
+  , new Agent({ keepAlive: false }));
   const data = await response.json();
 
   const blogPostArray = data.posts;
