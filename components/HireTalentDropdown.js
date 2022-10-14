@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 import AllCtx from "../util-functions/allCtx";
@@ -19,18 +20,22 @@ function HireTalentDropdown() {
                       setHireTalentDropdown(false);
                       router.push("/search-talents")
           }}
-          className="hover:bg-white rounded-md py-2 px-4"
+          className="hover:bg-white rounded-md py-2 pl-4 pr-8"
         >
-          Global Talents
+          <div className='flex items-center'>
+          <Image src='/images/logos-and-icons/global-talents-icon.svg' width='55' height='55' alt="Global icon "/> <div>Global Talents</div>
+          </div>
         </div>
         <div
           onClick={() => {
                       setHireTalentDropdown(false);
                       router.push("/staffing")
           }}
-          className="hover:bg-white rounded-md py-2 px-4"
+          className="hover:bg-white rounded-md py-2 pl-4 pr-8"
         >
-          Local Talents{" "}
+           <div className='flex items-center'>
+          <Image src='/images/logos-and-icons/local-talents-icon.svg' width='55' height='55' alt="Global icon "/> <div>Local Talents</div>
+          </div>
         </div>
       </div>
     </div>

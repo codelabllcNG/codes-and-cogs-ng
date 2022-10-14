@@ -127,18 +127,28 @@ function ToolID(props) {
       <div className="mt-10  justify-between items-center ">
         <div className=" flex justify-center">
           {" "}
-          <video
-            width="400"
-            height="305"
-            controls
-            // autoPlay
-            loop
-            // muted
-            className="rounded-lg mb-2 "
-          >
-            <source src={selectedSkill.videoUrl} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          {selectedSkill.videoUrl.includes(".mp4") ? (
+            <video
+              width="400"
+              height="305"
+              controls
+              // autoPlay
+              loop
+              // muted
+              className="rounded-lg mb-2 "
+            >
+              <source src={selectedSkill.videoUrl} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          ) : (
+            <Image
+              alt="Skill image"
+              src={selectedSkill.videoUrl}
+              width="500"
+              height="300"
+              className="rounded-lg"
+            />
+          )}
         </div>
 
         <div className=" prose max-w-none prose-h1:text-3xl prose-h1:font-bold text-justify lg:leading-8 mb-5 900:mb-0 text-pry-color">
