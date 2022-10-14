@@ -59,8 +59,24 @@ function Section3(props) {
         </div> )}
 
       </div>
-      <BotIcon/>
-    </section>
+        {/* <BotIcon/> */}
+        <div className='md:flex mt-14'>
+          <div className='mr-8 md:w-[45%] flex justify-center items-center '><Image alt='Hire talents subsection image' src='/images/hire-talents-subsection.png' height='300' width={500} /> </div> <div className='md:w-[50%] flex items-center'>
+            <div className=''>
+            <div className='text-center md:text-left text-2xl font-semibold mt-4' dangerouslySetInnerHTML={{ __html: "Hire local talents"}}>
+              {}
+            </div>
+
+            <div className='text-lg mt-5' dangerouslySetInnerHTML={{ __html: "Finding people is easy, but finding the RIGHT people is not. Looking to hire local talents within your geographical location? Codes and Cogs help you find the right talent across different tech stacks for your projects. Hire vetted talents near you in a few days."}}>
+              {}
+            </div>
+
+            <button onClick={()=>{router.push('/staffing')}} className=' font-semibold text-pry-color mt-5'>Learn more</button>
+         </div>
+</div>
+        </div>
+      </section>
+      
     </div>
   )
 }

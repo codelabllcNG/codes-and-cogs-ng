@@ -69,6 +69,11 @@ function TalentsNearYou() {
         return;
       }
 
+      window.fbq('trackCustom', 'Local Talent Search', {
+        keywordSearched: searchKeywordInput,
+        state: state
+      })
+
       if (country !== "United States") {
         setSearchingTalents(false);
         setTalentsFound([]);
