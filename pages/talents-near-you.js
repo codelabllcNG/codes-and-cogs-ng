@@ -257,7 +257,7 @@ if (country !== "United States") {setCountry(data.address.country)}
         {/* Country and State  */}
         <div className="flex justify-between items-center md:w-[50%] ">
           {/* Country  */}
-          <div className="items-center flex border-2 border-gray-400 border-opacity-80 pl-3 py-2  rounded-full  md:mr-3 mr-2 text-sm w-[50%] bg-gray-50">
+          <div className="items-center flex border-2 border-gray-400 border-opacity-80 pl-1 sm:pl-2 py-2  rounded-full  md:mr-3 mr-2 text-sm w-[50%] bg-gray-50">
             {" "}
             <Image
               alt="Image alt text"
@@ -273,12 +273,12 @@ if (country !== "United States") {setCountry(data.address.country)}
               //     setSearchKeyword(e.target.value);
               //   }}
               type="text"
-              className="text-gray-500  ml-4 placeholder:text-xs text-xs outline-0 focus:!outline-0 focus:!outline-none border-0 text- w-full bg-transparent "
+              className="text-gray-500  ml-1 placeholder:text-xs text-xs outline-0 focus:!outline-0 focus:!outline-none border-0 text- w-full bg-transparent "
               placeholder="USA"
             />
           </div>
           {/* State  */}
-          <div className="items-center flex border-2 border-pry-color border-opacity-80 pl-3 py-2  rounded-full  md:mr-3 mr-2 text-sm  w-[50%]">
+          <div className="items-center flex border-2 border-pry-color border-opacity-80 pl-2 py-2  rounded-full  md:mr-3 mr-2 text-sm  w-[50%]">
             {" "}
             <Image
               alt="Image alt text"
@@ -351,7 +351,7 @@ if (country !== "United States") {setCountry(data.address.country)}
                 fetchTalents()
               }}
               type="submit"
-              className="text-white text-sm md:text-lg w-full ring-pry-color md:ring-transparent ring rounded-full md:py-2 pt-[0.37rem] pb-[0.37rem] px-4 md:px-5 bg-pry-color hover:bg-blue-800"
+              className="text-white  text-sm md:text-lg w-full ring-pry-color hover:ring-blue-800 md:ring-transparent ring rounded-full md:py-2 pt-[0.37rem] pb-[0.37rem]  md:px-5 bg-pry-color hover:bg-blue-800"
             >
               Search
             </button>{" "}

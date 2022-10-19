@@ -181,15 +181,15 @@ function MobileNav() {
                   className="accordion-button  relative flex items-center w-full  text-base   text-left border-0 rounded-none transition focus:outline-none !bg-transparent !shadow-none font-sans !text-pry-color"
                   type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#flush-collapseOne"
+                  data-bs-target="#flush-collapseOne4"
                   aria-expanded="false"
-                  aria-controls="flush-collapseOne"
+                  aria-controls="flush-collapseOne4"
                 >
                   What We Do
                 </button>
               </h2>
               <div
-                id="flush-collapseOne"
+                id="flush-collapseOne4"
                 className="accordion-collapse border-0 collapse show "
                 aria-labelledby="flush-headingOne"
                 data-bs-parent="#accordionFlushExample"

@@ -9,7 +9,7 @@ function Section3(props) {
 
   const { setSectionThreeHeight } = AllCtx()
   
-  const {modelsTitle, modelsSubtitle, modelsArray} = props
+  const {modelsTitle, modelsSubtitle, modelsArray, staffing} = props
 
     const divHeightRef = useRef()
 
@@ -61,13 +61,13 @@ function Section3(props) {
       </div>
         {/* <BotIcon/> */}
         <div className='md:flex mt-14'>
-          <div className='mr-8 md:w-[45%] flex justify-center items-center '><Image alt='Hire talents subsection image' src='/images/hire-talents-subsection.png' height='300' width={500} /> </div> <div className='md:w-[50%] flex items-center'>
+          <div className='mr-8 md:w-[45%] flex justify-center items-center '><Image alt='Hire talents subsection image' src={staffing.imageUrl || '/images/hire-talents-subsection.png'} height='300' width={500} /> </div> <div className='md:w-[50%] flex items-center'>
             <div className=''>
-            <div className='text-center md:text-left text-2xl font-semibold mt-4' dangerouslySetInnerHTML={{ __html: "Hire local talents"}}>
+            <div className='text-center md:text-left text-2xl font-semibold mt-4' dangerouslySetInnerHTML={{ __html: staffing.title || "Hire local talents"}}>
               {}
             </div>
 
-            <div className='text-lg mt-5' dangerouslySetInnerHTML={{ __html: "Finding people is easy, but finding the RIGHT people is not. Looking to hire local talents within your geographical location? Codes and Cogs help you find the right talent across different tech stacks for your projects. Hire vetted talents near you in a few days."}}>
+            <div className='text-lg mt-5' dangerouslySetInnerHTML={{ __html: staffing.content || "Finding people is easy, but finding the RIGHT people is not. Looking to hire local talents within your geographical location? Codes and Cogs help you find the right talent across different tech stacks for your projects. Hire vetted talents near you in a few days."}}>
               {}
             </div>
 

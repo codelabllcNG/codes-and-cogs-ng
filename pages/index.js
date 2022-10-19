@@ -32,6 +32,7 @@ export default function Home(props) {
     remoteBgImage,
     trusteeLogos,
     projectEngineerPhone,
+    staffing
   } = props;
 
   const {
@@ -150,6 +151,7 @@ export default function Home(props) {
         modelsTitle={modelsTitle}
         modelsSubtitle={modelsSubtitle}
         modelsArray={modelsArray}
+        staffing={staffing}
       />
       <Section4
         feasibilityTitle={feasibilityTitle}
@@ -203,6 +205,8 @@ export async function getStaticProps() {
   const trusteeLogos = data.trusteeIcons;
   const projectEngineerPhone = data.phone;
 
+  const staffing = data.staffing 
+
   return {
     props: {
       heroTitle,
@@ -229,6 +233,8 @@ export async function getStaticProps() {
       remoteBgImage,
       trusteeLogos,
       projectEngineerPhone,
+
+      staffing
     },
     revalidate: 300,
   };

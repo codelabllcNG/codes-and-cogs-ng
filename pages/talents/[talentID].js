@@ -100,10 +100,10 @@ function TalentID(props) {
             <div className="pl-4">
               <p className="font-bold text-pry-color mb-2">Location</p>
 
-              <div className="flex items-center">
-                <p className="w-[70px] font-semibold">
+              <div className="flex items-center ">
+                <p className=" font-semibold ">
                   {selectedTalent.country || "N/A"}
-                </p>{" "}
+                </p>{" "} <span className='mx-2'>-</span>
                 <p>({selectedTalent.state || "N/A"})</p>
               </div>
             </div>

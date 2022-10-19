@@ -1,12 +1,15 @@
 import Image from 'next/image';
 import React from 'react'
 
-function Section4() {
+function Section4(props) {
+const {  workWithUsTitle,
+  workWithUsDescription,} = props
+
   return (
       <div className='mt-12'>
        
           <div className="flex  justify-center md:mb-2">
-              <div className="font-bold header" dangerouslySetInnerHTML={{ __html: "Work With Us"}}>
+              <div className="font-bold header" dangerouslySetInnerHTML={{ __html: workWithUsTitle}}>
               {}
               </div>
       </div>
@@ -22,7 +25,7 @@ function Section4() {
     
           </div>
           
-          <div className='mt-5 text-center text-xl' dangerouslySetInnerHTML={{ __html: "Looking to build a career and not just land “gigs”? Built on the pillar of diversity and inclusivity, qualified candidates are welcome from anywhere in the world in any represented or underrepresented group. Be a part of our in-house crew that drives the mission at Codes and Cogs and let's build innovation together – one career at a time. "}}>
+          <div className='mt-5 text-center text-xl' dangerouslySetInnerHTML={{ __html: workWithUsDescription}}>
               {}
           </div>
 

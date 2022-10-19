@@ -1,12 +1,14 @@
 import Image from 'next/image';
 import React from 'react'
 
-function Section2() {
+function Section2(props) {
+  const { ourTeamTitle,
+    ourTeamDescription,} = props
   return (
       <div className='mt-12'>
        
           <div className="flex  justify-center md:mb-2">
-              <div className="font-bold header" dangerouslySetInnerHTML={{ __html: "Our Team"}}>
+              <div className="font-bold header" dangerouslySetInnerHTML={{ __html: ourTeamTitle}}>
               {}
               </div>
       </div>
@@ -22,7 +24,7 @@ function Section2() {
     
           </div>
           
-          <div className='mt-5 text-center text-xl' dangerouslySetInnerHTML={{ __html: "At Codes and Cogs, we are building a diverse team of talented professionals who are reshaping talent sourcing, remote work and helping businesses build scalable solutions. Our in-house crew are the fuel that drives our mission one innovation at a time.  We help simplify technical hiring for hundreds of companies, and create opportunities for top talents- all while maintaining a beautiful experience.  "}}>
+          <div className='mt-5 text-center text-xl' dangerouslySetInnerHTML={{ __html: ourTeamDescription}}>
               {}
           </div>
 
