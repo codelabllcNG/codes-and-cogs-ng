@@ -24,18 +24,18 @@ function JobPosting(props) {
   ];
 
   const { selectedJobCategory, jobCategoryID, jobCategoryArray } = props;
-
+// console.log(selectedJobCategory);
   const [statefulSelectedJobCategory, setStatefulSelectedJobCategory] =
-    useState(selectedJobCategory.category);
+    useState(selectedJobCategory?.category);
   const [response, setResponse] = useState("");
   const [searchKeyword, setSearchKeyword] = useState("");
 
   const [vacancyArray, setVacancyArray] = useState(
-    selectedJobCategory.postings
+    selectedJobCategory?.postings
   );
 
   const [selectedVacancy, setSelectedVacancy] = useState(
-    selectedJobCategory.postings[0]
+    selectedJobCategory?.postings[0]
   );
 
   function searchJob(searchKeyword) {
@@ -44,7 +44,7 @@ function JobPosting(props) {
       return;
     }
 
-    const foundVacancies = selectedJobCategory.postings.filter((v) =>
+    const foundVacancies = selectedJobCategory?.postings.filter((v) =>
       v.title.toLowerCase().includes(`${searchKeyword.toLowerCase()}`)
     );
 
@@ -97,6 +97,7 @@ function JobPosting(props) {
         {jobCategoryArray.map((posting) => (
           <div
             onClick={() => {
+              console.log(posting);
               setStatefulSelectedJobCategory(posting.category);
             }}
             className={`select-none cursor-pointer px-4 py-1 mb-2 ${
