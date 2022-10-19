@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import HeaderBanner from "../../components/HeaderBanner";
 import Jobs from "../../components/career/Jobs";
-
+import Loading from "../../components/Loading";
 function JobPosting(props) {
   const router = useRouter();
 
