@@ -17,7 +17,7 @@ const router = useRouter();
   }
 
   return (
-      <div className='mt-12'>
+      <div id="job-openings" className='mt-12 scroll-m-5'>
        
           <div className="flex  justify-center md:mb-2">
               <div className="font-bold header" dangerouslySetInnerHTML={{ __html: jobOpeningTitle}}>

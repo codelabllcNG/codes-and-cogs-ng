@@ -1,7 +1,11 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import React from 'react'
 
+
 function Section4(props) {
+const router = useRouter();
+
 const {  workWithUsTitle,
   workWithUsDescription,} = props
 
@@ -29,7 +33,7 @@ const {  workWithUsTitle,
               {}
           </div>
 
-          <div className='mt-5 flex justify-center items-center'><button className='bg-pry-color text-white px-4 rounded-md hover:shadow-lg py-2'>Build a Career With Codes and Cogs</button></div>
+          <div onClick={()=>{router.push("/career/#job-openings")}} className='mt-5 flex justify-center items-center'><button className='bg-pry-color text-white px-4 rounded-md hover:shadow-lg py-2'>Build a Career With Codes and Cogs</button></div>
     </div>
   )
 }

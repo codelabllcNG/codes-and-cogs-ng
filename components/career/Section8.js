@@ -14,7 +14,7 @@ const {facilitators} = props
       <div className='text-2xl md:text-3xl lg:text-4xl font-semibold' dangerouslySetInnerHTML={{ __html: facilitators.title}}>
         {}
       </div>
-      <div className='mt-4 lg:text-xl lg:leading-10 w-[70%]' dangerouslySetInnerHTML={{ __html: facilitators.description}}>
+      <div className='mt-4 lg:text-xl lg:leading-10 md:w-[70%]' dangerouslySetInnerHTML={{ __html: facilitators.description}}>
         {}
       </div>
    </div>

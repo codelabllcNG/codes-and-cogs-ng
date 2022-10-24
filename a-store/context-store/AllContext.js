@@ -50,11 +50,13 @@ export function AllContextProvider(props) {
   const [state, setTheState] = useState("")
   const [country, setTheCountry] = useState("")
 
+  const [showApplicationForm, setTheShowApplicationForm] = useState(false)
+
   const devUrl = "http://dev.codesandcogs.com";
   const prodUrl = "https://dev.codesandcogs.com";
 
   const context = {
-    menuIsClicked, state, country, hireTalentDropdown,
+    menuIsClicked, state, country, hireTalentDropdown, showApplicationForm,
     talentsNearYouResponse,
     geolocationSupported,
     locationGranted,
@@ -90,7 +92,7 @@ export function AllContextProvider(props) {
     talentsFound,
 
     setTestData, setState, setCountry, setHireTalentDropdown,
-    setDemoTestData,
+    setDemoTestData, setShowApplicationForm,
     setDemoExpiryTime,
     setLocationGranted,
     setTalentsNearYouResponse,
@@ -122,6 +124,10 @@ export function AllContextProvider(props) {
   );
 
   // functions below
+
+  function setShowApplicationForm(value) {
+    setTheShowApplicationForm(value)
+  }
 
   function setHireTalentDropdown(value) {
     setTheHireTalentDropdown(value)

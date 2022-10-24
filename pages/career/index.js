@@ -1,4 +1,5 @@
 import React from "react";
+import AllCtx from "../../util-functions/allCtx";
 import Banner from "../../components/career/Banner";
 import Section1 from "../../components/career/Section1";
 import Section10 from "../../components/career/Section10";
@@ -13,6 +14,10 @@ import Section9 from "../../components/career/Section9";
 import HeaderBanner from "../../components/HeaderBanner";
 
 function Index(props) {
+  const {showApplicationForm, setShowApplicationForm} = AllCtx();
+
+
+
   const {
     heroBgImage,
     heroText,

@@ -127,10 +127,10 @@ export default function Home(props) {
   return (
     <div className=" ">
       <Head>
-        <title>Codes and Cogs - Homepage</title>
+        <title>Codes and Cogs - Hire Top Tech Talents Hassle-Free</title>
         <meta
           name="description"
-          content="Get your web or software projects done without the hassle"
+          content="Find vetted engineers, developers, and designers from anywhere in the world hassle-free with no down payment at Codes and Cogs. Book a free consultation now."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>

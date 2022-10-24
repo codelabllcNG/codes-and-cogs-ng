@@ -4,29 +4,21 @@ import React, { useState } from "react";
 import HeaderBanner from "../../components/HeaderBanner";
 import Jobs from "../../components/career/Jobs";
 import Loading from "../../components/Loading";
+import ApplicationForm from "../../components/career/ApplicationForm";
+import AllCtx from "../../util-functions/allCtx";
+ 
+
+
 function JobPosting(props) {
+const {showApplicationForm, setShowApplicationForm} = AllCtx();
+
   const router = useRouter();
 
-  const fakeOpening = [
-    {
-      id: 1493,
-      title: "Secretary",
-      content:
-        "<strong>Codes and Cogs</strong>\r\n\r\nBlah blah scalable web and software projects.\r\n\r\n\r\n<strong>Responsibilities</strong>\r\n\r\n\t<li>Develop business strategies and relationships to help Codes and Cogs expand in the African Tech Space.</li>\r\n\t<li>Develop a growth strategy focused both on financial gain and customer satisfaction</li>\r\n\t<li>Identify partnership opportunities.</li>\r\n\t<li>Following up on new business opportunities and setting up meetings</li>\r\n        <li>Assist in outbound or inbound marketing activities by demonstrating expertise in various areas</li>\r\n\t<li>Liaise with external vendors to execute promotional events and campaigns</li>\r\n<li>Collaborate with marketing and other professionals to coordinate brand awareness and marketing efforts.</li>\r\n\r\n\r\n<strong>Requirements and skills</strong>\r\n\r\n\t<li>A minimum of 5 years of experience as a business developer and marketing manager is required. </li>\r\n\r\n\t<li>Industry knowledge is a must-have. </li>\r\n\r\n\t<li>Proven knowledge and execution of successful development strategies</li>\r\n\r\n\t<li>Time management and planning skills</li>\r\n\r\n\t<li>Proven sales track record</li>\r\n\r\n\t<li>Thorough understanding of marketing elements (including traditional and digital marketing such as SEO, funnel marketing, etc) and market research methods</li>\r\n\r\n\t<li>Demonstrable experience in marketing data analytics and tools.</li>\r\n\r\n\t<li>Solid computer skills, including MS Office, marketing software, and applications (Web analytics, Google AdWords, CRMS, etc.)</li>\r\n\r\n",
-      summary:
-        "We are looking for a seasoned business development/marketing manager to help develop business and marketing strategies to help us break into the African market (Nigeria, Ghana, and South Africa).\r\nThe ideal candidate will lead initiatives to expand our clientele and create a strong brand presence in the tech industry in Africa. The candidate must be familiar with modern and innovative marketing strategies and technologies. ",
-      date: "2022-10-18 07:43:19",
-      country: "Nigeria",
-      state: "Abuja",
-      type: "HYBRID",
-      company: "Codes and Cogs",
-    },
-  ];
 
   const { selectedJobCategory, jobCategoryID, jobCategoryArray } = props;
-// console.log(selectedJobCategory);
+
   const [statefulSelectedJobCategory, setStatefulSelectedJobCategory] =
-    useState(selectedJobCategory?.category);
+    useState(selectedJobCategory);
   const [response, setResponse] = useState("");
   const [searchKeyword, setSearchKeyword] = useState("");
 
@@ -35,29 +27,46 @@ function JobPosting(props) {
   );
 
   const [selectedVacancy, setSelectedVacancy] = useState(
-    selectedJobCategory?.postings[0]
+  selectedJobCategory?.postings[0]
   );
 
+  // JOB SEARCHING
   function searchJob(searchKeyword) {
+  
+
     if (!searchKeyword || searchKeyword.trim() === "") {
-      setResponse("Search keyword cannot be blank.");
+   
+      function jobCategoryFinder() {
+        setResponse('All available job openings.')
+        return jobCategoryArray.find(
+          (jobCategory) => jobCategory.id === statefulSelectedJobCategory.id
+        );
+        }
+    
+        const currentCat = jobCategoryFinder()
+        console.log(currentCat);
+        console.log(jobCategoryArray);
+      setStatefulSelectedJobCategory(currentCat)
+    setVacancyArray(currentCat.postings)
       return;
     }
 
-    const foundVacancies = selectedJobCategory?.postings.filter((v) =>
+
+
+    const foundVacancies = statefulSelectedJobCategory?.postings.filter((v) =>
       v.title.toLowerCase().includes(`${searchKeyword.toLowerCase()}`)
     );
 
     if (foundVacancies.length === 0) {
-      // console.log(foundVacancies);
+      console.log(foundVacancies);
       setResponse("No job opening for this keyword, try another.");
-      setVacancyArray([]);
-      console.log("Nothing to display");
+   setVacancyArray(foundVacancies)
+      // console.log("Nothing to display");
       return;
     }
 
     setResponse("We found some job opening(s) for your search.");
-    setVacancyArray(foundVacancies);
+setVacancyArray(foundVacancies)
     console.log(foundVacancies);
   }
 
@@ -88,20 +97,29 @@ function JobPosting(props) {
   } 
 
   return (
-    <div className="px-5 md:px-10 lg:px-16">
+    <div className="px-5 md:px-10 lg:px-16 ">
+      <ApplicationForm selectedVacancy={ selectedVacancy} />
       <HeaderBanner title="Career With Codes and Cogs" />
 
-      {/* CATEGORIES OPTIONS */}
+     
+
+      {/* HEADER CATEGORY NAME LIST */}
 
       <div className="flex justify-center mt-10 font-semibold space-x-3 text-pry-color flex-wrap text-sm ">
         {jobCategoryArray.map((posting) => (
           <div
             onClick={() => {
               console.log(posting);
-              setStatefulSelectedJobCategory(posting.category);
+             
+              setStatefulSelectedJobCategory(posting);
+              setVacancyArray(posting.postings)
+              setSelectedVacancy(posting?.postings[0])
+              setResponse("")
+              router.push(`/career/${posting.id}`)
+              // setVacancyArray(statefulSelectedJobCategory.postings)
             }}
             className={`select-none cursor-pointer px-4 py-1 mb-2 ${
-              statefulSelectedJobCategory === posting.category
+              statefulSelectedJobCategory.category === posting.category
                 ? "bg-pry-color text-white"
                 : "bg-semi-sec-color text-pry-color"
             } rounded-full text-center`}
@@ -151,7 +169,7 @@ function JobPosting(props) {
       <div
         className={`flex !text-lg px-5 justify-center h-5 my-3 mb-7 ${
           response.includes("found") ? "text-green-600 " : "text-red-600 "
-        } text-sm`}
+        } text-sm m-2`}
       >
         {response}
       </div>
@@ -186,15 +204,15 @@ function JobPosting(props) {
                   }}
                   key={job.id}
                   className={` rounded-lg ${
-                    selectedVacancy.id === job.id
+                    selectedVacancy?.id === job.id
                       ? "bg-pry-color text-white "
                       : "bg-white "
-                  } mt-3 400:pl-2 sm:pl-3 p-1 sm:p-3 hover:text-white hover:bg-pry-color shadow-md lg:flex items-start cursor-pointer hover:shadow-lg`}
+                  } mt-3 400:pl-2 sm:pl-3 p-1 sm:p-3  shadow-md lg:flex items-start cursor-pointer hover:shadow-lg`}
                 >
                   <div className="mr-3 hidden lg:flex">
                     <Image
                       src={
-                        selectedVacancy.id === job.id
+                        selectedVacancy?.id === job.id
                           ? "/images/candc-jobs-logo-blue.svg"
                           : "/images/candc-jobs-logo-white.svg"
                       }
@@ -245,27 +263,27 @@ function JobPosting(props) {
             <div className="rounded-lg shadow-md mt-3 p-2 sm:p-4">
               <div className="font-semibold">
                 <div
-                  dangerouslySetInnerHTML={{ __html: selectedVacancy.title }}
+                  dangerouslySetInnerHTML={{ __html: selectedVacancy?.title }}
                   className="text-base 400:text-lg md:text-2xl font-bold"
                 >
                   {}
                 </div>
                 <div className="text-xs 400:text-sm">
                   <span className="text-pry-color mt-1">
-                    <span>{selectedVacancy.state},</span>{" "}
-                    <span>{selectedVacancy.country}</span>{" "}
+                    <span>{selectedVacancy?.state},</span>{" "}
+                    <span>{selectedVacancy?.country}</span>{" "}
                   </span>
-                  <span>({selectedVacancy.type})</span>
+                  <span>({selectedVacancy?.type})</span>
                 </div>
-                <div className="mt-1 text-xs 400:text-sm">{selectedVacancy.company}</div>
-                <button className="bg-pry-color mt-2 text-white rounded-md p-1 font-normal text-xs 400:text-sm 400:px-2 hover:bg-white hover:text-pry-color hover:shadow-md duration-200">
+                <div className="mt-1 text-xs 400:text-sm">{selectedVacancy?.company}</div>
+                <button onClick={()=>{setShowApplicationForm(true)}} className="bg-pry-color mt-2 text-white rounded-md p-1 font-normal text-xs 400:text-sm 400:px-2 hover:bg-white hover:text-pry-color hover:shadow-md duration-200">
                   Apply for Job
                 </button>
                 <hr className="-mx-2 sm:-mx-4 my-4 border" />
 
                 <div
                   className="h-[500px] overflow-y-auto scrollbar-hide text-sm md:text-base font-normal "
-                  dangerouslySetInnerHTML={{ __html: selectedVacancy.content }}
+                  dangerouslySetInnerHTML={{ __html: selectedVacancy?.content }}
                 >
                   {}
                 </div>
@@ -286,6 +304,8 @@ export async function getStaticProps(context) {
   );
   const data = await response.json();
   const jobCategoryArray = data.job_postings;
+
+  // console.log(data.job_postings);
 
   function jobCategoryFinder() {
     return jobCategoryArray.find(

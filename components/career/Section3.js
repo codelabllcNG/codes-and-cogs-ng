@@ -10,10 +10,10 @@ function Section3(props) {
           style={{ backgroundImage: `url(${missionBgImage || '/images/career-second-bg.png'})` }}
     >
       <div className=""> 
-      <div className='text-2xl md:text-3xl lg:text-4xl font-semibold' dangerouslySetInnerHTML={{ __html: "MISSION"}}>
+      <div className='text-2xl md:text-3xl lg:text-4xl font-semibold' dangerouslySetInnerHTML={{ __html: missionTitle}}>
         {}
       </div>
-      <div className='mt-4 lg:text-xl lg:leading-10 w-[70%]' dangerouslySetInnerHTML={{ __html: "As the world moves digital and data-driven, our mission is to help organizations use cutting-edge technology to stay ahead, continuously improve and make the greatest impact faster and better. We believe digital transformation is more than just technology. It's about the people and how we can solve their needs. "}}>
+      <div className='mt-4 lg:text-xl lg:leading-10 md:w-[70%]' dangerouslySetInnerHTML={{ __html: missionDescription}}>
         {}
       </div>
    </div>

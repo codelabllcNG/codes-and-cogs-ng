@@ -9,6 +9,7 @@ import AllCtx from "../util-functions/allCtx";
 import { MdExpandMore } from "react-icons/md";
 import MobileNav from "./MobileNav";
 import HireTalentDropdown from "./HireTalentDropdown";
+import ApplicationForm from "./career/ApplicationForm";
 
 function Navbar() {
   const router = useRouter();
@@ -35,6 +36,7 @@ function Navbar() {
   return (
     <div className={`px-5 md:px-10 lg:px-16`}>
       <MobileNav />
+      {/* <ApplicationForm/> */}
       <div className="flex items-center pt-4 justify-between  my-3  ">
         <div
           onClick={() => {

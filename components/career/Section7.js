@@ -1,8 +1,13 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import Banner from "../staffing/Banner";
 
+
 function Section7(props) {
+const router = useRouter();
+
+
 const {  getStartedTitle,
   getStartedSubtitle,
   getStarted,    banner2,} = props
@@ -92,7 +97,7 @@ const {  getStartedTitle,
                   </div>
 
                   <div
-                    className="md:w-[50%] text-center text-lg mt-5 md:mt-0"
+                    className="md:w-[50%]  text-center font-bold text-2xl mt-5 md:mt-0"
                     dangerouslySetInnerHTML={{
                       __html: item.title,
                     }}
@@ -112,12 +117,12 @@ const {  getStartedTitle,
       style={{ backgroundImage: `url(${banner2.bannerUrl || '/images/career-banner2.png'})` }}
     >
       <div className='flex'>
-      <div className='w-1/2'></div>   <div className='w-1/2 text-xs 320:text-base 350:text-2xl sm:text-2xl md:text-3xl text-right' dangerouslySetInnerHTML={{ __html: banner2.text}}>
+      <div className='md:w-1/2'></div>   <div className='md:w-1/2 text-xs 320:text-base 350:text-2xl sm:text-2xl md:text-3xl text-right' dangerouslySetInnerHTML={{ __html: banner2.text}}>
               {}
           </div>
    </div>
       <div className='flex justify-end'>
-      <button onClick={()=>{}} className='text-xl bg-white text-pry-color px-2 py-1 mt-5 md:font-semibold md:px-3 rounded-lg hover:bg-pry-color hover:text-white duration-300'>Join Codes and Cogs</button>
+      <button onClick={()=>{router.push('/career/#job-openings')}} className='text-xl bg-white text-pry-color px-2 py-1 mt-5 md:font-semibold md:px-3 rounded-lg hover:bg-pry-color hover:text-white duration-300'>Join Codes and Cogs</button>
          </div>
     </div>
     </div>

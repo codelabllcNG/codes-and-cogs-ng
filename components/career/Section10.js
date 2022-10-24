@@ -26,13 +26,13 @@ const {perks} = props
           
      
 
-      <div className='mt-10 grid grid-cols-1  md:grid-cols-2 lg:grid-cols-4 gap-4'>
+      <div className='mt-10 grid grid-cols-1   md:grid-cols-2 lg:grid-cols-4 gap-4'>
         {perks.map(perk => 
           <div key={perk.title} className=" flex justify-center relative ">
    
           <Image alt="Perks image" src={perk.imageUrl || '/images/job-opening1.png'}  width='400' height='300' className='rounded-xl' />
 
-            <div  dangerouslySetInnerHTML={{ __html: perk.title}} className='  text-center text-sm absolute  bottom-0 bg-black py-4 lg:py-2 text-white bg-opacity-70  rounded-xl px-4'>
+            <div  dangerouslySetInnerHTML={{ __html: perk.title}} className='  text-center text-sm absolute hover:text-xl duration-300  bottom-0 bg-black py-4 lg:py-2 text-white bg-opacity-70  rounded-xl px-4'>
         
             </div>
         </div>
