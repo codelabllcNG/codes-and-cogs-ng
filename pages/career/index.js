@@ -43,6 +43,7 @@ function Index(props) {
     whatOurTeamEnjoy,
     perks,
     getStarted,
+    facilitatorTitle, facilitatorsSubtitle
   } = props;
   return (
     <div className="px-5 md:px-10 lg:px-16">
@@ -75,7 +76,7 @@ function Index(props) {
         getStarted={getStarted}
         banner2={banner2}
       />
-      <Section8 facilitators={facilitators} />
+      <Section8 facilitators={facilitators} facilitatorTitle={facilitatorTitle} facilitatorsSubtitle={ facilitatorsSubtitle} />
       <Section9
         whatYouNeedTitle={whatYouNeedTitle}
         whatYouNeeSubtitle={whatYouNeeSubtitle}
@@ -117,6 +118,8 @@ export async function getStaticProps() {
   const jobOpenings = data.job_postings;
   const perks = data.perks;
   const getStarted = data.getStarted;
+ const  facilitatorTitle = data.facilitatorsTitle
+ const facilitatorsSubtitle = data.facilitatorsSubtitle
 
   return {
     props: {
@@ -149,6 +152,8 @@ export async function getStaticProps() {
       banner2,
 
       facilitators,
+      facilitatorsSubtitle,
+      facilitatorTitle,
 
       whatYouNeedTitle,
       whatYouNeeSubtitle,

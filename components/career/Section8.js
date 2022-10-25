@@ -1,11 +1,30 @@
+import Image from 'next/image';
 import React from 'react'
 
 function Section8(props) {
-const {facilitators} = props
+const {facilitators, facilitatorsSubtitle, facilitatorTitle} = props
 
   return (
     <div>
-            <div className="mt-16  bg-center bg-cover bg-no-repeat  text-xs 320:text-lg    text-white px-5 md:px-10 lg:px-16 -mx-5 md:-mx-10  lg:-mx-16 py-20 lg:py-32 flex items-center"
+      <div className="flex  justify-center md:mb-2 mt-16">
+        <h2 className="font-bold header">{facilitatorTitle}</h2>
+      </div>
+      <div className="flex justify-center -mb-4">
+        <div className=" w-[75px] md:w-[150px]">
+          <Image
+            alt="Image alt text"
+            src="/images/logos-and-icons/red-underline.png"
+            width={150}
+            height={20}
+          />
+        </div>
+      </div>
+
+      <div className='mt-5 text-center text-xl' dangerouslySetInnerHTML={{__html: facilitatorsSubtitle}}>
+        {}
+      </div>
+
+            <div className="mt-8  bg-center bg-cover bg-no-repeat  text-xs 320:text-lg    text-white px-5 md:px-10 lg:px-16 -mx-5 md:-mx-10  lg:-mx-16 py-20 lg:py-32 flex items-center"
    
         // bg-[url('/images/facilitator-bg.png')]
           style={{ backgroundImage: `url(${facilitators.imageUrl || '/images/facilitator-bg.png'})` }}
