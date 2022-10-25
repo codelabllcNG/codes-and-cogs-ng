@@ -13,21 +13,6 @@ const {  getStartedTitle,
   getStarted,    banner2,} = props
 
 
-  const GET_STARTED = [
-    {
-      id: "id1",
-      imageUrl: "/images/get-started1.png",
-      content: "Click the “Join Codes and Cogs” button ",
-    },
-    {
-      id: "id2",
-      imageUrl: "/images/get-started1.png",
-      content: "Another description",
-    },
-    {},
-    {},
-    {},
-  ];
 
   const [selectedStep, setSelectedStep] = useState(getStarted[0].title);
 
@@ -93,6 +78,7 @@ const {  getStartedTitle,
                       src={item.imageUrl || "/images/career.png"}
                       width="500"
                       height="300"
+                      className='rounded-xl'
                     />{" "}
                   </div>
 
@@ -116,13 +102,13 @@ const {  getStartedTitle,
       // bg-[url('/images/career-banner2.png')]
       style={{ backgroundImage: `url(${banner2.bannerUrl || '/images/career-banner2.png'})` }}
     >
-      <div className='flex'>
-      <div className='md:w-1/2'></div>   <div className='md:w-1/2 text-xs 320:text-base 350:text-2xl sm:text-2xl md:text-3xl text-right' dangerouslySetInnerHTML={{ __html: banner2.text}}>
+      <div className='flex justify-end'>
+      <div className='md:w-[30%] '></div>   <div className='md:w-[70%] text-xs 320:text-base  sm:text-xl md:text-2xl lg:text-3xl text-right' dangerouslySetInnerHTML={{ __html: banner2.text}}>
               {}
           </div>
    </div>
-      <div className='flex justify-end'>
-      <button onClick={()=>{router.push('/career/#job-openings')}} className='text-xl bg-white text-pry-color px-2 py-1 mt-5 md:font-semibold md:px-3 rounded-lg hover:bg-pry-color hover:text-white duration-300'>Join Codes and Cogs</button>
+      <div className='flex justify-end text-right'>
+      <button onClick={()=>{router.push('/career/#job-openings')}} className='md:text-xl bg-white text-pry-color px-2 py-1 mt-5 md:font-semibold md:px-3 rounded-lg hover:bg-pry-color hover:text-white duration-300'>Join Codes and Cogs</button>
          </div>
     </div>
     </div>

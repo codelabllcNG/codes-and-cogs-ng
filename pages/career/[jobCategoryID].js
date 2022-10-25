@@ -6,14 +6,11 @@ import Jobs from "../../components/career/Jobs";
 import Loading from "../../components/Loading";
 import ApplicationForm from "../../components/career/ApplicationForm";
 import AllCtx from "../../util-functions/allCtx";
- 
-
 
 function JobPosting(props) {
-const {showApplicationForm, setShowApplicationForm} = AllCtx();
+  const { showApplicationForm, setShowApplicationForm } = AllCtx();
 
   const router = useRouter();
-
 
   const { selectedJobCategory, jobCategoryID, jobCategoryArray } = props;
 
@@ -27,31 +24,26 @@ const {showApplicationForm, setShowApplicationForm} = AllCtx();
   );
 
   const [selectedVacancy, setSelectedVacancy] = useState(
-  selectedJobCategory?.postings[0]
+    selectedJobCategory?.postings[0]
   );
 
   // JOB SEARCHING
   function searchJob(searchKeyword) {
-  
-
     if (!searchKeyword || searchKeyword.trim() === "") {
-   
       function jobCategoryFinder() {
-        setResponse('All available job openings.')
+        setResponse("All available job openings.");
         return jobCategoryArray.find(
           (jobCategory) => jobCategory.id === statefulSelectedJobCategory.id
         );
-        }
-    
-        const currentCat = jobCategoryFinder()
-        console.log(currentCat);
-        console.log(jobCategoryArray);
-      setStatefulSelectedJobCategory(currentCat)
-    setVacancyArray(currentCat.postings)
+      }
+
+      const currentCat = jobCategoryFinder();
+      console.log(currentCat);
+      console.log(jobCategoryArray);
+      setStatefulSelectedJobCategory(currentCat);
+      setVacancyArray(currentCat.postings);
       return;
     }
-
-
 
     const foundVacancies = statefulSelectedJobCategory?.postings.filter((v) =>
       v.title.toLowerCase().includes(`${searchKeyword.toLowerCase()}`)
@@ -60,13 +52,13 @@ const {showApplicationForm, setShowApplicationForm} = AllCtx();
     if (foundVacancies.length === 0) {
       console.log(foundVacancies);
       setResponse("No job opening for this keyword, try another.");
-   setVacancyArray(foundVacancies)
+      setVacancyArray(foundVacancies);
       // console.log("Nothing to display");
       return;
     }
 
     setResponse("We found some job opening(s) for your search.");
-setVacancyArray(foundVacancies)
+    setVacancyArray(foundVacancies);
     console.log(foundVacancies);
   }
 
@@ -94,14 +86,12 @@ setVacancyArray(foundVacancies)
 
   if (router.isFallback) {
     return <Loading />;
-  } 
+  }
 
   return (
     <div className="px-5 md:px-10 lg:px-16 ">
-      <ApplicationForm selectedVacancy={ selectedVacancy} />
+      <ApplicationForm selectedVacancy={selectedVacancy} />
       <HeaderBanner title="Career With Codes and Cogs" />
-
-     
 
       {/* HEADER CATEGORY NAME LIST */}
 
@@ -110,12 +100,12 @@ setVacancyArray(foundVacancies)
           <div
             onClick={() => {
               console.log(posting);
-             
+
               setStatefulSelectedJobCategory(posting);
-              setVacancyArray(posting.postings)
-              setSelectedVacancy(posting?.postings[0])
-              setResponse("")
-              router.push(`/career/${posting.id}`)
+              setVacancyArray(posting.postings);
+              setSelectedVacancy(posting?.postings[0]);
+              setResponse("");
+              router.push(`/career/${posting.id}`);
               // setVacancyArray(statefulSelectedJobCategory.postings)
             }}
             className={`select-none cursor-pointer px-4 py-1 mb-2 ${
@@ -275,8 +265,18 @@ setVacancyArray(foundVacancies)
                   </span>
                   <span>({selectedVacancy?.type})</span>
                 </div>
-                <div className="mt-1 text-xs 400:text-sm">{selectedVacancy?.company}</div>
-                <button onClick={()=>{setShowApplicationForm(true)}} className="bg-pry-color mt-2 text-white rounded-md p-1 font-normal text-xs 400:text-sm 400:px-2 hover:bg-white hover:text-pry-color hover:shadow-md duration-200">
+                <div className="mt-1 text-xs 400:text-sm">
+                  {selectedVacancy?.company}
+                </div>
+                <button
+                  onClick={() => {
+                    setShowApplicationForm(true);
+                    window.fbq("trackCustom", "Apply for Job Button - Career", {
+                      jobTitle: `${selectedVacancy.title}`,
+                    });
+                  }}
+                  className="bg-pry-color mt-2 text-white rounded-md p-1 font-normal text-xs 400:text-sm 400:px-2 hover:bg-white hover:text-pry-color hover:shadow-md duration-200"
+                >
                   Apply for Job
                 </button>
                 <hr className="-mx-2 sm:-mx-4 my-4 border" />

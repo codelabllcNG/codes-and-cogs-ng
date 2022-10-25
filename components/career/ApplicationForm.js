@@ -21,10 +21,6 @@ function ApplicationForm(props) {
   const [additionalQuestion, setAdditionalQuestion] = useState("");
   const [referrer, setReferrer] = useState("");
 
-  // async function uploadWithJSON() {
-
-  //   toBase64(resumeUpload)
-  // }
 
   async function handleSubmit() {
     if (!resumeUpload) {
@@ -50,31 +46,28 @@ function ApplicationForm(props) {
         reader.onerror = (error) => reject(error);
       });
 
-    const base64PDF = await toBase64(resumeUpload);
+    const base64File = await toBase64(resumeUpload);
 
-    // console.log(base64PDF);
 
-    // return
-
-    // if (
-    //   !fullName ||
-    //   fullName.trim() === "" ||
-    //   !email ||
-    //   email.trim() === "" ||
-    //   !phone ||
-    //   phone.trim() === "" ||
-    //   !linkedInURL ||
-    //   linkedInURL.trim() === "" ||
-    //   !gitHubURL ||
-    //   gitHubURL.trim() === "" ||
-    //   !additionalQuestion ||
-    //   additionalQuestion.trim() === ""
-    // ) {
-    //   setResponse(
-    //     "Fill all important (red-starred) fields."
-    //   );
-    //   return;
-    // }
+    if (
+      !fullName ||
+      fullName.trim() === "" ||
+      !email ||
+      email.trim() === "" ||
+      !phone ||
+      phone.trim() === "" ||
+      !linkedInURL ||
+      linkedInURL.trim() === "" ||
+      !gitHubURL ||
+      gitHubURL.trim() === "" ||
+      !additionalQuestion ||
+      additionalQuestion.trim() === ""
+    ) {
+      setResponse(
+        "Fill all important (red-starred) fields."
+      );
+      return;
+    }
 
     try {
       setResponse("Submitting...");
@@ -84,8 +77,18 @@ function ApplicationForm(props) {
         {
           method: "POST",
           body: JSON.stringify({
-            resume: base64PDF,
-            name: "Olasunkanmi",
+            resume: base64File,
+            name: fullName,
+            email: email,
+            phone_number: phone,
+            linkedin_url: linkedInURL,
+            github_url: gitHubURL,
+            portfolio_url: portfolio,
+            dribble_url: dribbleURL,
+            question_answer: additionalQuestion,
+            referrer: referrer,
+            role: selectedVacancy.title
+           
           }),
           headers: {
             "Content-Type": "application/json",
@@ -94,7 +97,7 @@ function ApplicationForm(props) {
       );
 
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       // return
 
       if (!response.ok) {
@@ -109,13 +112,13 @@ function ApplicationForm(props) {
       // });
 
       setResponse("Submitted successfully!");
-      console.log("Submitted successfully!", resumeUpload);
-      // console.log(data);
+      console.log("Submitted successfully!");
+
 
       // setSubmitting(false);
     } catch (error) {
       console.log(error);
-      setResponse("Error, failed to submit. Retry.");
+      setResponse("Something went wrong, please try again.");
       // setSubmitting(false);
     }
   }
@@ -155,13 +158,24 @@ function ApplicationForm(props) {
                     <input
                       onChange={(e) => {
                         setResumeUpload(e.target.files[0]);
+                        if (
+                          e.target.files[0].type !== "application/pdf" &&
+                          e.target.files[0].type !==
+                            "application/vnd.openxmlformats-officedocument.wordprocessingml.document" &&
+                          e.target.files[0].type !== "application/msword"
+                        ) {
+                          setFileResponse("Only pdf, doc, and docx formats are allowed.");
+                          return;
+                        } else {setFileResponse("")}
                       }}
                       type="file"
                       className="cursor-pointer file:cursor-pointer file:rounded-lg file:px-4 file:border-none file:text-sm file:py-2 text-sm"
                     />
+                  
                   </div>
                 </div>
-
+                
+{fileResponse && <div className='md:ml-[21%] text-sm text-red-600'>{ fileResponse}</div>}
                 <div className="md:flex items-center md:space-x-5">
                   <div className="text-sm md:w-[18%]">
                     Full Name <span className="text-red-600">*</span>
@@ -174,7 +188,7 @@ function ApplicationForm(props) {
                       type="text"
                       className="outline outline-1 px-2 text-sm py-2 outline-gray-400 rounded-xl w-full"
                     />
-                  </div>
+                  </div> 
                 </div>
 
                 <div className="md:flex items-center md:space-x-5">
@@ -202,7 +216,7 @@ function ApplicationForm(props) {
                     Phone <span className="text-red-600">*</span>
                   </div>
                   <div className="w-[90%] md:w-[75%] mt-1 md:mt-0">
-                    <input
+                    <input placeholder="Include your country code"
                       onChange={(e) => {
                         setPhone(e.target.value);
                       }}
@@ -315,9 +329,9 @@ function ApplicationForm(props) {
                 </div>
 
                 <div
-                  className={`h-5 mb-3 flex justify-center mt-3 py-2 text-lg text-red-600`}
+                  className={`h-5 mb-3 flex justify-center mt-3 py-2 text-lg`}
                 >
-                  <div className="">{response}</div>
+                  <div className={`${response.includes("successfully") ? "text-green-600" : "text-red-600"}`}>{response}</div>
                 </div>
 
                 <div className="flex justify-center mt-10 ">

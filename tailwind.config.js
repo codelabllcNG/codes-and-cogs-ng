@@ -19,7 +19,7 @@ module.exports = {
         "larken": ["Larken DEMO"],
         "kyivType": ["KyivType Sans"],
      
-      },
+      }, 
 
       screens: {
         400: { raw: "(min-width: 400px)" },

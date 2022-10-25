@@ -20,7 +20,7 @@ const {facilitators} = props
    </div>
       </div>
 
-      <div className='mt-5 flex justify-center items-center'><button className='bg-pry-color text-white px-4 rounded-md hover:shadow-lg py-2'>Become a Facilitator</button></div>
+      <div className='mt-5 flex justify-center items-center'><button onClick={()=>{alert("Coming Soon!")}} className='bg-pry-color text-white px-4 rounded-md hover:shadow-lg py-2'>Become a Facilitator</button></div>
     </div>
 
   )

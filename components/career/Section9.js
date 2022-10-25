@@ -33,7 +33,7 @@ const {  whatYouNeedTitle,
 
       <div className='mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
         {whatYouNeed.map(content => 
-          <div dangerouslySetInnerHTML={{ __html: content.body || "Facilitators who have experience in PHP, JavaScript, JavaScript frameworks (React, React.js, React native, Vue, Angular), Java, Drupal, WordPress, and many more. "}} key={content} className='px-3 py-4 rounded-lg bg-mid-color text-lg'>
+          <div dangerouslySetInnerHTML={{ __html: content.body || "Facilitators who have experience in PHP, JavaScript, JavaScript frameworks (React, React.js, React native, Vue, Angular), Java, Drupal, WordPress, and many more. "}} key={content.body} className='px-3 py-4 rounded-lg bg-mid-color text-lg'>
 {}
           </div>
         )}

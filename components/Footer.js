@@ -262,6 +262,14 @@ function Footer(props) {
               </p>
               <p
                 onClick={() => {
+                  router.push("/career");
+                }}
+                className="cursor-pointer hover:text-red-700"
+              >
+               Career
+              </p>
+              <p
+                onClick={() => {
                   router.push("/coming-soon");
                 }}
                 className="cursor-pointer hover:text-red-700"

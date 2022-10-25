@@ -15,10 +15,10 @@ function Banner(props) {
         })`,
       }}
     >
-      <div className="flex">
-        <div className="w-1/2"></div>{" "}
+      <div className="flex justify-end">
+        <div className="md:w-[30%]"></div>{" "}
         <div
-          className="md:w-1/2 text-xs 320:text-base 350:text-2xl sm:text-2xl md:text-3xl text-right"
+          className="md:[70%] text-xs 320:text-base  sm:text-xl md:text-2xl lg:text-3xl text-right"
           dangerouslySetInnerHTML={{ __html: banner.text }}
         >
           {}
@@ -29,7 +29,7 @@ function Banner(props) {
           onClick={() => {
             router.push("/career/#job-openings");
           }}
-          className="text-xl bg-white text-pry-color px-2 py-1 mt-5 md:font-semibold md:px-3 rounded-lg hover:bg-pry-color hover:text-white duration-300"
+          className="md:text-xl bg-white text-pry-color px-2 py-1 mt-5 md:font-semibold md:px-3 rounded-lg hover:bg-pry-color hover:text-white duration-300"
         >
           Join Codes and Cogs
         </button>
