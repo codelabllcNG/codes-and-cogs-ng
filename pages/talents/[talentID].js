@@ -73,7 +73,7 @@ function TalentID(props) {
                     }
                   );
                   setTalentToHire(selectedTalent.name);
-                  setIdOfTalentToHire(selectedTalent.id);
+                  setIdOfTalentToHire(selectedTalent.intId);
                   router.push("/post-a-job");
                 }}
                 className="flex justify-end"
@@ -518,7 +518,7 @@ function TalentID(props) {
                 talentToHire: `${selectedTalent.name}`,
               });
               setTalentToHire(selectedTalent.name);
-              setIdOfTalentToHire(selectedTalent.id);
+              setIdOfTalentToHire(selectedTalent.intId);
 
               router.push("/post-a-job");
             }}
