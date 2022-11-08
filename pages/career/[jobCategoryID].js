@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import HeaderBanner from "../../components/HeaderBanner";
 import Jobs from "../../components/career/Jobs";
+import Head from "next/head";
 import Loading from "../../components/Loading";
 import ApplicationForm from "../../components/career/ApplicationForm";
 import AllCtx from "../../util-functions/allCtx";
@@ -90,6 +91,27 @@ function JobPosting(props) {
 
   return (
     <div className="px-5 md:px-10 lg:px-16 ">
+
+<Head>
+        <title>{`Career for ${selectedJobCategory.category} at Codes and Cogs`}</title>
+        <meta name="description" content={`Career for ${selectedJobCategory.category} at Codes and Cogs`} />
+
+        <meta
+          property="og:url"
+          content={`https://www.codesandcogs.com/career/${selectedJobCategory.category}`}
+        />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={`Career for ${selectedJobCategory.category} at Codes and Cogs`} />
+        <meta property="og:description" content={`Career for ${selectedJobCategory.category} at Codes and Cogs`} />
+        <meta property="og:image" content={selectedJobCategory.imageUrl} />
+
+        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="canonical"
+          href={`https://www.codesandcogs.com/career/${selectedJobCategory.category}`}
+        />
+      </Head>
+
       <ApplicationForm selectedVacancy={selectedVacancy} />
       <HeaderBanner title="Career With Codes and Cogs" />
 

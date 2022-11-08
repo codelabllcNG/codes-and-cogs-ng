@@ -12,6 +12,7 @@ import Section7 from "../../components/career/Section7";
 import Section8 from "../../components/career/Section8";
 import Section9 from "../../components/career/Section9";
 import HeaderBanner from "../../components/HeaderBanner";
+import Head from "next/head";
 
 function Index(props) {
   const {showApplicationForm, setShowApplicationForm} = AllCtx();
@@ -47,6 +48,27 @@ function Index(props) {
   } = props;
   return (
     <div className="px-5 md:px-10 lg:px-16">
+
+<Head>
+        <title>Codes and Cogs - Career Page</title>
+        <meta
+          name="description"
+          content="Career Page for Codes and Cogs"
+        />
+
+        <meta property="og:url" content={`https://www.codesandcogs.com/career`} />
+
+        <meta property="og:title" content="Codes and Cogs - Career" />
+        <meta
+          property="og:description"
+          content="Career Page for Codes and Cogs"
+        />
+        <meta property="og:image" content="/logo.png" />
+
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+
       <HeaderBanner title="Career" />
 
       <Section1 heroBgImage={heroBgImage} heroText={heroText} />

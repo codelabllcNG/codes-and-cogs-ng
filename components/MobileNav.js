@@ -52,8 +52,8 @@ function MobileNav() {
               }}
               className="border border-gray-300  hover:border-pry-color text-pry-color px-2 rounded py-1 text-xs 400:text-base "
             >
-              {" "}
-              Freelancing{" "}
+              {" "} 
+              Freelancing{" "} 
             </button>
           </div>
         </div>

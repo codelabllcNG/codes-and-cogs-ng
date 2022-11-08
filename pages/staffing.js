@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
@@ -24,7 +25,10 @@ function Staffing(props) {
     setLocationGranted,
     setTalentsNearYouResponse,
     coordinates,
-    setCoordinates, setState, country, setCountry
+    setCoordinates,
+    setState,
+    country,
+    setCountry,
   } = AllCtx();
 
   function getCoordinates() {
@@ -32,7 +36,7 @@ function Staffing(props) {
 
     if (!navigator.geolocation) {
       alert("Your browser does not support Geolocation, but we got you!");
-      setState("")
+      setState("");
       setGeolocationSupported(false);
       setTalentsNearYouResponse(
         "We could not find talents near you because your browser does not support Geolocation. You can browse through our pool of US-based talents below."
@@ -47,48 +51,47 @@ function Staffing(props) {
       maximumAge: 0,
     };
 
-  async  function success(position) {
+    async function success(position) {
       const crd = position.coords;
 
       setLocationGranted(true);
       setGeolocationSupported(true);
       setTalentsNearYouResponse("Wait, while we find talents near you.");
       setCoordinates({ latitude: crd.latitude, longitude: crd.longitude });
-      console.log("Coordinates got!"); 
+      console.log("Coordinates got!");
 
-         //TO SEARCH COORDINATES   
-         try {
-          const response = await fetch(
-              `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${crd.latitude}&lon=${crd.longitude}`
-            // `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=35.64302&lon=-79.03621`
-          );
-  
-           if (!response.ok) {
-             setState("none")
-             setCountry(data.address.country)
-             router.push("/talents-near-you");
-             return
-            // throw new Error();
-          }
-  
-          const data = await response.json();
-           const address = data.address
-           setCountry(data.address.country)
-          setState(address['ISO3166-2-lvl4'].substr(3));
-          console.log(address['ISO3166-2-lvl4'].substr(3));
+      //TO SEARCH COORDINATES
+      try {
+        const response = await fetch(
+          `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${crd.latitude}&lon=${crd.longitude}`
+          // `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=35.64302&lon=-79.03621`
+        );
+
+        if (!response.ok) {
+          setState("none");
+          setCountry(data.address.country);
           router.push("/talents-near-you");
-          // fetchTalents();
           return;
-        } catch (error) {
-          console.log(error);
-          setSearchingTalents(false);
-          
-           setState("none");
-           setCountry(data.address.country)
-           router.push("/talents-near-you");
-          // fetchTalents();
-  
+          // throw new Error();
         }
+
+        const data = await response.json();
+        const address = data.address;
+        setCountry(data.address.country);
+        setState(address["ISO3166-2-lvl4"].substr(3));
+        console.log(address["ISO3166-2-lvl4"].substr(3));
+        router.push("/talents-near-you");
+        // fetchTalents();
+        return;
+      } catch (error) {
+        console.log(error);
+        setSearchingTalents(false);
+
+        setState("none");
+        setCountry(data.address.country);
+        router.push("/talents-near-you");
+        // fetchTalents();
+      }
 
       // router.push("/talents-near-you");
 
@@ -96,7 +99,7 @@ function Staffing(props) {
     }
 
     function error(err) {
-      setState("none")
+      setState("none");
       setLocationGranted(false);
       setGeolocationSupported(true);
       setTalentsNearYouResponse(
@@ -111,6 +114,25 @@ function Staffing(props) {
 
   return (
     <div className="px-5 md:px-10 lg:px-16">
+      <Head>
+        <title>Codes and Cogs - Staffing Page</title>
+        <meta name="description" content="Staffing Page for Codes and Cogs" />
+
+        <meta
+          property="og:url"
+          content={`https://www.codesandcogs.com/staffing`}
+        />
+
+        <meta property="og:title" content="Codes and Cogs - Staffing" />
+        <meta
+          property="og:description"
+          content="Staffing Page for Codes and Cogs"
+        />
+        <meta property="og:image" content="/logo.png" />
+
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <HeaderBanner title={staffing.pageTitle} />
 
       <Section1 staffing={staffing} getCoordinates={getCoordinates} />
@@ -131,7 +153,7 @@ function Staffing(props) {
       {/* HOW IT WORKS NUMBERING    */}
       <div className="mt-5 flex justify-evenly">
         {staffing.howItWorks.map((item, i) => (
-          <div 
+          <div
             onClick={() => {
               setSelectedStep(item.title);
             }}
@@ -199,7 +221,10 @@ function Staffing(props) {
 
                     <div className="grid grid-cols-1 gap-4 mt-8 md:grid-cols-3 ">
                       {item.vettingProcess.process.map((vp, i) => (
-                        <div key={vp.title} className="shadow p-5 relative hover:bg-gray-50 mt5">
+                        <div
+                          key={vp.title}
+                          className="shadow p-5 relative hover:bg-gray-50 mt5"
+                        >
                           <div className="flex justify-center">
                             <p className="text-center flex justify-center items-center text-xl border-pry-color w-14 h-14 rounded-full border font-semibold">
                               {i + 1}

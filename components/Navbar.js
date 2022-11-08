@@ -164,7 +164,7 @@ function Navbar() {
           <Link passHref href="/join-us">
             <a className="border border-transparent mx-2 hover:border-pry-color px-2 rounded py-1 ">
               {" "}
-              Freelancing{" "}
+              Freelancing
             </a>
           </Link>{" "}
           <button
