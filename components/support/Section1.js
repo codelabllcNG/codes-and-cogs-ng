@@ -60,14 +60,14 @@ function Section1(props) {
         >
           Open a New Ticket
         </button>{" "}
-        {/* <button
+         <button
           onClick={() => {
-            router.push("#ticket-status");
+            router.push("https://meetings.hubspot.com/charles-uko");
           }}
-          className="bg-pry-color text-white px-3 500:px-5 py-2 500:py-2 rounded-lg text-[0.6rem] 400:text-sm font-semibold"
+          className="bg-white text-pry-color  ring-pry-color ring-1 px-3 500:px-5 py-2 500:py-2 rounded-lg text-[0.6rem] 400:text-sm font-semibold"
         >
-          Check Ticket Status
-        </button> */}
+          Book a Call
+        </button> 
       </div>
 
       <div className="md:mb-32">
