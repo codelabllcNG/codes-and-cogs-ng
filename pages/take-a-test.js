@@ -112,7 +112,7 @@ function TakeATest() {
         setDone(false);
         return;
       } else {
-        setDone(true);
+        setDone(true); 
       }
     }
   }

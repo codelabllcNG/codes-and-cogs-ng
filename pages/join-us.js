@@ -63,6 +63,14 @@ function JoinUS(props) {
       return;
     }
 
+    const validEmailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+    if (!emailInput.match(validEmailRegex)) {
+      setResponse("Invalid email format!") 
+      return
+    }
+
+
     setConfirmBox(true);
   }
 
@@ -95,7 +103,7 @@ function JoinUS(props) {
             "Content-Type": "application/json",
           },
         }
-      );
+      ); 
 
       const data = await response.json();
 
