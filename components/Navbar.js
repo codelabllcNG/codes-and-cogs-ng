@@ -14,27 +14,25 @@ import ApplicationForm from "./career/ApplicationForm";
 function Navbar() {
   const router = useRouter();
 
-  const { megaMenu, setMegaMenu, menuIsClicked, setMenuIsClicked, setTalentToHire,  setIdOfTalentToHire, hireTalentDropdown, setHireTalentDropdown } = AllCtx();
+  const {
+    megaMenu,
+    setMegaMenu,
+    menuIsClicked,
+    setMenuIsClicked,
+    setTalentToHire,
+    setIdOfTalentToHire,
+    hireTalentDropdown,
+    setHireTalentDropdown,
+  } = AllCtx();
 
   // Hover functions here next
   // const [homeHover, setHomeHover] = useState(true);
-  const [aboutHover, setAboutHover] = useState(true);
-  const [hireHover, setHireHover] = useState(false);
-  const [postHover, setPostHover] = useState(false);
-  const [servicesHover, setServicesHover] = useState(false);
-  const [supportHover, setSupportHover] = useState(false);
+  const [hoverUnderline, setHoverUnderline] = useState("");
 
-  function showHover(about, hire, post, services, support) {
-    // setHomeHover(home);
-    setAboutHover(about);
-    setHireHover(hire);
-    setPostHover(post);
-    setServicesHover(services);
-    setSupportHover(support);
-  }
+  
 
   return (
-    <div className={`px-5 md:px-10 lg:px-16`}> 
+    <div className={`px-5 md:px-10 lg:px-16`}>
       <MobileNav />
       {/* <ApplicationForm/> */}
       <div className="flex items-center pt-4 justify-between  my-3  ">
@@ -45,7 +43,8 @@ function Navbar() {
           className=" flex items-center cursor-pointer w-[4rem] 380:w-[5rem] md:w-[6rem]     "
         >
           {" "}
-          <Image alt="Image alt text"
+          <Image
+            alt="Codes and Cogs logo"
             className=""
             src="/images/logos-and-icons/logo.svg"
             width={180}
@@ -53,129 +52,60 @@ function Navbar() {
           />{" "}
         </div>
 
-        <div className="sm:flex hidden text-sm 1130:text-base text-pry-color font-medium space-x-4 800:space-x-5 1000:space-x-7 ">
-          {/* <Link passHref href="/">
-            <div
-              onMouseOver={() => {
-                setMegaMenu(false)
-                showHover(true, false, false, false, false);
-              }}
-              className="cursor-pointer"
-            >
-              <div className="flex justify-center">
-                {" "}
-                <a> Home </a>
-              </div>
-              {homeHover && <RedUnderline />}
-            </div>
-          </Link> */}
+        <div className="890:flex hidden  text-pry-color space-x-10  justify-between text-base font-semibold items-center xl:font-bold lg:text-[20px] xl:text-[22px]">
 
-          <Link passHref href="/about-us">
-            <div
-              onMouseOver={() => {
-                setMegaMenu(false);
-                setHireTalentDropdown(false)
-
-                showHover(true, false, false, false, false);
-              }}
-              className="cursor-pointer hidden 890:block"
-            >
-              <div className="flex justify-center">
-                {" "}
-                <a> About Us </a>
-              </div>
-              {aboutHover && <RedUnderline />}
-            </div>
-          </Link>
-
-          {/* <Link passHref href="/search-talents"> */}
-            <div
-              onMouseOver={() => {
-              setMegaMenu(false);
-              setHireTalentDropdown(true)
-                showHover(false, true, false, false, false);
-              }}
-              className="cursor-pointer"
-            >
-              <div className="flex justify-center relative">
-                {" "}
-                <a> Hire Talent </a>
-              </div>
-              {hireHover && <RedUnderline />}
-           {hireTalentDropdown && <HireTalentDropdown/>}
-            </div>
-          {/* </Link> */}
-
-          <Link passHref href="/post-a-job">
-            <div
-              onMouseOver={() => {
-                
-                setMegaMenu(false);
-                setHireTalentDropdown(false)
-                showHover(false, false, true, false, false);
-              }}
-              className="cursor-pointer"
-            >
-              <div onClick={()=>{setTalentToHire(''); setIdOfTalentToHire('')}} className="flex justify-center">
-                {" "}
-                <a> Post a Job </a>
-              </div>
-              {postHover && <RedUnderline />}
-            </div>
-          </Link>
-          <Link passHref href="/what-we-do">
-            <div
-              onMouseOver={() => {
-                setMegaMenu(true);
-              setHireTalentDropdown(false)
-                showHover(false, false, false, true, false);
-              }}
-              className="cursor-pointer"
-            >
-              <div className="flex justify-center">
-                {" "}
-                <a className="flex items-center">
-                  {" "}
-                  What We Do <MdExpandMore className="ml-1 text-2xl pt-1" />{" "}
-                </a>
-              </div>
-              {servicesHover && <RedUnderline />}
-            </div>
-          </Link>
-
-          <Link passHref href="/support">
-            <div
-              onMouseOver={() => {
-                setMegaMenu(false);
-                setHireTalentDropdown(false)
-                showHover(false, false, false, false, true);
-              }}
-              className="cursor-pointer hidden 890:block"
-            >
-              <div className="flex justify-center">
-                {" "}
-                <a> Support </a>
-              </div>
-              {supportHover && <RedUnderline />}
-            </div>
-          </Link>
-        </div>
-        <div className="890:flex hidden items-center text-sm text-pry-color font-semibold  ">
-          <Link passHref href="/join-us">
-            <a className="border border-transparent mx-2 hover:border-pry-color px-2 rounded py-1 ">
+          <div className='flex justify-between space-x-5'>
+          <div onMouseOver={() => {
+            setHoverUnderline("about")
+          }} className="cursor-pointer relative">
+            <div className="flex justify-center ">
               {" "}
-              Freelancing
-            </a>
-          </Link>{" "}
-          <button
-            onClick={() => {
-              router.push("/post-a-job");
-            }}
-            className="bg-pry-color px-2 font-normal py-1 ring-2 ring-pry-color hover:bg-blue-800 text-white rounded-lg"
-          >
-            Get Started
-          </button>
+              <a> About Us </a>
+            </div>
+              <div className='absolute w-full'>
+              {hoverUnderline === "about" && <RedUnderline />}
+           </div>
+            </div>
+            
+            <div onMouseOver={() => {
+            setHoverUnderline("services")
+          }} className="cursor-pointer relative">
+            <div className="flex justify-center ">
+              {" "}
+              <a> Services </a>
+            </div>
+              <div className='absolute w-full'>
+              {hoverUnderline === "services" && <RedUnderline />}
+           </div>
+            </div>
+            
+            <div onMouseOver={() => {
+            setHoverUnderline("support")
+          }} className="cursor-pointer relative">
+            <div className="flex justify-center ">
+              {" "}
+              <a> Support </a>
+            </div>
+              <div className='absolute w-full'>
+              {hoverUnderline === "support" && <RedUnderline />}
+           </div>
+            </div>
+          </div>
+          
+          <div className='flex justify-between items-center space-x-5'>
+<button   onClick={() => {
+                      setHireTalentDropdown(false);
+                      router.push("/join-us")
+          }} className='border-2 rounded-md px-4 py-2 border-pry-color hover:bg-gray-50'>Become A Talent</button>
+            <div onMouseOver={()=>{setHireTalentDropdown(true)}} onClick={()=>{setHireTalentDropdown(!hireTalentDropdown)}} className='relative'>
+            <button  className='border-2 bg-pry-color text-white rounded-md px-4 py-2 border-pry-color hover:bg-opacity-80 hover:border-opacity-80 border-opacity-30'>Hire Tech Talent</button>
+
+             {hireTalentDropdown && <HireTalentDropdown/>}
+</div>
+          </div>
+          
         </div>
+
         <div
           onClick={() => {
             setMenuIsClicked(!menuIsClicked);
@@ -184,7 +114,8 @@ function Navbar() {
         >
           {" "}
           {!menuIsClicked && (
-            <Image alt="Image alt text"
+            <Image
+              alt="Image alt text"
               className="cursor-pointer"
               src="/images/logos-and-icons/hamburger-menu.svg"
               width={40}
@@ -198,7 +129,7 @@ function Navbar() {
         </div>
       </div>
 
-      {megaMenu && <MegaMenu />}
+      {/* {megaMenu && <MegaMenu />} */}
     </div>
   );
 }

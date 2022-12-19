@@ -52,6 +52,10 @@ h1, h2 {
   @apply text-xs 320:text-base 350:text-2xl sm:text-2xl md:text-4xl font-larken text-center 
 }
 
+.gen-padding {
+  @apply px-5 md:px-10 lg:px-20 text-[20px]
+}
+
 
 @media only screen and (hover: none) and (pointer: coarse) {
 

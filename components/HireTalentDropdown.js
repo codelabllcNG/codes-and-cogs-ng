@@ -14,15 +14,15 @@ function HireTalentDropdown() {
       }}
       className="flex justify-center"
     >
-      <div className="hidden bg-mid-color duration-200 mt-2  z-[5] absolute sm:block  rounded-md shadow">
+      <div className="hidden bg-mid-color duration-200 mt-2  z-[5] absolute sm:block  rounded-md shadow text-base w-full">
         <div
           onClick={() => {
                       setHireTalentDropdown(false);
                       router.push("/search-talents")
           }}
-          className="hover:bg-white rounded-md py-2 pl-4 pr-8"
+          className="hover:bg-white rounded-md py-2 pr-3 select-none cursor-pointer"
         >
-          <div className='flex items-center'>
+          <div className='flex  items-center '>
           <Image src='/images/logos-and-icons/global-talents-icon.svg' width='55' height='55' alt="Global icon "/> <div>Global Talents</div>
           </div>
         </div>
@@ -31,7 +31,7 @@ function HireTalentDropdown() {
                       setHireTalentDropdown(false);
                       router.push("/staffing")
           }}
-          className="hover:bg-white rounded-md py-2 pl-4 pr-8"
+          className="hover:bg-white rounded-md py-2 pr-3 select-none cursor-pointer"
         >
            <div className='flex items-center'>
           <Image src='/images/logos-and-icons/local-talents-icon.svg' width='55' height='55' alt="Global icon "/> <div>Local Talents</div>

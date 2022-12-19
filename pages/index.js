@@ -4,7 +4,7 @@ import { Agent } from "https";
 
 import AllCtx from "../util-functions/allCtx";
 import NavIndicator from "../components/home-page/NavIndicator";
-import Section1 from "../components/home-page/Section1";
+import Section1 from "../components/home-page/HeroSection";
 import Section2 from "../components/home-page/Section2";
 import Section3 from "../components/home-page/Section3";
 import Section4 from "../components/home-page/Section4";
@@ -125,7 +125,7 @@ export default function Home(props) {
   ]);
 
   return (
-    <div className=" ">
+    <div className="gen-padding ">
       <Head>
         <title>Codes and Cogs - Hire Top Tech Talents Hassle-Free</title>
         <meta
@@ -135,7 +135,7 @@ export default function Home(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <NavIndicator />
+      {/* <NavIndicator /> */}
       <Section1
         heroTitle={heroTitle}
         bgUrl={bgUrl}
