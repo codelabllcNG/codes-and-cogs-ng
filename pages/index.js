@@ -9,6 +9,12 @@ import Section2 from "../components/home-page/Section2";
 import Section3 from "../components/home-page/Section3";
 import Section4 from "../components/home-page/Section4";
 import Section5 from "../components/home-page/Section5";
+import Model from "../components/home-page/Model";
+import Banner1 from "../components/home-page/Banner1";
+import WhyUS from "../components/home-page/WhyUS";
+import RemoteTalents from "../components/home-page/RemoteTalents";
+import PopularSkills from "../components/home-page/PorpularSkills";
+import BuildTeam from "../components/home-page/BuildTeam";
 
 export default function Home(props) {
   const {
@@ -125,7 +131,7 @@ export default function Home(props) {
   ]);
 
   return (
-    <div className="gen-padding ">
+    <div className="gen-padding  ">
       <Head>
         <title>Codes and Cogs - Hire Top Tech Talents Hassle-Free</title>
         <meta
@@ -142,23 +148,36 @@ export default function Home(props) {
         heroSubtitle={heroSubtitle}
         projectEngineerPhone={projectEngineerPhone}
       />
-      <Section2
+
+      <Model />
+      
+      <Banner1 />
+      
+      <WhyUS/>
+
+      <RemoteTalents />
+      
+      <PopularSkills />
+      
+      <BuildTeam/>
+
+      {/* <Section2
         skillsArray={skillsArray}
         skillsTitle={skillsTitle}
         skillsSubtitle={skillsSubtitle}
-      />
-      <Section3
+      /> */}
+      {/* <Section3
         modelsTitle={modelsTitle}
         modelsSubtitle={modelsSubtitle}
         modelsArray={modelsArray}
         staffing={staffing}
-      />
-      <Section4
+      /> */}
+      {/* <Section4
         feasibilityTitle={feasibilityTitle}
         feasibilitySubtitle={feasibilitySubtitle}
         feasibilityArray={feasibilityArray}
         feasibilityDescription={feasibilityDescription}
-      />
+      /> */}
       <Section5
         trusteeTitle={trusteeTitle}
         remoteLocations={remoteLocations}

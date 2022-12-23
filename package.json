@@ -8,9 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "postbuild": "next-sitemap  --config next-sitemap.config.mjs"
-   
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "cross-env": "^7.0.3",
     "crypto": "^1.0.1",
     "dompurify": "^2.3.10",

@@ -32,7 +32,7 @@ function Navbar() {
   
 
   return (
-    <div className={`px-5 md:px-10 lg:px-16`}>
+    <div className={`px-5 md:px-10 lg:px-24`}>
       <MobileNav />
       {/* <ApplicationForm/> */}
       <div className="flex items-center pt-4 justify-between  my-3  ">

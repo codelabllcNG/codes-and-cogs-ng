@@ -6,6 +6,7 @@
 html,
 body { 
   color: #333333;
+  background-color: #f8f8f8;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -53,7 +54,7 @@ h1, h2 {
 }
 
 .gen-padding {
-  @apply px-5 md:px-10 lg:px-20 text-[20px]
+  @apply px-5 md:px-10 lg:px-24 text-[20px]
 }
 
 

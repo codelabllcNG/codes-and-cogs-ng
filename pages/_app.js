@@ -8,9 +8,15 @@ import "../styles/globals.css";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import * as fbq from "../util-functions/meta-pixel";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter();
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   useEffect(() => {
     const use = async () => {
