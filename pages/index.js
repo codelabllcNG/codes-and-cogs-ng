@@ -15,6 +15,8 @@ import WhyUS from "../components/home-page/WhyUS";
 import RemoteTalents from "../components/home-page/RemoteTalents";
 import PopularSkills from "../components/home-page/PorpularSkills";
 import BuildTeam from "../components/home-page/BuildTeam";
+import Testimonials from "../components/home-page/Testimonials";
+import Outro from "../components/home-page/Outro";
 
 export default function Home(props) {
   const {
@@ -161,6 +163,8 @@ export default function Home(props) {
       
       <BuildTeam/>
 
+      <Testimonials/>
+
       {/* <Section2
         skillsArray={skillsArray}
         skillsTitle={skillsTitle}
@@ -178,7 +182,7 @@ export default function Home(props) {
         feasibilityArray={feasibilityArray}
         feasibilityDescription={feasibilityDescription}
       /> */}
-      <Section5
+      {/* <Section5
         trusteeTitle={trusteeTitle}
         remoteLocations={remoteLocations}
         remoteEngineers={remoteEngineers}
@@ -186,7 +190,9 @@ export default function Home(props) {
         remoteBgImage={remoteBgImage}
         trusteeLogos={trusteeLogos}
         projectEngineerPhone={projectEngineerPhone}
-      />
+      /> */}
+
+      <Outro/>
       {/* <Footer /> */}
     </div>
   );

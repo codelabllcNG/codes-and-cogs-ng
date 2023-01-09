@@ -54,7 +54,7 @@ h1, h2 {
 }
 
 .gen-padding {
-  @apply px-5 md:px-10 lg:px-24 text-[20px]
+  @apply px-5 md:px-10 lg:px-[110px] text-[20px]
 }
 
 

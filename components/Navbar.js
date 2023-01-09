@@ -32,7 +32,7 @@ function Navbar() {
   
 
   return (
-    <div className={`px-5 md:px-10 lg:px-24`}>
+    <div className={`px-5 md:px-10 lg:px-[110px]`}>
       <MobileNav />
       {/* <ApplicationForm/> */}
       <div className="flex items-center pt-4 justify-between  my-3  ">
@@ -52,7 +52,7 @@ function Navbar() {
           />{" "}
         </div>
 
-        <div className="890:flex hidden  text-pry-color space-x-10  justify-between text-base font-semibold items-center xl:font-bold lg:text-[20px] xl:text-[22px]">
+        <div className="890:flex hidden  text-pry-color space-x-10  justify-between text-base font-semibold items-center xl:font-bold  xl:text-[22px]">
 
           <div className='flex justify-between space-x-5'>
           <div onMouseOver={() => {
