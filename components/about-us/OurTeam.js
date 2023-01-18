@@ -10,7 +10,7 @@ function OurTeam() {
       </p>
 
           <div className="grid grid-cols-1 gap-x-5 sm:grid-cols-2 lg:grid-cols-4">
-          {[1, 1, 1, 1].map((member) => (
+          {[1, 2, 3, 4].map((member) => (
         <div key={member} className="mt-8 ">
           <div className="flex justify-center">
             <Image

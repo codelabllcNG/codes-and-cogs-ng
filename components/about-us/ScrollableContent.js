@@ -62,8 +62,8 @@ function ScrollableContent() {
         </div>
 
         <div className="grid gap-x-5 gap-y-5 890:gap-y-0 grid-cols-1 890:grid-cols-3 mt-10">
-          {[1, 1, 1].map((card) => (
-            <div className=" pb-10 rounded-md rounded-tr-3xl group shadow-md duration-300 hover:bg-pry-color hover:text-white bg-white p-4 ">
+          {[1, 2, 3].map((card) => (
+            <div key={card} className=" pb-10 rounded-md rounded-tr-3xl group shadow-md duration-300 hover:bg-pry-color hover:text-white bg-white p-4 ">
               <div className="flex items-center px-1 bg-[#e4e4f1] group-hover:bg-white duration-300 max-w-fit rounded-md rounded-tr-3xl">
                 <div className="px-1 pt-2">
                   <Image
