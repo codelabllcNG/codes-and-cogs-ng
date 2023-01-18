@@ -11,7 +11,7 @@ export function AllContextProvider(props) {
   const [isSectionSix, setTheIsSectionSix] = useState(false);
   const [megaMenu, setTheMegaMenu] = useState(false);
 
-  const [hireTalentDropdown, setTheHireTalentDropdown] = useState(false)
+  const [hireTalentDropdown, setTheHireTalentDropdown] = useState(false);
 
   const [sectionOneHeight, setTheSectionOneHeight] = useState();
   const [sectionTwoHeight, setTheSectionTwoHeight] = useState();
@@ -47,17 +47,26 @@ export function AllContextProvider(props) {
   const [locationGranted, setTheLocationGranted] = useState(false);
   const [coordinates, setTheCoordinates] = useState();
 
-  const [state, setTheState] = useState("")
-  const [country, setTheCountry] = useState("")
+  const [state, setTheState] = useState("");
+  const [country, setTheCountry] = useState("");
 
-  const [showApplicationForm, setTheShowApplicationForm] = useState(false)
+  const [showApplicationForm, setTheShowApplicationForm] = useState(false);
+
+  const [headerTop, setHeaderTop] = useState("About");
+  const [headerBottom, setHeaderBottom] = useState("Cods and Cogs");
 
   const devUrl = "http://dev.codesandcogs.com";
   const prodUrl = "https://dev.codesandcogs.com";
 
   const context = {
-    menuIsClicked, state, country, hireTalentDropdown, showApplicationForm,
+    menuIsClicked,
+    state,
+    country,
+    hireTalentDropdown,
+    showApplicationForm,
     talentsNearYouResponse,
+    headerTop,
+    headerBottom,
     geolocationSupported,
     locationGranted,
     coordinates,
@@ -91,8 +100,14 @@ export function AllContextProvider(props) {
     searchingSkills,
     talentsFound,
 
-    setTestData, setState, setCountry, setHireTalentDropdown,
-    setDemoTestData, setShowApplicationForm,
+    setTestData,
+    setHeaderTop,
+    setHeaderBottom,
+    setState,
+    setCountry,
+    setHireTalentDropdown,
+    setDemoTestData,
+    setShowApplicationForm,
     setDemoExpiryTime,
     setLocationGranted,
     setTalentsNearYouResponse,
@@ -126,19 +141,19 @@ export function AllContextProvider(props) {
   // functions below
 
   function setShowApplicationForm(value) {
-    setTheShowApplicationForm(value)
+    setTheShowApplicationForm(value);
   }
 
   function setHireTalentDropdown(value) {
-    setTheHireTalentDropdown(value)
+    setTheHireTalentDropdown(value);
   }
 
   function setCountry(value) {
-    setTheCountry(value)
+    setTheCountry(value);
   }
 
   function setState(value) {
-    setTheState(value)
+    setTheState(value);
   }
 
   function setCoordinates(value) {

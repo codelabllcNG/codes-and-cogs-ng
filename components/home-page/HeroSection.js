@@ -6,10 +6,11 @@ import * as fbq from "../../util-functions/meta-pixel";
 
 import AllCtx from "../../util-functions/allCtx";
 import BotIcon from "../BotIcon";
+import GetStartedOptions from "./GetStartedOptions";
 
 function HeroSection(props) {
   const router = useRouter();
-  const { setSectionOneHeight, sectionOneHeight } = AllCtx();
+  const { setSectionOneHeight, sectionOneHeight, showApplicationForm, setShowApplicationForm } = AllCtx();
   const { heroTitle, heroSubtitle, bgUrl, projectEngineerPhone } = props;
 
   const divHeightRef = useRef();
@@ -131,6 +132,7 @@ function HeroSection(props) {
       className="scroll-mt-10     mt-5 md:mt-10 "
       // md:bg-[url('/images/hero.png')]
     >
+      <GetStartedOptions/>
       <div className="890:flex flex-row-reverse">
         <div className="890:w-1/2     890:flex items-center justify-center">
           <Image
@@ -170,7 +172,7 @@ function HeroSection(props) {
           </div>
 
           <div className="mt-5 md:mt-10 flex justify-center 890:justify-start">
-            <button className="bg-pry-color text-white py-2 px-4 font-semibold md:font-bold text-[18px] md:text-[28px] rounded-xl shadow hover:bg-opacity-80">
+            <button onClick={()=>{setShowApplicationForm(true)}} className="bg-pry-color text-white py-2 px-4 font-semibold md:font-bold text-[18px] md:text-[28px] rounded-xl shadow hover:bg-opacity-80">
               Get Started
             </button>
           </div>

@@ -20,7 +20,7 @@ const router = useRouter();
   } = props;
 
   return (
-    <div className="px-5 md:px-10 lg:px-16 mb-14">
+    <div className=" mb-14">
       {/* <div className="flex  justify-center md:mb-2">
         <h2 className="font-bold header">
          {aboutTitle}
@@ -36,7 +36,7 @@ const router = useRouter();
         </div>
       </div> */}
 
-      <HeaderBanner title={ aboutTitle} />
+      {/* <HeaderBanner title={ aboutTitle} /> */}
 
       <div>
         <div className="dangerous-html text-justify mb-3">

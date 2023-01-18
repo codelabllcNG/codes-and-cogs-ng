@@ -4,7 +4,7 @@ import { Agent } from "https";
 
 import AllCtx from "../util-functions/allCtx";
 import NavIndicator from "../components/home-page/NavIndicator";
-import Section1 from "../components/home-page/HeroSection";
+import HeroSection from "../components/home-page/HeroSection";
 import Section2 from "../components/home-page/Section2";
 import Section3 from "../components/home-page/Section3";
 import Section4 from "../components/home-page/Section4";
@@ -144,7 +144,7 @@ export default function Home(props) {
       </Head>
 
       {/* <NavIndicator /> */}
-      <Section1
+      <HeroSection
         heroTitle={heroTitle}
         bgUrl={bgUrl}
         heroSubtitle={heroSubtitle}

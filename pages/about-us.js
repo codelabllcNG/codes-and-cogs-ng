@@ -5,6 +5,9 @@ import Section2 from "../components/about-us/Section2";
 import Section3 from "../components/about-us/Section3";
 import Section4 from "../components/about-us/Section4";
 import AllCtx from "../util-functions/allCtx";
+import HeroSection from "../components/about-us/HeroSection";
+import OurTeam from "../components/about-us/OurTeam";
+import AboutCodesAndCogs from "../components/about-us/AboutCodesAndCogs";
 
 function AboutUs(props) {
   const {
@@ -27,7 +30,7 @@ function AboutUs(props) {
   } = props;
 
   return (
-    <div>
+    <div className="gen-padding">
       <Head>
         <title>About Codes and Cogs</title>
         <meta
@@ -49,6 +52,12 @@ function AboutUs(props) {
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <HeroSection />
+
+      <AboutCodesAndCogs/>
+      
+      <OurTeam/>
 
       <Section1
         aboutTitle={aboutTitle}

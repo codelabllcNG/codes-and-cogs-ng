@@ -79,6 +79,12 @@ textarea:focus {
   font-size: 16px;
 }
 
+button[disabled] {
+  opacity: 0.6;
+  pointer-events: none;
+  background: #8e8a8a;
+}
+
 
 @font-face {
   font-family: 'KyivType Sans';
