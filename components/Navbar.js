@@ -57,7 +57,7 @@ function Navbar() {
           <div className='flex justify-between space-x-5'>
           <div onMouseOver={() => {
               setHoverUnderline("about")
-              // router.push("/about-us")
+              // router.push("/about-us") 
           }} className="cursor-pointer relative">
             <div className="flex justify-center ">
               {" "}
