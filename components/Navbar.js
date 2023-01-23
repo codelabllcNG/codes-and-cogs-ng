@@ -48,7 +48,7 @@ function Navbar() {
             className=""
             src="/images/logos-and-icons/logo.svg"
             width={180}
-            height={172.22}
+            height={172.22} 
           />{" "}
         </div>
 
