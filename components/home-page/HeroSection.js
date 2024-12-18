@@ -123,7 +123,7 @@ function HeroSection(props) {
   //     console.log("An error occurred, try again.");
   //     console.log(error);
   //   }
-  // }
+  // } 
 
   return (
     <section
