@@ -136,7 +136,7 @@ function HeroSection(props) {
       <div className="890:flex flex-row-reverse">
         <div className="890:w-1/2     890:flex items-center justify-center">
           <Image
-            alt="Hero image"
+            alt="Hero Image"
             className=""
             width={792}
             height={667}
