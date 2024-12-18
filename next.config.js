@@ -22,7 +22,7 @@ const nextConfig = {
 
   images: {
     // domains: ['dev.codesandcogs.com'],
-    domains: ["orgsapi.com"],
+    domains: ["api.codesandcogs.com"],
   },
 
   // staticPageGenerationTimeout: 1000

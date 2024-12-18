@@ -140,7 +140,7 @@ function HeroSection(props) {
             className=""
             width={792}
             height={667}
-            src={"/images/new-hero-image.png" || bgUrl}
+            src={bgUrl || "/images/new-hero-image.png" || bgUrl}
             // style={{ backgroundImage: `url(${bgUrl})` }}
           />
         </div>
@@ -150,7 +150,7 @@ function HeroSection(props) {
             <div
               dangerouslySetInnerHTML={{
                 __html:
-                  "The fastest way to build a world-class tech team for your next project. " ||
+                heroTitle ||  "The fastest way to build a world-class tech team for your next project." ||
                   heroTitle,
               }}
               className="890:mt-5   890:text-[#07222E] md:leading-[3.5rem] md:text-5xl xl:text-[4rem] lg:text-[3rem] lg:leading-[3.5rem] xl:leading-[5rem] text-2xl sm:text-5xl sm:leading-[3.5rem] 340:text-[30px] 340:leading-[2.2rem] font-bold"
