@@ -20,7 +20,7 @@ function Banner1() {
             // autoPlay
             loop
             // muted
-            className=" h-full rounded-l-3xl  "
+            className=" h-full rounded-t-3xl sm:rounded-tr-none sm:rounded-l-3xl  "
           >
             <source src={"videoUrl"} type="video/mp4" />
             Your browser does not support the video tag.
@@ -48,7 +48,12 @@ function Banner1() {
         </div>
 
         <div className="flex justify-center sm:justify-start mt-10 ">
-          <button className="text-pry-color bg-white font-bold px-4 py-2 shadow rounded-lg text-[14px] 400:text-[16px]  sm:text-[22px] hover:bg-gray-50">
+          <button
+            onClick={() => {
+              router.push("/coming-soon");
+            }}
+            className="text-pry-color bg-white font-bold px-4 py-2 shadow rounded-lg text-[14px] 400:text-[16px]  sm:text-[22px] hover:bg-gray-50"
+          >
             Read More
           </button>
         </div>
