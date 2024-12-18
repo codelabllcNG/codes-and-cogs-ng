@@ -131,7 +131,7 @@ function HeroSection(props) {
       id="section1"
       className="scroll-mt-10     mt-5 md:mt-10 "
       // md:bg-[url('/images/hero.png')]
-    >
+    > 
       <GetStartedOptions/>
       <div className="890:flex flex-row-reverse">
         <div className="890:w-1/2     890:flex items-center justify-center">
