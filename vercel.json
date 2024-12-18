@@ -1,8 +1,0 @@
-{
-    "build": {
-      "env": {
-        "LD_LIBRARY_PATH": "/usr/lib/ssl"
-      }
-    }
-  }
-  
