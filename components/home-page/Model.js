@@ -26,8 +26,10 @@ function Model() {
         </div>
 
         <div className="mt-8 hidden 900:flex">
-          <button className="px-4 py-2 text-white bg-pry-color hover:bg-opacity-80 rounded-xl shadow-md font-semibold 890:text-[22px]">
-            Hire Tech Talent
+          <button    onClick={() => {
+                  router.push("/coming-soon");
+                }} className="px-4 py-2 text-white bg-pry-color hover:bg-opacity-80 rounded-xl shadow-md font-semibold 890:text-[22px]">
+           Learn More
           </button>
         </div>
       </div>

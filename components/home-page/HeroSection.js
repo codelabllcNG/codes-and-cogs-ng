@@ -191,7 +191,7 @@ function HeroSection(props) {
         </div>
       </div>
 
-      <div className="mt-10">
+      {/* <div className="mt-10">
         <p className="890:text-[22px] font-bold">Trusted By:</p>
         <div className="  flex  ">
           <div
@@ -214,7 +214,7 @@ function HeroSection(props) {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }
