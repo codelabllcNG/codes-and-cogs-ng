@@ -140,7 +140,7 @@ function HeroSection(props) {
             className=""
             width={792}
             height={667}
-            src={bgUrl || "/images/new-hero-image.png" || bgUrl}
+            src={bgUrl || "/images/new-hero-image.png"}
             // style={{ backgroundImage: `url(${bgUrl})` }}
           />
         </div>
