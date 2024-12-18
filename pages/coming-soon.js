@@ -8,14 +8,14 @@ function ComingSoon() {
       <div className="px-5 md:px-10 900:px-16 lg:px-[5rem]">
         <div>
           <button className="bg-pry-color mt-8 cursor-default text-white px-5 py-2 rounded-full 400:text-xl md:text-2xl lg:text-4xl">
-            With the best choice of
+            With innovative solutions for
           </button>
           <div className="font-bold mt-8 text-xl 400:text-5xl md:text-6xl lg:text-7xl ">
-            Developers &amp;
+            Oil &amp; Gas
                   </div>
-                  <div className="font-bold  sm:mt-2 text-xl 400:text-5xl md:text-7xl lg:text-7xl ">
-             Designers
-          </div>
+                  {/* <div className="font-bold  sm:mt-2 text-xl 400:text-5xl md:text-7xl lg:text-7xl ">
+             Gas
+          </div> */}
 
           <div className="mt-10 text-pry-color font-extrabold text-3xl 400:text-6xl md:text-7xl lg:text-8xl">
             Coming Soon!

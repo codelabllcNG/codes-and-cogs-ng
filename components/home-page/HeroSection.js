@@ -10,7 +10,12 @@ import GetStartedOptions from "./GetStartedOptions";
 
 function HeroSection(props) {
   const router = useRouter();
-  const { setSectionOneHeight, sectionOneHeight, showApplicationForm, setShowApplicationForm } = AllCtx();
+  const {
+    setSectionOneHeight,
+    sectionOneHeight,
+    showApplicationForm,
+    setShowApplicationForm,
+  } = AllCtx();
   const { heroTitle, heroSubtitle, bgUrl, projectEngineerPhone } = props;
 
   const divHeightRef = useRef();
@@ -123,7 +128,7 @@ function HeroSection(props) {
   //     console.log("An error occurred, try again.");
   //     console.log(error);
   //   }
-  // } 
+  // }
 
   return (
     <section
@@ -131,8 +136,8 @@ function HeroSection(props) {
       id="section1"
       className="scroll-mt-10     mt-5 md:mt-10 "
       // md:bg-[url('/images/hero.png')]
-    > 
-      <GetStartedOptions/>
+    >
+      <GetStartedOptions />
       <div className="890:flex flex-row-reverse">
         <div className="890:w-1/2     890:flex items-center justify-center">
           <Image
@@ -150,7 +155,8 @@ function HeroSection(props) {
             <div
               dangerouslySetInnerHTML={{
                 __html:
-                heroTitle ||  "The fastest way to build a world-class tech team for your next project." ||
+                  heroTitle ||
+                  "The fastest way to build a world-class tech team for your next project." ||
                   heroTitle,
               }}
               className="890:mt-5   890:text-[#07222E] md:leading-[3.5rem] md:text-5xl xl:text-[4rem] lg:text-[3rem] lg:leading-[3.5rem] xl:leading-[5rem] text-2xl sm:text-5xl sm:leading-[3.5rem] 340:text-[30px] 340:leading-[2.2rem] font-bold"
@@ -172,8 +178,14 @@ function HeroSection(props) {
           </div>
 
           <div className="mt-5 md:mt-10 flex justify-center 890:justify-start">
-            <button onClick={()=>{setShowApplicationForm(true)}} className="bg-pry-color text-white py-2 px-4 font-semibold md:font-bold text-[18px] md:text-[28px] rounded-xl shadow hover:bg-opacity-80">
-              Get Started
+            <button
+              // onClick={() => { setShowApplicationForm(true); }}
+              onClick={() => {
+                router.push("/coming-soon");
+              }}
+              className="bg-pry-color text-white py-2 px-4 font-semibold md:font-bold text-[18px] md:text-[28px] rounded-xl shadow hover:bg-opacity-80"
+            >
+              Get Started 
             </button>
           </div>
         </div>
