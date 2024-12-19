@@ -159,11 +159,11 @@ export default function Home(props) {
 
       <RemoteTalents />
       
-      <PopularSkills />
+      {/* <PopularSkills /> */}
       
       <BuildTeam/>
 
-      <Testimonials/>
+      {/* <Testimonials/> */}
 
       {/* <Section2
         skillsArray={skillsArray}

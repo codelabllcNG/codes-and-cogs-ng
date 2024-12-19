@@ -1,8 +1,12 @@
 import Image from "next/image";
 import React from "react";
 import { SERVICES } from "../../a-store/content-store/SERVICES";
+import { useRouter } from "next/router";
+
 
 function Model() {
+const router = useRouter()
+
   return (
     <div className="900:flex justify-between items-center mt-20 ">
       <div className="900:w-[50%] mr-3">
