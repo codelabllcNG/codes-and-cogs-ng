@@ -29,8 +29,6 @@ function Navbar() {
   // const [homeHover, setHomeHover] = useState(true);
   const [hoverUnderline, setHoverUnderline] = useState("");
 
-  
-
   return (
     <div className={`px-5 md:px-10 lg:px-[110px]`}>
       <MobileNav />
@@ -48,63 +46,85 @@ function Navbar() {
             className=""
             src="/images/logos-and-icons/logo.svg"
             width={180}
-            height={172.22} 
+            height={172.22}
           />{" "}
         </div>
 
         <div className="890:flex hidden  text-pry-color space-x-10  justify-between text-base font-semibold items-center xl:font-bold  xl:text-[22px]">
+          <div className="flex justify-between space-x-5">
+            <div
+              onMouseOver={() => {
+                setHoverUnderline("about");
+                // router.push("/about-us")
+              }}
+              className="cursor-pointer relative"
+            >
+              <div className="flex justify-center ">
+                {" "}
+                <a> About Us </a>
+              </div>
+              <div className="absolute w-full">
+                {hoverUnderline === "about" && <RedUnderline />}
+              </div>
+            </div>
 
-          <div className='flex justify-between space-x-5'>
-          <div onMouseOver={() => {
-              setHoverUnderline("about")
-              // router.push("/about-us") 
-          }} className="cursor-pointer relative">
-            <div className="flex justify-center ">
-              {" "}
-              <a> About Us </a>
+            <div
+              onMouseOver={() => {
+                setHoverUnderline("services");
+              }}
+              className="cursor-pointer relative"
+            >
+              <div className="flex justify-center ">
+                {" "}
+                <a> Services </a>
+              </div>
+              <div className="absolute w-full">
+                {hoverUnderline === "services" && <RedUnderline />}
+              </div>
             </div>
-              <div className='absolute w-full'>
-              {hoverUnderline === "about" && <RedUnderline />}
-           </div>
-            </div>
-            
-            <div onMouseOver={() => {
-            setHoverUnderline("services")
-          }} className="cursor-pointer relative">
-            <div className="flex justify-center ">
-              {" "}
-              <a> Services </a>
-            </div>
-              <div className='absolute w-full'>
-              {hoverUnderline === "services" && <RedUnderline />}
-           </div>
-            </div>
-            
-            <div onMouseOver={() => {
-            setHoverUnderline("support")
-          }} className="cursor-pointer relative">
-            <div className="flex justify-center ">
-              {" "}
-              <a> Support </a>
-            </div>
-              <div className='absolute w-full'>
-              {hoverUnderline === "support" && <RedUnderline />}
-           </div>
+
+            <div
+              onMouseOver={() => {
+                setHoverUnderline("support");
+              }}
+              className="cursor-pointer relative"
+            >
+              <div className="flex justify-center ">
+                {" "}
+                <a> Support </a>
+              </div>
+              <div className="absolute w-full">
+                {hoverUnderline === "support" && <RedUnderline />}
+              </div>
             </div>
           </div>
-          
-          <div className='flex justify-between items-center space-x-5'>
-<button   onClick={() => {
-                      setHireTalentDropdown(false);
-                      router.push("/join-us")
-          }} className='border-2 rounded-md px-4 py-2 border-pry-color hover:bg-gray-50'>Become A Talent</button>
-            <div onMouseOver={()=>{setHireTalentDropdown(true)}} onClick={()=>{setHireTalentDropdown(!hireTalentDropdown)}} className='relative'>
-            <button  className='border-2 bg-pry-color text-white rounded-md px-4 py-2 border-pry-color hover:bg-opacity-80 hover:border-opacity-80 border-opacity-30'>Hire Tech Talent</button>
 
-             {hireTalentDropdown && <HireTalentDropdown/>}
-</div>
+          <div className="flex justify-between items-center space-x-5">
+            <button
+              onClick={() => {
+                setHireTalentDropdown(false);
+                router.push("/join-us");
+              }}
+              className="border-2 rounded-md px-4 py-2 border-pry-color hover:bg-gray-50"
+            >
+              Become A Talent
+            </button>
+            <div
+              onMouseOver={() => {
+                setHireTalentDropdown(true);
+              }}
+              onClick={() => {
+                setHireTalentDropdown(!hireTalentDropdown);
+              }}
+              className="relative"
+            >
+              <button className="border-2 bg-pry-color text-white rounded-md px-4 py-2 border-pry-color hover:bg-opacity-80 hover:border-opacity-80 border-opacity-30">
+                Hire Talent
+              </button>
+
+              {hireTalentDropdown && <HireTalentDropdown />}
+            </div>
           </div>
-          
         </div>
 
         <div

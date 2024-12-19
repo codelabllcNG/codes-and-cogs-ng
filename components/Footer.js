@@ -59,15 +59,15 @@ function Footer(props) {
   return (
     <section id="footer" className="mt-20 scroll-mt-10">
       <div className="px-5 md:px-20 py-4">
-        <div className="flex  justify-center md:mb-2">
+        {/* <div className="flex  justify-center md:mb-2">
           <div
             dangerouslySetInnerHTML={{ __html: "Subscribe to our Newsletter" }}
             className="font-bold header font-larken  "
           >
             {}
           </div>
-        </div>
-        <div className="flex justify-center mb-4">
+        </div> */}
+        {/* <div className="flex justify-center mb-4">
           <div className=" w-[75px] md:w-[150px]">
             <Image
               alt="Image alt text"
@@ -76,13 +76,13 @@ function Footer(props) {
               height={20}
             />
           </div>
-        </div>
+        </div> */}
 
-        <div className="flex justify-center mb-5">
+        {/* <div className="flex justify-center mb-5">
           <div dangerouslySetInnerHTML={{ __html: "Want in on our exciting offers? Join our community of tech experts to receive exclusive deals and updates"}} className="font-semibold text-pry-color text-center">
             {}
           </div>
-        </div>
+        </div> */}
 
         <div className="scroll-mt-10 flex items-center justify-center">
         <div id="newsletter" className='w-full sm:w-[70%] md:w-[50%] xl:w-[40%]'>

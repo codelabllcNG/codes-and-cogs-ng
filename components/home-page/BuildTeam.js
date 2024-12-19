@@ -1,13 +1,17 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 
 function BuildTeam() {
+const router = useRouter()
+
+
   return (
-    <div className="900:flex justify-between items-center mt-20 ">
-      <div className="900:w-[50%] mr-3">
+    <div className="900:flex flex-row-reverse justify-between items-center mt-20 gap-x-7 ">
+      <div className="900:w-[50%] ">
         <div
           dangerouslySetInnerHTML={{
-            __html: "BUILD A TEAM YOU CAN TRUST",
+            __html: "CERTIFICATION TRAINING FOR INDUSTRY EXCELLENCE",
           }}
           className="text-[24px] 890:text-[30px] font-bold leading-9"
         >
@@ -25,13 +29,15 @@ function BuildTeam() {
         </div>
 
         <div className="mt-8 hidden 900:flex">
-          <button className="px-4 py-2 text-white bg-pry-color hover:bg-opacity-80 rounded-xl shadow-md font-semibold 890:text-[22px]">
-            Hire Tech Talent
+          <button    onClick={() => {
+                  router.push("/coming-soon");
+                }} className="px-4 py-2 text-white bg-pry-color hover:bg-opacity-80 rounded-xl shadow-md font-semibold 890:text-[22px]">
+            Learn More
           </button>
         </div>
       </div>
       <div className="mt-10 900:mt-0 900:w-[50%]">
-        <div
+        {/* <div
           className={` sm:flex sm:space-x-5 space-y-5 sm:space-y-0 items-center`}
         >
           <div className="sm:w-1/2">
@@ -136,10 +142,21 @@ function BuildTeam() {
               </div>
             </div>
           </div>
+        </div> */}
+           <div className=" ">
+          <Image
+            className="rounded-lg"
+            alt="Talents"
+            src="/images/certification.png"
+            width={724}
+            height={656}
+          />
         </div>
 
         <div className="mt-8  900:hidden flex justify-center">
-          <button className="px-4 py-2 text-white bg-pry-color hover:bg-opacity-80 rounded-xl shadow-md font-semibold 890:text-[22px]">
+          <button    onClick={() => {
+                  router.push("/coming-soon");
+                }} className="px-4 py-2 text-white bg-pry-color hover:bg-opacity-80 rounded-xl shadow-md font-semibold 890:text-[22px]">
             Hire Tech Talent
           </button>
         </div>

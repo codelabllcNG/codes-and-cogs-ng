@@ -1,7 +1,11 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 
+
 function Banner1() {
+const router = useRouter()
+
   return (
     <div className="sm:flex mt-20 ">
       <div className="sm:w-[40%] flex ">
