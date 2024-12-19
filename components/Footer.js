@@ -176,14 +176,14 @@ function Footer(props) {
           </div>
           <div className="grid grid-cols-2 md:flex justify-between md:w-[70%] md:text-xs lg:text-base text-xs 400:text-sm 500:text-base  ">
             <div className=" md:w-[20%] md:space-y-2 space-y-1 md:mb-0 mb-7">
-              <button className="font-bold ">CUSTOMERS</button>
+              <button className="font-bold ">USEFUL LINKS</button>
               <p
                 onClick={() => {
-                  router.push("/search-talents");
+                  router.push("/");
                 }}
                 className="cursor-pointer hover:text-red-700"
               >
-                Hire Talents
+               Home
               </p>
               {/* <p
                 onClick={() => {
@@ -210,172 +210,163 @@ function Footer(props) {
                 Legal{" "}
               </p> */}
               <p
-                onClick={() => {
-                  router.push("/what-we-do/internship");
-                }}
+                // onClick={() => {
+                //   router.push("/what-we-do/internship");
+                // }}
+                
                 className="cursor-pointer hover:text-red-700"
               >
-                Internship{" "}
+                About{" "}
               </p>
               <p
-                onClick={() => {
-                  router.push("/staffing");
-                }}
+                // onClick={() => {
+                //   router.push("/staffing");
+                // }}
                 className="cursor-pointer hover:text-red-700"
               >
-                Staffing
+                Services
               </p>
-            </div>{" "}
+              <p
+                // onClick={() => {
+                //   router.push("/staffing");
+                // }}
+                className="cursor-pointer hover:text-red-700"
+              >
+                Career
+              </p>
+              <p
+                // onClick={() => {
+                //   router.push("/staffing");
+                // }}
+                className="cursor-pointer hover:text-red-700"
+              >
+                Contact Us
+              </p>
+            </div>
             <div className="  md:w-[25%] md:space-y-2 space-y-1 md:mb-0 mb-7 ">
-              <button className="font-bold ">CODES AND COGS</button>
+              <button className="font-bold ">RESOURCES</button>
               <p
-                onClick={() => {
-                  router.push("/about-us");
-                }}
+                // onClick={() => {
+                //   router.push("/about-us");
+                // }}
                 className="cursor-pointer hover:text-red-700"
               >
-                About Us
+                Privacy Policy
               </p>
               <p
-                onClick={() => {
-                  router.push("/press-release");
-                }}
+                // onClick={() => {
+                //   router.push("/press-release");
+                // }}
                 className="cursor-pointer hover:text-red-700"
               >
-                Press Release
+                Terms and Conditions 
               </p>
               <p
-                onClick={() => {
-                  router.push("/blog");
-                }}
+                // onClick={() => {
+                //   router.push("/blog");
+                // }}
                 className="cursor-pointer hover:text-red-700"
               >
-                Blog
+                University of Oil and Gas
               </p>
               <p
-                onClick={() => {
-                  router.push("/remote-locations");
-                }}
+                // onClick={() => {
+                //   router.push("/remote-locations");
+                // }}
                 className="cursor-pointer hover:text-red-700"
               >
-                Our Remote Locations
+                Contact Us
               </p>
-              <p
+              {/* <p
                 onClick={() => {
                   router.push("/career");
                 }}
                 className="cursor-pointer hover:text-red-700"
               >
                Career
-              </p>
-              <p
+              </p> */}
+              {/* <p
                 onClick={() => {
                   router.push("/coming-soon");
                 }}
                 className="cursor-pointer hover:text-red-700"
               >
                 Software Engineering School
-              </p>
-              <p
+              </p> */}
+              {/* <p
                 onClick={() => {
                   router.push("/faq");
                 }}
                 className="cursor-pointer pb-1 hover:text-red-700"
               >
                 FAQ
-              </p>
+              </p> */}
             </div>{" "}
             <div className="  md:w-[20%] md:space-y-2 space-y-1 md:mb-0 mb-7">
-              <button className="font-bold ">DEVELOPERS</button>
+              <button className="font-bold ">SERVICES</button>
               <p
-                onClick={() => {
-                  router.push("/join-us");
-                }}
+                // onClick={() => {
+                //   router.push("/join-us");
+                // }}
                 className="cursor-pointer hover:text-red-700"
               >
-                Apply for Jobs
+               Well Insights
               </p>
               {/* <p     onClick={() => { 
                   // router.push("");
                 }} className="cursor-pointer hover:text-red-700">Talent Login</p>{" "} */}
               <p
-                onClick={() => {
-                  router.push("/about-us/#talent-stories");
-                }}
+                // onClick={() => {
+                //   router.push("/about-us/#talent-stories");
+                // }}
                 className="cursor-pointer hover:text-red-700"
               >
-                Talent Stories  
+                Drilling Support  
+              </p>
+
+              <p
+                // onClick={() => {
+                //   router.push("/about-us/#talent-stories");
+                // }}
+                className="cursor-pointer hover:text-red-700"
+              >
+                Equipment Services  
+              </p>
+
+              <p
+                // onClick={() => {
+                //   router.push("/about-us/#talent-stories");
+                // }}
+                className="cursor-pointer hover:text-red-700"
+              >
+                Training Hub  
+              </p>
+
+              <p
+                // onClick={() => {
+                //   router.push("/about-us/#talent-stories");
+                // }}
+                className="cursor-pointer hover:text-red-700"
+              >
+                Talent Network  
+              </p>
+
+              <p
+                // onClick={() => {
+                //   router.push("/about-us/#talent-stories");
+                // }}
+                className="cursor-pointer hover:text-red-700"
+              >
+                Sustainable Tech  
               </p>
             </div>
-            <div className=" md:space-y-2 space-y-1 md:mb-0 mb-7">
-              <button className="font-bold ">SOLUTIONS</button>
-              <p
-                onClick={() => {
-                  router.push("/coming-soon");
-                }}
-                className="cursor-pointer hover:text-red-700"
-              >
-                Hackathon
-              </p>
-              {/* <p className="cursor-pointer hover:text-red-700">
-                Training
-              </p>{" "} */}
-              <p
-                onClick={() => {
-                  router.push("/coming-soon");
-                }}
-                className="cursor-pointer hover:text-red-700"
-              >
-                Infrastructure
-              </p>
-              <p
-                onClick={() => {
-                  router.push("/coming-soon");
-                }}
-                className="cursor-pointer hover:text-red-700"
-              >
-                Workspace
-              </p>
-
-              <p
-                onClick={() => {
-                  router.push("/coming-soon");
-                }}
-                className="cursor-pointer hover:text-red-700"
-              >
-                Salary Estimator
-              </p>
-
-              {/* <p className="cursor-pointer hover:text-red-700">
-                Enterprise Packages 
-              </p>
-
-              <p className="cursor-pointer hover:text-red-700">
-               Remove Dev. Services
-              </p> */}
-              {/* 
-              <p className="cursor-pointer hover:text-red-700">
-               Hackathon 
-              </p>
-
-              <p className="cursor-pointer hover:text-red-700">
-               Infrastructure
-              </p>
-
-              <p className="cursor-pointer hover:text-red-700">
-             Workspace
-              </p>
-
-              <p className="cursor-pointer hover:text-red-700">
-             Salary  Estimator
-              </p> */}
-            </div> 
+          
           </div>{" "}
         </div>
         <hr className="border-pry-color border-2 mx-5" />
         <div className="text-center md:flex justify-between text-xs mx-5 mt-3">
           <div className="flex justify-center">
-            <p>© 2022 Codes and Cogs. All Rights Reserved.</p>
+            <p>© 2024 Codes and Cogs. All Rights Reserved.</p>
           </div>{" "}
           <div className="flex justify-center">
             {/* <div className="flex justify-between space-x-3">
