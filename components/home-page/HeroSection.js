@@ -185,7 +185,7 @@ function HeroSection(props) {
               }}
               className="bg-pry-color text-white py-2 px-4 font-semibold md:font-bold text-[18px] md:text-[28px] rounded-xl shadow hover:bg-opacity-80"
             >
-              Get Started 
+              Learn More 
             </button>
           </div>
         </div>

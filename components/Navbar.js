@@ -101,13 +101,19 @@ function Navbar() {
 
           <div className="flex justify-between items-center space-x-5">
             <button
+              // onClick={() => {
+              //   setHireTalentDropdown(false);
+              //   router.push("/join-us");
+              // }}
+
               onClick={() => {
-                setHireTalentDropdown(false);
-                router.push("/join-us");
+                router.push("/coming-soon");
               }}
-              className="border-2 rounded-md px-4 py-2 border-pry-color hover:bg-gray-50"
+
+              // Keeping here for the button bellow -> border-2 rounded-md px-4 py-2 border-pry-color hover:bg-gray-50
+              className="border-2 bg-pry-color text-white rounded-md px-4 py-2 border-pry-color hover:bg-opacity-80 hover:border-opacity-80 border-opacity-30"
             >
-              Become A Talent
+              Become A Consultant
             </button>
             <div
               onMouseOver={() => {
@@ -118,9 +124,9 @@ function Navbar() {
               }}
               className="relative"
             >
-              <button className="border-2 bg-pry-color text-white rounded-md px-4 py-2 border-pry-color hover:bg-opacity-80 hover:border-opacity-80 border-opacity-30">
+              {/* <button className="border-2 bg-pry-color text-white rounded-md px-4 py-2 border-pry-color hover:bg-opacity-80 hover:border-opacity-80 border-opacity-30">
                 Hire Talent
-              </button>
+              </button> */}
 
               {hireTalentDropdown && <HireTalentDropdown />}
             </div>
