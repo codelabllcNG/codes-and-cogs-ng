@@ -135,10 +135,10 @@ export default function Home(props) {
   return (
     <div className="gen-padding  ">
       <Head>
-        <title>Codes and Cogs - Hire Top Tech Talents Hassle-Free</title>
+        <title>Codes and Cogs - Innovative Solutions for the Future of Oil & Gas</title>
         <meta
           name="description"
-          content="Find vetted engineers, developers, and designers from anywhere in the world hassle-free with no down payment at Codes and Cogs. Book a free consultation now."
+          content="We make tech hiring hassle-free for businesses. Find vetted engineers, developers and designers from anywhere in the world with no down payment."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
