@@ -13,6 +13,17 @@ body {
   scroll-behavior: smooth;
 }
 
+/* nprogress.css */
+#nprogress .bar {
+  background: #2e3192; /* Change the bar color */
+  height: 3px; /* Adjust the height of the progress bar */
+}
+
+/* Remove spinner */
+#nprogress .spinner {
+  display: none;
+}
+
 a {
   color: inherit;
   text-decoration: none;
