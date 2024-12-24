@@ -36,18 +36,18 @@ function HeroSection(props) {
     <section
       ref={divHeightRef}
       id="section1"
-      className="scroll-mt-10     mt-5 md:mt-10 "
+      className="scroll-mt-10 mt-5 md:mt-10 "
       // md:bg-[url('/images/hero.png')]
     >
       <GetStartedOptions />
       <div className="890:flex flex-row-reverse justify-center">
-        <div className="890:w-[45%]     890:flex items-center justify-center">
+        <div className="890:w-[45%] 890:flex items-center justify-center">
           <Image
             alt="Hero image"
             className=""
             width={599}
             height={701}
-            src={"/images/about-us-hero.png" || bgUrl}
+            src={"/images/black cnc mk 1.jpg" || bgUrl}
             // style={{ backgroundImage: `url(${bgUrl})` }}
           />
         </div>

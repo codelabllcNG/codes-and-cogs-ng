@@ -363,7 +363,7 @@ function Footer(props) {
           
           </div>{" "}
         </div>
-        <hr className="border-pry-color border-2 mx-5" />
+        <hr className="border-pry-color border-2 mx-5 mt-4" />
         <div className="text-center md:flex justify-between text-xs mx-5 mt-3">
           <div className="flex justify-center">
             <p>© 2024 Codes and Cogs. All Rights Reserved.</p>
