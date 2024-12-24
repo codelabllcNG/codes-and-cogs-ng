@@ -2,9 +2,9 @@ import React from "react";
 
 function ComingSoon() {
   return (
-    <div className="h-[500px] lg:h-[600px]">
-      <div className="px-5 md:px-10 900:px-16 lg:px-[5rem] grid grid-cols-2">
-        <div className="m-auto">
+    <div className="h-[200px] md:h-[600px]">
+      <div className="px-5 md:px-10 900:px-16 lg:px-[5rem] grid grid-cols-1 md:grid-cols-2">
+        <div className="m-auto flex flex-col items-center justify-center md:items-start md:justify-start">
           <button className="bg-pry-color mt-8 cursor-default text-white px-5 py-2 rounded-full 400:text-xl md:text-2xl lg:text-4xl">
             With innovative solutions for
           </button>
@@ -15,7 +15,7 @@ function ComingSoon() {
              Gas
           </div> */}
 
-          <div className="mt-10 text-pry-color font-extrabold text-3xl 400:text-6xl md:text-7xl lg:text-8xl">
+          <div className="mt-10 text-pry-color font-extrabold text-4xl 400:text-5xl md:text-7xl lg:text-8xl">
             Coming Soon!
           </div>
 
@@ -23,7 +23,7 @@ function ComingSoon() {
                       <input placeholder='Input email to stay updated' type="text" className='bg-transparent w-full text-xs 400:text-sm '/> <button className='bg-pry-color shadow-md hover:bg-white hover:text-pry-color rounded-full text-white px-3 400:px-6 py-1 400:py-2 '>Subscribe</button>
                   </div> */}
         </div>
-        <div className="lg:bg-[url('/images/blackcnc.jpg')] bg-cover bg-no-repeat h-[500px] lg:h-[600px] w-full bg-top"></div>
+        <div className="md:bg-[url('/images/blackcnc.jpg')] bg-cover bg-no-repeat h-[500px] lg:h-[600px] w-full bg-top hidden md:block"></div>
       </div>
     </div>
   );

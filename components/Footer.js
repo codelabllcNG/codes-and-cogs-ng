@@ -7,17 +7,16 @@ import Link from "next/link";
 function Footer(props) {
   let router = useRouter();
   const { data } = props;
-  
-  const [canRun, setCanRun] = useState(false)
 
-  useEffect(() => {  
-    setCanRun(true)
+  const [canRun, setCanRun] = useState(false);
+
+  useEffect(() => {
+    setCanRun(true);
     if (canRun) {
-    
       const script = document.createElement("script");
       script.src = "//js.hsforms.net/forms/v2.js";
       document.body.appendChild(script);
-  
+
       script.addEventListener("load", () => {
         if (window.hbspt) {
           window.hbspt.forms.create({
@@ -28,9 +27,9 @@ function Footer(props) {
           });
         }
       });
-  
-      return () => { 
-        script.removeEventListener('load', () => {
+
+      return () => {
+        script.removeEventListener("load", () => {
           if (window.hbspt) {
             window.hbspt.forms.create({
               region: "na1",
@@ -39,10 +38,9 @@ function Footer(props) {
               target: "#newsletter",
             });
           }
-        })
-     };
-    
-  }
+        });
+      };
+    }
   }, [canRun]);
 
   // const divHeightRef = useRef();
@@ -51,10 +49,7 @@ function Footer(props) {
   //     window.addEventListener("scroll", () => {
   //        if(divHeightRef.current) { setSectionSixHeight(divHeightRef.current.clientHeight)}
   //     })
-  // },[]) 
-
-
-
+  // },[])
 
   return (
     <section id="footer" className="mt-20 scroll-mt-10">
@@ -85,10 +80,10 @@ function Footer(props) {
         </div> */}
 
         <div className="scroll-mt-10 flex items-center justify-center">
-        <div id="newsletter" className='w-full sm:w-[70%] md:w-[50%] xl:w-[40%]'>
-      
-      </div> 
-
+          <div
+            id="newsletter"
+            className="w-full sm:w-[70%] md:w-[50%] xl:w-[40%]"
+          ></div>
 
           {/* <div className="flex items-center border-2 border-pry-color px-2 py-1   rounded-full   mr-2   ">
             {" "}
@@ -117,61 +112,73 @@ function Footer(props) {
               className=" md:flex justify-center md:mb-16 cursor-pointer "
             >
               {" "}
-              <Image width={80} height={70}
+              <Image
+                width={80}
+                height={70}
                 alt="Image alt text"
                 className="w-20"
                 src="/images/logos-and-icons/logo.svg"
               />
             </div>{" "}
             <div className="w-52 md:w-[10rem] flex justify-between  items-center">
-            <Link href={"https://www.linkedin.com/company/codes-and-cogs/"}>
-          <a rel="noopener noreferrer" target="_blank">
-          <Image width={20} height={20}
-                  alt="LinkedIn icon"
-                  src="/images/logos-and-icons/linkedin.svg"
-                />
-          </a>
-        </Link>
-
-        <Link href={''}>
-          <a rel="noopener noreferrer" target="_blank">
-          <Image width={20} height={20}
-                  alt="Twitter icon"
-                  src="/images/logos-and-icons/twitter.svg"
-                />
-          </a>
-        </Link>
-      
-
-              <Link href={"https://instagram.com/codesandcogs?igshid=YmMyMTA2M2Y="}>
-          <a rel="noopener noreferrer" target="_blank">
-          <Image width={20} height={20}
-                  alt="Instagram icon"
-                  src={"/images/logos-and-icons/instagram.svg"}
-                />
-          </a>
+              <Link href={"https://www.linkedin.com/company/codes-and-cogs/"}>
+                <a rel="noopener noreferrer" target="_blank">
+                  <Image
+                    width={20}
+                    height={20}
+                    alt="LinkedIn icon"
+                    src="/images/logos-and-icons/linkedin.svg"
+                  />
+                </a>
               </Link>
-              
-              <Link href={"https://www.facebook.com/Codes-and-Cogs-100895669449690"}>
-          <a rel="noopener noreferrer" target="_blank">
-          <Image width={20} height={20}
-                  alt="Facebook icon"
-                  src="/images/logos-and-icons/facebook.svg"
-                />
-          </a>
-        </Link>
 
-        <Link href={""}>
-          <a rel="noopener noreferrer" target="_blank">
-          <Image width={20} height={20}
-                  alt=" YouTube icon"
-                  src="/images/logos-and-icons/youtube.svg"
-                />
-          </a>
-        </Link>
-           
-          
-          
+              <Link href={""}>
+                <a rel="noopener noreferrer" target="_blank">
+                  <Image
+                    width={20}
+                    height={20}
+                    alt="Twitter icon"
+                    src="/images/logos-and-icons/twitter.svg"
+                  />
+                </a>
+              </Link>
+
+              <Link
+                href={"https://instagram.com/codesandcogs?igshid=YmMyMTA2M2Y="}
+              >
+                <a rel="noopener noreferrer" target="_blank">
+                  <Image
+                    width={20}
+                    height={20}
+                    alt="Instagram icon"
+                    src={"/images/logos-and-icons/instagram.svg"}
+                  />
+                </a>
+              </Link>
+
+              <Link
+                href={"https://www.facebook.com/Codes-and-Cogs-100895669449690"}
+              >
+                <a rel="noopener noreferrer" target="_blank">
+                  <Image
+                    width={20}
+                    height={20}
+                    alt="Facebook icon"
+                    src="/images/logos-and-icons/facebook.svg"
+                  />
+                </a>
+              </Link>
+
+              <Link href={""}>
+                <a rel="noopener noreferrer" target="_blank">
+                  <Image
+                    width={20}
+                    height={20}
+                    alt=" YouTube icon"
+                    src="/images/logos-and-icons/youtube.svg"
+                  />
+                </a>
+              </Link>
             </div>
           </div>
           <div className="grid grid-cols-2 md:flex justify-between md:w-[70%] md:text-xs lg:text-base text-xs 400:text-sm 500:text-base  ">
@@ -183,7 +190,7 @@ function Footer(props) {
                 }}
                 className="cursor-pointer hover:text-red-700"
               >
-               Home
+                Home
               </p>
               {/* <p
                 onClick={() => {
@@ -213,7 +220,7 @@ function Footer(props) {
                 // onClick={() => {
                 //   router.push("/what-we-do/internship");
                 // }}
-                
+
                 className="cursor-pointer hover:text-red-700"
               >
                 About{" "}
@@ -235,9 +242,9 @@ function Footer(props) {
                 Career
               </p>
               <p
-                // onClick={() => {
-                //   router.push("/staffing");
-                // }}
+                onClick={() => {
+                  router.push("/contact-us");
+                }}
                 className="cursor-pointer hover:text-red-700"
               >
                 Contact Us
@@ -259,7 +266,7 @@ function Footer(props) {
                 // }}
                 className="cursor-pointer hover:text-red-700"
               >
-                Terms and Conditions 
+                Terms and Conditions
               </p>
               <p
                 // onClick={() => {
@@ -269,14 +276,14 @@ function Footer(props) {
               >
                 University of Oil and Gas
               </p>
-              <p
-                // onClick={() => {
-                //   router.push("/remote-locations");
-                // }}
+              {/* <p
+                onClick={() => {
+                  router.push("/contact-us");
+                }}
                 className="cursor-pointer hover:text-red-700"
               >
                 Contact Us
-              </p>
+              </p> */}
               {/* <p
                 onClick={() => {
                   router.push("/career");
@@ -310,7 +317,7 @@ function Footer(props) {
                 // }}
                 className="cursor-pointer hover:text-red-700"
               >
-               Well Insights
+                Well Insights
               </p>
               {/* <p     onClick={() => { 
                   // router.push("");
@@ -321,7 +328,7 @@ function Footer(props) {
                 // }}
                 className="cursor-pointer hover:text-red-700"
               >
-                Drilling Support  
+                Drilling Support
               </p>
 
               <p
@@ -330,7 +337,7 @@ function Footer(props) {
                 // }}
                 className="cursor-pointer hover:text-red-700"
               >
-                Equipment Services  
+                Equipment Services
               </p>
 
               <p
@@ -339,7 +346,7 @@ function Footer(props) {
                 // }}
                 className="cursor-pointer hover:text-red-700"
               >
-                Training Hub  
+                Training Hub
               </p>
 
               <p
@@ -348,7 +355,7 @@ function Footer(props) {
                 // }}
                 className="cursor-pointer hover:text-red-700"
               >
-                Talent Network  
+                Talent Network
               </p>
 
               <p
@@ -357,10 +364,9 @@ function Footer(props) {
                 // }}
                 className="cursor-pointer hover:text-red-700"
               >
-                Sustainable Tech  
+                Sustainable Tech
               </p>
             </div>
-          
           </div>{" "}
         </div>
         <hr className="border-pry-color border-2 mx-5 mt-4" />
@@ -394,6 +400,4 @@ function Footer(props) {
   );
 }
 
-
- 
 export default Footer;
