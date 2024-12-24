@@ -4,7 +4,7 @@ function ComingSoon() {
   return (
     <div className="h-[500px] lg:h-[600px]">
       <div className="px-5 md:px-10 900:px-16 lg:px-[5rem] grid grid-cols-2">
-        <div>
+        <div className="m-auto">
           <button className="bg-pry-color mt-8 cursor-default text-white px-5 py-2 rounded-full 400:text-xl md:text-2xl lg:text-4xl">
             With innovative solutions for
           </button>
