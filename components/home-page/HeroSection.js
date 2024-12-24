@@ -145,7 +145,7 @@ function HeroSection(props) {
             className=""
             width={792}
             height={667}
-            src={bgUrl || "/images/new-hero-image.png"}
+            src={"/images/cnc pics (1).png" || bgUrl}
             // style={{ backgroundImage: `url(${bgUrl})` }}
           />
         </div>
@@ -185,7 +185,7 @@ function HeroSection(props) {
               }}
               className="bg-pry-color text-white py-2 px-4 font-semibold md:font-bold text-[18px] md:text-[28px] rounded-xl shadow hover:bg-opacity-80"
             >
-              Learn More 
+              Learn More
             </button>
           </div>
         </div>

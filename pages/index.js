@@ -40,7 +40,7 @@ export default function Home(props) {
     remoteBgImage,
     trusteeLogos,
     projectEngineerPhone,
-    staffing
+    staffing,
   } = props;
 
   const {
@@ -135,7 +135,9 @@ export default function Home(props) {
   return (
     <div className="gen-padding  ">
       <Head>
-        <title>Codes and Cogs - Innovative Solutions for the Future of Oil & Gas</title>
+        <title>
+          Codes and Cogs - Innovative Solutions for the Future of Oil & Gas
+        </title>
         <meta
           name="description"
           content="We make tech hiring hassle-free for businesses. Find vetted engineers, developers and designers from anywhere in the world with no down payment."
@@ -152,16 +154,16 @@ export default function Home(props) {
       />
 
       <Model />
-      
-      <Banner1 />
-      
-      <WhyUS/>
+
+      <Banner1 bgUrl={bgUrl} />
+
+      <WhyUS />
 
       <RemoteTalents />
-      
+
       {/* <PopularSkills /> */}
-      
-      <BuildTeam/>
+
+      <BuildTeam />
 
       {/* <Testimonials/> */}
 
@@ -192,7 +194,7 @@ export default function Home(props) {
         projectEngineerPhone={projectEngineerPhone}
       /> */}
 
-      <Outro/>
+      <Outro />
       {/* <Footer /> */}
     </div>
   );
@@ -230,7 +232,7 @@ export async function getStaticProps() {
   const trusteeLogos = data.trusteeIcons;
   const projectEngineerPhone = data.phone;
 
-  const staffing = data.staffing 
+  const staffing = data.staffing;
 
   return {
     props: {
@@ -259,7 +261,7 @@ export async function getStaticProps() {
       trusteeLogos,
       projectEngineerPhone,
 
-      staffing
+      staffing,
     },
     revalidate: 300,
   };
