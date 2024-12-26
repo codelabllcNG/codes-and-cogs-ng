@@ -35,10 +35,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/coming-soon": [
+    "/contact-us": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/coming-soon.js"
+      "static/chunks/pages/contact-us.js"
     ]
   },
   "ampFirstPages": []
