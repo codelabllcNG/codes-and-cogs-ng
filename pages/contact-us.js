@@ -167,7 +167,7 @@ const Contact = () => {
                   Email
                 </h4>
                 <p className="text-base sm:text-lg text-gray-600">
-                  info@cogsandcogs.com
+                  info@codesandcogs.com
                 </p>
               </div>
             </div>
