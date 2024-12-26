@@ -5,8 +5,6 @@ import React from "react";
 function Banner1({ bgUrl }) {
   const router = useRouter();
 
-  console.log(first);
-
   return (
     <div className="sm:flex mt-20 ">
       <div className="sm:w-[40%] flex ">
