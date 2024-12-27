@@ -30,7 +30,7 @@ function Banner1({ bgUrl }) {
           </video> */}
           <Image
             alt="Hero image"
-            className=""
+            className="object-cover"
             width={599}
             height={501}
             src={bgUrl || "/images/new-hero-image.png"}

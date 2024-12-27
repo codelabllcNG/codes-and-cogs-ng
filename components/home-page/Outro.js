@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React from "react";
 
 function Outro() {
-const router = useRouter()
+  const router = useRouter();
 
   return (
     <div className="mt-20 rounded-xl bg-[url('/images/outro-banner.png')] bg-center bg-cover bg-no-repeat   text-white px-3 sm:px-8  py-5 md:py-10 lg:py-12 ">
@@ -18,7 +18,7 @@ const router = useRouter()
       <div className="flex space-x-4 mt-8 ">
         <button
           onClick={() => {
-            router.push("/coming-soon");
+            router.push("/about-us");
           }}
           className="bg-white rounded-lg text-pry-color px-2 400:px-3 py-1 400:py-2 font-medium hover:bg-gray-100 duration-300 text-sm 350:text-[18px] "
         >
