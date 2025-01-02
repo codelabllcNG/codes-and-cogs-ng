@@ -11,7 +11,8 @@ function Model() {
       <div className="900:w-[50%] mr-3">
         <div
           dangerouslySetInnerHTML={{
-            __html: "SOLUTIONS DELIVERED HASSLE-FREE IN 24 HOURS",
+            __html:
+              "Intelligent AI based solutions for the Oil and Gas Industry",
           }}
           className="text-[24px] 890:text-[30px] font-bold leading-9"
         >
@@ -85,7 +86,17 @@ function Model() {
               {/* Beautified Read More Button */}
               <div className="mt-4 flex justify-center">
                 <button
-                  onClick={() => router.push(`/services/${service.id}`)} // Replace with navigation logic if needed
+                  onClick={() => {
+                    if (service.id == 1) {
+                      router.push("/well-insight");
+                      return;
+                    } else if (service.id == 2) {
+                      router.push("/thru-tubing");
+                      return;
+                    } else {
+                      router.push(`/services/${service.id}`);
+                    }
+                  }}
                   className="text-sm text-black px-4 py-2 rounded-md shadow"
                 >
                   Learn More

@@ -49,7 +49,7 @@ function RemoteTalents() {
           <div className="mt-8">
             <button
               onClick={() => {
-                router.push("/coming-soon");
+                router.push("/contact-us");
               }}
               className="px-4 py-2 text-white bg-pry-color hover:bg-opacity-80 rounded-xl shadow-md font-semibold 890:text-[22px]"
             >

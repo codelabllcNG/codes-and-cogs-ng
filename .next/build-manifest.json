@@ -30,15 +30,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/about-us": [
+    "/well-insight": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/about-us.js"
-    ],
-    "/services/[id]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/services/[id].js"
+      "static/chunks/pages/well-insight.js"
     ]
   },
   "ampFirstPages": []

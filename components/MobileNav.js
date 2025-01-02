@@ -28,7 +28,8 @@ function MobileNav() {
         <div className="flex mb-8">
           <button
             onClick={() => {
-              router.push("/coming-soon");
+              router.push("/contact-us");
+              setMenuIsClicked(false);
             }}
             className="border-2 bg-pry-color text-white rounded-md px-4 py-2 border-pry-color hover:bg-opacity-80 hover:border-opacity-80 border-opacity-30"
           >
@@ -39,14 +40,14 @@ function MobileNav() {
         <div className="text-pry-color space-y-4 font-semibold ">
           <div
             onClick={() => {
-              router.push("/coming-soon");
+              router.push("/about-us");
               setMenuIsClicked(false);
             }}
           >
             <button>About Us</button>
           </div>
 
-          <div
+          {/* <div
             onClick={() => {
               setTalentToHire("");
               setIdOfTalentToHire("");
@@ -55,11 +56,11 @@ function MobileNav() {
             }}
           >
             <button>Support</button>
-          </div>
+          </div> */}
 
           <div
             onClick={() => {
-              router.push("/coming-soon");
+              router.push("/#services");
               setMenuIsClicked(false);
             }}
           >

@@ -78,7 +78,7 @@ function Navbar() {
               className="cursor-pointer relative"
             >
               <div className="flex justify-center ">
-                <Link href="#services">
+                <Link href="/#services">
                   <a> Services </a>
                 </Link>
               </div>
@@ -114,7 +114,7 @@ function Navbar() {
               // }}
 
               onClick={() => {
-                router.push("/coming-soon");
+                router.push("/contact-us");
               }}
               // Keeping here for the button bellow -> border-2 rounded-md px-4 py-2 border-pry-color hover:bg-gray-50
               className="border-2 bg-pry-color text-white rounded-md px-4 py-2 border-pry-color hover:bg-opacity-80 hover:border-opacity-80 border-opacity-30"

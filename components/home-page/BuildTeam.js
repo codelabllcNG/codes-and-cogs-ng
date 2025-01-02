@@ -3,8 +3,7 @@ import { useRouter } from "next/router";
 import React from "react";
 
 function BuildTeam() {
-const router = useRouter()
-
+  const router = useRouter();
 
   return (
     <div className="900:flex flex-row-reverse justify-between items-center mt-20 gap-x-7 ">
@@ -29,9 +28,12 @@ const router = useRouter()
         </div>
 
         <div className="mt-8 hidden 900:flex">
-          <button    onClick={() => {
-                  router.push("/coming-soon");
-                }} className="px-4 py-2 text-white bg-pry-color hover:bg-opacity-80 rounded-xl shadow-md font-semibold 890:text-[22px]">
+          <button
+            onClick={() => {
+              router.push("/well-insight");
+            }}
+            className="px-4 py-2 text-white bg-pry-color hover:bg-opacity-80 rounded-xl shadow-md font-semibold 890:text-[22px]"
+          >
             Learn More
           </button>
         </div>
@@ -143,7 +145,7 @@ const router = useRouter()
             </div>
           </div>
         </div> */}
-           <div className=" ">
+        <div className=" ">
           <Image
             className="rounded-lg"
             alt="Talents"
@@ -154,9 +156,12 @@ const router = useRouter()
         </div>
 
         <div className="mt-8  900:hidden flex justify-center">
-          <button    onClick={() => {
-                  router.push("/coming-soon");
-                }} className="px-4 py-2 text-white bg-pry-color hover:bg-opacity-80 rounded-xl shadow-md font-semibold 890:text-[22px]">
+          <button
+            onClick={() => {
+              router.push("/coming-soon");
+            }}
+            className="px-4 py-2 text-white bg-pry-color hover:bg-opacity-80 rounded-xl shadow-md font-semibold 890:text-[22px]"
+          >
             Hire Tech Talent
           </button>
         </div>
