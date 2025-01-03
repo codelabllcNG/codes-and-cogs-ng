@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FiPhone } from "react-icons/fi";
 import { HiOutlineMail, HiOutlineLocationMarker } from "react-icons/hi";
+import toast from "react-hot-toast";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -13,7 +14,7 @@ const Contact = () => {
     setLoading(true);
 
     if (!name || !email || !message) {
-      alert("Please fill in all fields");
+      toast.error("Please fill in all fields");
       setLoading(false);
       return;
     }
@@ -39,7 +40,7 @@ const Contact = () => {
         return response.json();
       })
       .then((data) => {
-        alert("Form submitted successfully.");
+        toast.success("Form submitted successfully.");
         // console.log("Form submitted successfully:", data);
         setName("");
         setEmail("");
@@ -47,7 +48,9 @@ const Contact = () => {
       })
       .catch((error) => {
         console.error("Error submitting form:", error);
-        alert("There was an error sending your message. Please try again.");
+        toast.error(
+          "There was an error sending your message. Please try again."
+        );
       })
       .finally(() => {
         setLoading(false);
@@ -181,7 +184,7 @@ const Contact = () => {
                   Address
                 </h4>
                 <p className="text-base sm:text-lg text-gray-600">
-                  Jonnie Estate, Shaba Adams Street Jedo, Lugbe, Abuja
+                  Ibeju Junction, Lekki-Ekpe Expressway, Lekki-Ekpe, Lagos State{" "}
                 </p>
               </div>
             </div>

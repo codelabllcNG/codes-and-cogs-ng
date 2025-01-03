@@ -33,7 +33,7 @@ function Banner1({ bgUrl }) {
             className="object-cover"
             width={599}
             height={501}
-            src={bgUrl || "/images/new-hero-image.png"}
+            src={"/images/cogs11111.png" || bgUrl}
 
             // style={{ backgroundImage: `url(${bgUrl})` }}
           />
