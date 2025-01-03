@@ -10,6 +10,7 @@ import { MdExpandMore } from "react-icons/md";
 import MobileNav from "./MobileNav";
 import HireTalentDropdown from "./HireTalentDropdown";
 import ApplicationForm from "./career/ApplicationForm";
+import PopoverMenu from "./Popover";
 
 function Navbar() {
   const router = useRouter();
@@ -78,9 +79,9 @@ function Navbar() {
               className="cursor-pointer relative"
             >
               <div className="flex justify-center ">
-                <Link href="/#services">
-                  <a> Services </a>
-                </Link>
+                <div>
+                  <PopoverMenu />
+                </div>
               </div>
               <div className="absolute w-full">
                 {hoverUnderline === "services" && <RedUnderline />}
