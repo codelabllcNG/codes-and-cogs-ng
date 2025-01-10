@@ -30,15 +30,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/contact-us": [
+    "/coming-soon": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/contact-us.js"
+      "static/chunks/pages/coming-soon.js"
     ],
-    "/well-insight": [
+    "/innovation": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/well-insight.js"
+      "static/chunks/pages/innovation.js"
     ]
   },
   "ampFirstPages": []
