@@ -30,11 +30,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/coming-soon": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/coming-soon.js"
-    ],
     "/innovation": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

@@ -9,9 +9,14 @@ export default function EmpoweringInnovation() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Empowering Innovation in Oil & Gas
           </h1>
-          <p className="text-xl md:text-2xl">
-            Leveraging AI, Machine Learning, and IoT for smarter, more efficient
-            operations.
+          <p className="text-lg md:text-xl">
+            At Codes and Cogs, we are redefining the oil and gas industry by
+            placing Artificial Intelligence (AI), Machine Learning (ML), and
+            Internet of Things (IoT) technologies at the core of our solutions.
+            Our commitment to innovation ensures that we remain at the forefront
+            of advancements, providing businesses with the tools they need to
+            overcome challenges, maximize operational efficiency, and achieve
+            better returns on their investments.
           </p>
         </div>
       </header>
@@ -19,11 +24,13 @@ export default function EmpoweringInnovation() {
       {/* AI and IoT Section */}
       <section className="container mx-auto px-6 md:px-12 py-12 grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 className="text-3xl font-bold mb-4">Leading with AI and IoT</h2>
+          <h2 className="text-3xl font-bold mb-4"> IoT-Enabled Monitoring</h2>
           <p className="text-lg mb-4">
-            In an industry where precision and reliability are paramount, we
-            leverage AI and IoT technologies to deliver smarter, data-driven
-            solutions.
+            Our IoT systems integrate real-time sensors, downhole devices, and
+            surface equipment to deliver a comprehensive view of field
+            operations. Continuous data transmission ensures seamless
+            monitoring, allowing businesses to stay ahead of issues before they
+            escalate.
           </p>
         </div>
         <Image
@@ -69,9 +76,15 @@ export default function EmpoweringInnovation() {
             Training the Future Workforce
           </h2>
           <p className="text-lg mb-4">
-            At Codes and Cogs, innovation extends beyond operations—we are
-            committed to empowering local talent through cutting-edge training
-            programs.
+            We utilize state-of-the-art simulators to equip local professionals
+            with hands-on experience in oil and gas operations. From well
+            intervention techniques to reservoir modeling, our training
+            solutions ensure that the workforce is skilled, confident, and ready
+            to excel. By fostering a culture of continuous learning, we empower
+            businesses to develop local talent pools that are aligned with
+            global standards. Our initiatives bridge the skills gap, creating
+            opportunities for local professionals to contribute meaningfully to
+            the industry.
           </p>
         </div>
         <Image
@@ -115,11 +128,38 @@ export default function EmpoweringInnovation() {
         </div>
       </section>
 
+      <section className="container mx-auto px-6 md:px-12 py-12 grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 className="text-3xl font-bold mb-4">
+            The Codes and Cogs Difference
+          </h2>
+          <p className="text-lg mb-4">
+            Industry Leadership: As pioneers in AI and IoT for oil and gas, we
+            continuously push the boundaries of what’s possible. Client-Centric
+            Approach: We tailor our solutions to meet the specific needs of each
+            client, ensuring practical, impactful outcomes. Commitment to
+            Growth: Through our training programs, we are not just solving
+            today’s problems but preparing for the industry’s future.
+          </p>
+        </div>
+        <Image
+          src="/images/1der.png"
+          alt="Modern Simulators for Training"
+          width={600}
+          height={400}
+          className="rounded-lg shadow-md object-cover"
+        />
+      </section>
+
       {/* Footer Section */}
       <footer className="bg-pry-color text-white py-6 text-center">
-        <p className="text-lg">
-          Let us work together to shape the future of oil and gas. Partner with
-          us today.
+        <p className="text-lg w-[80%] m-auto">
+          At Codes and Cogs, we believe that innovation is not just about
+          technology—it’s about empowering people and businesses to achieve
+          their fullest potential. By combining AI, IoT, and world-class
+          training, we are creating a smarter, more efficient oil and gas
+          industry, one solution at a time. Let’s work together to shape the
+          future of oil and gas. Partner with us today.
         </p>
       </footer>
     </div>
