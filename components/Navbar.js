@@ -31,10 +31,12 @@ function Navbar() {
   const [hoverUnderline, setHoverUnderline] = useState("");
 
   return (
-    <div className={`px-5 md:px-10 lg:px-[110px]`}>
+    <div
+      className={`px-5 md:px-10 lg:px-[110px]  sticky top-0 bg-white z-50 shadow-md`}
+    >
       <MobileNav />
       {/* <ApplicationForm/> */}
-      <div className="flex items-center pt-4 justify-between  my-3  ">
+      <div className="flex items-center pt-4 justify-between my-3">
         <div
           onClick={() => {
             router.push("/");

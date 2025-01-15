@@ -35,15 +35,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/about-us.js"
     ],
-    "/contact-us": [
+    "/well-insight": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/contact-us.js"
-    ],
-    "/innovation": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/innovation.js"
+      "static/chunks/pages/well-insight.js"
     ]
   },
   "ampFirstPages": []
