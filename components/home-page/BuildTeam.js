@@ -20,7 +20,7 @@ function BuildTeam() {
         <div
           dangerouslySetInnerHTML={{
             __html:
-              "Data confidentiality is one of the risks of hiring remote tech talents. In addition to connecting, you with the best talents, we are keen on protecting your data by these steps.",
+              "Navigating the oil and gas sector demands top-tier expertise and professional skills. Designed to meet the best standards, our certification trainings ensure you achieve excellence and remain competitive in the industry.",
           }}
           className="mt-5 890:text-[22px]"
         >

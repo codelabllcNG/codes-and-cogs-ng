@@ -61,9 +61,11 @@ export default function EmpoweringInnovation() {
               from reservoirs, wells, and production facilities.
             </p>
             <p className="text-lg mb-4">
-              Examples include optimizing production strategies, predicting
-              equipment failures, and enhancing reservoir performance with
-              unmatched accuracy.
+              These models identify trends, detect anomalies, and provide
+              actionable insights, enabling clients to make well-informed
+              decisions in real time. Examples include optimizing production
+              strategies, predicting equipment failures, and enhancing reservoir
+              performance with unmatched accuracy.
             </p>
           </div>
         </div>
@@ -134,11 +136,10 @@ export default function EmpoweringInnovation() {
             The Codes and Cogs Difference
           </h2>
           <p className="text-lg mb-4">
-            Industry Leadership: As pioneers in AI and IoT for oil and gas, we
-            continuously push the boundaries of what’s possible. Client-Centric
-            Approach: We tailor our solutions to meet the specific needs of each
-            client, ensuring practical, impactful outcomes. Commitment to
-            Growth: Through our training programs, we are not just solving
+            As pioneers in AI and IoT for oil and gas, we continuously push the
+            boundaries of what’s possible. We tailor our solutions to meet the
+            specific needs of each client, ensuring practical, impactful
+            outcomes. Through our training programs, we are not just solving
             today’s problems but preparing for the industry’s future.
           </p>
         </div>

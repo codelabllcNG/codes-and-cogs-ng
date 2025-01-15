@@ -65,7 +65,7 @@ function Navbar() {
                 className="flex justify-center"
               >
                 {" "}
-                <a> About Us </a>
+                <a className="font-bold">About Us </a>
               </div>
               <div className="absolute w-full">
                 {hoverUnderline === "about" && <RedUnderline />}
@@ -99,7 +99,7 @@ function Navbar() {
                 className="flex justify-center "
               >
                 {" "}
-                <a> Contact Us </a>
+                <a className="font-bold"> Contact Us </a>
               </div>
               <div className="absolute w-full">
                 {hoverUnderline === "support" && <RedUnderline />}
