@@ -30,10 +30,10 @@ function Banner1({ bgUrl }) {
           </video> */}
           <Image
             alt="Hero image"
-            className=""
+            className="object-cover"
             width={599}
             height={501}
-            src={bgUrl || "/images/new-hero-image.png"}
+            src={"/images/cogs77.png" || bgUrl}
 
             // style={{ backgroundImage: `url(${bgUrl})` }}
           />
@@ -62,7 +62,7 @@ function Banner1({ bgUrl }) {
         <div className="flex justify-center sm:justify-start mt-10 ">
           <button
             onClick={() => {
-              router.push("/coming-soon");
+              router.push("/innovation");
             }}
             className="text-pry-color bg-white font-bold px-4 py-2 shadow rounded-lg text-[14px] 400:text-[16px]  sm:text-[22px] hover:bg-gray-50"
           >

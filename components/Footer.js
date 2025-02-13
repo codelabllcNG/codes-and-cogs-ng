@@ -52,7 +52,7 @@ function Footer(props) {
   // },[])
 
   return (
-    <section id="footer" className="mt-20 scroll-mt-10">
+    <section id="footer" className="scroll-mt-10">
       <div className="px-5 md:px-20 py-4">
         {/* <div className="flex  justify-center md:mb-2">
           <div
@@ -259,6 +259,14 @@ function Footer(props) {
                 className="cursor-pointer hover:text-red-700"
               >
                 Privacy Policy
+              </p>
+              <p
+                onClick={() => {
+                  router.push("/resources/pce-whitepaper");
+                }}
+                className="cursor-pointer hover:text-red-700"
+              >
+                White Papers
               </p>
               <p
                 // onClick={() => {

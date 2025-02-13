@@ -1,8 +1,11 @@
 import Image from "next/image";
 import React from "react";
 import { CERTIFICATIONS } from "../../a-store/content-store/CERTIFICATIONS";
+import { useRouter } from "next/router";
 
 function WhyUS() {
+  const router = useRouter();
+
   return (
     <div className="mt-20">
       <div
@@ -19,21 +22,10 @@ function WhyUS() {
           <div
             data-aos="flip-left"
             data-aos-easing="ease-out-cubic"
-            data-aos-once
             data-aos-duration="2000"
             key={cert.header}
-            className=" duration-300  px-3 py-4 bg-white text-gray-800 hover:bg-pry-color hover:text-white  rounded-lg rounded-tr-[3rem] shadow-lg "
+            className="duration-300 px-3 py-4 bg-white text-gray-800 hover:bg-pry-color hover:text-white rounded-lg rounded-tr-[3rem] shadow-lg relative"
           >
-            {/* <div>
-              <Image
-                className=""
-                alt="Instant Hiring Icon"
-                src="/images/clock-icon.svg"
-                width={55}
-                height={52}
-              />
-            </div>  */}
-
             <div
               dangerouslySetInnerHTML={{ __html: cert.header }}
               className="text-[22px] font-bold"
@@ -48,20 +40,22 @@ function WhyUS() {
               {}
             </div>
 
-            <ul className="text-sm mt-3 list-disc pl-5">
+            <ul className="text-sm mt-3 list-disc pl-5 mb-9">
               {cert.content.map((content) => (
                 <li key={content}>{content}</li>
               ))}
             </ul>
-            {/* <div
-              dangerouslySetInnerHTML={{
-                __html:
-                  "Hire vetted tech talents in 24 hours and save time on long hiring processes.",
-              }}
-              className="text-base mt-3"
-            >
-              {}
-            </div> */}
+
+            <div className="flex justify-center sm:justify-start mt-2">
+              <button
+                onClick={() => {
+                  router.push("/coming-soon");
+                }}
+                className="text-pry-color bg-white font-semibold px-2 py-1 shadow rounded-lg text-[10px] 400:text-[13px]  sm:text-[18px] hover:bg-gray-50 absolute bottom-2"
+              >
+                Read More
+              </button>
+            </div>
           </div>
         ))}
       </div>

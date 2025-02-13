@@ -13,6 +13,7 @@ import "aos/dist/aos.css";
 import Router from "next/router";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
+import { Toaster } from "react-hot-toast";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
@@ -118,6 +119,7 @@ export default function MyApp({ Component, pageProps }) {
 
         <Navbar />
         <Component {...pageProps} />
+        <Toaster />
       </AllContextProvider>
 
       <Footer />
