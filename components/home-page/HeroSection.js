@@ -145,7 +145,7 @@ function HeroSection(props) {
             className=""
             width={792}
             height={667}
-            src={bgUrl || "/images/new-hero-image.png"}
+            src={"/images/cnc pics (1).png" || bgUrl}
             // style={{ backgroundImage: `url(${bgUrl})` }}
           />
         </div>
@@ -159,7 +159,7 @@ function HeroSection(props) {
                   "The fastest way to build a world-class tech team for your next project." ||
                   heroTitle,
               }}
-              className="890:mt-5   890:text-[#07222E] md:leading-[3.5rem] md:text-5xl xl:text-[4rem] lg:text-[3rem] lg:leading-[3.5rem] xl:leading-[5rem] text-2xl sm:text-5xl sm:leading-[3.5rem] 340:text-[30px] 340:leading-[2.2rem] font-bold"
+              className="890:mt-5   890:text-[#07222E] md:leading-[3.5rem] md:text-5xl xl:text-[3.8rem] lg:text-[3rem] lg:leading-[3.3rem] xl:leading-[4.8rem] text-2xl sm:text-5xl sm:leading-[3.5rem] 340:text-[30px] 340:leading-[2.2rem] font-bold"
             >
               {}
             </div>
@@ -168,10 +168,10 @@ function HeroSection(props) {
             <div
               dangerouslySetInnerHTML={{
                 __html:
-                  "We make tech hiring hassle-free for businesses. Find vetted engineers, developers and designers from anywhere in the world with no down payment. " ||
+                  "Codes and Cogs is a Tech and Oilfield Services company at the forefront of innovation in the energy sector. We leverage advanced computing capabilities to provide cutting-edge solutions in areas such as well insight analysis, reservoir management, thru-tubing well intervention, non-destructive testing (NDT), slickline, coiled tubing, well testing, wellhead maintenance, and the provision of specialized tools and equipment." ||
                   heroSubtitle,
               }}
-              className="text-[#4F4F4F] text-[20px] md:font-semibold md:leading-10"
+              className="text-[#4F4F4F] text-[17px] md:font-semibold md:leading-7"
             >
               {}
             </div>
@@ -181,11 +181,11 @@ function HeroSection(props) {
             <button
               // onClick={() => { setShowApplicationForm(true); }}
               onClick={() => {
-                router.push("/coming-soon");
+                router.push("/about-us");
               }}
-              className="bg-pry-color text-white py-2 px-4 font-semibold md:font-bold text-[18px] md:text-[28px] rounded-xl shadow hover:bg-opacity-80"
+              className="bg-pry-color text-white py-2 px-3 font-semibold md:font-bold text-[18px] md:text-[24px] rounded-xl shadow hover:bg-opacity-80"
             >
-              Learn More 
+              Learn More
             </button>
           </div>
         </div>

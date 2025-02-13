@@ -1,134 +1,82 @@
 import React from "react";
-import Head from "next/head";
-import Section1 from "../components/about-us/Section1";
-import Section2 from "../components/about-us/Section2";
-import Section3 from "../components/about-us/Section3";
-import Section4 from "../components/about-us/Section4";
-import AllCtx from "../util-functions/allCtx";
-import HeroSection from "../components/about-us/HeroSection";
-import OurTeam from "../components/about-us/OurTeam";
-import AboutCodesAndCogs from "../components/about-us/AboutCodesAndCogs";
 
-function AboutUs(props) {
-  const {
-    aboutTitle,
-    aboutBody,
-    noPaymentVideo,
-    noPaymentText,
-    remoteLocationsVideo,
-    remoteLocationsText,
-    timeAndLanguageVideo,
-    timeAndLanguageText,
-    reviewsTitle,
-    reviewsArray,
-    storiesTitle,
-    storiesArray,
-    ourTalentTitle,
-    designersArray,
-    developersArray,
-    engineersArray,  bannerImage, bannerText,
-  } = props;
-
+const AboutUs = () => {
   return (
-    <div className="gen-padding">
-      <Head>
-        <title>About Codes and Cogs</title>
-        <meta
-          name="description"
-          content="Codes and Cogs is a global remote company that makes your web or software projects easier, and much more."
-        />
+    <section className="bg-gradient-to-r from-gray-50 to-white py-16 px-6 md:px-12 lg:px-20">
+      <div className="max-w-7xl mx-auto text-gray-800">
+        {/* Header Section */}
+        <div className="text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-blue-900">
+            About Us
+          </h1>
+          <p className="text-lg md:text-xl text-gray-600 mt-4 leading-relaxed">
+            Innovation. Sustainability. Excellence.
+          </p>
+        </div>
 
-        <meta
-          property="og:url"
-          content={`https://www.codesandcogs.com/about-us`}
-        />
+        {/* Content Section */}
+        <div className="mt-12">
+          <p className="text-lg md:text-xl leading-relaxed">
+            <span className="font-bold text-blue-900">Codes and Cogs</span> is a
+            Tech and Oilfield Services company at the forefront of innovation in
+            the energy sector. We leverage advanced computing capabilities to
+            provide cutting-edge solutions in areas such as well insight
+            analysis, reservoir management, thru-tubing well intervention,
+            non-destructive testing (NDT), slickline, coiled tubing, well
+            testing, wellhead maintenance, and the provision of specialized
+            tools and equipment.
+          </p>
 
-        <meta property="og:title" content="About Codes and Cogs" />
-        <meta
-          property="og:description"
-          content="Codes and Cogs is a global remote company that makes your web or software projects easier, and much more."
-        />
-        <meta property="og:image" content="/logo.png" />
+          <p className="text-lg md:text-xl leading-relaxed mt-6">
+            Our focus is on enabling safer, more efficient oil and gas
+            production while minimizing carbon emissions and exploring
+            alternative energy solutions. Beyond operations, we are dedicated to
+            developing world-class training tools for the oil and gas sector and
+            connecting businesses with top-tier talent globally through our
+            rigorous recruitment processes.
+          </p>
 
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+          <p className="text-lg md:text-xl leading-relaxed mt-6">
+            At <span className="font-bold text-blue-900">Codes and Cogs</span>,
+            we are committed to driving innovation, sustainability, and
+            excellence in energy production and workforce development.
+          </p>
+        </div>
 
-      <HeroSection />
+        {/* Features Section */}
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="bg-white p-6 shadow-lg rounded-lg text-center">
+            <h3 className="text-xl font-bold text-blue-900">
+              Innovation in Energy
+            </h3>
+            <p className="text-gray-600 mt-4">
+              Advanced solutions in well insight analysis and reservoir
+              management.
+            </p>
+          </div>
 
-      <AboutCodesAndCogs/>
-      
-      <OurTeam/>
+          <div className="bg-white p-6 shadow-lg rounded-lg text-center">
+            <h3 className="text-xl font-bold text-blue-900">
+              Sustainability Focus
+            </h3>
+            <p className="text-gray-600 mt-4">
+              Enabling efficient oil production while reducing carbon emissions.
+            </p>
+          </div>
 
-      <Section1
-        aboutTitle={aboutTitle}
-        aboutBody={aboutBody}
-        noPaymentVideo={noPaymentVideo}
-        noPaymentText={noPaymentText}
-        remoteLocationsVideo={remoteLocationsVideo}
-        remoteLocationsText={remoteLocationsText}
-        timeAndLanguageVideo={timeAndLanguageVideo}
-        timeAndLanguageText={timeAndLanguageText}
-      />
-      {/* <Section2 reviewsTitle={reviewsTitle} reviewsArray={reviewsArray} /> */}
-      <Section3 storiesTitle={storiesTitle} storiesArray={storiesArray}  bannerImage={bannerImage} bannerText={bannerText} />
-      <Section4
-        ourTalentTitle={ourTalentTitle}
-        designersArray={designersArray}
-        developersArray={developersArray}
-        engineersArray={engineersArray}
-      />
-    </div>
+          <div className="bg-white p-6 shadow-lg rounded-lg text-center">
+            <h3 className="text-xl font-bold text-blue-900">
+              Workforce Excellence
+            </h3>
+            <p className="text-gray-600 mt-4">
+              Connecting businesses with top-tier talent through rigorous
+              recruitment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   );
-}
-
-export async function getStaticProps() {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/aboutpage`
-  );
-  const data = await response.json();
-
-  const aboutTitle = data.aboutTitle;
-  const aboutBody = data.aboutBody;
-  const noPaymentVideo = data.noPaymentVideo;
-  const noPaymentText = data.noPaymentText;
-  const remoteLocationsVideo = data.remoteLocationsVideo;
-  const remoteLocationsText = data.remoteLocationsText;
-  const timeAndLanguageVideo = data.timeAndLanguageVideo;
-  const timeAndLanguageText = data.timeAndLanguageText;
-  const reviewsTitle = data.reviewsTitle;
-  const reviewsArray = data.reviews;
-  const storiesTitle = data.storiesTitle;
-  const storiesArray = data.stories;
-  const ourTalentTitle = data.ourTalentTitle;
-  const designersArray = data.designers;
-  const developersArray = data.developers;
-  const engineersArray = data.engineers;
-  const bannerImage = data.bannerImage
-  const bannerText = data.bannerText 
-
-
-  return {
-    props: {
-      bannerImage, bannerText, 
-      aboutTitle,
-      aboutBody,
-      noPaymentVideo,
-      noPaymentText,
-      remoteLocationsVideo,
-      remoteLocationsText,
-      timeAndLanguageVideo,
-      timeAndLanguageText,
-      reviewsTitle,
-      reviewsArray,
-      storiesTitle,
-      storiesArray,
-      ourTalentTitle,
-      designersArray,
-      developersArray,
-      engineersArray,
-    },
-    revalidate: 300,
-  };
-}
+};
 
 export default AboutUs;

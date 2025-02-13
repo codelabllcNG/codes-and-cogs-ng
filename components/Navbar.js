@@ -10,6 +10,7 @@ import { MdExpandMore } from "react-icons/md";
 import MobileNav from "./MobileNav";
 import HireTalentDropdown from "./HireTalentDropdown";
 import ApplicationForm from "./career/ApplicationForm";
+import PopoverMenu from "./Popover";
 
 function Navbar() {
   const router = useRouter();
@@ -30,10 +31,12 @@ function Navbar() {
   const [hoverUnderline, setHoverUnderline] = useState("");
 
   return (
-    <div className={`px-5 md:px-10 lg:px-[110px]`}>
+    <div
+      className={`px-5 md:px-10 lg:px-[110px]  sticky top-0 bg-white z-50 shadow-md`}
+    >
       <MobileNav />
       {/* <ApplicationForm/> */}
-      <div className="flex items-center pt-4 justify-between  my-3  ">
+      <div className="flex items-center pt-4 justify-between my-3">
         <div
           onClick={() => {
             router.push("/");
@@ -59,9 +62,12 @@ function Navbar() {
               }}
               className="cursor-pointer relative"
             >
-              <div className="flex justify-center ">
+              <div
+                onClick={() => router.push("/about-us")}
+                className="flex justify-center"
+              >
                 {" "}
-                <a> About Us </a>
+                <a className="font-bold">About Us </a>
               </div>
               <div className="absolute w-full">
                 {hoverUnderline === "about" && <RedUnderline />}
@@ -75,8 +81,9 @@ function Navbar() {
               className="cursor-pointer relative"
             >
               <div className="flex justify-center ">
-                {" "}
-                <a> Services </a>
+                <div>
+                  <PopoverMenu />
+                </div>
               </div>
               <div className="absolute w-full">
                 {hoverUnderline === "services" && <RedUnderline />}
@@ -89,9 +96,12 @@ function Navbar() {
               }}
               className="cursor-pointer relative"
             >
-              <div className="flex justify-center ">
+              <div
+                onClick={() => router.push("/contact-us")}
+                className="flex justify-center "
+              >
                 {" "}
-                <a> Support </a>
+                <a className="font-bold"> Contact Us </a>
               </div>
               <div className="absolute w-full">
                 {hoverUnderline === "support" && <RedUnderline />}
@@ -107,9 +117,8 @@ function Navbar() {
               // }}
 
               onClick={() => {
-                router.push("/coming-soon");
+                router.push("/contact-us");
               }}
-
               // Keeping here for the button bellow -> border-2 rounded-md px-4 py-2 border-pry-color hover:bg-gray-50
               className="border-2 bg-pry-color text-white rounded-md px-4 py-2 border-pry-color hover:bg-opacity-80 hover:border-opacity-80 border-opacity-30"
             >

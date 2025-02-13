@@ -2,9 +2,8 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 
-
-function Banner1() {
-const router = useRouter()
+function Banner1({ bgUrl }) {
+  const router = useRouter();
 
   return (
     <div className="sm:flex mt-20 ">
@@ -17,7 +16,7 @@ const router = useRouter()
               height={670}
                   />  */}
         <div className="flex justify-center ">
-          <video
+          {/* <video
             width="646"
             height="670"
             controls
@@ -28,7 +27,16 @@ const router = useRouter()
           >
             <source src={"videoUrl"} type="video/mp4" />
             Your browser does not support the video tag.
-          </video>
+          </video> */}
+          <Image
+            alt="Hero image"
+            className="object-cover"
+            width={599}
+            height={501}
+            src={"/images/cogs77.png" || bgUrl}
+
+            // style={{ backgroundImage: `url(${bgUrl})` }}
+          />
         </div>
       </div>
       <div className="sm:w-[60%] bg-pry-color text-white rounded-bl-3xl rounded-br-3xl sm:rounded-r-3xl sm:rounded-bl-none px-5 py-8 lg:py-16 sm:flex flex-col justify-center">
@@ -54,7 +62,7 @@ const router = useRouter()
         <div className="flex justify-center sm:justify-start mt-10 ">
           <button
             onClick={() => {
-              router.push("/coming-soon");
+              router.push("/innovation");
             }}
             className="text-pry-color bg-white font-bold px-4 py-2 shadow rounded-lg text-[14px] 400:text-[16px]  sm:text-[22px] hover:bg-gray-50"
           >

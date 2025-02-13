@@ -8,8 +8,16 @@ import "../styles/globals.css";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import * as fbq from "../util-functions/meta-pixel";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Router from "next/router";
+import NProgress from "nprogress";
+import "nprogress/nprogress.css";
+import { Toaster } from "react-hot-toast";
+
+Router.events.on("routeChangeStart", () => NProgress.start());
+Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeError", () => NProgress.done());
 
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -36,7 +44,7 @@ export default function MyApp({ Component, pageProps }) {
     return () => {
       router.events.off("routeChangeComplete", handleRouteChange);
     };
-  }, [router.events]); 
+  }, [router.events]);
 
   return (
     <Fragment>
@@ -58,8 +66,6 @@ export default function MyApp({ Component, pageProps }) {
             name="facebook-domain-verification"
             content="cdtzab6dg5iu52azrz30ek3p55i0bj"
           /> */}
-
-
         </Head>
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
@@ -85,8 +91,6 @@ export default function MyApp({ Component, pageProps }) {
               `,
           }}
         />
-
-  
 
         {/* GOOGLE TAG MANAGER  */}
         <Script
@@ -115,6 +119,7 @@ export default function MyApp({ Component, pageProps }) {
 
         <Navbar />
         <Component {...pageProps} />
+        <Toaster />
       </AllContextProvider>
 
       <Footer />

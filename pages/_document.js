@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
 // import crypto from "crypto"
 
 // const cspHashOf = (text) => {
@@ -12,25 +13,35 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          {/* <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script> */}
 
-        {/* <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script> */}
-
-         
           {/* GOOGLE ANALYTICS */}
-          <script
+          {/* <script
             type="text/javascript"
             id="hs-script-loader"
             async
             defer
             src="//js-na1.hs-scripts.com/22606943.js"
-          ></script>
-
-        
+          ></script> */}
+          <Script
+            id="google-tag-manager"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WN43ZBFV');`,
+            }}
+          />
         </Head>
         <body>
-
-            {/* META PIXEL */} 
-            <noscript>
+          {/* META PIXEL */}
+          <noscript>
+            <iframe
+              src="https://www.googletagmanager.com/ns.html?id=GTM-WN43ZBFV"
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            ></iframe>
+          </noscript>
+          <noscript>
             <img
               height="1"
               width="1"
@@ -39,8 +50,6 @@ class MyDocument extends Document {
             />
           </noscript>
 
-         
-         
           {/* GOOGLE TAG MANAGER */}
           <noscript>
             <iframe

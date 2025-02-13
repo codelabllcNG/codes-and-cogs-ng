@@ -9,9 +9,9 @@ function RemoteTalents() {
     <div className="mt-20">
       <div
         dangerouslySetInnerHTML={{
-          __html: "GLOBAL POWER OUTSOURCING",
+          __html: "GLOBAL MANPOWER OUTSOURCING",
         }}
-        className="text-[24px] 890:text-[30px] font-bold leading-9 890:hidden"
+        className="text-[24px] mb-5 890:text-[30px] font-bold leading-9 890:hidden"
       >
         {}
       </div>
@@ -29,7 +29,7 @@ function RemoteTalents() {
         <div className="890:w-1/2 890:mr-5">
           <div
             dangerouslySetInnerHTML={{
-              __html: "GLOBAL POWER OUTSOURCING",
+              __html: "GLOBAL MANPOWER OUTSOURCING",
             }}
             className="text-[24px] 890:text-[30px] font-bold leading-9 hidden 890:block"
           >
@@ -49,7 +49,7 @@ function RemoteTalents() {
           <div className="mt-8">
             <button
               onClick={() => {
-                router.push("/coming-soon");
+                router.push("/contact-us");
               }}
               className="px-4 py-2 text-white bg-pry-color hover:bg-opacity-80 rounded-xl shadow-md font-semibold 890:text-[22px]"
             >
