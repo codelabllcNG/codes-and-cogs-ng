@@ -29,7 +29,7 @@ export default function WellInsightServices() {
             {/* Image Section */}
             <div>
               <Image
-                src="/images/Advancing Pressure Control.png"
+                src="/images/Advancing Pressure Control.jpg"
                 width={450}
                 height={550}
                 alt="Whitepaper Cover"
@@ -68,7 +68,7 @@ export default function WellInsightServices() {
 
           {/* Contact Form Section */}
           <div ref={formRef} id="form">
-           {/*  <ContactForm /> */}
+            {/*  <ContactForm /> */}
             <ContactFormWP />
           </div>
         </section>

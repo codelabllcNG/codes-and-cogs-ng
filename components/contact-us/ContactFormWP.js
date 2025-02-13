@@ -34,6 +34,13 @@ const ContactFormWP = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    // Push event to the GTM dataLayer
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "whitepaper_form_submit",
+      form_name: "Advancing PCE integrity Testing",
+    });
+
     setFormData({
       ...formData,
       [name]: value,
@@ -179,9 +186,8 @@ const ContactFormWP = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className={`border ${
-              emailError ? "border-red-500" : "border-gray-300"
-            } rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500`}
+            className={`border ${emailError ? "border-red-500" : "border-gray-300"
+              } rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500`}
           />
           {emailError && (
             <p className="text-red-500 text-sm mt-1">{emailError}</p>
