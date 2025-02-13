@@ -261,6 +261,14 @@ function Footer(props) {
                 Privacy Policy
               </p>
               <p
+                onClick={() => {
+                  router.push("/resources/pce-whitepaper");
+                }}
+                className="cursor-pointer hover:text-red-700"
+              >
+                White Papers
+              </p>
+              <p
                 // onClick={() => {
                 //   router.push("/press-release");
                 // }}

@@ -1,6 +1,5 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-  "/resources/pce-whitepaper": "pages/resources/pce-whitepaper.js"
+  "/_document": "pages/_document.js"
 }

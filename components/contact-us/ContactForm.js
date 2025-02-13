@@ -56,6 +56,7 @@ const ContactForm = () => {
         setLoading(false);
       });
   };
+  
   return (
     <div className="grid place-items-center items-center mt-10">
       {/* Form */}

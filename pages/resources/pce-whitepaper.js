@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import ContactForm from "../../components/contact-us/ContactForm";
+import ContactFormWP from "../../components/contact-us/ContactFormWP";
 
 export default function WellInsightServices() {
   const formRef = useRef(null);
@@ -67,7 +68,8 @@ export default function WellInsightServices() {
 
           {/* Contact Form Section */}
           <div ref={formRef} id="form">
-            <ContactForm />
+           {/*  <ContactForm /> */}
+            <ContactFormWP />
           </div>
         </section>
       </main>
