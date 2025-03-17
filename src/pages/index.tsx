@@ -1,0 +1,405 @@
+import { Box ,Flex,Heading,Text,Button,Image,SimpleGrid,Icon,useColorModeValue,InputGroup,InputRightElement,IconButton,Input} from "@chakra-ui/react";
+import Navigator from "@/component/navigator";
+import VideoSlider from "@/component/videoSlider";
+import ServiceComponent from "@/component/servicesComponent";
+import PartnersSection from "@/component/patternsSection";
+import CertificationGrid from "@/component/cerifications";
+import Footer from "@/component/footer";
+import { useState } from "react";
+import { FaSearch } from "react-icons/fa";
+import TalentExplorer from "@/component/talents";
+import { FaLightbulb } from "react-icons/fa";
+import HowItWorks from "@/component/howItWorks";
+import { useRouter } from "next/router";
+
+
+export default function Home() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(1);
+  const [search,setSearch] =useState('')
+  const router=useRouter()
+
+  
+    
+  // Replace these with your actual image paths
+  const images = [
+    '/talent1.svg',
+    '/talent2.svg',
+    '/talent3.svg'
+  ];
+
+  const handleSearch = function(data:string){
+     console.log(data)
+     router.push('/talents')
+  }
+
+  return (
+    <Box>
+      <Navigator />
+ 
+ {/* SECTION 1*/}
+      <Flex 
+        backgroundImage="linear-gradient(203deg, #9699FF -1.76%, #2E3192 2.84%, #1F2264 48.47%, #0E0F2C 98.54%)" 
+        maxWidth={'2000px'} 
+        alignItems={'center'} 
+        mx={'auto'} 
+        padding={{
+          base: '2rem 1rem',
+          sm: '2rem 1.5rem',
+          md: '3rem 2rem',
+          lg: '7.5rem 5rem'
+        }}
+      >
+  <Flex 
+    flexDir={{
+      base: 'column',
+      md: 'row'
+    }} 
+    w={'100%'}
+    gap={{ base: 8, md: 0 }}
+  >
+    {/* Left Content */}
+    <Box 
+      color="white" 
+      flex={1} 
+      pr={{ md: 8 }} 
+      w={{ base: '100%', md: '50%' }}
+    >
+      <Heading 
+        lineHeight={{
+          base: '1.2',
+          md: '55px'
+        }}
+        fontSize={{
+          base: '28px',
+          sm: '32px',
+          md: '38px',
+          lg: '40px'
+        }}
+        fontWeight="500" 
+        mb={4}
+      >
+        Elevate Your Business with the Top 1%
+        <Box as="span" display="block" mt={2}>
+          Oil & Gas Talents in Nigeria
+        </Box>
+      </Heading>
+
+      <Flex 
+        m={{ base: '1.5rem 0', md: '2rem 0' }} 
+        borderRadius="48px" 
+        bg="#4C4FB0" 
+        p="1rem"
+        flexDirection={{
+          base: 'column',
+          sm: 'row'
+        }}
+        gap={2}
+      >
+        {['Hire a Talent', 'Lite Your Opening', 'Work With Us'].map((text, index) => (
+          <Box 
+            key={text}
+            borderRadius="48px" 
+            p={3} 
+            fontWeight="500" 
+            color={index === 0 ? '#1C55E0' : 'white'}
+            bg={index === 0 ? 'white' : 'transparent'}
+            flex={1}
+            textAlign="center"
+            whiteSpace="nowrap"
+            cursor={'pointer'}
+            _hover={{
+               background:'white',
+               color: '#1C55E0'
+            }}
+          >
+            {text}
+          </Box>
+        ))}
+      </Flex>
+
+      <Flex position="relative">
+        <InputGroup w="full" boxShadow="md">
+          <Input
+            placeholder="Search skills/services..."
+            bg="white"
+            borderRadius="md"
+            color={'black'}
+            onChange={(e)=>setSearch(e.target.value)}
+            p={{ base: '1rem', md: '1.5rem 1rem' }}
+            _placeholder={{ 
+              color: 'gray.500',
+              fontSize: { base: '14px', sm: '16px' }
+            }}
+          />
+          <InputRightElement height="full" pr={2}>
+            <IconButton
+              aria-label="Search"
+              icon={<FaSearch />}
+              variant="ghost"
+              color="white"
+              bg="#2E3192"
+              size={{ base: 'sm', md: 'md' }}
+              _hover={{ bg: 'gray.100', color: '#2E3192' }}
+              onClick={()=>handleSearch(search)}
+            />
+          </InputRightElement>
+        </InputGroup>
+      </Flex>
+    </Box>
+
+    {/* Right Content - Image Gallery */}
+    <Box 
+      w={{ base: '100%', md: '50%' }}
+      position="relative" 
+      minH={{ base: '300px', md: '400px' }}
+      mt={{ base: 8, md: 0 }}
+    >
+      {images.map((src, index) => (
+        <Box
+          key={index}
+          position="absolute"
+          right={{
+            base: `${index * 25}%`,
+            md: `${index * 20}%`
+          }}
+          top="50%"
+          transform="translateY(-50%)"
+          w={{ base: '50%', md: '40%' }}
+          h={{
+            base: hoveredIndex === index ? '260px' : '220px',
+            md: hoveredIndex === index ? '380px' : '340px'
+          }}
+          transition="all 0.3s ease"
+          zIndex={hoveredIndex === index ? 3 : 1}
+          onMouseEnter={() => setHoveredIndex(index)}
+          cursor="pointer"
+        >
+          <Box
+            as="img"
+            src={src}
+            alt={`Image ${index + 1}`}
+            w="full"
+            h="full"
+            objectFit="cover"
+            rounded="xl"
+            shadow="xl"
+            transition="all 0.3s ease"
+            transform={hoveredIndex === index ? 'scale(1.05)' : 'scale(0.9)'}
+          />
+          <Box
+            position="absolute"
+            bottom="15px"
+            left="15px"
+            bg="rgba(0, 0, 0, 0.6)"
+            color="white"
+            px={2}
+            py={1}
+            rounded="md"
+            fontSize={{ base: 'xs', sm: 'sm' }}
+          >
+            <Heading fontSize={{ base: '14px', md: '18px' }} fontWeight="500">
+              George B
+            </Heading>
+            <Text fontSize={{ base: '12px', md: '16px' }}>
+              Slick Line Expert
+            </Text>
+          </Box>
+        </Box>
+      ))}
+    </Box>
+  </Flex>
+      </Flex>
+
+  
+      <Flex  maxWidth={'2000px'} alignItems={'center'}  bg={''}  mx={'auto'} textColor={''}  padding={{lg:'1.5rem 5rem',md:'1.5rem 2rem',sm:'1rem',base:'1rem'}}>
+      <Box as="section" py={8} w={'100%'} textAlign="center">
+      <Heading mb={8} fontSize="2xl">
+        Why our Talents are the Top 1%
+      </Heading>
+      <Text mb={4}>Codes and Cogs is committed to driving innovation, sustainability, and excellence, and that translates to our workforce development.</Text>
+
+      <SimpleGrid
+        columns={{ base: 1, md: 3 }}
+        spacing={6}
+        maxW="1200px"
+        mx="auto"
+        px={4}
+      >
+        {/* Card 1 */}
+        <Box
+          backgroundImage="linear-gradient(203deg, #9699FF -1.76%, #2E3192 2.84%, #1F2264 48.47%, #0E0F2C 98.54%)"
+          color="white"
+          p={6}
+          borderRadius="md"
+          textAlign="center"
+        >
+          <Icon as={FaLightbulb} w={8} h={8} mb={4} />
+          <Heading fontWeight={'500'} fontSize="xl" mb={2}>
+            Rigorous Recruitment
+          </Heading>
+          <Text fontSize={'16px'}>
+            To get listed on this platform, candidates undertake thorough
+            screenings and checks.
+          </Text>
+        </Box>
+
+        {/* Card 2 */}
+        <Box
+          backgroundImage="linear-gradient(203deg, #9699FF -1.76%, #2E3192 2.84%, #1F2264 48.47%, #0E0F2C 98.54%)"
+          color="white"
+          p={6}
+          borderRadius="md"
+          textAlign="center"
+        >
+          <Icon as={FaLightbulb} w={8} h={8} mb={4} />
+          <Heading fontWeight={'500'} fontSize="xl" mb={2}>
+            Experienced Professionals
+          </Heading>
+          <Text fontSize={'16px'}>
+            In our talent pool, we have seasoned experts with proven track
+            records.
+          </Text>
+        </Box>
+
+        {/* Card 3 */}
+        <Box
+          backgroundImage="linear-gradient(203deg, #9699FF -1.76%, #2E3192 2.84%, #1F2264 48.47%, #0E0F2C 98.54%)"
+          color="white"
+          p={6}
+          borderRadius="md"
+          textAlign="center"
+        >
+          <Icon as={FaLightbulb} w={8} h={8} mb={4} />
+          <Heading fontWeight={'500'} fontSize="xl" mb={2}>
+            Certified
+          </Heading>
+          <Text fontSize={'16px'}>
+            As a training body, our talents have undertaken our certification
+            programs.
+          </Text>
+        </Box>
+      </SimpleGrid>
+    </Box>
+      </Flex>
+
+      <Flex  maxWidth={'2000px'} alignItems={'center'}  bg={''}  mx={'auto'} textColor={''}  padding={{lg:'1.5rem 5rem',md:'1.5rem 2rem',sm:'1rem',base:'1rem'}}>
+         <TalentExplorer />
+      </Flex>
+
+      {/* <VideoSlider /> */}
+      
+        <Flex bg={'#EDF2FC'} maxWidth={'2000px'} alignItems={'center'}    mx={'auto'} textColor={''}  padding={{lg:'1.5rem 5rem',md:'1.5rem 2rem',sm:'1rem',base:'1rem'}}>
+               <HowItWorks />
+        </Flex>
+
+        {/* <Flex bg={'red'}  maxWidth={'2000px'} alignItems={'center'}    mx={'auto'} textColor={''}  padding={{lg:'1.5rem 5rem',md:'1.5rem 2rem',sm:'1rem',base:'1rem'}}>
+                <Flex  flexDir={{ base:'column', sm:'column', md:'row',lg:'row'}} padding={{lg:'6rem 0'}} alignItems={'center'}>
+                  <Box w={{base:'100%',sm:'100%',md:'100%',lg:'50%'}}>
+                      <Heading fontWeight={'500'} fontSize={'28px'} width={'fit-content'} >
+                        About
+                        <Box h="3px" fontSize={'28px'} mt={'1.5rem'} borderRadius={'12px'} w="100%" bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"></Box>
+                      </Heading>
+
+                      <Heading fontSize={'20px'} m={'2rem 0'} fontWeight={'500'} >Innovative Solutions for the Future of Oil & Gas</Heading>
+                      
+                      <Box m={'1rem 0'}>
+                      <Text>Codes and Cogs is a tech and oilfield services company at the forefront of innovation in the energy sector. We leverage advanced computing capabilities to provide cutting-edge solutions and are also dedicated to developing local talent.</Text>
+                      <Text mt={'1rem'}>At Codes and Cogs we are committed to driving innovation, sustainability, and excellence in energy services and workforce development.</Text>
+                      </Box>
+
+                      <Button width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Learn More </Button>
+                      
+                  </Box>
+                  <Box display={'flex'} justifyContent={'flex-end'} w={{base:'100%',sm:'100%',md:'100%',lg:'50%'}}>
+                       <Image src="HP-SECTION2.svg"></Image>
+                  </Box>
+                </Flex>
+        </Flex> */}
+
+        <Flex flexDir={'column'}  maxWidth={'2000px'} bg={''}  mx={'auto'} textColor={''}  padding={{lg:'1.5rem 5rem',md:'1.5rem 2rem',sm:'1rem',base:'1rem'}}>
+      
+            <Heading fontWeight={'500'} fontSize={'28px'} width={'fit-content'} >
+              Our Services
+              <Box h="3px" fontSize={'28px'} mt={'1.5rem'} borderRadius={'12px'} w="100%" bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"></Box>
+            </Heading>
+            <Text m={'4rem 0'}>Codes and Cogs provides end-to-end solutions for oilfield operations, from well insights and AI-driven analysis to designing custom, cost-effective solutions tailored to unique field needs. We are also dedicated to developing local talent through comprehensive training in safety, oil and gas operations, and specialised roles.</Text>
+            <ServiceComponent />
+
+        </Flex>
+
+        <Flex
+          flexDir="column"
+          maxWidth="2000px"
+          bgImage="url('BACKGROUND.png')"
+          bgSize="cover"        // Ensures the image covers the entire container.
+          bgPosition="center"   // Centers the background image.
+          bgRepeat="no-repeat"  // Prevents the background image from repeating.
+          mx="auto"
+          textColor="white"     // Change the text color if needed.
+          padding={{ lg: "1.5rem 5rem", md: "1.5rem 2rem", sm: "1rem", base: "1rem" }}
+          mt={'-8rem'}
+        >
+               <Heading mt={{base:'16rem',lg:'16rem'}} fontWeight={'500'} fontSize={'28px'} width={'fit-content'} >
+                        Discover More
+                        <Box h="3px" fontSize={'28px'} mt={'1.5rem'} borderRadius={'12px'} w="100%" bg="linear-gradient(90deg,rgb(242, 242, 248) 0%,rgb(242, 244, 247) 100%)"></Box>
+               </Heading>
+
+
+                <Flex  mt={'4rem'} flexDir={{ base:'column', sm:'column', md:'row',lg:'row'}} padding={{lg:'6rem 0'}} alignItems={'center'}>
+                      <Box w={{base:'100%',sm:'100%',md:'100%',lg:'50%'}}>
+                          <Heading lineHeight={'40px'} fontWeight={'500'} fontSize={{base:'20px',sm:'20px',md:'30px',lg:'40px'}} width={'fit-content'} >
+                          GLOBAL MANPOWER <br /> OUTSOURCING
+                          </Heading>
+
+                          
+                          <Box m={'1rem 0'}>
+                          <Text>We specialize in outsourcing skilled manpower, connecting experienced oil and gas consultants with international projects tailored to their expertise.</Text>
+                          </Box>
+
+                          <Button width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Learn More </Button>
+                          
+                      </Box>
+                      <Box display={'flex'} justifyContent={'flex-end'} w={{base:'100%',sm:'100%',md:'100%',lg:'50%'}}>
+                          <Image src="DISCOVER1.svg"></Image>
+                      </Box>
+                </Flex>
+
+                <Flex mt={{base:'2rem',sm:'2rem'}} flexDir={{ base:'column', sm:'column', md:'row',lg:'row-reverse'}} padding={{lg:'6rem 0'}} alignItems={'center'}>
+                      <Box w={{base:'100%',sm:'100%',md:'100%',lg:'50%'}}>
+                          <Heading lineHeight={'40px'} fontWeight={'500'} fontSize={{base:'20px',sm:'20px',md:'30px',lg:'40px'}} width={'fit-content'} >
+                               EMPOWERING INNOVATION <br /> IN OIL & GAS
+                          </Heading>
+
+                          
+                          <Box m={'1rem 0'}>
+                          <Text>Artificial Intelligence/Machine Learning capabilities are embedded in our well-testing procedures and other oilfield solutions. Codes and Cogs also unites industry professionals and offer comprehensive talent recruitment, and specialized training.</Text>
+                          </Box>
+
+                          <Button width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Learn More </Button>
+                          
+                      </Box>
+                      <Box display={'flex'} justifyContent={'flex-start'} w={{base:'100%',sm:'100%',md:'100%',lg:'50%'}}>
+                          <Image src="DISCOVER2.svg"></Image>
+                      </Box>
+                </Flex>
+
+                
+        
+       </Flex>
+
+       <Flex flexDir={'column'}  maxWidth={'2000px'} bg={''}  mx={'auto'} textColor={''}  padding={{lg:'1.5rem 5rem',md:'1.5rem 2rem',sm:'1rem',base:'1rem'}}>    
+       <CertificationGrid />
+       </Flex>
+
+
+      <Flex flexDir={'column'}  maxWidth={'2000px'} bg={''}  mx={'auto'} textColor={''}  padding={{lg:'1.5rem 5rem',md:'1.5rem 2rem',sm:'1rem',base:'1rem'}}>        
+      <PartnersSection />
+      </Flex>
+
+     <Footer />
+    
+
+        
+    </Box>
+  );
+}
