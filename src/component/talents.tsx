@@ -127,9 +127,15 @@ import {
   FaFish
 } from 'react-icons/fa';
 import { FaStethoscope } from 'react-icons/fa';
+import { useRouter } from 'next/router';
 
 const TalentDashboard = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const router = useRouter()
+
+  const hireHandler = function(){
+    router.push('/hireTalent')
+  }
   
   const categories = [
     { 
@@ -241,7 +247,7 @@ const TalentDashboard = () => {
                   ))}
                 </Flex>
   
-                <Button width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)">  Hire {talent.name.split(' ')[0]}</Button>
+                <Button onClick={hireHandler} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)">  Hire {talent.name.split(' ')[0]}</Button>
                       
               </Box>
             </GridItem>

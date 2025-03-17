@@ -95,9 +95,12 @@ export default function Home() {
         }}
         gap={2}
       >
-        {['Hire a Talent', 'Lite Your Opening', 'Work With Us'].map((text, index) => (
+        {[
+          {text:'Hire a Talent',url:'/talents'},
+          {text:'Lite Your Opening',url:'/openings'},
+          {text:'Work With Us',url:'/contact'}].map((item, index) => (
           <Box 
-            key={text}
+            key={item.text}
             borderRadius="48px" 
             p={3} 
             fontWeight="500" 
@@ -111,8 +114,9 @@ export default function Home() {
                background:'white',
                color: '#1C55E0'
             }}
+            onClick={()=>router.push(item.url)}
           >
-            {text}
+            {item.text}
           </Box>
         ))}
       </Flex>

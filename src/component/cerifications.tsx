@@ -1,5 +1,6 @@
 import { Box, Grid, Heading, Text, Link, VStack,Button } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { useRouter } from "next/router";
 
 const certifications = [
   {
@@ -14,6 +15,7 @@ const certifications = [
 ];
 
 const CertificationGrid = () => {
+  const router = useRouter()
   return (
     <Box textAlign="center">
       <Heading size="lg" m={'2rem 0'} color={'#1C55E0'} fontWeight={'600'}>
@@ -68,7 +70,7 @@ const CertificationGrid = () => {
           ))}
       </Grid>
        
-         <Button width={'fit-content'} m={'2rem auto'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> See All Certification </Button>              
+         <Button onClick={()=>router.push('/certifications')} width={'fit-content'} m={'2rem auto'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> See All Certification </Button>              
 
     </Box>
   );
