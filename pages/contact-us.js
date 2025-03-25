@@ -1,61 +1,6 @@
-import React, { useState } from "react";
-import { FiPhone } from "react-icons/fi";
 import { HiOutlineMail, HiOutlineLocationMarker } from "react-icons/hi";
-import toast from "react-hot-toast";
 
 const Contact = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    if (!name || !email || !message) {
-      toast.error("Please fill in all fields");
-      setLoading(false);
-      return;
-    }
-
-    fetch(
-      `${process.env.NEXT_PUBLIC_DEV_API_BASE}/api/codesandcogs/v1/contact`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          message,
-        }),
-      }
-    )
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to submit the form");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        toast.success("Form submitted successfully.");
-        // console.log("Form submitted successfully:", data);
-        setName("");
-        setEmail("");
-        setMessage("");
-      })
-      .catch((error) => {
-        console.error("Error submitting form:", error);
-        toast.error(
-          "There was an error sending your message. Please try again."
-        );
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  };
   return (
     <div className="">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -71,79 +16,107 @@ const Contact = () => {
 
         {/* Contact Form Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Form */}
+          {/* Zoho Form */}
           <div className="bg-white shadow-md rounded-lg p-8">
-            <form className="space-y-6">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  className="p-2 border-none mt-1 block w-full rounded-md focus:outline-none shadow-sm text-base"
-                  placeholder="Enter your name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
+            <form
+              action="https://forms.zohopublic.com/clpphonesystemsgm1/form/CodesandCogsContactUsForm/formperma/UO7RSr-PxFVmY5D3J2ukqacMdid_nrKku0uhxa6pK-M/htmlRecords/submit"
+              name="form"
+              id="form"
+              method="POST"
+              acceptCharset="UTF-8"
+              encType="multipart/form-data"
+              className="space-y-6"
+            >
+              <input
+                type="hidden"
+                name="zf_referrer_name"
+                value="Codes and Cogs"
+              />
+              <input
+                type="hidden"
+                name="zf_redirect_url"
+                value="www.codesandcogs.com"
+              />
+              <input type="hidden" name="zc_gad" value="" />
+
+              {/* Change: Added grid for name inputs */}
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label
+                    htmlFor="Name_First"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    id="Name_First"
+                    name="Name_First"
+                    maxLength="255"
+                    className="p-2 border-none mt-1 block w-full rounded-md focus:outline-none shadow-sm text-base"
+                    placeholder="Enter your first name"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="Name_Last"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    id="Name_Last"
+                    name="Name_Last"
+                    maxLength="255"
+                    className="p-2 border-none mt-1 block w-full rounded-md focus:outline-none shadow-sm text-base"
+                    placeholder="Enter your last name"
+                  />
+                </div>
               </div>
 
+              {/* Rest of the form remains the same */}
               <div>
                 <label
-                  htmlFor="email"
+                  htmlFor="Email"
                   className="block text-sm font-medium text-gray-700"
                 >
                   Email Address
                 </label>
                 <input
                   type="email"
-                  id="email"
-                  name="email"
-                  required
+                  id="Email"
+                  name="Email"
+                  maxLength="255"
                   className="p-2 border-none mt-1 block w-full rounded-md focus:outline-none shadow-sm text-base"
                   placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
 
               <div>
                 <label
-                  htmlFor="message"
+                  htmlFor="MultiLine"
                   className="block text-sm font-medium text-gray-700"
                 >
                   Message
                 </label>
                 <textarea
-                  id="message"
-                  name="message"
+                  id="MultiLine"
+                  name="MultiLine"
+                  maxLength="65535"
                   rows={5}
-                  required
                   className="p-2 border-none mt-1 block w-full rounded-md focus:outline-none shadow-sm text-base resize-none"
                   placeholder="Write your message here"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
                 ></textarea>
               </div>
 
               <div>
                 <button
-                  disabled={loading}
-                  onClick={submitHandler}
                   type="submit"
-                  className={`w-full py-2 px-4 rounded-md shadow text-white 
-    ${
-      loading
-        ? "bg-gray-400 cursor-not-allowed"
-        : "bg-pry-color hover:bg-pry-color focus:ring-2"
-    }`}
+                  className="w-full py-2 px-4 rounded-md shadow text-white bg-pry-color hover:bg-pry-color focus:ring-2"
                 >
-                  {loading ? "Sending..." : "Send Message"}
+                  Send Message
                 </button>
               </div>
             </form>
@@ -151,16 +124,6 @@ const Contact = () => {
 
           {/* Contact Information */}
           <div className="space-y-6">
-            {/* <div className="flex items-center space-x-4">
-              <div className="flex items-center justify-center w-12 h-12 bg-pry-color text-white rounded-full">
-                <FiPhone className="h-6 w-6" />
-              </div>
-              <div>
-                <h4 className="text-lg font-semibold text-gray-800">Phone</h4>
-                <p className="text-gray-600">+1 234 567 890</p>
-              </div>
-            </div> */}
-
             <div className="flex items-center space-x-4">
               <div className="flex items-center justify-center w-10 h-10 bg-pry-color text-white rounded-full">
                 <HiOutlineMail className="h-5 w-5" />
@@ -184,7 +147,7 @@ const Contact = () => {
                   Address
                 </h4>
                 <p className="text-base sm:text-lg text-gray-600">
-                  Ibeju Junction, Lekki-Ekpe Expressway, Lekki-Ekpe, Lagos State{" "}
+                  Ibeju Junction, Lekki-Ekpe Expressway, Lekki-Ekpe, Lagos State
                 </p>
               </div>
             </div>
