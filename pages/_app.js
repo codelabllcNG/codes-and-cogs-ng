@@ -117,6 +117,20 @@ export default function MyApp({ Component, pageProps }) {
         `}
         </Script>
 
+        <Script
+          id="zoho-salesiq"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}};`,
+          }}
+        />
+        <Script
+          id="zsiqscript"
+          src="https://salesiq.zohopublic.com/widget?wc=siq4f52d4979f66f87fe52eeaa4c02fc2824d475a6bce73ffe81e0bb17fd1818eeb"
+          strategy="afterInteractive"
+          defer
+        />
+
         <Navbar />
         <Component {...pageProps} />
         <Toaster />
