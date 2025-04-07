@@ -1,4 +1,4 @@
-import { Flex,Box,Heading,Text,Image,Link,SimpleGrid,Button} from "@chakra-ui/react";
+import { Flex,Box,Heading,Text,Image,Link,SimpleGrid,Button,Input,Select,FormControl,FormLabel} from "@chakra-ui/react";
 import Navigator from "@/component/navigator";
 import Footer from "@/component/footer";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
@@ -11,24 +11,74 @@ const UniversityOfOilAndGas = ()=>{
             {/* section 1 */}
                 <Box
                             maxWidth="2000px"
-                            bgImage="url('ctbg2.svg')"
+                            bgImage="url('oilandgasnews.svg')"
                             bgSize="cover" // Ensures the image covers the entire container.
                             bgPosition="center" // Centers the background image.
                             bgRepeat="no-repeat" // Prevents the background image from repeating.
                             mx="auto"
                             textColor="white" // Change the text color if needed.
                             padding={{
-                            lg: "1.5rem 5rem",
+                            lg: "4.5rem 5rem",
                             md: "1.5rem 2rem",
                             sm: "1rem",
                             base: "1rem",
                             }}
                         >
                         <Box  >   
-                                <Heading textAlign={'center'} m={'3rem'} fontWeight={'500'}>University of Oil and Gas</Heading>
+                                <Heading textAlign={'center'} m={'3rem'} fontWeight={'500'}>OIL AND GAS NEWS</Heading>
                         </Box>
                </Box> 
             {/* section 1 */}
+
+            {/* filter section */}
+            <Box 
+            maxWidth={'2000px'}
+            padding={{
+                lg: "4.5rem 5rem",
+                md: "1.5rem 2rem",
+                sm: "1rem",
+                base: "1rem",
+                }}
+            >
+              
+                <Flex gap={'1rem'} alignItems={'center'} flexDir={{lg:'row',md:'row',sm:'column',base:'column'}}>      
+                                        <FormControl >
+                                                <Text fontWeight={'500'}><FormLabel>Category</FormLabel></Text>
+                                                <Select
+                                                placeholder="Select Category"
+                                                variant="filled"
+                                                flex="1"
+                                                border={'1px solid #656060'}
+                                                h={'50px'} 
+                                                >
+                                                    <option value="technology">Technology</option>
+                                                    <option value="engineering">Engineering</option>
+                                                    <option value="energy">Energy</option>
+                                                    <option value="offshore">Offshore</option>
+                                                </Select>
+                                        </FormControl>
+                                        <FormControl >
+                                                <Text fontWeight={'500'}><FormLabel>Date</FormLabel></Text>
+                                                <Select
+                                                placeholder="Select Date"
+                                                variant="filled"
+                                                flex="1"
+                                                border={'1px solid #656060'}
+                                                h={'50px'} 
+                                                >
+                                                    <option value="technology">Technology</option>
+                                                    <option value="engineering">Engineering</option>
+                                                    <option value="energy">Energy</option>
+                                                    <option value="offshore">Offshore</option>
+                                                </Select>
+                                        </FormControl>
+                                 
+                                        <Button width={{lg:'fit-content',base:'100%'}} mt={{lg:'2.5rem',base:'0.4rem'}} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Filter </Button>
+                                        <Button width={{lg:'fit-content',base:'100%'}} mt={{lg:'2.5rem',base:'0.4rem'}} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Reset </Button>
+                                    
+                </Flex>
+            </Box>
+            {/* filter section */}
 
 
             {/* section 2 */}

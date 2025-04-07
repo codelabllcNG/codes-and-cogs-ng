@@ -30,9 +30,9 @@ import {
     const [fileName, setFileName] = useState('');
     return(
         <Flex>
-                <Box mx={'auto'} p={5} bg={'white'} borderRadius={'4px'} w={{base:'100%',lg:'80%'}}>
+                <Box mx={'auto'} p={5} border={'0.7px solid rgba(136, 136, 136, 0.10)'} bg={'white'} borderRadius={'4px'} w={{base:'100%',lg:'80%'}}>
 
-                    <Heading m={{lg:'3rem auto'}} textAlign={'center'} fontSize={'28px'} color={'#2E3192'}> Want to Work with Us? Register </Heading>
+                    <Heading m={{lg:'3rem auto'}} textAlign={'center'} fontSize={'28px'} color={'#2E3192'}> Register To Get Listed </Heading>
 
                             <Flex gap={'3rem'} mt={'3rem'} flexDir={{base:'column',lg:'row'}}>
                                     <FormControl isRequired>
