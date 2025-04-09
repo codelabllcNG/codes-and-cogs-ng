@@ -22,11 +22,17 @@ const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 //     }
 // }
 
-export async function getTalents(id:string) {
-    try{
-      
+interface TalentParams {
+    search?: string
+} 
 
-        const response = await axios.get(`${backendUrl}/talents`)
+export async function getTalents(params?:TalentParams) {
+    console.log('running')
+    try{
+        const response = await axios.get(`${backendUrl}/talents`,{
+            params: params,
+        })
+        console.log(`${backendUrl}/talents`)
         return response.data
     } catch(error) {
       if(error instanceof AxiosError){
