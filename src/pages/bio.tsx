@@ -1,0 +1,205 @@
+import { Flex,Box,Heading,Text,Image,Button,VStack,Wrap,Grid,GridItem, } from "@chakra-ui/react";
+import Navigator from "@/component/navigator";
+import Footer from "@/component/footer";
+import ProfileCard from "@/component/profileCard";
+import { useRouter } from "next/router";
+import { useGetTalentHook } from "@/component/Hooks/talentsHook";
+import { useEffect,useState } from "react";
+import { TalentInterface } from "@/component/Interface/talents";
+import { GoBriefcase } from "react-icons/go";
+import { IoLocationOutline ,IoTime } from "react-icons/io5";
+import {useTalentsStore} from "@/store/talentStore";
+import { TalentStoreInterface } from "@/component/Interface/talents";
+
+
+const TalentProfile =()=>{
+    const router = useRouter()
+    const [talents,setTalents] = useState<TalentInterface[]>()
+    const talent = useTalentsStore((state:TalentStoreInterface)=>state.selectedTalent)
+    const editSelectedTalent = useTalentsStore((state:TalentStoreInterface)=>state.editSelectedTalent)
+    const [cat,setCat] =useState<string>(`${talent?.category[0].id}`)
+    const { data, isLoading } = useGetTalentHook({ cat , limit : '8' })
+
+    const viewProfile = function(data:TalentInterface){
+      editSelectedTalent(data)
+      router.push(`/bio`)
+    
+    }
+
+
+    useEffect(()=>{
+        
+        setTalents(data?.talents)
+ 
+    },[cat,data,talent])
+
+    const imageData = [
+        { name: 'Andy G', title: 'Managing Director', image: 'tra1.svg' },
+        { name: 'Andy G', title: 'Managing Director', image: 'tra2.svg' },
+        { name: 'Andy G', title: 'Managing Director', image: 'tra3.svg' },
+        { name: 'Andy G', title: 'Managing Director', image: 'tra4.svg' },
+      ];
+
+   
+      
+    return (
+        <Box>
+            <Navigator />
+            {/* section 1 */}
+            <Box
+                maxWidth="2000px"
+                mx="auto"
+                bg="#0D0F3A" // Change the text color if needed.
+                color={'white'}
+                padding={{
+                lg: "3rem 5rem",
+                md: "1.5rem 2rem",
+                sm: "1rem",
+                base: "1rem",
+                }}
+                >
+                        <Box  >   
+                                <Heading textAlign={'center'} m={'1rem'} fontWeight={'500'}>BIO</Heading>
+                        </Box>
+            </Box> 
+            {/* section 1 */}
+
+            {/* section 2 */}
+            <Box
+                maxWidth="2000px"
+                mx="auto"
+                padding={{
+                lg: "1.5rem 5rem",
+                md: "1.5rem 2rem",
+                sm: "1rem",
+                base: "1rem",
+                }}
+            >
+                   <Flex gap={'2rem'} alignItems={'center'}>
+                       <Box w={{base:'100%',lg:'40%'}} bg={'red'}>
+                           <Flex justifyContent={'flex-end'} pos={'relative'}>
+                            <Box bg={'linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 100%);'} pos={'absolute'} bottom={'0'} left={'0'} w={'100%'} h={'50%'} >test</Box>
+                               <Image w={'100%'} src={talent?.image} />
+                           </Flex>
+                       </Box>  
+                    
+                       <Box w={{base:'40%',lg:'40%'}}>
+                           <VStack align="start" spacing={4}>
+                           <Text fontSize="2xl" fontWeight="bold">
+                               {talent?.name}
+                           </Text>
+                   
+                           <Flex gap={'1rem'} alignItems={'center'} >
+                               <GoBriefcase color="#2E3192" />
+                               {talent?.role}
+                           </Flex>
+               
+                           <Flex gap={'1rem'} alignItems={'center'} >
+                           <IoTime color="#2E3192" />
+                             {talent?.years_of_experience}
+                           </Flex>
+                   
+                           <Text fontSize="lg" fontWeight="semibold" mt={4}>
+                               BIO
+                           </Text>
+                           <Text>
+                               {talent?.description}
+                           </Text>
+                   
+                           <Text fontSize="lg" fontWeight="semibold">
+                               EXPERTISE
+                           </Text>
+                           
+                           <Wrap spacing={2}>
+                               {talent?.expertises.map((skill, skillIndex) => (
+                                       <Flex 
+                                       key={skillIndex} 
+                                       p={2} 
+                                       borderRadius={'12px'} 
+                                       border={'0.8px solid #A3A2A2'}
+                                       fontSize={['xs', 'sm']}
+                                       >
+                                       {skill.name}
+                                       </Flex>
+                                   ))}
+                           </Wrap>
+
+                           <Text fontSize="lg" fontWeight="semibold">
+                             CERTIFICATIONS/CREDENTIALS
+                           </Text>
+                           
+                           <Wrap spacing={2}>
+                             
+                               {talent?.certifications_credentials.map((certificate, certificateIndex) => (
+                                   <Image width={'50px'} height={'50px'} src={certificate.name} />
+                                   ))}
+                           </Wrap>
+               
+                           </VStack>
+                       </Box>
+                   </Flex>
+            </Box>
+            {/* section 2 */}
+
+            {/* section 3 */}
+              <Box
+                    maxWidth="2000px"
+                    mx="auto"
+                    padding={{
+                    lg: "1.5rem 5rem",
+                    md: "1.5rem 2rem",
+                    sm: "1rem",
+                    base: "1rem",
+                    }}
+                >
+                                  <Heading fontWeight={'600'} color={'#2E3192'} mt={'1rem'} mb={'2rem'} fontSize={'28px'} textAlign={'center'}>EXPLORE MORE TRAINERS</Heading>
+    
+                                                    <Flex mt={'2rem'} flexDirection={['column', 'column', 'row']}>
+                                                    <Box w={['100%', '100%', '100%']} p={[2, 4]}>
+                                                        <Grid 
+                                                        templateColumns={['1fr', 'repeat(2, 1fr)', 'repeat(4, 1fr)']} 
+                                                        gap={[4, 6]}
+                                                        >
+                                                        {talents?.map((talent, index) => (
+                                                            <GridItem key={index} w="100%">
+                                                            <Box w={'100%'} boxShadow={'lg'} p={2}>
+                                                                <Image w={'100%'} src={talent.image} />
+                                                                <Heading m={'0.2rem 0'} fontSize={['md', '20px']} color={'#333'}>
+                                                                {talent.name}
+                                                                </Heading>
+                                                                <Text m={'0.2rem 0'} fontSize={['sm', '16px']} color={'#2E3192'}>
+                                                                {talent.role}
+                                                                </Text>
+                                                                <Text fontSize={['xs', '14px']} color={'#333'}>Expertise</Text>
+                                                                <Flex mt={3} wrap="wrap" gap={2}>
+                                                                {talent.expertises?.map((skill, skillIndex) => (
+                                                                    <Flex 
+                                                                    key={skillIndex} 
+                                                                    p={2} 
+                                                                    borderRadius={'12px'} 
+                                                                    border={'0.8px solid #A3A2A2'}
+                                                                    fontSize={['xs', 'sm']}
+                                                                    >
+                                                                    {skill?.name}
+                                                                    </Flex>
+                                                                ))}
+                                                                </Flex>
+                                                
+                                                                <Button onClick={()=>viewProfile(talent)} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> View Profile</Button>
+                                                                    
+                                                            </Box>
+                                                            </GridItem>
+                                                        ))}
+                                                        </Grid> 
+                                                        </Box>                                      
+                                                    </Flex>
+                              </Box>   
+            {/* section 3 */}
+
+            <Footer />
+        </Box>
+    )
+}
+
+
+export default TalentProfile

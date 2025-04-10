@@ -19,23 +19,33 @@ import {
 import { FaStethoscope } from 'react-icons/fa';
 import { useGetTalentHook } from '@/component/Hooks/talentsHook';
 import { TalentInterface } from '@/component/Interface/talents';
+import { useGetCategoriesHook } from '@/component/Hooks/categoriesHook';
+import { CategoryInterface } from '@/component/Interface/talents';
+import { useRouter } from 'next/router';
+import {useTalentsStore} from '@/store/talentStore';
 
 const Talents = () => {
   const [activeTab, setActiveTab] = useState('Well-Service Operators');
   const [search,setSearch] = useState('')
   const [searchValue,setSearchValue] = useState('')
+  const [category,setCategory] = useState('')
+  const [categories,setCategories] = useState<CategoryInterface[]>()
   const [talents,setTalents] = useState <TalentInterface[]>()
   const [selectedTalentsGroup,setSelectedTalentsGroup] = useState<TalentInterface[]>([])
   const [selectedTalentsGroupIndex,setSelectedTalentsGroupIndex] = useState(0)
   const [talentsGroup, setTalentsGroup] = useState<TalentInterface[][]>([])
-  const { data, isLoading } = useGetTalentHook({ search: searchValue })
+  const { data, isLoading } = useGetTalentHook({ search: searchValue , cat:category })
+  const {data:categoriesData,isLoading:categoriesIsLoading} = useGetCategoriesHook()
+  const router = useRouter()
+  const editSelectedTalnet = useTalentsStore((state:any)=>state.editSelectedTalent)
 
  
- const goNext =function(){
-     if(selectedTalentsGroupIndex + 1 > talentsGroup.length) return
+ const goNext = function(){
+     if(selectedTalentsGroupIndex + 1 === talentsGroup.length) return
+     console.log(selectedTalentsGroupIndex +1,talentsGroup.length)
      setSelectedTalentsGroupIndex(selectedTalentsGroupIndex + 1)
  }
- const goBack =function(){
+ const goBack = function(){
      if(selectedTalentsGroupIndex - 1 < 0 ) return
      setSelectedTalentsGroupIndex(selectedTalentsGroupIndex - 1)
  }
@@ -44,6 +54,14 @@ const Talents = () => {
    setSearchValue(search)
  }
 
+const viewProfile = function(data:TalentInterface){
+  editSelectedTalnet(data)
+  router.push(`/bio`)
+
+}
+
+
+// getting talents
   useEffect(()=>{
      let group:any = []
      const groupHolder:any = []
@@ -57,42 +75,21 @@ const Talents = () => {
  
     setTalentsGroup(groupHolder)
     setSelectedTalentsGroup(groupHolder[selectedTalentsGroupIndex])
+    setSelectedTalentsGroupIndex(0)
  
   },[data])
+
+
+// getting categories
+useEffect(()=>{
+  setCategories(categoriesData?.categories)
+},[categoriesData])
 
 
   useEffect(()=>{
     setSelectedTalentsGroup(talentsGroup[selectedTalentsGroupIndex])
   },[selectedTalentsGroupIndex,selectedTalentsGroup])
 
-  const categories = [
-    { 
-      title: "Well-Service Operators",
-      value: "489.33",
-      icon: FaOilCan,
-      subcategories: ["Drilling Operators", "Offshore Operators"]
-    },
-    { 
-      title: "Digital Solution Providers",
-      value: "28.67",
-      icon: FaLaptopCode
-    },
-    { 
-      title: "Drilling Operators",
-      value: "28.67",
-      icon: FaLaptopCode
-    },
-    { 
-      title: "Offshore Operators",
-      value: "28.67",
-      icon: FaLaptopCode
-    },
-    { 
-      title: "Drillers",
-      value: "28.67",
-      icon: FaLaptopCode
-    }
-  ];
 
   return (
     <Box>
@@ -175,11 +172,17 @@ const Talents = () => {
                                 h={'60px'}
                                 w="100%"
                                 bg={'transparent'}
+                                onChange={(e)=>{
+                                  console.log({isLoading})
+                                  setCategory(e.target.value)
+                                }
+                                }
                               >
-                                <option value="technology">Technology</option>
-                                <option value="engineering">Engineering</option>
-                                <option value="energy">Energy</option>
-                                <option value="offshore">Offshore</option>
+                                {categories?.map((category,index)=>{
+                                  return (
+                                    <option key={index} value={category.id}>{category.name}</option>
+                                  )
+                                })}
                               </Select>
                             </Flex>
                           </FormControl>
@@ -217,7 +220,7 @@ const Talents = () => {
                                     ))}
                                     </Flex>
                     
-                                    <Button width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)">  Hire {talent.name.split(' ')[0]}</Button>
+                                    <Button onClick={()=>viewProfile(talent)} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> View Profile</Button>
                                         
                                 </Box>
                                 </GridItem>
@@ -244,10 +247,8 @@ const Talents = () => {
                                                            <IoMdArrowForward />
                           
                                                          </Flex>
-                                            
-                          
                                                       </Flex>    
-                        </Box>
+                            </Box>
 
                 
                         </Flex>

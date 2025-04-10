@@ -24,6 +24,8 @@ const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 
 interface TalentParams {
     search?: string
+    cat?:string
+    limit?:string
 } 
 
 export async function getTalents(params?:TalentParams) {

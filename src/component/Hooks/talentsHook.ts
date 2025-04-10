@@ -10,6 +10,8 @@ import { getTalents } from '../Services/talentsService';
 
 interface TalentParams {
     search?: string
+    cat?:string
+    limit?:string
 } 
 
 export function useGetTalentHook(params?:TalentParams){

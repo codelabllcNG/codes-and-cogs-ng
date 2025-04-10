@@ -5,13 +5,13 @@ interface CertificationCredential {
     year_obtained?: number;        // Optional based on your data
   }
   
-  interface Category {
+export  interface CategoryInterface {
     id: number;
     name: string;
     // Add other properties if they exist in your category objects
   }
 
-  interface Expertises {
+  export interface ExpertisesInterface {
     id : number;
     name : string ;
   }
@@ -26,7 +26,14 @@ interface CertificationCredential {
     image: string;
     years_of_experience: string;
     rating: string;
-    category: Category[];
+    category: CategoryInterface[];
     certifications_credentials: CertificationCredential[];
-    expertises: Expertises[];
+    expertises: ExpertisesInterface[];
   }
+
+  export interface TalentStoreInterface {
+      selectedTalent: TalentInterface | null
+      talents: TalentInterface[] | null
+      editSelectedTalent: (talent: TalentInterface) => void
+      editTalents: (talents: TalentInterface[]) => void
+    }
