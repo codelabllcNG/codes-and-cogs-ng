@@ -15,10 +15,53 @@ import {
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { useState } from 'react';
+import SkillsInput from "@/component/skillsInput";
+import { toast } from 'react-toastify';
+import LoadingSpinner from "@/component/loadingSpinner";
+import { useListOpeningHook } from "@/component/Hooks/jobHooks";
+import { useRouter } from "next/router";
 
 const Openings = () => {
-  // If you need file-upload state, uncomment these lines:
-  // const [fileName, setFileName] = useState('');
+  const [formData, setFormData] = useState({
+    fname: "",
+    lname: "",
+    email: "",
+    cname: "",
+    ctype: "",
+    country: "",
+    phone: "",
+    soon: "",
+    skills: [''],
+    comments: ""
+  });
+  const [skills,setSkills] = useState<string[]>([])
+  const [loading,setLoading] = useState(false)
+  const mutation = useListOpeningHook()
+  const router = useRouter()
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const hanldeSubmit = async function(){
+    try {
+      setLoading(true)
+      formData.skills = skills
+      const data = await mutation.mutateAsync(formData)
+      console.log(data)
+      toast.success(data.message)
+    } catch (error:any) {
+       toast.error(error.message)
+    }finally{
+      setLoading(false)
+    }
+   
+  }
+  
 
   return (
     <Box>
@@ -64,7 +107,8 @@ const Openings = () => {
           borderRadius="4px"
         >
           {/* LEFT COLUMN: The Form */}
-          <Box w={{ base: '100%', lg: '80%' }}>
+          <Box w={{ base: '100%', lg: '80%' }} pos={'relative'}>
+            <LoadingSpinner showLoadingSpinner={loading} />
             {/* Intro Text */}
             <Text
               mt={{ base: '1rem', lg: '2rem' }}
@@ -81,14 +125,14 @@ const Openings = () => {
                 <Text fontWeight="500">
                   <FormLabel>First Name</FormLabel>
                 </Text>
-                <Input h="60px" placeholder="First Name" />
+                <Input h="60px" name="fname" onChange={handleChange} value={formData.fname} placeholder="First Name" />
               </FormControl>
 
               <FormControl isRequired>
                 <Text fontWeight="500">
                   <FormLabel>Last Name</FormLabel>
                 </Text>
-                <Input h="60px" placeholder="Last Name" />
+                <Input h="60px" name="lname" onChange={handleChange} value={formData.lname} placeholder="Last Name" />
               </FormControl>
             </Flex>
 
@@ -98,7 +142,7 @@ const Openings = () => {
                 <Text fontWeight="500">
                   <FormLabel>Company Type</FormLabel>
                 </Text>
-                <Select h="60px" placeholder="Select company type">
+                <Select h="60px" name="ctype" value={formData.ctype} onChange={handleChange} placeholder="Select company type">
                   <option value="startup">Startup</option>
                   <option value="sme">SME</option>
                   <option value="enterprise">Enterprise</option>
@@ -111,7 +155,7 @@ const Openings = () => {
                 <Text fontWeight="500">
                   <FormLabel>Company Name</FormLabel>
                 </Text>
-                <Input h="60px" placeholder="Enter company name" />
+                <Input h="60px" name="cname" value={formData.cname} onChange={handleChange} placeholder="Enter company name" />
               </FormControl>
             </Flex>
 
@@ -121,14 +165,14 @@ const Openings = () => {
                 <Text fontWeight="500">
                   <FormLabel>Work Email</FormLabel>
                 </Text>
-                <Input h="60px" placeholder="Work Email" />
+                <Input value={formData.email} name="email" onChange={handleChange} h="60px" placeholder="Work Email" />
               </FormControl>
 
               <FormControl isRequired>
                 <Text fontWeight="500">
                   <FormLabel>Country</FormLabel>
                 </Text>
-                <Select h="60px" placeholder="Select Country">
+                <Select h="60px" value={formData.country} name="country" onChange={handleChange} placeholder="Select Country">
                   <option value="usa">USA</option>
                   <option value="uk">UK</option>
                   <option value="canada">Canada</option>
@@ -143,14 +187,14 @@ const Openings = () => {
                 <Text fontWeight="500">
                   <FormLabel>Phone Number</FormLabel>
                 </Text>
-                <Input h="60px" placeholder="Phone Number" />
+                <Input h="60px" value={formData.phone} name="phone" onChange={handleChange} placeholder="Phone Number" />
               </FormControl>
 
               <FormControl isRequired>
                 <Text fontWeight="500">
                   <FormLabel>What skill set(s) are you looking to hire?</FormLabel>
                 </Text>
-                <Input h="60px" placeholder="e.g. Drilling Engineer, Geologist..." />
+                <SkillsInput skills={skills} onChange={setSkills} />
               </FormControl>
             </Flex>
 
@@ -162,6 +206,9 @@ const Openings = () => {
               <Input
                 h="60px"
                 placeholder="e.g. Immediately, 1-2 weeks..."
+                value={formData.soon}
+                name="soon"
+                onChange={handleChange}
               />
             </FormControl>
 
@@ -171,9 +218,13 @@ const Openings = () => {
                 <FormLabel>Comments</FormLabel>
               </Text>
               <Textarea
+                value={formData.comments}
+                name="comments"
+                onChange={handleChange}
                 placeholder="Enter any additional details..."
                 size="md"
                 resize="vertical"
+                rows={7}
               />
             </FormControl>
 
@@ -188,6 +239,7 @@ const Openings = () => {
                 textColor="white"
                 bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"
                 boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"
+                onClick={hanldeSubmit}
               >
                 Submit Form
               </Button>
@@ -212,6 +264,7 @@ const Openings = () => {
               color="#2E3192"
               fontWeight="bold"
               href="#"
+              onClick={()=>router.push('/talents')}
             >
               Learn More <ArrowForwardIcon ml={1} />
             </Link>

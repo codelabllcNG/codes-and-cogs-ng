@@ -13,6 +13,9 @@ import {
   } from '@chakra-ui/react';
   import { useRef,useState } from 'react';
   import { useForm } from 'react-hook-form';
+  import { toast } from 'react-toastify';
+  import LoadingSpinner from './loadingSpinner';
+  import { useRegisterTogetListedHook } from './Hooks/talentsHook';
   
   
   interface FormData {
@@ -28,27 +31,85 @@ import {
  
  const RegistrationForm = ()=>{
     const [fileName, setFileName] = useState('');
+    const [file, setFile] = useState<File>();
+    const [loading,setLoading] = useState(false)
+    const mutation = useRegisterTogetListedHook()
+    const [formData,setFormData] =useState({
+        "fname": "",
+        "lname": "",
+        "email": "",
+        "cv": "",
+    })
+
+    
+    function fileToBase64(file:File) {
+            return new Promise((resolve, reject) => {
+              const reader = new FileReader();
+              reader.readAsDataURL(file); // This includes the MIME type (e.g., data:image/png;base64,...)
+              reader.onload = () => resolve(reader.result);
+              reader.onerror = error => reject(error);
+            });
+    }
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+            const { name, value } = e.target;
+            setFormData((prev) => ({
+              ...prev,
+              [name]: value,
+            }));
+    };
+    
+    const hanldeSubmit = async function(){
+            try {
+                setLoading(true)
+                if(!file){
+                    console.log(typeof file)
+                    toast.error('please upload you cv')
+                   
+                }
+                if(file){
+                     const base64File = await fileToBase64(file)
+                        formData.cv = String(base64File)                     
+                }
+                setLoading(true)
+               
+                const data = await  mutation.mutateAsync(formData)
+                console.log(data)
+                toast.success(data.message)
+
+                
+            } catch (error:any) {
+                toast.error(error.message)
+            }finally{
+                setLoading(false)
+            }
+           
+    }
+
     return(
         <Flex>
-                <Box mx={'auto'} p={5} border={'0.7px solid rgba(136, 136, 136, 0.10)'} bg={'white'} borderRadius={'4px'} w={{base:'100%',lg:'80%'}}>
+                <Box pos={'relative'} mx={'auto'} p={5} border={'0.7px solid rgba(136, 136, 136, 0.10)'} bg={'white'} borderRadius={'4px'} w={{base:'100%',lg:'80%'}}>
 
                     <Heading m={{lg:'3rem auto'}} textAlign={'center'} fontSize={'28px'} color={'#2E3192'}> Register To Get Listed </Heading>
-
+                            <LoadingSpinner showLoadingSpinner={loading} />
                             <Flex gap={'3rem'} mt={'3rem'} flexDir={{base:'column',lg:'row'}}>
                                     <FormControl isRequired>
                                         <Text fontWeight={'500'}><FormLabel>First Name</FormLabel></Text>
-                                            <Input h={'60px'} placeholder="First Name" />
+                                            <Input h={'60px'} name='fname' value={formData.fname} onChange={handleChange} placeholder="First Name" />
                                     </FormControl>
 
                                     <FormControl isRequired>
-                                        <Text fontWeight={'500'}><FormLabel>First Name</FormLabel></Text>
-                                            <Input h={'60px'} placeholder="Last Name" />
+                                        <Text fontWeight={'500'}><FormLabel>Last Name</FormLabel></Text>
+                                            <Input h={'60px'} name="lname" value={formData.lname} onChange={handleChange} placeholder="Last Name" />
                                     </FormControl>
                             </Flex>
-                            <Flex gap={'3rem'} mt={'3rem'} flexDir={{base:'column',lg:'row'}}>
+                            {/* <Flex gap={'3rem'} mt={'3rem'} flexDir={{base:'column',lg:'row'}}>
                                     <FormControl isRequired>
                                         <Text fontWeight={'500'}><FormLabel>Company Type</FormLabel></Text>
                                         <Select 
+                                            name='ctype' 
+                                            value={formData.ctype} 
+                                            onChange={handleChange}
                                             h={'60px'}
                                             placeholder="Select company type"
                                         >
@@ -64,11 +125,11 @@ import {
                                         <Text fontWeight={'500'}><FormLabel>Company Name</FormLabel></Text>
                                         <Input h={'60px'} placeholder="Enter company name" />
                                     </FormControl>
-                            </Flex>
+                            </Flex> */}
                             <Flex gap={'3rem'} mt={'3rem'} flexDir={{base:'column',lg:'row'}}>
                                     <FormControl isRequired>
-                                        <Text fontWeight={'500'}><FormLabel>Work Email</FormLabel></Text>
-                                            <Input h={'60px'} placeholder="First Name" />
+                                        <Text fontWeight={'500'}><FormLabel>Email</FormLabel></Text>
+                                            <Input name='email' value={formData.email} onChange={handleChange} h={'60px'} placeholder="First Name" />
                                     </FormControl>
                             </Flex>
                             <Flex gap={'3rem'} mt={'3rem'} flexDir={{base:'column',lg:'row'}}>
@@ -82,16 +143,17 @@ import {
                                             accept=".pdf,.doc,.docx"
                                             borderRadius="md"
                                             onChange={(e) => {
-                                                const file = e.target.files?.[0];
-                                                if (file) {
-                                                    setFileName(file.name);
+                                                const selectedFile = e.target.files?.[0];
+                                                if (selectedFile) {
+                                                    setFileName(selectedFile.name);
+                                                    setFile(selectedFile)
                                                 }
                                             }}
                                         />
                                     </FormControl>
                             </Flex>
                             <Flex>
-                              <Button width={'fit-content'} mx={'auto'} m={'3rem auto'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Submit Details</Button>
+                              <Button width={'fit-content'} onClick={hanldeSubmit} mx={'auto'} m={'3rem auto'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Submit Details</Button>
                             </Flex>                       
 
 

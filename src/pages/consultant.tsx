@@ -6,11 +6,23 @@ import RegistrationForm from "@/component/registerForm"
 import HowItWorks from "@/component/howItWorks"
 import { IoLocationOutline } from "react-icons/io5";
 import AdsComponent from "@/component/adsComponent";
+import { useState } from "react";
+import { useRouter } from "next/router";
 
 
 
 
 const Consultant = ()=>{
+    const router = useRouter()
+    const [formData,setFormData] =useState({
+        "fname": "",
+        "lname": "",
+        "ctype":"",
+        "cname":"",
+        "email": "",
+        "cv": "",
+    })      
+
     return(
       <Box>
         <Navigator />
@@ -42,12 +54,9 @@ const Consultant = ()=>{
                                 </Text>
 
                                 <Flex width={'fit-content'} mx={'auto'} gap={'3rem'} flexDir={{lg:'row',md:'row',sm:'column',base:'column'}}>
-                                    <Button width={'fit-content'} m={{lg:'3rem 0'}} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Become A Consultant </Button>
-                                    <Button width={'fit-content'} m={{lg: '3rem 0'}} borderRadius="4px" padding={'12px 24px'} textColor={'white'} border={'2px solid #C9CBFF'} bg={'transparent'} boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Become A Consultant </Button>
-                                                        
+                                    <Button onClick={()=>router.push('/consultant#form')} width={'fit-content'} m={{lg:'3rem 0'}} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Register as a Consultant </Button>
+                                    <Button onClick={()=>router.push('/')}  width={'fit-content'} m={{lg: '3rem 0'}} borderRadius="4px" padding={'12px 24px'} textColor={'white'} border={'2px solid #C9CBFF'} bg={'transparent'} boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> See Job Openings </Button>
                                 </Flex>
-
-
                             </Box>
              </Box>
              {/* section 1 */}
@@ -71,22 +80,23 @@ const Consultant = ()=>{
             {/* ads block */}
 
             {/* ads layout */}
-            <Flex>
+            <Flex
+            maxWidth="2000px"
+            padding={{
+            lg: "1.5rem 5rem",
+            md: "1.5rem 2rem",
+            sm: "1rem",
+            base: "1rem",
+            }}
+            mx={'auto'}
+            flexDir={{lg:'row',base:'column'}}
+            >
                 <Box w={{lg:'80%',md:'80%',sm:'100%',base:'100%'}}>
                     
     
 
                     {/* section 2 */}
-                        <Box
-                            maxWidth="2000px"
-                            padding={{
-                            lg: "1.5rem 5rem",
-                            md: "1.5rem 2rem",
-                            sm: "1rem",
-                            base: "1rem",
-                            }}
-                            
-                    >
+                        <Box >
                                 <Heading textAlign={'center'} fontWeight={'600'} color={'#2E3192'} fontSize={'28px'} >OPPORTUNITIES THROUGH CODES AND COGS</Heading>
                                 <Text textAlign={'center'}>Explore job opportunities that connect you with multiple companies through our platform</Text>  
                                 
@@ -243,6 +253,7 @@ const Consultant = ()=>{
                             sm: "1rem",
                             base: "1rem",
                             }}
+                            id="form"
                         >
                             <RegistrationForm />
                         </Box >    

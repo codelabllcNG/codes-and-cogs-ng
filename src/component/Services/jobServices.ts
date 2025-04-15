@@ -2,13 +2,7 @@ import axios, { AxiosError } from "axios";
 const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 
 
-interface TalentParams {
-    search?: string
-    cat?:string
-    limit?:string
-}  
-
-interface HireTalentBody{
+interface listOpeningBody{
     fname: string,
     lname: string,
     email: string,
@@ -17,21 +11,19 @@ interface HireTalentBody{
     country: string,
     phone?: string,
     soon: string,
-    talent: string,
+    skills: string[],
     comments: string
 }
 
+interface JobsParams {
+    search?: string
+    limit?:string
+} 
 
-interface registerToGetListedBody{
-    fname:string,
-    lname:string,
-    email:string,
-    cv:string
-}
 
-export async function registToGetListed(data:registerToGetListedBody){
+export async function listOpening(data:listOpeningBody){
     try {
-     const response = await axios.post(`${backendUrl}/get-listed`,data)
+     const response = await axios.post(`${backendUrl}/add-listing`,data)
      return response.data
     } catch (error) {
      if (error instanceof AxiosError) {
@@ -41,9 +33,9 @@ export async function registToGetListed(data:registerToGetListedBody){
      throw new Error('An unexpected error occurred');
   
     }
- }
+}
 
-export async function getTalents(params?:TalentParams) {
+export async function getJobs(params?:JobsParams) {
     console.log(params)
     try{
         const response = await axios.get(`${backendUrl}/talents`,{
@@ -61,16 +53,5 @@ export async function getTalents(params?:TalentParams) {
     }
 }
 
-export async function hireTalent(data:HireTalentBody){
-    try {
-     const response = await axios.post(`${backendUrl}/hire`,data)
-     return response.data
-    } catch (error) {
-     if (error instanceof AxiosError) {
-         throw new Error(error.response?.data?.message || 'An unexpected error occurred');
-     }
-     console.error(error)
-     throw new Error('An unexpected error occurred');
-  
-    }
- }
+
+ 

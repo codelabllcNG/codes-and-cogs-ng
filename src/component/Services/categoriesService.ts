@@ -11,7 +11,6 @@ export async function getCategories() {
       if(error instanceof AxiosError){
          throw new Error(error.response?.data?.message)
       }
-      
       throw new Error('An Unexpected Error Occured')
 
     }

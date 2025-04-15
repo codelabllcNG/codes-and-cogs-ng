@@ -10,6 +10,9 @@ import { GoBriefcase } from "react-icons/go";
 import { IoLocationOutline ,IoTime } from "react-icons/io5";
 import {useTalentsStore} from "@/store/talentStore";
 import { TalentStoreInterface } from "@/component/Interface/talents";
+import StarRating from "@/component/starRating";
+import LoadingSpinner from "@/component/loadingSpinner";
+import { relative } from "path";
 
 
 const TalentProfile =()=>{
@@ -17,8 +20,8 @@ const TalentProfile =()=>{
     const [talents,setTalents] = useState<TalentInterface[]>()
     const talent = useTalentsStore((state:TalentStoreInterface)=>state.selectedTalent)
     const editSelectedTalent = useTalentsStore((state:TalentStoreInterface)=>state.editSelectedTalent)
-    const [cat,setCat] =useState<string>(`${talent?.category[0].id}`)
-    const { data, isLoading } = useGetTalentHook({ cat , limit : '8' })
+    const [cat,setCat] =useState<string>('')
+    const { data, isLoading } = useGetTalentHook({  limit : '8' ,cat})
 
     const viewProfile = function(data:TalentInterface){
       editSelectedTalent(data)
@@ -30,16 +33,9 @@ const TalentProfile =()=>{
     useEffect(()=>{
         
         setTalents(data?.talents)
+        setCat(`${talent?.category[0]?.id}`)
  
     },[cat,data,talent])
-
-    const imageData = [
-        { name: 'Andy G', title: 'Managing Director', image: 'tra1.svg' },
-        { name: 'Andy G', title: 'Managing Director', image: 'tra2.svg' },
-        { name: 'Andy G', title: 'Managing Director', image: 'tra3.svg' },
-        { name: 'Andy G', title: 'Managing Director', image: 'tra4.svg' },
-      ];
-
    
       
     return (
@@ -75,15 +71,19 @@ const TalentProfile =()=>{
                 base: "1rem",
                 }}
             >
-                   <Flex gap={'2rem'} alignItems={'center'}>
-                       <Box w={{base:'100%',lg:'40%'}} bg={'red'}>
+                   <Flex gap={'2rem'} alignItems={'center'} flexDir={{lg:'row',md:'column',sm:'column',base:'column'}}>
+                       <Box w={{base:'100%',lg:'40%'}}>
                            <Flex justifyContent={'flex-end'} pos={'relative'}>
-                            <Box bg={'linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 100%);'} pos={'absolute'} bottom={'0'} left={'0'} w={'100%'} h={'50%'} >test</Box>
-                               <Image w={'100%'} src={talent?.image} />
+                            <Box bg={'linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 100%);'} pos={'absolute'} bottom={'0'} left={'0'} w={'100%'} h={'50%'} ></Box>
+                               <Box pos={'absolute'}p={5} bottom={'0'} left={'0'}>
+                                  <Heading fontSize={'20px'} fontWeight={'500'} color={'white'} mb={'1rem'}>Code and Cogs Rating</Heading>
+                                  <StarRating rating={Number(talent?.rating)} />
+                               </Box>
+                               <Image w={'full'} src={talent?.image} />
                            </Flex>
                        </Box>  
                     
-                       <Box w={{base:'40%',lg:'40%'}}>
+                       <Box w={{base:'100%',lg:'60%'}}>
                            <VStack align="start" spacing={4}>
                            <Text fontSize="2xl" fontWeight="bold">
                                {talent?.name}
@@ -96,19 +96,19 @@ const TalentProfile =()=>{
                
                            <Flex gap={'1rem'} alignItems={'center'} >
                            <IoTime color="#2E3192" />
-                             {talent?.years_of_experience}
+                             {talent?.years_of_experience} years of experience
                            </Flex>
                    
-                           <Text fontSize="lg" fontWeight="semibold" mt={4}>
+                           <Heading fontSize="lg" fontWeight="semibold" mt={4}>
                                BIO
-                           </Text>
+                           </Heading>
                            <Text>
                                {talent?.description}
                            </Text>
                    
-                           <Text fontSize="lg" fontWeight="semibold">
+                           <Heading fontSize="lg" fontWeight="semibold">
                                EXPERTISE
-                           </Text>
+                           </Heading>
                            
                            <Wrap spacing={2}>
                                {talent?.expertises.map((skill, skillIndex) => (
@@ -119,21 +119,23 @@ const TalentProfile =()=>{
                                        border={'0.8px solid #A3A2A2'}
                                        fontSize={['xs', 'sm']}
                                        >
-                                       {skill.name}
+                                       {skill?.name}
                                        </Flex>
                                    ))}
                            </Wrap>
 
-                           <Text fontSize="lg" fontWeight="semibold">
+                           <Heading fontSize="lg" fontWeight="semibold">
                              CERTIFICATIONS/CREDENTIALS
-                           </Text>
+                           </Heading>
                            
                            <Wrap spacing={2}>
                              
                                {talent?.certifications_credentials.map((certificate, certificateIndex) => (
-                                   <Image width={'50px'} height={'50px'} src={certificate.name} />
+                                   <Image width={'50px'} key={certificateIndex} height={'50px'} src={certificate?.name} />
                                    ))}
                            </Wrap>
+                           <Button onClick={()=>router.push('/hireTalent')} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Hire {talent?.name.split(' ')[0]}</Button>
+                                                                
                
                            </VStack>
                        </Box>
@@ -152,9 +154,9 @@ const TalentProfile =()=>{
                     base: "1rem",
                     }}
                 >
-                                  <Heading fontWeight={'600'} color={'#2E3192'} mt={'1rem'} mb={'2rem'} fontSize={'28px'} textAlign={'center'}>EXPLORE MORE TRAINERS</Heading>
-    
-                                                    <Flex mt={'2rem'} flexDirection={['column', 'column', 'row']}>
+                                  <Heading fontWeight={'600'} color={'#2E3192'} mt={'1rem'} mb={'2rem'} fontSize={'28px'} textAlign={'center'}>EXPLORE MORE {talent?.category[0]?.name.toLocaleUpperCase()}</Heading>
+                                                    <Flex mt={'2rem'} flexDirection={['column', 'column', 'row']} position={'relative'}>
+                                                        <LoadingSpinner showLoadingSpinner={isLoading} />
                                                     <Box w={['100%', '100%', '100%']} p={[2, 4]}>
                                                         <Grid 
                                                         templateColumns={['1fr', 'repeat(2, 1fr)', 'repeat(4, 1fr)']} 
@@ -165,14 +167,14 @@ const TalentProfile =()=>{
                                                             <Box w={'100%'} boxShadow={'lg'} p={2}>
                                                                 <Image w={'100%'} src={talent.image} />
                                                                 <Heading m={'0.2rem 0'} fontSize={['md', '20px']} color={'#333'}>
-                                                                {talent.name}
+                                                                {talent?.name}
                                                                 </Heading>
                                                                 <Text m={'0.2rem 0'} fontSize={['sm', '16px']} color={'#2E3192'}>
-                                                                {talent.role}
+                                                                {talent?.role}
                                                                 </Text>
                                                                 <Text fontSize={['xs', '14px']} color={'#333'}>Expertise</Text>
                                                                 <Flex mt={3} wrap="wrap" gap={2}>
-                                                                {talent.expertises?.map((skill, skillIndex) => (
+                                                                {talent?.expertises?.map((skill, skillIndex) => (
                                                                     <Flex 
                                                                     key={skillIndex} 
                                                                     p={2} 
@@ -193,7 +195,7 @@ const TalentProfile =()=>{
                                                         </Grid> 
                                                         </Box>                                      
                                                     </Flex>
-                              </Box>   
+              </Box>   
             {/* section 3 */}
 
             <Footer />

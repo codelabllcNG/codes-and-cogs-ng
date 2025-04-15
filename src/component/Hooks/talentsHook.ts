@@ -1,12 +1,5 @@
 import { useMutation, useQueryClient ,useQuery} from '@tanstack/react-query';
-import { getTalents } from '../Services/talentsService';
-
-// export  function useGetTalentHook(){
-//   return useMutation({
-//     mutationFn:getTalents
-//   });
-
-// };
+import { getTalents,hireTalent,registToGetListed } from '../Services/talentsService';
 
 interface TalentParams {
     search?: string
@@ -16,8 +9,22 @@ interface TalentParams {
 
 export function useGetTalentHook(params?:TalentParams){
     return useQuery({
-        queryFn: ({ queryKey }) => getTalents(params), // Pass the params from queryKey[1]
+        queryFn: () => getTalents(params), // Pass the params from queryKey[1]
         queryKey: ['get talents', params],
         enabled: true, // or your condition
     })
 }
+
+export function useHireTalentHook(){
+    return useMutation({
+        mutationFn:hireTalent
+    })
+}
+
+export function useRegisterTogetListedHook(){
+    return (useMutation({
+        mutationFn: registToGetListed
+    }))
+}
+
+

@@ -80,7 +80,8 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { Merriweather, Poppins } from "next/font/google";
 import { AppProps } from "next/app";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Load fonts
 const merriweather = Merriweather({
@@ -131,9 +132,22 @@ export default function MyApp({ Component, pageProps }:AppProps) {
   const queryClient = new QueryClient();
   return (
     <QueryClientProvider client={queryClient}>
-          <ChakraProvider theme={theme}>
-            <Component {...pageProps} />
-          </ChakraProvider>
+      <ChakraProvider theme={theme}>
+        {/* Apply font variables to the entire app */}
+          <Component {...pageProps} />
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            toastStyle={{ width: "100%" }} 
+          />
+      </ChakraProvider>
     </QueryClientProvider>
 
   );
