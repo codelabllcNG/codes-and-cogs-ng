@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient ,useQuery} from '@tanstack/react-query';
 import { getTalents,hireTalent,registToGetListed } from '../Services/talentsService';
+import { useState,useCallback } from 'react';
 
 interface TalentParams {
     search?: string
@@ -7,13 +8,26 @@ interface TalentParams {
     limit?:string
 } 
 
-export function useGetTalentHook(params?:TalentParams){
-    return useQuery({
-        queryFn: () => getTalents(params), // Pass the params from queryKey[1]
-        queryKey: ['get talents', params],
-        enabled: true, // or your condition
-    })
-}
+export function useGetTalentHook(initialParams?: TalentParams) {
+    const [params, setParams] = useState<TalentParams>(initialParams || {});
+  
+    const queryResult = useQuery({
+      queryFn: () => getTalents(params),
+      queryKey: ['get talents', params],
+      enabled: true,
+    });
+  
+    // Custom refetch with new parameters
+    const refetchWithNewParams = useCallback((newParams: TalentParams) => {
+      setParams(prev => ({...prev, ...newParams}));
+    }, []);
+  
+    return {
+      ...queryResult,
+      refetchWithParams: refetchWithNewParams,
+      currentParams: params
+    };
+  }
 
 export function useHireTalentHook(){
     return useMutation({

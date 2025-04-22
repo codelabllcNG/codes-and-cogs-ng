@@ -7,3 +7,4 @@ export function useGetCategoriesHook(){
         queryKey: ['get talents']
     })
 }
+

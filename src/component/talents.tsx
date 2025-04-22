@@ -1,6 +1,6 @@
 
 
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { 
   Tabs, TabList, Tab, TabPanels, TabPanel, 
   Flex, Box, Text, Heading, Button, Icon, Image, Grid, GridItem 
@@ -16,61 +16,49 @@ import {
 } from 'react-icons/fa';
 import { FaStethoscope } from 'react-icons/fa';
 import { useRouter } from 'next/router';
+import React from 'react';
+import { JobTypeInterface } from './Interface/Jobs';
+import { TalentInterface } from './Interface/talents';
+import { useTalentsStore } from '@/store/talentStore';
+import { useGetTalentHook } from './Hooks/talentsHook';
+import { useGetCategoriesHook } from './Hooks/categoriesHook';
+import LoadingSpinner from './loadingSpinner';
+import AdsComponent from './adsComponent';
 
-const TalentDashboard = () => {
-  const [activeTab, setActiveTab] = useState(0);
+
+const TalentExplorer  = () => {
+
+  const [activeTab, setActiveTab] = useState('');
+  const [talents,setTalents] =useState<any[]>([])
+  const [jobCategories,setJobcategories] = useState<any[]>([])
+  const editSelectedTalent = useTalentsStore((state: any) => state.editSelectedTalent);
+  const {data:jobCategoriesData,isLoading:jobCategoriesIsLoading} = useGetCategoriesHook()
+  const {data:talentsData,isLoading:isTalentLoading,refetchWithParams} = useGetTalentHook({limit:'6'})
+  
+
   const router = useRouter()
 
-  const hireHandler = function(){
-    router.push('/hireTalent')
-  }
   
-  const categories = [
-    { 
-      title: "Well-Service Operators",
-      value: "489.33",
-      icon: FaOilCan,
-      subcategories: ["Drilling Operators", "Offshore Operators"]
-    },
-    { 
-      title: "Digital Solution Providers",
-      value: "28.67",
-      icon: FaLaptopCode
-    },
-    { 
-      title: "Drilling Operators",
-      value: "28.67",
-      icon: FaLaptopCode
-    },
-    { 
-      title: "Offshore Operators",
-      value: "28.67",
-      icon: FaLaptopCode
-    }
-  ];
+  const viewProfile = (data: TalentInterface) => {
+      editSelectedTalent(data);
+      router.push(`/bio`);
+  };
+ 
+  useEffect(()=>{
+    setJobcategories(jobCategoriesData?.categories)
+    setActiveTab(jobCategoriesData?.categories[0]?.name)
+  },[jobCategoriesData])
 
-  const talents = [
-    {
-      name: "Gabriel J.",
-      role: "Slickline Operator",
-      expertise: ["Pressure Control Systems", "IWCF 1-4", "Fishing Operations", "Diagnostics", "IADC"],
-      category: 0
-    },
-    {
-      name: "Otunba B.",
-      role: "Wireline Operator",
-      expertise: ["Mechanical Intervention", "IWCF 1-4", "Fishing Operations", "Diagnostics", "IADC"],
-      category: 0
-    },
-    {
-      name: "Usang O.",
-      role: "Coil Tubing Operator",
-      expertise: ["Mechanical Intervention", "IWCF 1-4", "Fishing Operations", "Diagnostics", "IADC"],
-      category: 0
-    }
-  ];
+  useEffect(()=>{
+    console.log({talentsData})
+    setTalents(talentsData?.talents)
+  },[talentsData])
 
-  const filteredTalents = talents.filter(talent => talent.category === activeTab);
+
+  useEffect(()=>{
+    const cat = jobCategories?.find((category)=>category.name === activeTab)
+    refetchWithParams({cat:cat?.id,limit:'6'})
+  },[activeTab])
 
   return (
 <Box w={'100%'}>
@@ -83,20 +71,20 @@ const TalentDashboard = () => {
       px={[2, 4, 0]}
     >
       <Flex minW="max-content" justifyContent={['start', 'start', 'space-between']} w="100%">
-        {categories.map((category, index) => (
+        {jobCategories?.map((category:any, index:any) => (
           <Flex 
             key={index}
             p={['1rem', '2rem 0']} 
-            borderBottom={activeTab === index ? '2px solid #2E3192' : 'none'}
+            borderBottom={activeTab === category.name ? '2px solid #2E3192' : 'none'}
             cursor="pointer"
-            onClick={() => setActiveTab(index)}
-            color={activeTab === index ? '#2E3192' : 'inherit'}
+            onClick={() => setActiveTab(category.name)}
+            color={activeTab === category.name ? '#2E3192' : 'inherit'}
             flexShrink={0}
             mx={[2, 4]}
           >
-            <Icon as={category.icon} mr={2} boxSize={['16px', '20px']} />
+            {/* <Icon as={category.icon} mr={2} boxSize={['16px', '20px']} /> */}
             <Heading fontSize={['sm', '19px']} whiteSpace="nowrap">
-              {category.title}
+              {category.name}
             </Heading>
           </Flex>
         ))}
@@ -105,15 +93,16 @@ const TalentDashboard = () => {
 
     {/* Body - Stack on mobile */}
     <Flex mt={'2rem'} flexDirection={['column', 'column', 'row']}>
-      <Box w={['100%', '100%', '80%']} p={[2, 4]}>
+      <Box w={['100%', '100%', '80%']} p={[2, 4]} pos={'relative'}>
+        <LoadingSpinner showLoadingSpinner={isTalentLoading} />
         <Grid 
           templateColumns={['1fr', 'repeat(2, 1fr)', 'repeat(3, 1fr)']} 
           gap={[4, 6]}
         >
-          {filteredTalents.map((talent, index) => (
+          {talents?.map((talent:any, index:any) => (
             <GridItem key={index} w="100%">
               <Box w={'100%'} boxShadow={'lg'} p={2}>
-                <Image w={'100%'} src='Talent4.svg' />
+                <Image w={'100%'} src={talent?.image} />
                 <Heading m={'0.2rem 0'} fontSize={['md', '20px']} color={'#333'}>
                   {talent.name}
                 </Heading>
@@ -122,7 +111,7 @@ const TalentDashboard = () => {
                 </Text>
                 <Text fontSize={['xs', '14px']} color={'#333'}>Expertise</Text>
                 <Flex mt={3} wrap="wrap" gap={2}>
-                  {talent.expertise.map((skill, skillIndex) => (
+                  {talent.expertises?.map((skill:any, skillIndex:any) => (
                     <Flex 
                       key={skillIndex} 
                       p={2} 
@@ -130,12 +119,12 @@ const TalentDashboard = () => {
                       border={'0.8px solid #A3A2A2'}
                       fontSize={['xs', 'sm']}
                     >
-                      {skill}
+                      {skill.name}
                     </Flex>
                   ))}
                 </Flex>
   
-                <Button onClick={hireHandler} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)">  Hire {talent.name.split(' ')[0]}</Button>
+                <Button  onClick={()=>viewProfile(talent)} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)">  View Profile </Button>
                       
               </Box>
             </GridItem>
@@ -145,27 +134,16 @@ const TalentDashboard = () => {
 
       {/* Sidebar - Full width on mobile */}
       <Box 
-        w={['100%', '100%', '20%']} 
-        p={[4, '0 2rem']} 
-        mt={[4, 4, 0]}
+        w={['100%', '100%', '20%']}
         display={'flex'} 
         justifyContent={'center'} 
-        alignItems={'center'} 
-        backgroundImage="url('BlueCCbg.svg')"
+      
       >
-        <Flex flexDir={'column'} gap={'1rem'} textAlign="center">
-          <Image mx={'auto'} w={['70px', '100px']} src='LOGO-WHITE.svg' />
-          <Text fontSize={['sm', '16px']} color={'white'}>
-            Explore over 100+ oil and gas talents in Codes and Cogs platform
-          </Text>
-
-          <Button width={'fit-content'} mx={'auto'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Discover More  </Button>
-                      
-        </Flex>
+        <AdsComponent imageUrl='/image 3.svg' mobileUrl='/image 3.svg' link='#'/>
       </Box>
     </Flex>
    </Box>
   );
 };
 
-export default TalentDashboard;
+export default TalentExplorer;

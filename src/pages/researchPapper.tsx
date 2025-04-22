@@ -4,13 +4,12 @@ import Footer from "@/component/footer";
 import { FcLike } from "react-icons/fc";
 import { CiHeart } from "react-icons/ci";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
+import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
 
 
 const ResearchPapper = ()=>{
     return(
-        <Box>
-            <Navigator />
-            
+<HeaderAndFooter>        
             <Box
                 maxWidth="2000px"
                 mx="auto"
@@ -78,10 +77,8 @@ const ResearchPapper = ()=>{
                 </Flex>
 
             </Box>
+</HeaderAndFooter>
 
-
-            <Footer />
-        </Box>
     )
 }
 

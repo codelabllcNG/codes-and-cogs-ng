@@ -2,12 +2,12 @@ import { Flex,Box,Heading,Text,Image,Link,SimpleGrid,Button,Input,Select,FormCon
 import Navigator from "@/component/navigator";
 import Footer from "@/component/footer";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
+import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
 
 
 const UniversityOfOilAndGas = ()=>{
     return(
-        <Box>
-            <Navigator></Navigator>
+<HeaderAndFooter>
             {/* section 1 */}
                 <Box
                             maxWidth="2000px"
@@ -219,8 +219,7 @@ const UniversityOfOilAndGas = ()=>{
             {/* section 3 */}
 
 
-            <Footer></Footer>
-        </Box>
+            </HeaderAndFooter>
     )
 }
 

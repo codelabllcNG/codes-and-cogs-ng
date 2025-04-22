@@ -12,7 +12,7 @@ import {useTalentsStore} from "@/store/talentStore";
 import { TalentStoreInterface } from "@/component/Interface/talents";
 import StarRating from "@/component/starRating";
 import LoadingSpinner from "@/component/loadingSpinner";
-import { relative } from "path";
+import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
 
 
 const TalentProfile =()=>{
@@ -39,8 +39,8 @@ const TalentProfile =()=>{
    
       
     return (
-        <Box>
-            <Navigator />
+<HeaderAndFooter>
+
             {/* section 1 */}
             <Box
                 maxWidth="2000px"
@@ -197,9 +197,7 @@ const TalentProfile =()=>{
                                                     </Flex>
               </Box>   
             {/* section 3 */}
-
-            <Footer />
-        </Box>
+  </HeaderAndFooter>
     )
 }
 

@@ -2,11 +2,11 @@ import { Flex, Box, Heading, Text, Link, Image,Button } from "@chakra-ui/react";
 import Navigator from "@/component/navigator";
 import Footer from "@/component/footer";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
+import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
 
 const Services = () => {
   return (
-    <Box>
-      <Navigator></Navigator>
+    <HeaderAndFooter>
       {/*section 1  */}
       <Box
         maxWidth="2000px"
@@ -313,8 +313,7 @@ const Services = () => {
           </Box>
       </Box>
 
-      <Footer></Footer>
-    </Box>
+      </HeaderAndFooter>
   );
 };
 

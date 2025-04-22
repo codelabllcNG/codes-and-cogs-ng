@@ -2,12 +2,11 @@ import { Flex,Box,Heading,Text,FormControl,FormLabel,Select,Input,Image,Textarea
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import Navigator from "@/component/navigator";
 import Footer from "@/component/footer";
-
+import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
 
 const Contact = ()=>{
    return (
-    <Box>
-        <Navigator />
+<HeaderAndFooter>
               {/*section 1  */}
               <Box
                 maxWidth="2000px"
@@ -267,8 +266,7 @@ const Contact = ()=>{
               </Box>
               {/* section 2 */}
 
-        <Footer></Footer>
-    </Box>
+              </HeaderAndFooter>
    )
 }
 

@@ -12,9 +12,34 @@ import { FaLightbulb } from "react-icons/fa";
 import HowItWorks from "@/component/howItWorks";
 import { useRouter } from "next/router";
 import CompanySlideText from "@/component/companySlideText";
+import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
+import { GetServerSideProps } from "next";
+import { TalentInterface } from "@/component/Interface/talents";
+import { JobTypeInterface } from "@/component/Interface/Jobs";
 
+interface HomepageProp{
+  topTalents : TalentInterface[]
+}
 
-export default function Home() {
+export const getServerSideProps : GetServerSideProps<HomepageProp> = async (context) => {
+   
+
+  const topTalentsDataRes = await fetch('https://api.codesandcogs.com/oilandgas/api/codesandcogs/v1/talents?hero=true')
+  const topTalentsData = await topTalentsDataRes.json();
+  const topTalents = topTalentsData?.talents
+  
+
+  console.log({topTalents})
+
+    return{
+      props :{
+       topTalents,
+      }
+    }
+  
+}
+
+export default function Home({topTalents}:HomepageProp)  {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(1);
   const [search,setSearch] =useState('')
   const router=useRouter()
@@ -22,20 +47,15 @@ export default function Home() {
   
     
   // Replace these with your actual image paths
-  const images = [
-    '/talent1.svg',
-    '/talent2.svg',
-    '/talent3.svg'
-  ];
+
 
   const handleSearch = function(data:string){
-     console.log(data)
      router.push('/talents')
   }
+  
 
   return (
-    <Box>
-      <Navigator />
+    <HeaderAndFooter>
  
  {/* SECTION 1*/}
       <Flex 
@@ -156,7 +176,7 @@ export default function Home() {
             minH={{ base: '300px', md: '400px' }}
             mt={{ base: 8, md: 0 }}
           >
-            {images.map((src, index) => (
+            {topTalents.map((topTalents, index) => (
               <Box
                 key={index}
                 position="absolute"
@@ -178,7 +198,7 @@ export default function Home() {
               >
                 <Box
                   as="img"
-                  src={src}
+                  src={topTalents?.image}
                   alt={`Image ${index + 1}`}
                   w="full"
                   h="full"
@@ -200,10 +220,10 @@ export default function Home() {
                   fontSize={{ base: 'xs', sm: 'sm' }}
                 >
                   <Heading fontSize={{ base: '14px', md: '18px' }} fontWeight="500">
-                    George B
+                    {topTalents?.name}
                   </Heading>
                   <Text fontSize={{ base: '12px', md: '16px' }}>
-                    Slick Line Expert
+                     {topTalents?.expertises[0].name}
                   </Text>
                 </Box>
               </Box>
@@ -378,10 +398,6 @@ export default function Home() {
       <PartnersSection />
       </Flex>
 
-     <Footer />
-    
-
-        
-    </Box>
+      </HeaderAndFooter>
   );
 }

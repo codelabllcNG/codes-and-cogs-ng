@@ -17,7 +17,7 @@ import {
     return (
       <Box
           maxWidth="2000px"
-          bgImage="url('Footer.svg')"
+          bgImage="url('/Footer.svg')"
           bgSize="cover"        // Ensures the image covers the entire container.
           bgPosition="center"   // Centers the background image.
           bgRepeat="no-repeat"  // Prevents the background image from repeating.
@@ -80,7 +80,7 @@ import {
           {/* Logo & Newsletter */}
           <Flex flexDir={'column'} gap={'2rem'}>
              <Box>
-             <Image src={'LOGO-WHITE.svg'}/>
+             <Image src={'/LOGO-WHITE.svg'}/>
              </Box>
             <Text fontSize="sm">Subscribe to our Newsletter</Text>
             <Flex bg="gray.800" p={2} borderRadius="md">

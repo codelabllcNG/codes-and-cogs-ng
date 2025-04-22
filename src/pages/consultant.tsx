@@ -8,7 +8,7 @@ import { IoLocationOutline } from "react-icons/io5";
 import AdsComponent from "@/component/adsComponent";
 import { useState } from "react";
 import { useRouter } from "next/router";
-
+import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
 
 
 
@@ -24,9 +24,8 @@ const Consultant = ()=>{
     })      
 
     return(
-      <Box>
-        <Navigator />
 
+<HeaderAndFooter>
              {/*section 1  */}
              <Box
                             maxWidth="2000px"
@@ -295,7 +294,7 @@ const Consultant = ()=>{
                 
 
         <Footer />
-      </Box>
+ </HeaderAndFooter>
     )
 }
 export default Consultant

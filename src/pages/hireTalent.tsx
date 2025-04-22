@@ -23,6 +23,7 @@ import {
   import { toast } from 'react-toastify';
   import LoadingSpinner from "@/component/loadingSpinner";
   import { useRouter } from "next/router";
+  import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
 
 
 const HireTalent = ()=>{
@@ -70,8 +71,7 @@ const HireTalent = ()=>{
 
 
    return(
-    <Box>
-        <Navigator />
+<HeaderAndFooter>
             <Box
                     maxWidth="2000px"
                     mx="auto"
@@ -290,9 +290,7 @@ const HireTalent = ()=>{
                    </Flex>
             </Box>
             
-
-        <Footer />
-    </Box>
+            </HeaderAndFooter>
    )
 }
 

@@ -2,6 +2,7 @@ import { Flex,Box,Text,Image,Heading,Button } from "@chakra-ui/react";
 import Navigator from "@/component/navigator";
 import Footer from "@/component/footer";
 import CertificationGrid from "@/component/cerifications";
+import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
 
 
 
@@ -14,8 +15,8 @@ const certificationPage = ()=>{
      ];
       
     return(
-        <Box>
-            <Navigator />
+
+        <HeaderAndFooter>
                       {/*section 1  */}
                     <Box
                             maxWidth="2000px"
@@ -353,8 +354,7 @@ const certificationPage = ()=>{
                   </Box>
                   </Box>
                     {/* section 7 */}
-            <Footer />
-        </Box>
+</HeaderAndFooter>
     )
 }
 

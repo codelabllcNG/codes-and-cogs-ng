@@ -20,6 +20,13 @@ interface JobsParams {
     limit?:string
 } 
 
+interface registerToGetListedBody{
+    fname:string,
+    lname:string,
+    email:string,
+    cv:string,
+    listing_id:string
+}
 
 export async function listOpening(data:listOpeningBody){
     try {
@@ -38,7 +45,7 @@ export async function listOpening(data:listOpeningBody){
 export async function getJobs(params?:JobsParams) {
     console.log(params)
     try{
-        const response = await axios.get(`${backendUrl}/talents`,{
+        const response = await axios.get(`${backendUrl}/listing`,{
             params: params,
         })
         console.log(`${backendUrl}/talents`)
@@ -52,6 +59,38 @@ export async function getJobs(params?:JobsParams) {
 
     }
 }
+
+export async function getJobsById(id:string | string[] |undefined) {
+    console.log({id})
+    if(!id) return 
+    
+    try{
+        const response = await axios.get(`${backendUrl}/listing?list_id=${id}`)
+        return response.data
+    } catch(error) {
+      if(error instanceof AxiosError){
+         throw new Error(error.response?.data?.message)
+      }
+      
+      throw new Error('An Unexpected Error Occured')
+
+    }
+}
+
+export async function applyForListing(data:registerToGetListedBody){
+    try {
+     const response = await axios.post(`${backendUrl}/get-listed`,data)
+     return response.data
+    } catch (error) {
+     if (error instanceof AxiosError) {
+         throw new Error(error.response?.data?.message || 'An unexpected error occurred');
+     }
+     console.error(error)
+     throw new Error('An unexpected error occurred');
+  
+    }
+ }
+ 
 
 
  

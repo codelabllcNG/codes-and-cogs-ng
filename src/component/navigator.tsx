@@ -14,7 +14,7 @@ export const DesktopView : React.FC<Prop> = ({activeLink}) =>{
       <Flex bg={'white'} height={'15vh'} padding={'1.5rem 5rem'} maxWidth={'2000px'}  mx={'auto'} textColor={'white'} display={{lg:'flex',md:'none',sm:'none',base:'none'}} >
         <Flex alignItems={'center'} justifyContent={'space-between'} width={'100%'} >
             {/* Logo */}
-            <Image src="LOGO.svg"/>
+            <Image src="/LOGO.svg"/>
 
             {/* menu */}
             <Flex  gap={'3rem'}  >
@@ -30,9 +30,15 @@ export const DesktopView : React.FC<Prop> = ({activeLink}) =>{
                           <Box h="3px" display={activeLink==='/about'? 'block' :'none'} fontSize={'28px'} mt={'1.5rem'} borderRadius={'12px'} w="100%" bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"></Box>
                         </Heading>
                 </Link>
+                <Link href="/talents">
+                       <Heading fontWeight={'600'}  color={activeLink==='/talents'? '#2E3192' :'black'} fontSize={'16px'}>
+                           TALENTS
+                          <Box h="3px" display={activeLink==='/talents'? 'block' :'none'} fontSize={'28px'} mt={'1.5rem'} borderRadius={'12px'} w="100%" bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"></Box>
+                        </Heading>
+                </Link>
                 <Link href="/services">
                         <Heading fontWeight={'600'}  color={activeLink==='/services'? '#2E3192' :'black'} fontSize={'16px'}>
-                             OUR SERVICES
+                             OILFIELD SERVICES
                             <Box h="3px" display={activeLink==='/services'? 'block' :'none'} fontSize={'28px'} mt={'1.5rem'} borderRadius={'12px'} w="100%" bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"></Box>
                         </Heading>
                 </Link>

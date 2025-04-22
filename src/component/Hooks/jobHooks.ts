@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient ,useQuery} from '@tanstack/react-query';
-import { listOpening,getJobs } from '../Services/jobServices';
+import { listOpening,getJobs,getJobsById,applyForListing } from '../Services/jobServices';
 
 interface JobsParams {
    search?: string
@@ -18,4 +18,18 @@ export function useGetTalentHook(params?:JobsParams){
         queryKey: ['get talents', params],
         enabled: true, // or your condition
     })
+}
+
+export function useGetJobByIdHook(id:string | string[] | undefined){
+    return useQuery({
+        queryFn: ()=> getJobsById(id),
+        queryKey: ['get job by id'],
+        enabled : Boolean(id)
+    })
+}
+
+export function useApplyForListingHook(){
+    return (useMutation({
+        mutationFn: applyForListing
+    }))
 }

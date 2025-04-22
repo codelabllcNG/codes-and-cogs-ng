@@ -16,8 +16,12 @@ import {
   import { toast } from 'react-toastify';
   import LoadingSpinner from './loadingSpinner';
   import { useRegisterTogetListedHook } from './Hooks/talentsHook';
+  import React from 'react';
   
-  
+  interface RegistrationFormProp {
+    listing_id?: string
+  }
+
   interface FormData {
     firstName: string;
     lastName: string;
@@ -26,10 +30,11 @@ import {
     wordEmail: string;
     updatedCP: string;
     file: FileList;
+    listing_id?: string
   }
   
  
- const RegistrationForm = ()=>{
+ const RegistrationForm : React.FC<RegistrationFormProp> = ({listing_id})=>{
     const [fileName, setFileName] = useState('');
     const [file, setFile] = useState<File>();
     const [loading,setLoading] = useState(false)
@@ -39,6 +44,7 @@ import {
         "lname": "",
         "email": "",
         "cv": "",
+        "listing_id":""
     })
 
     
@@ -71,6 +77,17 @@ import {
                      const base64File = await fileToBase64(file)
                         formData.cv = String(base64File)                     
                 }
+
+                if(listing_id){
+                    formData.listing_id = listing_id
+                    console.log({formData})
+                    const data = await  mutation.mutateAsync(formData)
+                    console.log({formData})
+                    toast.success(data.message)
+                    return
+
+                }
+
                 setLoading(true)
                
                 const data = await  mutation.mutateAsync(formData)

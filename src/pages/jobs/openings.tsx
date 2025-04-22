@@ -1,5 +1,3 @@
-import Navigator from "@/component/navigator";
-import Footer from "@/component/footer";
 import {
   Box,
   Button,
@@ -20,6 +18,7 @@ import { toast } from 'react-toastify';
 import LoadingSpinner from "@/component/loadingSpinner";
 import { useListOpeningHook } from "@/component/Hooks/jobHooks";
 import { useRouter } from "next/router";
+import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
 
 const Openings = () => {
   const [formData, setFormData] = useState({
@@ -64,9 +63,7 @@ const Openings = () => {
   
 
   return (
-    <Box>
-      {/* Dark Header Section */}
-      <Navigator />
+    <HeaderAndFooter>
       <Box
         maxWidth="2000px"
         mx="auto"
@@ -272,8 +269,7 @@ const Openings = () => {
         </Flex>
       </Box>
 
-      <Footer />
-    </Box>
+      </HeaderAndFooter>
   );
 };
 
