@@ -12,58 +12,58 @@ interface ContentData {
 }
 
 const HowItWorks = () => {
-  const [activeTab, setActiveTab] = useState('Hire a Talent');
+  const [activeTab, setActiveTab] = useState('Employer');
   
   const contentData: ContentData = {
-    'Hire a Talent': [
+    'Employer': [
       {
-        image: 'explore.svg',
+        image: '/explore.svg',
         title: 'Explore Talents',
-        description: 'Access our pool of pre-vetted professionals across various industries.'
+        description: 'You match our standards? Submit your details below.'
       },
       {
-        image: 'undergo.svg',
-        title: 'Review Profiles',
-        description: 'Evaluate detailed profiles with skills, experience, and certifications.'
+        image: '/undergo.svg',
+        title: 'Undergo KYC',
+        description: 'You match our standards? Submit your details below.'
       },
       {
-        image: 'icon1.svg',
-        title: 'Hire Experts',
-        description: 'Onboard selected professionals and start your project.'
+        image: '/Industry.svg',
+        title: 'Hire Industry Experts',
+        description: 'You match our standards? Submit your details below.'
       }
     ],
-    'Lite Your Opening': [
+    'Become A Talent': [
       {
-        image: 'post.svg',
-        title: 'Post Opportunity',
-        description: 'Share your project requirements with our platform.'
+        image: '/register.svg',
+        title: 'Register With Us',
+        description: 'You match our standards? Submit your details below.'
       },
       {
-        image: 'match.svg',
-        title: 'Get Matched',
-        description: 'Receive curated matches based on your needs.'
+        image: '/trainning.svg',
+        title: 'Screening & Training',
+        description: 'You match our standards? Submit your details below.'
       },
       {
-        image: 'interview.svg',
-        title: 'Interview & Select',
-        description: 'Conduct interviews and choose the best fit.'
+        image: '/roles.svg',
+        title: 'Get Exclusive Roles',
+        description: 'You match our standards? Submit your details below.'
       }
     ],
-    'Work With Us': [
+    'List Your Opening': [
       {
-        image: 'apply.svg',
-        title: 'Apply Now',
-        description: 'Submit your application and credentials.'
+        image: '/explore.svg',
+        title: 'Need Specific Skill?',
+        description: 'You match our standards? Submit your details below.'
       },
       {
-        image: 'kyc.svg',
-        title: 'Complete KYC',
-        description: 'Verify your identity and qualifications.'
+        image: '/listing.svg',
+        title: 'Create Your Listing',
+        description: 'You match our standards? Submit your details below.'
       },
       {
-        image: 'projects.svg',
-        title: 'Get Projects',
-        description: 'Start working on matched opportunities.'
+        image: '/match.svg',
+        title: 'Get Tailored Match',
+        description: 'You match our standards? Submit your details below.'
       }
     ]
   };
@@ -84,7 +84,7 @@ const HowItWorks = () => {
         width={{ base: '100%', lg: '50%' }}
         mx="auto"
       >
-        {['Hire a Talent', 'Lite Your Opening', 'Work With Us'].map((tab) => (
+        {['Employer', 'Become A Talent', 'List Your Opening'].map((tab) => (
           <Box
             key={tab}
             borderRadius="48px"
@@ -118,7 +118,7 @@ const HowItWorks = () => {
         bg="white"
         width="100%"
       >
-        {contentData[activeTab].map((item, index) => (
+        {contentData[activeTab]?.map((item, index) => (
           <Box
             key={index}
             flex="1"

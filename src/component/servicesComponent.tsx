@@ -14,28 +14,28 @@ const tabData: { [key: string]: TabContent } = {
     description:
       "We provide precise well testing solutions, including Surface Well Testing and Bottom Hole Pressure (BHP) analysis, to evaluate reservoir performance and optimise production.",
     image: "HP-SERVICE1.svg",
-    link:'#'
+    link:'/service'
   },
   "Thru Tubing Re-Entry Solutions": {
     title: "Thru Tubing Re-Entry Solutions",
     description:
       "Our specialised tools include thru-tubing completions and slickline services, offering efficiency and precision for well intervention and maintenance in operational environments..",
     image: "HP-SERVICE2.svg",
-    link:'#'
+    link:'/service'
   },
   "NDT & PCE Integrity Testing": {
     title: "NDT & PCE Integrity Testing",
     description:
       "We deliver comprehensive corrosion control solutions, including non-destructive testing (NDT) and treatment, ensuring asset integrity and extended equipment lifespan.",
     image: "HP-SERVICE3.svg",
-    link:'#'
+    link:'/service'
   },
   "Equipment Rentals": {
     title: "Equipment Rentals",
     description:
       "Our specialised tools include thru-tubing completions and slickline services, offering efficiency and precision for well intervention and maintenance in operational environments.",
     image: "HP-SERVICE4.svg",
-    link:'#'
+    link:'/service'
   },
 };
 
@@ -154,7 +154,7 @@ const ServiceComponent = () => {
       />
 
       <Link
-        color="blue.500"
+        color="#2E3192"
         fontWeight="bold"
         mt={4}
         display="inline-block"

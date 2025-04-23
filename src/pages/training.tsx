@@ -1,14 +1,17 @@
 import { Flex,Box,Heading,Text,Button,Image, } from "@chakra-ui/react";
 import Navigator from "@/component/navigator";
 import Footer from "@/component/footer";
+import { useState } from "react";
+import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
 
 const Training = ()=>{
-    const imageData = [
-        { name: 'Andy G', title: 'Managing Director', image: 'tfe1.svg' },
-        { name: 'Andy G', title: 'Managing Director', image: 'tfe2.svg' },
-        { name: 'Andy G', title: 'Managing Director', image: 'tfe3.svg' },
-        { name: 'Andy G', title: 'Managing Director', image: 'tfe4.svg' },
+    const equpimentData = [
+        { name: 'Training Auditorium', title: 'Managing Director', image: 'tfe1.svg' },
+        { name: 'Personal Protective Equipments (PPE)', title: 'Managing Director', image: 'tfe2.svg' },
+        { name: 'Wellsite Tour Location', title: 'Managing Director', image: 'tfe3.svg' },
+        { name: 'Patent-Pending Simulator' , title: 'Managing Director', image: 'tfe4.svg' },
       ];
+      const [activeEqupiment,setActiveEqupiment] = useState('')
 
     const contentData =[
         {
@@ -29,8 +32,7 @@ const Training = ()=>{
       ]
 
     return(
-        <Box>
-            <Navigator />
+            <HeaderAndFooter>
                 {/*section 1  */}
                      <Box
                         maxWidth="2000px"
@@ -81,7 +83,7 @@ const Training = ()=>{
                         }}
                     >
                         <Heading color={'#2E3192'} textAlign={'center'} fontSize={'28px'}>ABOUT THE TRAINING</Heading>
-                        <Flex flexDir={{sm:'column',lg:'row'}} mt="2rem">
+                        <Flex flexDir={{base:'column',lg:'row'}} gap={'3rem'} mt="2rem">
                             <Box w={{lg:'50%',sm:'100%'}}>
                                 <Text mb={5}> Participants, get ready to be equipped with oil and gas industry skills and recognised certifications. Taking place in Port Harcourt, Rivers State, this 3 weeks training offers the perfect blend of theoretical knowledge and hands-on practice in:</Text>
                                 <Box display={'flex'} flexDir={'column'} gap={'1rem'}>
@@ -149,8 +151,9 @@ const Training = ()=>{
                                 borderRadius: '4px',
                             },
                         }}
+                        mb={'2rem'}
                     >
-                        {imageData.slice(0, 4).map((item, index) => ( // Show only first 4 items
+                        {equpimentData.slice(0, 4).map((item, index) => ( // Show only first 4 items
                             <Flex
                                 key={index}
                                 flexDir="column"
@@ -161,6 +164,8 @@ const Training = ()=>{
                                 }}
                                 mb={4}
                                 minH={{ base: "400px", md: "500px" }}
+                                onMouseEnter={()=>setActiveEqupiment(item.name)}
+                                onMouseLeave={()=>setActiveEqupiment('')}
                             >
                                 <Image
                                     src={item.image}
@@ -173,6 +178,7 @@ const Training = ()=>{
                                 
                                 {/* Gradient Overlay */}
                                 <Flex
+                                    display={activeEqupiment===item.name?'flex':'none'}
                                     position="absolute"
                                     top="0"
                                     left="0"
@@ -185,6 +191,7 @@ const Training = ()=>{
                                 
                                 {/* Text Overlay */}
                                 <Box
+                                    display={activeEqupiment===item.name?'flex':'none'}
                                     position="absolute"
                                     bottom="5%"
                                     left="3%"
@@ -192,8 +199,9 @@ const Training = ()=>{
                                     zIndex={2}
                                     p={2}
                                     maxW="90%"
+                                    justifyContent={'center'}
                                 >
-                                    <Heading fontSize={{ base: "18px", md: "20px" }} fontWeight="500">
+                                    <Heading textAlign={'center'} fontSize={{ base: "18px", md: "20px" }} fontWeight="500">
                                         {item.name}
                                     </Heading>
                                     <Text fontSize={{ base: "14px", md: "16px" }}>
@@ -216,17 +224,18 @@ const Training = ()=>{
                     base: "1rem",
                     }}
                     bg={'#EDF2FC'}
+                 
                  >
                  
-                   <Heading color={'#2E3192'} fontWeight={'500'} textAlign={'center'}>Why Enroll</Heading>
+                   <Heading mt={'4rem'}  color={'#2E3192'} fontWeight={'550'} textAlign={'center'}>Why Enroll</Heading>
                     <Flex
                         direction={{ base: "column", md: "row" }}
                         gap="2rem"
                         justifyContent="center"
-                        mt="4rem"
                         color="black"
                         bg="white"
-                        width="100%"
+                        width={{lg:"70%",base:"90%"}}
+                        m={'4rem auto'}
                     >
                         {contentData.map((item, index) => (
                         <Box
@@ -263,14 +272,14 @@ const Training = ()=>{
                     base: "1rem",
                 }}
                 >
-                    <Box textAlign="center" mb={{ base: 6, md: 8 }}>
+                    <Box textAlign="center" mb={{ }}>
                     <Heading fontWeight={'600'} fontSize={{base:'25px',sm:'25px',md:'36px',lg:'36px',}} mb={3} >
                         Explore Course Contents and Timelines
                     </Heading>
                     <Text fontSize="lg" mb={5}>
-                        We have curated our training catalog which covers all the details you need your chosen track prerequisites and well-detailed curriculum.
+                        We have curated our training catalog which covers all the details you need your chosen <br/> track prerequisites and well-detailed curriculum.
                     </Text>
-                    <Button width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Download Brochure </Button>
+                    <Button width={'fit-content'} m={'1rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Download Brochure </Button>
                     
                     </Box>
                 </Box>
@@ -282,15 +291,15 @@ const Training = ()=>{
                 maxWidth="2000px"
                 mx="auto"
                 padding={{
-                    lg: "5rem 5rem",
+                    lg: "0rem 5rem",
                     md: "1.5rem 2rem",
                     sm: "1rem",
                     base: "1rem",
                 }}
                 >
-                    <Flex alignItems={'center'}>
+                    <Flex alignItems={'center'} flexDir={{base:'column',lg:'row'}}>
                         <Box w={{base:'100%',lg:'50%'}}>
-                            <Heading>Secure Your Spot Now</Heading>
+                            <Heading fontSize={'28px'}>Secure Your Spot Now</Heading>
                             <Text m={'1rem 0'}>Ready to take the next step in your career? Secure your spot in our June 2025 training cohort by filling out the registration form below:</Text>
                             <Button width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Enroll Now </Button>
                         </Box>
@@ -313,26 +322,23 @@ const Training = ()=>{
                 }}
                 >
                     <Heading textAlign={'center'} color={'#2E3192'}>HAVE MORE ENQUIRIES?</Heading>
-                    <Flex justifyContent={'center'} gap={'4rem'} mt={'3rem'}>
-                        <Box bg={'#F0F0F0'} w={{lg:'20%'}}>
+                    <Flex justifyContent={'center'} gap={'4rem'} mt={'3rem'} flexDir={{lg:'row',base:'column'}}>
+                        <Box bg={'#F0F0F0'} w={{lg:'20%'}} p={'2rem 1rem'}>
                             <Heading fontSize={'22px'} textAlign={'center'}>Send An Email</Heading>
-                            <Text textAlign={'center'}>training@codesandcogs.com</Text>
+                            <Text textAlign={'center'} color={'#2E3192'}>training@codesandcogs.com</Text>
                         </Box>
-                        <Box bg={'#F0F0F0'} w={{lg:'20%'}}>
+                        <Box bg={'#F0F0F0'} w={{lg:'20%'}} p={'2rem 1rem'}>
                             <Heading fontSize={'22px'} textAlign={'center'}>Send An Email</Heading>
-                            <Text textAlign={'center'}>training@codesandcogs.com</Text>
+                            <Text textAlign={'center'} color={'#2E3192'}>+(667) 292-9258 |+(234) 9164451212 </Text>
                         </Box>
-                        <Box bg={'#F0F0F0'} w={{lg:'20%'}}>
+                        <Box bg={'#F0F0F0'} w={{lg:'20%'}} p={'2rem 1rem'}>
                             <Heading fontSize={'22px'} textAlign={'center'}>Send An Email</Heading>
-                            <Text textAlign={'center'}>training@codesandcogs.com</Text>
+                            <Text textAlign={'center'} color={'#2E3192'}> Contact Us </Text>
                         </Box>
                     </Flex>
                 </Box >
                 {/* section 7 */}
-
-
-            <Footer />
-        </Box>
+        </HeaderAndFooter>
     )
 }
 

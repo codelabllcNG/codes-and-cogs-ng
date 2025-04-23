@@ -23,19 +23,24 @@ interface HomepageProp{
 
 export const getServerSideProps : GetServerSideProps<HomepageProp> = async (context) => {
    
-
+try {
   const topTalentsDataRes = await fetch('https://api.codesandcogs.com/oilandgas/api/codesandcogs/v1/talents?hero=true')
   const topTalentsData = await topTalentsDataRes.json();
   const topTalents = topTalentsData?.talents
-  
-
-  console.log({topTalents})
 
     return{
       props :{
        topTalents,
       }
     }
+} catch (error) {
+  return{
+    props:{
+      topTalents: []
+    }
+  }
+}
+
   
 }
 
@@ -357,7 +362,7 @@ export default function Home({topTalents}:HomepageProp)  {
                           <Text>Artificial Intelligence/Machine Learning capabilities are embedded in our well-testing procedures and other oilfield solutions. Codes and Cogs also unites industry professionals and offer comprehensive talent recruitment, and specialized training.</Text>
                           </Box>
 
-                          <Button width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Learn More </Button>
+                          <Button onClick={()=>router.push('/about')} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> About Us </Button>
                           
                       </Box>
                       <Box display={'flex'} justifyContent={'flex-end'} w={{base:'100%',sm:'100%',md:'100%',lg:'50%'}}>
@@ -377,7 +382,7 @@ export default function Home({topTalents}:HomepageProp)  {
                                <Text>The job fair would serve as the launch for the Codes and Cogs Talent platform. Top exploration and production, and oilfield services companies would also be present, and top talents would get a chance to land leading opportunities in Nigeria oil and gas industries.</Text>
                           </Box>
 
-                          <Button width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Learn More </Button>
+                          <Button onClick={()=>router.push('/trainning')} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Explore Details </Button>
                         </Box>
                       </Flex>
                       <Box display={'flex'} width={"full"} justifyContent={'flex-start'} w={{base:'100%',sm:'100%',md:'100%',lg:'50%'}}>

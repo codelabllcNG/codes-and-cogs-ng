@@ -33,7 +33,7 @@ const TalentExplorer  = () => {
   const [jobCategories,setJobcategories] = useState<any[]>([])
   const editSelectedTalent = useTalentsStore((state: any) => state.editSelectedTalent);
   const {data:jobCategoriesData,isLoading:jobCategoriesIsLoading} = useGetCategoriesHook()
-  const {data:talentsData,isLoading:isTalentLoading,refetchWithParams} = useGetTalentHook({limit:'6'})
+  const {data:talentsData,isLoading:isTalentLoading,refetchWithParams} = useGetTalentHook({limit:'3'})
   
 
   const router = useRouter()
@@ -57,7 +57,7 @@ const TalentExplorer  = () => {
 
   useEffect(()=>{
     const cat = jobCategories?.find((category)=>category.name === activeTab)
-    refetchWithParams({cat:cat?.id,limit:'6'})
+    refetchWithParams({cat:cat?.id,limit:'3'})
   },[activeTab])
 
   return (
@@ -130,6 +130,9 @@ const TalentExplorer  = () => {
             </GridItem>
           ))}
         </Grid>
+        <Box display={'flex'} mt={'2rem'}>
+          <Button onClick={()=>router.push('/talents')} width={'fit-content'} mx={'auto'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Discover More Talents </Button>
+        </Box>
       </Box>
 
       {/* Sidebar - Full width on mobile */}
