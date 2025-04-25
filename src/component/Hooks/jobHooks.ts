@@ -1,10 +1,9 @@
 import { useMutation, useQueryClient ,useQuery} from '@tanstack/react-query';
 import { listOpening,getJobs,getJobsById,applyForListing } from '../Services/jobServices';
+import { JobsParams } from '../Interface/Jobs';
+import { useState } from 'react';
+import { useCallback } from 'react';
 
-interface JobsParams {
-   search?: string
-   limit?:string
-} 
 
 export function useListOpeningHook (){
    return useMutation({
@@ -12,13 +11,26 @@ export function useListOpeningHook (){
    })
 }
 
-export function useGetTalentHook(params?:JobsParams){
-    return useQuery({
-        queryFn: () => getJobs(params), // Pass the params from queryKey[1]
-        queryKey: ['get talents', params],
-        enabled: true, // or your condition
-    })
-}
+export function useGetJobstHook(initialParams?: JobsParams) {
+    const [params, setParams] = useState<JobsParams>(initialParams || {});
+  
+    const queryResult = useQuery({
+      queryFn: () => getJobs(params),
+      queryKey: ['get talents', params],
+      enabled: true,
+    });
+  
+    // Custom refetch with new parameters
+    const refetchWithNewParams = useCallback((newParams: JobsParams) => {
+      setParams(prev => ({...prev, ...newParams}));
+    }, []);
+  
+    return {
+      ...queryResult,
+      refetchWithParams: refetchWithNewParams,
+      currentParams: params
+    };
+  }
 
 export function useGetJobByIdHook(id:string | string[] | undefined){
     return useQuery({

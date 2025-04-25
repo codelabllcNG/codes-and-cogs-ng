@@ -26,3 +26,11 @@ export interface JobStoreInterface {
       editSelectedJob: (job: JobInterface) => void
       editJobs: (job: JobInterface[]) => void
 }
+
+
+export interface JobsParams {
+  search?: string
+  cat?:string
+  limit?:string
+  offset?:number
+} 

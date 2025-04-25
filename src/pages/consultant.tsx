@@ -142,7 +142,7 @@ const Consultant = ()=>{
                                             })}
                                     </SimpleGrid>
                                     <Flex>
-                                    <Button  width={'fit-content'} m={'2rem auto'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> See All Opportunities </Button>              
+                                    <Button onClick={()=>router.push('/jobs')}  width={'fit-content'} m={'2rem auto'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> See All Opportunities </Button>              
                                     </Flex>
 
                                     <Flex 

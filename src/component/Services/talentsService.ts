@@ -1,12 +1,6 @@
 import axios, { AxiosError } from "axios";
+import { TalentParams } from "../Interface/talents";
 const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
-
-
-interface TalentParams {
-    search?: string
-    cat?:string
-    limit?:string
-}  
 
 interface HireTalentBody{
     fname: string,

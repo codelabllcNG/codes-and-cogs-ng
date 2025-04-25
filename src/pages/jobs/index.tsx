@@ -1,4 +1,3 @@
-import { GetServerSideProps } from 'next';
 import {
   Box,
   Flex,
@@ -22,128 +21,74 @@ import { useRouter } from "next/router";
 import { timeAgo } from '@/component/utils';
 import { JobInterface,JobTypeInterface } from '@/component/Interface/Jobs';
 import HeaderAndFooter from '@/component/layout/HeaderAndFooter';
+import { useJobStore } from '@/store/jobStore';
+import { JobStoreInterface } from '@/component/Interface/Jobs';
+import { useGetJobstHook } from '@/component/Hooks/jobHooks';
+import { useGetCategoriesHook } from '@/component/Hooks/categoriesHook';
+import LoadingSpinner from '@/component/loadingSpinner';
 
-interface JobListingProps {
-  jobs: JobInterface[];
-  jobTypes: JobTypeInterface[];
-}
 
-export const getServerSideProps: GetServerSideProps<JobListingProps> = async (context) => {
-  // Read query parameters from the URL (not used in filtering below).
-  const { search = '', jobType = '', location = '' } = context.query;
 
-  // Build query parameters for the jobs API.
-  const queryParams = new URLSearchParams({
-    search: search as string,
-    jobType: jobType as string,
-    location: location as string,
-  });
 
-  // Fetch jobs.
-  const jobsRes = await fetch('https://api.codesandcogs.com/oilandgas/api/codesandcogs/v1/listing?limit=50');
-  const jobsData = await jobsRes.json();
-  const jobs = jobsData.listings;
-  
-  // Fetch job types.
-  const jobTypesRes = await fetch('https://api.codesandcogs.com/oilandgas/api/codesandcogs/v1/category');
-  const jobTypesData = await jobTypesRes.json();
-  const jobTypes = jobTypesData.categories;
-
-  console.log(jobTypes)
-
-  return {
-    props: {
-      jobs,
-      jobTypes,
-    },
-  };
-};
-
-export default function JobListing({ jobs, jobTypes }: JobListingProps) {
+export default function JobListing() {
   const router = useRouter();
 
   // Local state for filter inputs.
-  const [search, setSearch] = useState((router.query.search as string) || '');
-  const [jobTypeInput, setJobTypeInput] = useState((router.query.jobType as string) || '');
-  const [locationInput, setLocationInput] = useState((router.query.location as string) || '');
-  const [locationData,setLocationData] = useState ('')
+  const [search, setSearch] = useState('');
+  const [searchValue,setSearchValue] =useState('')
   // State for filtered jobs and grouping/pagination.
-  const [filteredJobs, setFilteredJobs] = useState<JobInterface[]>(jobs);
   const [selectedListingGroup, setSelectedListingGroup] = useState<JobInterface[]>([]);
   const [selectedListingGroupIndex, setSelectedListingGroupIndex] = useState(0);
   const [listingGroup, setListingGroup] = useState<JobInterface[][]>([]);
+  const editSelectedTalent = useJobStore((state: JobStoreInterface)=>state.editSelectedJob)
+  const [activeIndex,setActiveIndex] = useState<number>(0)
+  const [totalJobs,setTotalJobs] = useState<number>(0)
+  const [jobs,setJobs] = useState<JobInterface[]>([])
+  const [categories,setCategories] = useState<JobTypeInterface[]>([])
+  const [category,setCategory] =useState<string>()
+  const {data:jobsData,isLoading:jobsIsLoading,refetchWithParams} = useGetJobstHook()
+  const {data:categoriesData,isLoading:categoriesIsLoading} = useGetCategoriesHook()
+  
 
-  // Filter by search location
-  function filterByLoaction (){
-     if(locationData){
-        console.log(true)
-     }
-     setLocationInput(locationData)
+  const viewJob = (job:JobInterface)=> {
+     editSelectedTalent(job)
+     router.push(`/jobs/${job.id}`)
   }
-
-  // useEffect to filter jobs when any filter input changes.
-
-  useEffect(() => {
-    const filtered = jobs.filter((job) => {
-
-      const matchesSearch = search
-        ? job.title.toLowerCase().includes(search.toLowerCase())
-        : true;
-
-     
-      const matchesLocation = locationInput
-        ? job.location.toLowerCase().includes(locationInput.toLowerCase())
-        : true;
-
+  
+    const goNext = () => {
+      if(activeIndex >= (totalJobs/8)-1) return
+      setActiveIndex(activeIndex + 1)
+    };
     
-      const matchesJobType = jobTypeInput
-        ? job.job_type.some((type) => String(type.id) === jobTypeInput)
-        : true;
+    const goBack = () => {
+      if(activeIndex <= 0) return
+      setActiveIndex(activeIndex -1)
+    };
+  
+   
+    useEffect(()=>{
+      setJobs(jobsData?.listings)
+      console.log({jobsData})
+      setTotalJobs(jobsData?.total)
+    },[jobsData])
+  
+    useEffect(()=>{
+      setCategories(categoriesData?.categories)
+    },[categoriesData])
+  
+    useEffect(()=>{
+      const offset = activeIndex * 4
+      const params = {search,category,offset}
+      refetchWithParams(params)
+      console.log({params})
+    },[search,category,activeIndex])
+  
+    useEffect(()=>{
+      if(search === '' ) return 
+      if(searchValue==='') setSearch('')
+    },[searchValue])
 
-      return matchesSearch && matchesLocation && matchesJobType;
-    });
-    setFilteredJobs(filtered);
-    // Reset pagination index when filtering.
-    setSelectedListingGroupIndex(0);
-  }, [search, jobTypeInput, locationInput, jobs]);
 
-  // Regroup the (filtered) jobs into sets of 6.
-  useEffect(() => {
-    let group: JobInterface[] = [];
-    const groupHolder: JobInterface[][] = [];
-    filteredJobs.forEach((job, index) => {
-      group.push(job);
-      if (group.length === 6 || index === filteredJobs.length - 1) {
-        groupHolder.push(group);
-        group = [];
-      }
-    });
-    setListingGroup(groupHolder);
-    setSelectedListingGroup(groupHolder[0] || []);
-  }, [filteredJobs]);
-
-  // Update selected group when the index changes.
-  useEffect(() => {
-    setSelectedListingGroup(listingGroup[selectedListingGroupIndex] || []);
-  }, [selectedListingGroupIndex, listingGroup]);
-
-  // Pagination functions.
-  const goNext = () => {
-    if (selectedListingGroupIndex + 1 >= listingGroup.length) return;
-    setSelectedListingGroupIndex(selectedListingGroupIndex + 1);
-  };
-
-  const goBack = () => {
-    if (selectedListingGroupIndex - 1 < 0) return;
-    setSelectedListingGroupIndex(selectedListingGroupIndex - 1);
-  };
-
-  // Optional: a function to reset filters
-  const resetFilters = () => {
-    setSearch('');
-    setJobTypeInput('');
-    setLocationInput('');
-  };
 
 
   return (
@@ -183,8 +128,7 @@ export default function JobListing({ jobs, jobTypes }: JobListingProps) {
                 h={'60px'}
                 borderTopLeftRadius={'6px'}
                 borderBottomLeftRadius={'6px'}
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
+                onChange={(e) => setSearchValue(e.target.value)}
               />
               <Button
                 width={'fit-content'}
@@ -197,7 +141,7 @@ export default function JobListing({ jobs, jobTypes }: JobListingProps) {
                 bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"
                 boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"
                 // Optionally, trigger filtering on button click (if not auto-filtering)
-                onClick={() => {}}
+                onClick={() => setSearch(searchValue)}
               >
                 Search
               </Button>
@@ -219,13 +163,13 @@ export default function JobListing({ jobs, jobTypes }: JobListingProps) {
                     borderRadius: '6px',
                     paddingLeft: '0.5rem'
                   }}
-                  value={jobTypeInput}
-                  onChange={(e) => setJobTypeInput(e.target.value)}
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
                 >
                   <option value="">Select Job Type</option>
-                  {jobTypes.map((jt) => (
-                    <option key={jt.id} value={jt.id}>
-                      {jt.name}
+                  {categories?.map((categories) => (
+                    <option key={categories.id} value={categories.id}>
+                      {categories.name}
                     </option>
                   ))}
                 </select>
@@ -238,12 +182,6 @@ export default function JobListing({ jobs, jobTypes }: JobListingProps) {
                   border={'1px solid #656060'}
                   h={'50px'}
                   placeholder="Location"
-                  value={locationInput}
-
-                  onChange={(e) =>{
-                     setLocationInput(e.target.value)
-                  }
-                    }
                 />
               </FormControl>
               <Button
@@ -267,7 +205,6 @@ export default function JobListing({ jobs, jobTypes }: JobListingProps) {
                 textColor={'white'}
                 bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"
                 boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"
-                onClick={resetFilters}
               >
                 Reset
               </Button>
@@ -275,7 +212,7 @@ export default function JobListing({ jobs, jobTypes }: JobListingProps) {
           </Box>
 
           {/* Condition for Empty State */}
-          {filteredJobs.length === 0 ? (
+          {jobs?.length === 0 ? (
             <Flex flexDir={'column'} alignItems={'center'} mt={'2rem'}>
               <Image src="emptyState.svg" alt="No results" />
               <Heading fontWeight={'500'} m={'2rem auto'} fontSize={'28px'}>
@@ -288,11 +225,12 @@ export default function JobListing({ jobs, jobTypes }: JobListingProps) {
           ) : (
             <>
               {/* Job Listing Section */}
-              <Box>
-                <Text m={'2rem 0'}>Showing {filteredJobs.length} results</Text>
+              <Box minH={'100vh'} pos={'relative'}>
+                <LoadingSpinner showLoadingSpinner={jobsIsLoading} />
+                <Text m={'2rem 0'}>Showing {jobs?.length} results</Text>
                 <SimpleGrid columns={{ base: 1, md: 2, lg: 2 }} spacingX="40px" spacingY="20px">
-                  {selectedListingGroup.map((job, index) => (
-                    <Box key={index} border={'1px solid rgba(0, 0, 0, 0.25)'}  borderRadius={'12px'} >
+                  {jobs?.map((job, index) => (
+                    <Box key={index} border={'1px solid rgba(0, 0, 0, 0.25)'} cursor={'pointer'} onClick={()=>viewJob(job)}  borderRadius={'12px'} >
                       <Box p={'3rem 1rem'} borderBottom={'1px dotted rgba(136, 136, 136, 0.80)'}>
                         <Flex gap={'3rem'} mt={'1rem'} mb={'1rem'}>
                           <Box>
@@ -311,7 +249,7 @@ export default function JobListing({ jobs, jobTypes }: JobListingProps) {
                           </Box>
                         </Flex>
                         <Wrap spacing={2} gap={'2rem'}>
-                          {job.job_type.map((type: JobTypeInterface, index: number) => (
+                          {job.job_type?.map((type: JobTypeInterface, index: number) => (
                             <Flex
                               key={index}
                               p={2}
@@ -341,7 +279,7 @@ export default function JobListing({ jobs, jobTypes }: JobListingProps) {
                     <Text>Back</Text>
                   </Flex>
                   <Flex gap={'1rem'}>
-                    {listingGroup.map((group, index) => (
+                    {Array.from({length:totalJobs/4}).map((group, index) => (
                       <Box
                         key={index}
                         h={'10px'}

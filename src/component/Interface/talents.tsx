@@ -37,3 +37,10 @@ export  interface CategoryInterface {
       editSelectedTalent: (talent: TalentInterface) => void
       editTalents: (talents: TalentInterface[]) => void
     }
+
+  export interface TalentParams {
+      search?: string
+      cat?:string
+      limit?:string
+      offset?:number
+  }  

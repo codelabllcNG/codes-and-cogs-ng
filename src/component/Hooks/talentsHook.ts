@@ -1,12 +1,8 @@
 import { useMutation, useQueryClient ,useQuery} from '@tanstack/react-query';
 import { getTalents,hireTalent,registToGetListed } from '../Services/talentsService';
 import { useState,useCallback } from 'react';
+import { TalentParams } from '../Interface/talents';
 
-interface TalentParams {
-    search?: string
-    cat?:string
-    limit?:string
-} 
 
 export function useGetTalentHook(initialParams?: TalentParams) {
     const [params, setParams] = useState<TalentParams>(initialParams || {});

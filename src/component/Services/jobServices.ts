@@ -1,4 +1,5 @@
 import axios, { AxiosError } from "axios";
+import { JobsParams } from "../Interface/Jobs";
 const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 
 
@@ -14,11 +15,6 @@ interface listOpeningBody{
     skills: string[],
     comments: string
 }
-
-interface JobsParams {
-    search?: string
-    limit?:string
-} 
 
 interface registerToGetListedBody{
     fname:string,
