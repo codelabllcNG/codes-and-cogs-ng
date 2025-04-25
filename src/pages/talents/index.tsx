@@ -35,7 +35,7 @@ const Talents = () => {
   const [categories,setCategories] = useState <JobTypeInterface[]> ([])
   const [totalTalents,setTotalTalents] = useState<number>(0)
   const [activeIndex,setActiveIndex] = useState(0)
-  const [category,setCategory] = useState('')
+  const [cat,setCat] = useState('')
   
   const router = useRouter();
   const editSelectedTalent = useTalentsStore((state: any) => state.editSelectedTalent);
@@ -54,10 +54,9 @@ const Talents = () => {
 
   const viewProfile = (data: TalentInterface) => {
     editSelectedTalent(data);
-    router.push(`/bio`);
+    router.push(`/talents/bio`);
   };
 
- 
   useEffect(()=>{
     setTalents(talentData?.talents)
     setTotalTalents(talentData?.total)
@@ -69,15 +68,24 @@ const Talents = () => {
 
   useEffect(()=>{
     const offset = activeIndex * 8
-    const params = {search,category,offset}
+    const params = {search,cat,offset}
+    console.log({params})
     refetchWithParams(params)
-    console.log({category})
-  },[search,category,activeIndex])
+    
+  },[search,cat,activeIndex])
 
   useEffect(()=>{
     if(search === '' ) return 
     if(searchValue==='') setSearch('')
   },[searchValue])
+
+  useEffect(()=>{
+    const {search} = router.query
+    if(typeof search === 'string'){
+      setSearch(search)
+    }
+    
+  },[router.query])
 
   return (
     <Box>
@@ -144,7 +152,10 @@ const Talents = () => {
                   h={'60px'}
                   w="100%"
                   bg={'transparent'}
-                  onChange={(e) => setCategory(e.target.value)}
+                  onChange={(e) => {
+                    setCat(e.target.value)
+                     setActiveIndex(0)
+                  }}
                 >
                   {categories?.map((category:any, index:number) => (
                     <option key={index} value={category.id}>

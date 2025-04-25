@@ -52,7 +52,7 @@ export const DesktopView : React.FC<Prop> = ({activeLink}) =>{
 
             {/* button */}
             <Flex gap={'1rem'}>
-            <Button p={0}borderRadius="4px"  textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)">  <Link padding={'12px 24px'} href="/consultant"> Become A Consultant </Link> </Button>
+            <Button p={0}borderRadius="4px"  textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)">  <Link padding={'12px 24px'} href="/talents/consultant"> Become A Consultant </Link> </Button>
            </Flex>
 
         </Flex>

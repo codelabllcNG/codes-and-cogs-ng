@@ -10,6 +10,12 @@ export  interface CategoryInterface {
     name: string;
     // Add other properties if they exist in your category objects
   }
+  
+export  interface LocationInterface {
+    id: number;
+    name: string;
+    // Add other properties if they exist in your category objects
+  }
 
   export interface ExpertisesInterface {
     id : number;

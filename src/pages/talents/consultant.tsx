@@ -6,14 +6,19 @@ import RegistrationForm from "@/component/registerForm"
 import HowItWorks from "@/component/howItWorks"
 import { IoLocationOutline } from "react-icons/io5";
 import AdsComponent from "@/component/adsComponent";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useRouter } from "next/router";
 import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
+import { useGetJobstHook } from "@/component/Hooks/jobHooks";
+import { JobInterface } from "@/component/Interface/Jobs";
+import { timeAgo } from "@/component/utils";
+import LoadingSpinner from "@/component/loadingSpinner";
 
 
 
 const Consultant = ()=>{
     const router = useRouter()
+
     const [formData,setFormData] =useState({
         "fname": "",
         "lname": "",
@@ -21,15 +26,21 @@ const Consultant = ()=>{
         "cname":"",
         "email": "",
         "cv": "",
-    })      
-
+    })   
+    const [jobs,setJobs] = useState<JobInterface[]>([]) 
+    const {data,isLoading} = useGetJobstHook({limit:'4'})
+    
+    useEffect(()=>{
+      setJobs(data?.listings)
+      console.log(data)
+    },[data])
     return(
 
 <HeaderAndFooter>
              {/*section 1  */}
              <Box
                             maxWidth="2000px"
-                            bgImage="url('Consultant.svg')"
+                            bgImage="url('/Consultant.svg')"
                             bgSize="cover" // Ensures the image covers the entire container.
                             bgPosition="center" // Centers the background image.
                             bgRepeat="no-repeat" // Prevents the background image from repeating.
@@ -53,8 +64,8 @@ const Consultant = ()=>{
                                 </Text>
 
                                 <Flex width={'fit-content'} mx={'auto'} gap={'3rem'} flexDir={{lg:'row',md:'row',sm:'column',base:'column'}}>
-                                    <Button onClick={()=>router.push('/consultant#form')} width={'fit-content'} m={{lg:'3rem 0'}} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Register as a Consultant </Button>
-                                    <Button onClick={()=>router.push('/')}  width={'fit-content'} m={{lg: '3rem 0'}} borderRadius="4px" padding={'12px 24px'} textColor={'white'} border={'2px solid #C9CBFF'} bg={'transparent'} boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> See Job Openings </Button>
+                                    <Button onClick={()=>router.push('/talents/consultant#form')} width={'fit-content'} m={{lg:'3rem 0'}} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Register as a Consultant </Button>
+                                    <Button onClick={()=>router.push('/jobs')}  width={'fit-content'} m={{lg: '3rem 0'}} borderRadius="4px" padding={'12px 24px'} textColor={'white'} border={'2px solid #C9CBFF'} bg={'transparent'} boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> See Job Openings </Button>
                                 </Flex>
                             </Box>
              </Box>
@@ -74,7 +85,7 @@ const Consultant = ()=>{
                             base: "1rem",
                             }}
                         >
-                          <AdsComponent link="#" imageUrl="ads 1.png" />
+                          <AdsComponent link="#" imageUrl="/ads 1.png" />
             </Flex>
             {/* ads block */}
 
@@ -104,23 +115,25 @@ const Consultant = ()=>{
                                         spacingX="40px"
                                         spacingY="20px"
                                         marginTop={'4rem'}
-                                        // minChildWidth="250px"
+                                        minH={'50vh'}
+                                        pos={'relative'}
                                         >
-                                            {[1,2,3,4].map((item)=>{
+                                            <LoadingSpinner showLoadingSpinner={isLoading} />
+                                            {jobs?.map((job,index)=>{
                                                 return(
-                                                    <Box border={'1px solid rgba(0, 0, 0, 0.25)'} borderRadius={'12px'} >
+                                                    <Box key={index} border={'1px solid rgba(0, 0, 0, 0.25)'} borderRadius={'12px'} >
                                                     <Box p={'3rem 1rem'} borderBottom={'1px dotted rgba(136, 136, 136, 0.80);'}>
                                                     <Flex gap={'3rem'} mt={'1rem'} mb={'1rem'}>
                                                         <Box>
-                                                            <Image src="companyImage.png" />
+                                                            <Image width={'70px'} height={'70px'} src={job?.icon} />
                                                         </Box>
                                                         <Box>
-                                                            <Heading fontWeight={'600'} fontSize={'27px'}>Senior Drilling Consultant</Heading>
-                                                            <Flex alignItems={'center'}> <IoLocationOutline fontSize={'32px'} fontWeight={'500'}/><Text fontWeight={'300'} fontSize={'15px'}>Middle East</Text> </Flex>
+                                                            <Heading fontWeight={'600'} fontSize={'27px'}>{job.title}</Heading>
+                                                            <Flex alignItems={'center'}> <IoLocationOutline fontSize={'32px'} fontWeight={'500'}/><Text fontWeight={'300'} fontSize={'15px'}>{job.location}</Text> </Flex>
                                                         </Box>
                                                     </Flex>
                                                     <Wrap spacing={2} gap={'2rem'} >
-                                                        {['$40,000','10-15 years','Full Time'].map((skill, skillIndex) => (
+                                                        {job.job_type?.map((skill, skillIndex) => (
                                                                 <Flex 
                                                                 key={skillIndex} 
                                                                 p={2} 
@@ -128,14 +141,14 @@ const Consultant = ()=>{
                                                                 bg={'rgba(136, 136, 136, 0.10)'}
                                                                 fontSize={['xs', 'sm']}
                                                                 >
-                                                                {skill}
+                                                                {skill.name}
                                                                 </Flex>
                                                             ))}
                                                     </Wrap>
                                                     </Box>
                                                     <Flex justifyContent={'space-between'} p={'1rem'}>
-                                                        <Heading fontWeight={'550'} fontSize={'15px'}>Posted 3hrs ago</Heading>
-                                                        <Heading fontWeight={'550'} fontSize={'15px'}>50 Applicants</Heading>
+                                                        <Heading fontWeight={'550'} fontSize={'15px'}>{timeAgo(job.date)}</Heading>
+                                                        <Heading fontWeight={'550'} fontSize={'15px'}>{job.applicants} applicants</Heading>
                                                     </Flex>
                                                     </Box>
                                                 )
@@ -184,7 +197,7 @@ const Consultant = ()=>{
                                                     mt={{ base: 4, lg: 0 }}
                                                 >
                                                 <Image 
-                                                src={'consultant1.svg'} 
+                                                src={'/consultant1.svg'} 
                                                 alt="Professionals illustration"
                                                 width={500}
                                                 height={400}
@@ -230,7 +243,7 @@ const Consultant = ()=>{
                                                     mt={{ base: 4, lg: 0 }}
                                                 >
                                                     <Image 
-                                                    src={'consultant1.svg'} 
+                                                    src={'/consultant1.svg'} 
                                                     alt="Companies illustration"
                                                     width={500}
                                                     height={400}
@@ -261,7 +274,7 @@ const Consultant = ()=>{
                     {/* section 4 */}
                         <Flex
                                 maxWidth="2000px"
-                                bgImage="url('WhiteBg.svg')"
+                                bgImage="url('/WhiteBg.svg')"
                                 bgSize="cover" // Ensures the image covers the entire container.
                                 bgPosition="center" // Centers the background image.
                                 bgRepeat="no-repeat" // Prevents the background image from repeating.
@@ -275,18 +288,18 @@ const Consultant = ()=>{
                                 }}
                                 gap={'3rem'}
                             >
-                                <AdsComponent imageUrl="ads6.png" link="#" />
-                                <AdsComponent imageUrl="ads6.png" link="#" />
+                                <AdsComponent imageUrl="/ads6.png" link="#" />
+                                <AdsComponent imageUrl="/ads6.png" link="#" />
             
                         </Flex>
                     {/* section 4 */}
 
                 </Box>
                 <Box display={'flex'} flexDir={'column'} pt={'4rem'} gap={'3rem'} w={{lg:'20%',md:'20%',sm:'100%',base:'100%'}} alignItems={'center'}>
-                    <AdsComponent imageUrl="ads2.png" link="#" />
-                    <AdsComponent imageUrl="ads3.png" link="#" />
-                    <AdsComponent imageUrl="ads4.png" link="#" />
-                    <AdsComponent imageUrl="ads5.png" link="#" />
+                    <AdsComponent imageUrl="/ads2.png" link="#" />
+                    <AdsComponent imageUrl="/ads3.png" link="#" />
+                    <AdsComponent imageUrl="/ads4.png" link="#" />
+                    <AdsComponent imageUrl="/ads5.png" link="#" />
 
                 </Box>
             </Flex>

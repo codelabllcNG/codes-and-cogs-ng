@@ -41,7 +41,7 @@ const TalentExplorer  = () => {
   
   const viewProfile = (data: TalentInterface) => {
       editSelectedTalent(data);
-      router.push(`/bio`);
+      router.push(`/talents/bio`);
   };
  
   useEffect(()=>{

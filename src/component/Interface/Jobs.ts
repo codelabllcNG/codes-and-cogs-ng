@@ -30,7 +30,9 @@ export interface JobStoreInterface {
 
 export interface JobsParams {
   search?: string
-  cat?:string
+  type?:string
   limit?:string
   offset?:number
+  location?:string
 } 
+

@@ -9,7 +9,8 @@ import {
   Button,
   Image,
   SimpleGrid,
-  Input
+  Input,
+  Select
 } from "@chakra-ui/react";
 import Navigator from "@/component/navigator";
 import AdsComponent from "@/component/adsComponent";
@@ -25,7 +26,9 @@ import { useJobStore } from '@/store/jobStore';
 import { JobStoreInterface } from '@/component/Interface/Jobs';
 import { useGetJobstHook } from '@/component/Hooks/jobHooks';
 import { useGetCategoriesHook } from '@/component/Hooks/categoriesHook';
+import { useGetLocationHook } from "@/component/Hooks/locationHook";
 import LoadingSpinner from '@/component/loadingSpinner';
+import { LocationInterface } from "@/component/Interface/talents";
 
 
 
@@ -36,18 +39,19 @@ export default function JobListing() {
   // Local state for filter inputs.
   const [search, setSearch] = useState('');
   const [searchValue,setSearchValue] =useState('')
-  // State for filtered jobs and grouping/pagination.
-  const [selectedListingGroup, setSelectedListingGroup] = useState<JobInterface[]>([]);
+  const [location,setLocation] = useState()
   const [selectedListingGroupIndex, setSelectedListingGroupIndex] = useState(0);
-  const [listingGroup, setListingGroup] = useState<JobInterface[][]>([]);
   const editSelectedTalent = useJobStore((state: JobStoreInterface)=>state.editSelectedJob)
   const [activeIndex,setActiveIndex] = useState<number>(0)
   const [totalJobs,setTotalJobs] = useState<number>(0)
   const [jobs,setJobs] = useState<JobInterface[]>([])
   const [categories,setCategories] = useState<JobTypeInterface[]>([])
-  const [category,setCategory] =useState<string>()
+  const [type,setType] =useState<string>()
+  const [cat,setCat] =useState<string>()
+  const [locations,setLocations] = useState<LocationInterface[]>([])
   const {data:jobsData,isLoading:jobsIsLoading,refetchWithParams} = useGetJobstHook()
   const {data:categoriesData,isLoading:categoriesIsLoading} = useGetCategoriesHook()
+  const {data:locationData,isLoading:locationIsLoading} = useGetJobstHook()
   
 
   const viewJob = (job:JobInterface)=> {
@@ -71,17 +75,22 @@ export default function JobListing() {
       console.log({jobsData})
       setTotalJobs(jobsData?.total)
     },[jobsData])
-  
+    
+    useEffect(()=>{
+       console.log(locationData)
+       setLocations(locationData?.location)
+    },[locationData])
+
     useEffect(()=>{
       setCategories(categoriesData?.categories)
     },[categoriesData])
   
     useEffect(()=>{
       const offset = activeIndex * 4
-      const params = {search,category,offset}
+      const params = {search,type,location,offset}
       refetchWithParams(params)
       console.log({params})
-    },[search,category,activeIndex])
+    },[search,type,location,activeIndex])
   
     useEffect(()=>{
       if(search === '' ) return 
@@ -156,33 +165,48 @@ export default function JobListing() {
                 <Text fontWeight={'500'}>
                   <FormLabel>Job Type</FormLabel>
                 </Text>
-                <select
-                  style={{
-                    height: '50px',
-                    border: '1px solid #656060',
-                    borderRadius: '6px',
-                    paddingLeft: '0.5rem'
-                  }}
-                  value={category}
-                  onChange={(e) => setCategory(e.target.value)}
-                >
-                  <option value="">Select Job Type</option>
-                  {categories?.map((categories) => (
-                    <option key={categories.id} value={categories.id}>
-                      {categories.name}
-                    </option>
-                  ))}
-                </select>
+                   <Select
+                                  placeholder="Select"
+                                  variant="filled"
+                                  border={'1px solid #656060'}
+                                  h={'60px'}
+                                  w="100%"
+                                  bg={'transparent'}
+                                  onChange={(e) => {
+                                    setType(e.target.value)
+                                     setActiveIndex(0)
+                                  }}
+                                >
+                                  {categories?.map((category:any, index:number) => (
+                                    <option key={index} value={category.id}>
+                                      {category.name}
+                                    </option>
+                                  ))}
+                                </Select>
               </FormControl>
               <FormControl>
                 <Text fontWeight={'500'}>
                   <FormLabel>Location</FormLabel>
+                     <Select
+                                    placeholder="Select"
+                                    variant="filled"
+                                    border={'1px solid #656060'}
+                                    h={'60px'}
+                                    w="100%"
+                                    bg={'transparent'}
+                                    onChange={(e) => {
+                                      setCat(e.target.value)
+                                       setActiveIndex(0)
+                                    }}
+                                  >
+                                    {locations?.map((location, index:number) => (
+                                      <option key={index} value={location.id}>
+                                        {location.name}
+                                      </option>
+                                    ))}
+                                  </Select>
                 </Text>
-                <Input
-                  border={'1px solid #656060'}
-                  h={'50px'}
-                  placeholder="Location"
-                />
+
               </FormControl>
               <Button
                 width={{ lg: 'fit-content', base: '100%' }}
@@ -234,7 +258,7 @@ export default function JobListing() {
                       <Box p={'3rem 1rem'} borderBottom={'1px dotted rgba(136, 136, 136, 0.80)'}>
                         <Flex gap={'3rem'} mt={'1rem'} mb={'1rem'}>
                           <Box>
-                            <Image width={'70px'} height={'70px'} src={job.icon || "companyImage.png"} alt={job.title} />
+                            <Image width={'70px'} height={'70px'} src={job.icon} alt={job.title} />
                           </Box>
                           <Box>
                             <Heading fontWeight={'600'} fontSize={'27px'}>

@@ -176,7 +176,7 @@ export default function JobDescription (){
                                     color="#2E3192"
                                     fontWeight="bold"
                                     href="#"
-                                    onClick={()=>router.push('/consultant')}
+                                    onClick={()=>router.push('/talents/consultant')}
                                 >
                                     Learn More <ArrowForwardIcon ml={1} />
                                 </Link>

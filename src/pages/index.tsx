@@ -55,7 +55,8 @@ export default function Home({topTalents}:HomepageProp)  {
 
 
   const handleSearch = function(data:string){
-     router.push('/talents')
+     if(!data) return
+     router.push(`/talents?search=${data}`)
   }
   
 
