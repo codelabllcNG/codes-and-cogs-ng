@@ -17,20 +17,14 @@ import LoadingSpinner from '@/component/loadingSpinner';
 import { useGetTalentHook } from '@/component/Hooks/talentsHook';
 import { useGetCategoriesHook } from '@/component/Hooks/categoriesHook';
 import { JobTypeInterface } from '@/component/Interface/Jobs';
-import { TalentParams } from '@/component/Interface/talents';
 
 
 const Talents = () => {
-  // Client state for interactions
-  const [activeTab, setActiveTab] = useState('Well-Service Operators');
+  
   const [search, setSearch] = useState('');
   const [searchValue,setSearchValue] = useState ('')
-  const [talentsGroup, setTalentsGroup] = useState<TalentInterface[][]>([]);
-  const [selectedTalentsGroup, setSelectedTalentsGroup] = useState<TalentInterface[]>([]);
-  const [selectedTalentsGroupIndex, setSelectedTalentsGroupIndex] = useState(0);
   const {data:talentData,isLoading:talentIsLoading,refetchWithParams} = useGetTalentHook({limit:'8'})
-  const {data:categoriesData,isLoading:categoriesIsLoading} = useGetCategoriesHook()
-  const [numberOfTalent,setNumberOfTalent] = useState<number>()
+  const {data:categoriesData,isLoading:categoriesIsLoading} = useGetCategoriesHook({for:'talents'})
   const [talents,setTalents] = useState <TalentInterface[]>([])
   const [categories,setCategories] = useState <JobTypeInterface[]> ([])
   const [totalTalents,setTotalTalents] = useState<number>(0)
@@ -81,8 +75,10 @@ const Talents = () => {
 
   useEffect(()=>{
     const {search} = router.query
+    
     if(typeof search === 'string'){
       setSearch(search)
+      setSearchValue(search)
     }
     
   },[router.query])
@@ -119,6 +115,7 @@ const Talents = () => {
                 borderRadius={0}
                 border={'1px solid #656060'}
                 h={'60px'}
+                value={searchValue}
                 borderTopLeftRadius={'6px'}
                 borderBottomLeftRadius={'6px'}
                 flex="1"
@@ -168,9 +165,9 @@ const Talents = () => {
           </Flex>
 
           {/* Body */}
-          <Flex mt={'2rem'} flexDirection={['column', 'column', 'row']} pos={'relative'}>
+          <Flex alignItems={'center'} mt={'2rem'} flexDirection={['column', 'column', 'row']} pos={'relative'}>
             <LoadingSpinner showLoadingSpinner={false} />
-            <Box w={['100%', '100%', '100%']} p={[2, 4]} minH={'100vh'} pos={'relative'} >
+            <Box  display={talents?.length > 0 || talentIsLoading? 'block' : 'none' } w={['100%', '100%', '100%']} p={[2, 4]} minH={'100vh'} pos={'relative'} >
               <LoadingSpinner showLoadingSpinner={talentIsLoading} />
               <Grid templateColumns={['1fr', 'repeat(2, 1fr)', 'repeat(4, 1fr)']} gap={[4, 6]}>
                 {talents?.map((talent, index) => (
@@ -249,6 +246,16 @@ const Talents = () => {
                 </Flex>
               </Flex>
             </Box>
+            <Flex width={'100%'} display={talents?.length === 0 && !talentIsLoading? 'flex' : 'none' } flexDir={'column'} alignItems={'center'} mt={'2rem'}>
+              <Image src="/emptyState.svg" alt="No results" />
+              <Heading fontWeight={'500'} m={'2rem auto'} fontSize={'28px'}>
+                No Result
+              </Heading>
+              <Text>
+                There are currently no talents that match your filters.
+              </Text>
+            </Flex>
+
           </Flex>
         </Box>
       </Box>

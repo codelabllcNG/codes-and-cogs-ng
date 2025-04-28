@@ -1,10 +1,10 @@
 import { useMutation, useQueryClient ,useQuery} from '@tanstack/react-query';
 import { getLocation } from '../Services/locationService';
+import { LocationParams } from '../Interface/talents';
 
-export function useGetLocationHook(){
+export function useGetLocationHook(params:LocationParams){
     return useQuery({
-        queryFn: ({ queryKey }) => getLocation(), // Pass the params from queryKey[1]
-        queryKey: ['get talents']
+        queryFn: ({ queryKey }) => getLocation(params), // Pass the params from queryKey[1]
+        queryKey: ['get location']
     })
 }
-

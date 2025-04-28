@@ -10,7 +10,10 @@ export  interface CategoryInterface {
     name: string;
     // Add other properties if they exist in your category objects
   }
-  
+export interface CategoryParams {
+    for: string
+}  
+
 export  interface LocationInterface {
     id: number;
     name: string;
@@ -49,4 +52,8 @@ export  interface LocationInterface {
       cat?:string
       limit?:string
       offset?:number
+  }  
+
+  export interface LocationParams {
+    for?: string
   }  

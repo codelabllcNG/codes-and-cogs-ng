@@ -2,7 +2,7 @@ export interface JobInterface {
   id: number;
   title: string;
   icon: string;
-  location: string;
+  location: LocationInterface[];
   proposed_salary: string;
   work_type: string;
   similar_listings:JobInterface[]
@@ -18,6 +18,11 @@ export interface JobTypeInterface {
   name: string;
   active_icon : string;
   non_active_icon : string;
+}
+
+export interface LocationInterface{
+  id: number;
+  name:string;
 }
 
 export interface JobStoreInterface {

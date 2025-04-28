@@ -39,7 +39,7 @@ export default function JobListing() {
   // Local state for filter inputs.
   const [search, setSearch] = useState('');
   const [searchValue,setSearchValue] =useState('')
-  const [location,setLocation] = useState()
+  const [location,setLocation] = useState<string>()
   const [selectedListingGroupIndex, setSelectedListingGroupIndex] = useState(0);
   const editSelectedTalent = useJobStore((state: JobStoreInterface)=>state.editSelectedJob)
   const [activeIndex,setActiveIndex] = useState<number>(0)
@@ -47,11 +47,10 @@ export default function JobListing() {
   const [jobs,setJobs] = useState<JobInterface[]>([])
   const [categories,setCategories] = useState<JobTypeInterface[]>([])
   const [type,setType] =useState<string>()
-  const [cat,setCat] =useState<string>()
   const [locations,setLocations] = useState<LocationInterface[]>([])
   const {data:jobsData,isLoading:jobsIsLoading,refetchWithParams} = useGetJobstHook()
-  const {data:categoriesData,isLoading:categoriesIsLoading} = useGetCategoriesHook()
-  const {data:locationData,isLoading:locationIsLoading} = useGetJobstHook()
+  const {data:categoriesData,isLoading:categoriesIsLoading} = useGetCategoriesHook({for:'listing'})
+  const {data:locationData,isLoading:locationIsLoading} = useGetLocationHook({for:'listing'})
   
 
   const viewJob = (job:JobInterface)=> {
@@ -72,13 +71,11 @@ export default function JobListing() {
    
     useEffect(()=>{
       setJobs(jobsData?.listings)
-      console.log({jobsData})
       setTotalJobs(jobsData?.total)
     },[jobsData])
     
     useEffect(()=>{
-       console.log(locationData)
-       setLocations(locationData?.location)
+       setLocations(locationData?.categories)
     },[locationData])
 
     useEffect(()=>{
@@ -89,7 +86,6 @@ export default function JobListing() {
       const offset = activeIndex * 4
       const params = {search,type,location,offset}
       refetchWithParams(params)
-      console.log({params})
     },[search,type,location,activeIndex])
   
     useEffect(()=>{
@@ -182,11 +178,12 @@ export default function JobListing() {
                                       {category.name}
                                     </option>
                                   ))}
-                                </Select>
+                   </Select>
               </FormControl>
               <FormControl>
                 <Text fontWeight={'500'}>
                   <FormLabel>Location</FormLabel>
+                  </Text> 
                      <Select
                                     placeholder="Select"
                                     variant="filled"
@@ -195,8 +192,7 @@ export default function JobListing() {
                                     w="100%"
                                     bg={'transparent'}
                                     onChange={(e) => {
-                                      setCat(e.target.value)
-                                       setActiveIndex(0)
+                                      setLocation(e.target.value)
                                     }}
                                   >
                                     {locations?.map((location, index:number) => (
@@ -204,8 +200,8 @@ export default function JobListing() {
                                         {location.name}
                                       </option>
                                     ))}
-                                  </Select>
-                </Text>
+                     </Select>
+          
 
               </FormControl>
               <Button
@@ -266,9 +262,11 @@ export default function JobListing() {
                             </Heading>
                             <Flex alignItems={'center'}>
                               <IoLocationOutline fontSize={'32px'} />
-                              <Text fontWeight={'300'} fontSize={'15px'}>
-                                {job.location}
-                              </Text>
+                              {job.location.map((location,index)=>(
+                                        <Text key={index} fontWeight={'300'} fontSize={'15px'}>
+                                             {location.name}
+                                        </Text>
+                              ))}
                             </Flex>
                           </Box>
                         </Flex>
@@ -337,6 +335,6 @@ export default function JobListing() {
         </Box>
       </Flex>
 
-      </HeaderAndFooter>
+    </HeaderAndFooter>
   );
 }

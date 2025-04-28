@@ -129,7 +129,13 @@ const Consultant = ()=>{
                                                         </Box>
                                                         <Box>
                                                             <Heading fontWeight={'600'} fontSize={'27px'}>{job.title}</Heading>
-                                                            <Flex alignItems={'center'}> <IoLocationOutline fontSize={'32px'} fontWeight={'500'}/><Text fontWeight={'300'} fontSize={'15px'}>{job.location}</Text> </Flex>
+                                                            <Flex alignItems={'center'}> <IoLocationOutline fontSize={'32px'} fontWeight={'500'}/>
+                                                                {job.location.map((location,index)=>(
+                                                                <Text key={index} fontWeight={'300'} fontSize={'15px'}>
+                                                                    {location?.name}
+                                                                </Text>
+                                                                ))}
+                                                            </Flex>
                                                         </Box>
                                                     </Flex>
                                                     <Wrap spacing={2} gap={'2rem'} >
