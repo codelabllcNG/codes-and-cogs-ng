@@ -2,6 +2,13 @@ import { Box, Grid, Heading, Text, Link, VStack,Button } from "@chakra-ui/react"
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
 
+
+interface certificationInterface {
+  title : string;
+  subtitle :string;
+  description : string []
+}
+
 const certifications = [
   {
     title: "IWCF",
@@ -34,7 +41,7 @@ const CertificationGrid = () => {
       >
         {Array(6)
           .fill(certifications[0])
-          .map((cert, index) => (
+          .map((cert:certificationInterface, index) => (
             <Box
               key={index}
               p={6}
@@ -50,7 +57,7 @@ const CertificationGrid = () => {
                 {cert.subtitle}
               </Text>
               <VStack align="start" mt={3} spacing={2}>
-                {cert.description.map((line:any, i:any) => (
+                {cert.description.map((line, i:number) => (
                   <Text key={i} fontSize="sm" color="gray.700">
                     • {line}
                   </Text>

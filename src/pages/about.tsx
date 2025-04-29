@@ -1,7 +1,5 @@
-import Navigator from "@/component/navigator";
-import Footer from "@/component/footer";
-
-import { Box, Heading, Text, Image, Flex,SimpleGrid,Icon,Button } from "@chakra-ui/react";
+import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
+import { Box, Heading, Text, Image, Flex,Icon,Button } from "@chakra-ui/react";
 import { FaLightbulb, FaLeaf, FaUsers } from "react-icons/fa";
 
 const imageData = [
@@ -16,8 +14,7 @@ const imageData = [
 
 function About() {
   return (
-    <Box>
-      <Navigator />
+<HeaderAndFooter >
 
       {/*section 1  */}
       <Box
@@ -278,13 +275,12 @@ function About() {
                             
                         </Box>
                         <Box display={'flex'} justifyContent={'flex-end'} w={{base:'100%',sm:'100%',md:'100%',lg:'50%'}}>
-                             <Image src="AboutImage.svg"></Image>
+                             <Image alt="Media" src="AboutImage.svg"></Image>
                           </Box>
                       </Flex>
        </Flex>
 
-      <Footer />
-    </Box>
+ </HeaderAndFooter>
   );
 }
 

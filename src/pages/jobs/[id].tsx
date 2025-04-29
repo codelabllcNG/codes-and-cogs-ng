@@ -1,4 +1,4 @@
-import { Box ,Flex,Heading,Link,Text,Button,Image,useDisclosure} from "@chakra-ui/react";
+import { Box ,Flex,Heading,Link,Text,Button,useDisclosure} from "@chakra-ui/react";
 import AdsComponent from "@/component/adsComponent";
 import { FaRegMessage } from "react-icons/fa6";
 import { IoShareSocialOutline } from "react-icons/io5";
@@ -10,10 +10,9 @@ import { useEffect,useState } from "react";
 import { useGetJobByIdHook } from "@/component/Hooks/jobHooks";
 import LoadingSpinner from "@/component/loadingSpinner";
 import { timeAgo } from "@/component/utils";
-import { JobInterface,JobStoreInterface, JobTypeInterface } from "@/component/Interface/Jobs";
+import { JobInterface,JobTypeInterface } from "@/component/Interface/Jobs";
 import RegistrationForm from "@/component/registerForm";
 import EmailJobModal from "@/component/modal/emailModal";
-import ShareJobModal from "@/component/modal/shareModal";
 
 
 
@@ -24,7 +23,7 @@ export default function JobDescription (){
     const {data,isLoading,isRefetching,refetch} = useGetJobByIdHook(id) 
     const [job,setJob] = useState<JobInterface>()
     const [active,setActive] = useState('main-page')
-    const { isOpen: isShareOpen, onOpen: onShareOpen, onClose: onShareClose } = useDisclosure();
+    const { onOpen: onShareOpen} = useDisclosure();
     const { isOpen: isEmailOpen, onOpen: onEmailOpen, onClose: onEmailClose } = useDisclosure();
 
     useEffect(()=>{
@@ -87,7 +86,9 @@ export default function JobDescription (){
                                         <Text fontSize={'14px'} color={'#656060'}> {job?.applicants} Applicant </Text>
                                     </Flex>   
                                     {/* header */}
-                                    <Text mt={'2rem'} fontSize={'14px'} color={'#656060'}>Location: {job?.location}</Text> 
+                                    {job?.location.map((loc,index:number)=>(
+                                    <Text key={index} mt={'2rem'} fontSize={'14px'} color={'#656060'}>Location: {loc?.name}</Text> 
+                                    ))}
                                     <Text mb={'2rem'} fontSize={'14px'} color={'#656060'}>{timeAgo(String(job?.date))}</Text> 
                                     <Flex mb={'2rem'} gap={'2rem'}>
                                         {job?.job_type.map((jobType:JobTypeInterface,index:number)=>{
@@ -121,17 +122,20 @@ export default function JobDescription (){
 
                             {job?.similar_listings.map((job:JobInterface,index:number)=>{
                                 return(
-                                    <Box mt={'2rem'} border={'1px solid rgba(0, 0, 0, 0.25)'} borderRadius={'4px'} width={'100%'}>
+                                    <Box key={index} mt={'2rem'} border={'1px solid rgba(0, 0, 0, 0.25)'} borderRadius={'4px'} width={'100%'}>
                                     <Box p={'1rem'}>
                                       <Heading fontSize={'20px'} fontWeight={'600'}>{job.title}</Heading>
                                       <Flex alignItems={'center'} gap={'1rem'} mt={'1rem'}>
                                         <IoLocationOutline fontSize={'25px'} />
-                                        <Heading fontWeight={'500'} fontSize={'15px'}>{job.location}</Heading>
+                                        {job?.location.map((loc,index:number)=>(
+                                        <Heading key={index} fontWeight={'500'} fontSize={'15px'}>{loc.name}</Heading>
+
+                                        ))}
                                       </Flex>
                                       <Flex m={'1rem 0'} gap={'2rem'}>
                                          {job.job_type.map((jobType:JobTypeInterface,index:number)=>{
                                             return(
-                                              <Flex   p={2} borderRadius={'12px'}  bg={'rgba(136, 136, 136, 0.10)'} fontSize={['xs', 'sm']} >{jobType.name}</Flex>
+                                              <Flex key={index}   p={2} borderRadius={'12px'}  bg={'rgba(136, 136, 136, 0.10)'} fontSize={['xs', 'sm']} >{jobType.name}</Flex>
                                             )
                                          })}
                                        </Flex>  

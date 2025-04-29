@@ -1,4 +1,4 @@
-import { useMutation, useQueryClient ,useQuery} from '@tanstack/react-query';
+import { useMutation,useQuery} from '@tanstack/react-query';
 import { listOpening,getJobs,getJobsById,applyForListing } from '../Services/jobServices';
 import { JobsParams } from '../Interface/Jobs';
 import { useState } from 'react';

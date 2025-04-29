@@ -1,14 +1,11 @@
-import { Flex,Box,Text,Heading,Image,Link,Button } from "@chakra-ui/react";
-import Navigator from "@/component/navigator";
-import Footer from "@/component/footer";
-import { MdAllInbox } from "react-icons/md";
+import { Flex,Box,Text,Heading,Image,Button } from "@chakra-ui/react";
+import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
 
 
 
 const ThruTubing = ()=>{
     return(
-        <Box>
-            <Navigator />
+       <HeaderAndFooter>
               {/* section 1 */}
               <Box
                 maxWidth="2000px"
@@ -52,7 +49,7 @@ const ThruTubing = ()=>{
                                         borderColor="gray.200"
                                         w={{ base: "100%", sm: "100%", md: "45%", lg: "45%" }}
                                     >
-                                        <Image width={"100%"} src="Tt1.svg" />
+                                        <Image alt="Media" width={"100%"} src="Tt1.svg" />
                             
                                         <Heading mt={"1rem"} size="md">
                                         Low Reservoir Pressure Mitigation
@@ -69,7 +66,7 @@ const ThruTubing = ()=>{
                                         borderColor="gray.200"
                                         w={{ base: "100%", sm: "100%", md: "45%", lg: "45%" }}
                                     >
-                                        <Image width={"100%"} src="Wi2.svg" />
+                                        <Image alt="Media" width={"100%"} src="Wi2.svg" />
                             
                                         <Heading mt={"1rem"} size="md">
                                         Sand Encroachment Management
@@ -92,7 +89,7 @@ const ThruTubing = ()=>{
                                  borderColor="gray.200"
                                  w={{ base: "100%", sm: "100%", md: "45%", lg: "45%" }}
                                >
-                                 <Image width={"100%"} src="Wi3.svg" />
+                                 <Image alt="Media" width={"100%"} src="Wi3.svg" />
                      
                                  <Heading mt={"1rem"} size="md">
                                        Failed Screen or Gravel Pack Solutions
@@ -109,7 +106,7 @@ const ThruTubing = ()=>{
                                  borderColor="gray.200"
                                  w={{ base: "100%", sm: "100%", md: "45%", lg: "45%" }}
                                >
-                                 <Image width={"100%"} src="Wi1.svg" />
+                                 <Image alt="Media" width={"100%"} src="Wi1.svg" />
                      
                                  <Heading mt={"1rem"} size="md">
                                  Rejuvenation of Mature or Shut-In Wells
@@ -132,7 +129,7 @@ const ThruTubing = ()=>{
                                  borderColor="gray.200"
                                  w={{ base: "100%", sm: "100%", md: "45%", lg: "45%" }}
                                >
-                                 <Image width={"100%"} src="Wi3.svg" />
+                                 <Image alt="Media" width={"100%"} src="Wi3.svg" />
                      
                                  <Heading mt={"1rem"} size="md">
                                  Plugging and Zonal Isolation
@@ -149,7 +146,7 @@ const ThruTubing = ()=>{
                                  borderColor="gray.200"
                                  w={{ base: "100%", sm: "100%", md: "45%", lg: "45%" }}
                                >
-                                 <Image width={"100%"} src="Wi1.svg" />
+                                 <Image alt="Media" width={"100%"} src="Wi1.svg" />
                      
                                  <Heading mt={"1rem"} size="md">
                                  Wellbore Cleanouts
@@ -200,7 +197,7 @@ const ThruTubing = ()=>{
             width={{base:'100%',sm:'100%',md:'20%', lg:'30%'}}
             textAlign="center"
           >
-            <Image mx={'auto'} src="icon1.svg" />
+            <Image alt="Media" mx={'auto'} src="icon1.svg" />
             <Heading m={'1rem 0'} as="h3" size="md" mb={3} fontWeight={'500'} >
             AI-Driven Accuracy
             </Heading>
@@ -215,7 +212,7 @@ const ThruTubing = ()=>{
             width={{base:'100%',sm:'100%',md:'20%', lg:'30%'}}
             textAlign="center"
           >
-              <Image mx={'auto'} src="icon2.svg" />
+              <Image alt="Media" mx={'auto'} src="icon2.svg" />
             <Heading m={'1rem'} as="h3" size="md" mb={3} fontWeight={'500'} >
             Real-Time Insights
             </Heading>
@@ -230,7 +227,7 @@ const ThruTubing = ()=>{
             width={{base:'100%',sm:'100%',md:'20%', lg:'30%'}}
             textAlign="center"
           >
-              <Image mx={'auto'} src="icon3.svg" />
+              <Image alt="Media" mx={'auto'} src="icon3.svg" />
             <Heading m={'1rem'} as="h3" size="md" mb={3} fontWeight={'500'} >
             AI-Driven Accuracy
             </Heading>
@@ -269,8 +266,7 @@ const ThruTubing = ()=>{
                   </Box>
               </Box>
 
-            <Footer />
-        </Box>
+    </HeaderAndFooter>
     )
 }
 

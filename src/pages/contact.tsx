@@ -1,7 +1,5 @@
-import { Flex,Box,Heading,Text,FormControl,FormLabel,Select,Input,Image,Textarea,Button,Link,Checkbox } from "@chakra-ui/react";
+import { Flex,Box,Heading,Text,FormControl,FormLabel,Select,Input,Textarea,Button,Link,Checkbox } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
-import Navigator from "@/component/navigator";
-import Footer from "@/component/footer";
 import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
 
 const Contact = ()=>{

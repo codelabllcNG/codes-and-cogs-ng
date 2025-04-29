@@ -1,9 +1,6 @@
 import { Flex,Text,Heading,Box,Button,Image,Wrap,SimpleGrid, } from "@chakra-ui/react";
-import Navigator from "@/component/navigator";
 import Footer from "@/component/footer";
-import TalentExplorer from "@/component/talents";
 import RegistrationForm from "@/component/registerForm"
-import HowItWorks from "@/component/howItWorks"
 import { IoLocationOutline } from "react-icons/io5";
 import AdsComponent from "@/component/adsComponent";
 import { useState,useEffect } from "react";
@@ -18,15 +15,6 @@ import LoadingSpinner from "@/component/loadingSpinner";
 
 const Consultant = ()=>{
     const router = useRouter()
-
-    const [formData,setFormData] =useState({
-        "fname": "",
-        "lname": "",
-        "ctype":"",
-        "cname":"",
-        "email": "",
-        "cv": "",
-    })   
     const [jobs,setJobs] = useState<JobInterface[]>([]) 
     const {data,isLoading} = useGetJobstHook({limit:'4'})
     
@@ -125,7 +113,7 @@ const Consultant = ()=>{
                                                     <Box p={'3rem 1rem'} borderBottom={'1px dotted rgba(136, 136, 136, 0.80);'}>
                                                     <Flex gap={'3rem'} mt={'1rem'} mb={'1rem'}>
                                                         <Box>
-                                                            <Image width={'70px'} height={'70px'} src={job?.icon} />
+                                                            <Image alt="Media" width={'70px'} height={'70px'} src={job?.icon} />
                                                         </Box>
                                                         <Box>
                                                             <Heading fontWeight={'600'} fontSize={'27px'}>{job.title}</Heading>

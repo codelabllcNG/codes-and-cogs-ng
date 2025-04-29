@@ -26,8 +26,11 @@ const CompanySlideText = () => {
           md: '0rem 2rem',
           lg: '1rem 5rem'
         }} align="center" gap={4}  py={4}  background={'#383B9C'} >
-      <Heading  fontSize="18px" fontWeight="400" color={'white'} whiteSpace="nowrap">
+      <Heading display={{lg:'block',base:'none'}}  fontSize="18px" fontWeight="400" color={'white'} whiteSpace="nowrap">
         Companies who hire our talents:
+      </Heading>
+      <Heading display={{lg:'none',base:'block'}} fontSize="18px" fontWeight="400" color={'white'} whiteSpace="nowrap">
+        Companies:
       </Heading>
       
       <Box overflow="hidden" flex="1">

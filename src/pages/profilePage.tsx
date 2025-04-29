@@ -1,6 +1,4 @@
 import { Flex,Box,Heading,Text,Image,Button } from "@chakra-ui/react";
-import Navigator from "@/component/navigator";
-import Footer from "@/component/footer";
 import ProfileCard from "@/component/profileCard";
 import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
 

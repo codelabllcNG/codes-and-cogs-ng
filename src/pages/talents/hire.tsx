@@ -1,5 +1,3 @@
-import Navigator from "@/component/navigator";
-import Footer from "@/component/footer";
 import { useState } from "react";
 import {
     Box,
@@ -11,7 +9,6 @@ import {
     Flex,
     Text,
     Heading,
-    Image,
     Textarea,
     Link,
     
@@ -60,8 +57,13 @@ const HireTalent = ()=>{
             console.log(data)
             toast.success(data.message)
             
-        } catch (error:any) {
-            toast.error(error.message)
+        } catch (error:unknown) {
+            if (error instanceof Error) {
+                toast.error(error.message);
+              } else {
+                // Handle case when error is not an Error object
+                toast.error('An unknown error occurred');
+              }
         }finally{
             setLoading(false)
         }

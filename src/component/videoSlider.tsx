@@ -1,4 +1,4 @@
-import { Box, Button, IconButton, Flex, Text,Heading } from "@chakra-ui/react";
+import { Box, IconButton, Flex, Text,Heading } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { useRef, useState, useEffect } from "react";
 import Indicators from "./indicator";

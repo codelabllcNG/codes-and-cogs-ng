@@ -1,7 +1,6 @@
-import { Flex,Box,Text,Heading,Image,Link,Button } from "@chakra-ui/react";
+import { Flex,Box,Text,Heading,Image,Button } from "@chakra-ui/react";
 import Navigator from "@/component/navigator";
 import Footer from "@/component/footer";
-import { MdAllInbox } from "react-icons/md";
 
 
 
@@ -52,7 +51,7 @@ const WellInsight = ()=>{
                                  borderColor="gray.200"
                                  w={{ base: "100%", sm: "100%", md: "45%", lg: "45%" }}
                                >
-                                 <Image width={"100%"} src="Wi1.svg" />
+                                 <Image alt="Media" width={"100%"} src="Wi1.svg" />
                      
                                  <Heading mt={"1rem"} size="md">
                                      BHP Surveys Enhanced with AI     
@@ -69,7 +68,7 @@ const WellInsight = ()=>{
                                  borderColor="gray.200"
                                  w={{ base: "100%", sm: "100%", md: "45%", lg: "45%" }}
                                >
-                                 <Image width={"100%"} src="Wi2.svg" />
+                                 <Image alt="Media" width={"100%"} src="Wi2.svg" />
                      
                                  <Heading mt={"1rem"} size="md">
                                  Feeds-to-Images Solution with Downhole Cameras
@@ -92,7 +91,7 @@ const WellInsight = ()=>{
                                  borderColor="gray.200"
                                  w={{ base: "100%", sm: "100%", md: "45%", lg: "45%" }}
                                >
-                                 <Image width={"100%"} src="Wi3.svg" />
+                                 <Image alt="Media" width={"100%"} src="Wi3.svg" />
                      
                                  <Heading mt={"1rem"} size="md">
                                       Surface Well Testing with Smart Analytics  
@@ -109,7 +108,7 @@ const WellInsight = ()=>{
                                  borderColor="gray.200"
                                  w={{ base: "100%", sm: "100%", md: "45%", lg: "45%" }}
                                >
-                                 <Image width={"100%"} src="Wi1.svg" />
+                                 <Image alt="Media" width={"100%"} src="Wi1.svg" />
                      
                                  <Heading mt={"1rem"} size="md">
                                     BHP Surveys Enhanced With AI
@@ -160,7 +159,7 @@ const WellInsight = ()=>{
             width={{base:'100%',sm:'100%',md:'20%', lg:'30%'}}
             textAlign="center"
           >
-            <Image mx={'auto'} src="icon1.svg" />
+            <Image alt="Media" mx={'auto'} src="icon1.svg" />
             <Heading m={'1rem 0'} as="h3" size="md" mb={3} fontWeight={'500'} >
             AI-Driven Accuracy
             </Heading>
@@ -175,7 +174,7 @@ const WellInsight = ()=>{
             width={{base:'100%',sm:'100%',md:'20%', lg:'30%'}}
             textAlign="center"
           >
-              <Image mx={'auto'} src="icon2.svg" />
+              <Image alt="Media" mx={'auto'} src="icon2.svg" />
             <Heading m={'1rem'} as="h3" size="md" mb={3} fontWeight={'500'} >
             Real-Time Insights
             </Heading>
@@ -190,7 +189,7 @@ const WellInsight = ()=>{
             width={{base:'100%',sm:'100%',md:'20%', lg:'30%'}}
             textAlign="center"
           >
-              <Image mx={'auto'} src="icon3.svg" />
+              <Image alt="Media" mx={'auto'} src="icon3.svg" />
             <Heading m={'1rem'} as="h3" size="md" mb={3} fontWeight={'500'} >
             AI-Driven Accuracy
             </Heading>

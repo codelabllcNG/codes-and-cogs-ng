@@ -2,15 +2,10 @@ import {
     Box,
     VStack,
     Text,
-    Checkbox,
-    Divider,
     Flex,
-    Badge,
     Wrap,
-    WrapItem,
     Image
   } from "@chakra-ui/react";
-  import { FaRegCheckCircle, FaRegCircle, FaTag } from "react-icons/fa";
   import { GoBriefcase } from "react-icons/go";
   import { IoLocationOutline } from "react-icons/io5";
   
@@ -31,7 +26,7 @@ import {
     <Flex gap={'2rem'} alignItems={'center'}>
         <Box w={{base:'100%',lg:'40%'}}>
             <Flex justifyContent={'flex-end'}>
-            <Image src={'tra1.svg'} />
+            <Image alt="Media" src={'tra1.svg'} />
             </Flex>
         </Box>  
      

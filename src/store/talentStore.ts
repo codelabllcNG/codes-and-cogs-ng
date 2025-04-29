@@ -1,5 +1,4 @@
 import {create} from 'zustand'
-import { TalentInterface } from '@/component/Interface/talents'
 import { persist } from 'zustand/middleware'
 import { TalentStoreInterface } from '@/component/Interface/talents'
 

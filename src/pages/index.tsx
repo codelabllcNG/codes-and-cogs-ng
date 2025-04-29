@@ -1,10 +1,7 @@
-import { Box ,Flex,Heading,Text,Button,Image,SimpleGrid,Icon,useColorModeValue,InputGroup,InputRightElement,IconButton,Input} from "@chakra-ui/react";
-import Navigator from "@/component/navigator";
-import VideoSlider from "@/component/videoSlider";
+import { Box ,Flex,Heading,Text,Button,Image,SimpleGrid,Icon,InputGroup,InputRightElement,IconButton,Input} from "@chakra-ui/react";
 import ServiceComponent from "@/component/servicesComponent";
 import PartnersSection from "@/component/patternsSection";
 import CertificationGrid from "@/component/cerifications";
-import Footer from "@/component/footer";
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import TalentExplorer from "@/component/talents";
@@ -14,14 +11,14 @@ import { useRouter } from "next/router";
 import CompanySlideText from "@/component/companySlideText";
 import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
 import { GetServerSideProps } from "next";
-import { TalentInterface } from "@/component/Interface/talents";
-import { JobTypeInterface } from "@/component/Interface/Jobs";
+import { TalentInterface, TalentStoreInterface } from "@/component/Interface/talents";
+import { useTalentsStore } from '@/store/talentStore';
 
 interface HomepageProp{
   topTalents : TalentInterface[]
 }
 
-export const getServerSideProps : GetServerSideProps<HomepageProp> = async (context) => {
+export const getServerSideProps : GetServerSideProps<HomepageProp> = async () => {
    
 try {
   const topTalentsDataRes = await fetch('https://api.codesandcogs.com/oilandgas/api/codesandcogs/v1/talents?hero=true')
@@ -34,11 +31,13 @@ try {
       }
     }
 } catch (error) {
+  if(error){}
   return{
     props:{
       topTalents: []
     }
   }
+
 }
 
   
@@ -48,6 +47,12 @@ export default function Home({topTalents}:HomepageProp)  {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(1);
   const [search,setSearch] =useState('')
   const router=useRouter()
+  const editSelectedTalent = useTalentsStore((state: TalentStoreInterface) => state.editSelectedTalent);
+
+  const viewProfile = (data: TalentInterface) => {
+    editSelectedTalent(data);
+    router.push(`/talents/bio`);
+  };
 
   
     
@@ -117,6 +122,7 @@ export default function Home({topTalents}:HomepageProp)  {
                 sm: 'row'
               }}
               gap={2}
+              display={{lg:'flex',base:'none'}}
             >
               {[
                 {text:'Hire a Talent',url:'/talents'},
@@ -145,33 +151,34 @@ export default function Home({topTalents}:HomepageProp)  {
             </Flex>
 
             <Flex position="relative">
-              <InputGroup w="full" boxShadow="md">
-                <Input
-                  placeholder="Search skills/services..."
-                  bg="white"
-                  borderRadius="md"
-                  color={'black'}
-                  onChange={(e)=>setSearch(e.target.value)}
-                  p={{ base: '1rem', md: '1.5rem 1rem' }}
-                  _placeholder={{ 
-                    color: 'gray.500',
-                    fontSize: { base: '14px', sm: '16px' }
-                  }}
+            <InputGroup mt={'2rem'} w="full" boxShadow="md">
+              <Input
+                placeholder="Search skills/services..."
+                bg="white"
+                borderRadius="md"
+                color="black"
+                onChange={(e) => setSearch(e.target.value)}
+                p={{ base: '1rem', md: '1.5rem 1rem' }}
+                pr="4.5rem" // Add padding-right to make space for the button
+                _placeholder={{ 
+                  color: 'gray.500',
+                  fontSize: { base: '14px', sm: '16px' }
+                }}
+              />
+              <InputRightElement bg={'#2E3192'} borderRadius={'4px'} width="4.5rem" height="full">
+                <IconButton
+                  aria-label="Search"
+                  icon={<FaSearch />}
+                  variant="solid" // Changed from "ghost" for better visibility
+                  color="white"
+                  bg="#2E3192"
+                  h="90%" // Set specific height relative to parent
+                  w="90%" // Set specific width
+                  _hover={{ bg: 'gray.100', color: '#2E3192' }}
+                  onClick={() => handleSearch(search)}
                 />
-                <InputRightElement height="full" pr={6}>
-                  <IconButton
-                    aria-label="Search"
-                    icon={<FaSearch />}
-                    variant="ghost"
-                    color="white"
-                    bg="#2E3192"
-                    // size={{ base: 'sm', md: 'md', }}
-                    size={'lg'}
-                    _hover={{ bg: 'gray.100', color: '#2E3192' }}
-                    onClick={()=>handleSearch(search)}
-                  />
-                </InputRightElement>
-              </InputGroup>
+  </InputRightElement>
+            </InputGroup>
             </Flex>
           </Box>
 
@@ -182,7 +189,7 @@ export default function Home({topTalents}:HomepageProp)  {
             minH={{ base: '300px', md: '400px' }}
             mt={{ base: 8, md: 0 }}
           >
-            {topTalents.map((topTalents, index) => (
+            {topTalents.map((topTalent, index) => (
               <Box
                 key={index}
                 position="absolute"
@@ -204,7 +211,7 @@ export default function Home({topTalents}:HomepageProp)  {
               >
                 <Box
                   as="img"
-                  src={topTalents?.image}
+                  src={topTalent?.image}
                   alt={`Image ${index + 1}`}
                   w="full"
                   h="full"
@@ -214,22 +221,23 @@ export default function Home({topTalents}:HomepageProp)  {
                   transition="all 0.3s ease"
                   transform={hoveredIndex === index ? 'scale(1.05)' : 'scale(0.9)'}
                 />
+                <Box bg={'linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 100%);'} pos={'absolute'} bottom={'0'} left={'0'} w={'100%'} h={'50%'} ></Box>
                 <Box
                   position="absolute"
                   bottom="15px"
                   left="15px"
-                  bg="rgba(0, 0, 0, 0.6)"
                   color="white"
                   px={2}
                   py={1}
                   rounded="md"
                   fontSize={{ base: 'xs', sm: 'sm' }}
+                  onClick={()=>viewProfile(topTalent)}
                 >
                   <Heading fontSize={{ base: '14px', md: '18px' }} fontWeight="500">
-                    {topTalents?.name}
+                    {topTalent?.name}
                   </Heading>
                   <Text fontSize={{ base: '12px', md: '16px' }}>
-                     {topTalents?.expertises[0].name}
+                     {topTalent?.expertises[0].name}
                   </Text>
                 </Box>
               </Box>
@@ -367,7 +375,7 @@ export default function Home({topTalents}:HomepageProp)  {
                           
                       </Box>
                       <Box display={'flex'} justifyContent={'flex-end'} w={{base:'100%',sm:'100%',md:'100%',lg:'50%'}}>
-                          <Image width={'fill'} src="DISCOVER1.svg"></Image>
+                          <Image alt="Media" width={'fill'} src="DISCOVER1.svg"></Image>
                       </Box>
                 </Flex>
 
@@ -387,7 +395,7 @@ export default function Home({topTalents}:HomepageProp)  {
                         </Box>
                       </Flex>
                       <Box display={'flex'} width={"full"} justifyContent={'flex-start'} w={{base:'100%',sm:'100%',md:'100%',lg:'50%'}}>
-                          <Image src="DISCOVER2.svg"></Image>
+                          <Image alt="Media" src="DISCOVER2.svg"></Image>
                       </Box>
                 </Flex>
 

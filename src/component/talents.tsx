@@ -1,38 +1,27 @@
 
 
 import { useState,useEffect } from 'react';
-import { 
-  Tabs, TabList, Tab, TabPanels, TabPanel, 
-  Flex, Box, Text, Heading, Button, Icon, Image, Grid, GridItem 
-} from '@chakra-ui/react';
-import { 
-  FaOilCan, 
-  FaHardHat, 
-  FaWater, 
-  FaLaptopCode,
-  FaTools,
-  FaCertificate,
-  FaFish
-} from 'react-icons/fa';
-import { FaStethoscope } from 'react-icons/fa';
+import { Flex, Box, Text, Heading, Button, Image, Grid, GridItem } from '@chakra-ui/react';
+
 import { useRouter } from 'next/router';
 import React from 'react';
-import { JobTypeInterface } from './Interface/Jobs';
 import { TalentInterface } from './Interface/talents';
 import { useTalentsStore } from '@/store/talentStore';
 import { useGetTalentHook } from './Hooks/talentsHook';
 import { useGetCategoriesHook } from './Hooks/categoriesHook';
 import LoadingSpinner from './loadingSpinner';
 import AdsComponent from './adsComponent';
+import { JobTypeInterface } from './Interface/Jobs';
+import { TalentStoreInterface } from './Interface/talents';
 
 
 const TalentExplorer  = () => {
 
   const [activeTab, setActiveTab] = useState('');
-  const [talents,setTalents] =useState<any[]>([])
-  const [jobCategories,setJobcategories] = useState<any[]>([])
-  const editSelectedTalent = useTalentsStore((state: any) => state.editSelectedTalent);
-  const {data:jobCategoriesData,isLoading:jobCategoriesIsLoading} = useGetCategoriesHook()
+  const [talents,setTalents] =useState<TalentInterface[]>([])
+  const [jobCategories,setJobcategories] = useState<JobTypeInterface[]>([])
+  const editSelectedTalent = useTalentsStore((state: TalentStoreInterface) => state.editSelectedTalent);
+  const {data:jobCategoriesData} = useGetCategoriesHook({for:'talent'})
   const {data:talentsData,isLoading:isTalentLoading,refetchWithParams} = useGetTalentHook({limit:'3'})
   
 
@@ -57,7 +46,7 @@ const TalentExplorer  = () => {
 
   useEffect(()=>{
     const cat = jobCategories?.find((category)=>category.name === activeTab)
-    refetchWithParams({cat:cat?.id,limit:'3'})
+    refetchWithParams({cat:String(cat?.id),limit:'3'})
   },[activeTab])
 
   return (
@@ -71,7 +60,7 @@ const TalentExplorer  = () => {
       px={[2, 4, 0]}
     >
       <Flex minW="max-content" justifyContent={['start', 'start', 'space-between']} w="100%">
-        {jobCategories?.map((category:any, index:any) => (
+        {jobCategories?.map((category, index:number) => (
           <Flex 
             key={index}
             p={['1rem', '2rem 0']} 
@@ -99,7 +88,7 @@ const TalentExplorer  = () => {
           templateColumns={['1fr', 'repeat(2, 1fr)', 'repeat(3, 1fr)']} 
           gap={[4, 6]}
         >
-          {talents?.map((talent:any, index:any) => (
+          {talents?.map((talent, index:number) => (
             <GridItem key={index} w="100%">
               <Box w={'100%'} boxShadow={'lg'} p={2}>
                 <Image w={'100%'} src={talent?.image} />
@@ -111,7 +100,7 @@ const TalentExplorer  = () => {
                 </Text>
                 <Text fontSize={['xs', '14px']} color={'#333'}>Expertise</Text>
                 <Flex mt={3} wrap="wrap" gap={2}>
-                  {talent.expertises?.map((skill:any, skillIndex:any) => (
+                  {talent.expertises?.map((skill, skillIndex:number) => (
                     <Flex 
                       key={skillIndex} 
                       p={2} 

@@ -12,10 +12,8 @@ import {
   Input,
   Select
 } from "@chakra-ui/react";
-import Navigator from "@/component/navigator";
 import AdsComponent from "@/component/adsComponent";
 import { IoLocationOutline } from "react-icons/io5";
-import Footer from "@/component/footer";
 import { useState, useEffect } from "react";
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 import { useRouter } from "next/router";
@@ -49,8 +47,8 @@ export default function JobListing() {
   const [type,setType] =useState<string>()
   const [locations,setLocations] = useState<LocationInterface[]>([])
   const {data:jobsData,isLoading:jobsIsLoading,refetchWithParams} = useGetJobstHook()
-  const {data:categoriesData,isLoading:categoriesIsLoading} = useGetCategoriesHook({for:'listing'})
-  const {data:locationData,isLoading:locationIsLoading} = useGetLocationHook({for:'listing'})
+  const {data:categoriesData} = useGetCategoriesHook({for:'listing'})
+  const {data:locationData,} = useGetLocationHook({for:'listing'})
   
 
   const viewJob = (job:JobInterface)=> {
@@ -67,6 +65,10 @@ export default function JobListing() {
       if(activeIndex <= 0) return
       setActiveIndex(activeIndex -1)
     };
+
+    const reset = ()=>{
+      setSearchValue('');setType('');setLocation('');setActiveIndex(0)
+    }
   
    
     useEffect(()=>{
@@ -133,6 +135,7 @@ export default function JobListing() {
                 h={'60px'}
                 borderTopLeftRadius={'6px'}
                 borderBottomLeftRadius={'6px'}
+                value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
               />
               <Button
@@ -145,8 +148,8 @@ export default function JobListing() {
                 textColor={'white'}
                 bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"
                 boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"
-                // Optionally, trigger filtering on button click (if not auto-filtering)
                 onClick={() => setSearch(searchValue)}
+               
               >
                 Search
               </Button>
@@ -168,12 +171,13 @@ export default function JobListing() {
                                   h={'60px'}
                                   w="100%"
                                   bg={'transparent'}
+                                  value={type}
                                   onChange={(e) => {
                                     setType(e.target.value)
                                      setActiveIndex(0)
                                   }}
                                 >
-                                  {categories?.map((category:any, index:number) => (
+                                  {categories?.map((category, index:number) => (
                                     <option key={index} value={category.id}>
                                       {category.name}
                                     </option>
@@ -191,6 +195,7 @@ export default function JobListing() {
                                     h={'60px'}
                                     w="100%"
                                     bg={'transparent'}
+                                    value={location}
                                     onChange={(e) => {
                                       setLocation(e.target.value)
                                     }}
@@ -204,27 +209,17 @@ export default function JobListing() {
           
 
               </FormControl>
+  
               <Button
                 width={{ lg: 'fit-content', base: '100%' }}
                 mt={{ lg: '2.5rem', base: '0.4rem' }}
                 borderRadius="4px"
+                h={'60px'}
                 padding={'12px 24px'}
                 textColor={'white'}
                 bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"
                 boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"
-                // This button is optional since filtering happens as you change inputs.
-                onClick={() => {}}
-              >
-                Filter
-              </Button>
-              <Button
-                width={{ lg: 'fit-content', base: '100%' }}
-                mt={{ lg: '2.5rem', base: '0.4rem' }}
-                borderRadius="4px"
-                padding={'12px 24px'}
-                textColor={'white'}
-                bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"
-                boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"
+                onClick={reset}
               >
                 Reset
               </Button>
@@ -262,7 +257,7 @@ export default function JobListing() {
                             </Heading>
                             <Flex alignItems={'center'}>
                               <IoLocationOutline fontSize={'32px'} />
-                              {job.location.map((location,index)=>(
+                              {job.location?.map((location,index)=>(
                                         <Text key={index} fontWeight={'300'} fontSize={'15px'}>
                                              {location.name}
                                         </Text>

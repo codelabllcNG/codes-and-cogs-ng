@@ -1,4 +1,4 @@
-import { Box, Flex, Text, VStack, Heading,Image, Link } from "@chakra-ui/react";
+import { Box, Flex, Text, Heading,Image, Link } from "@chakra-ui/react";
 import { useState } from "react";
 
 interface TabContent {

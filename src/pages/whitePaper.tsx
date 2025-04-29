@@ -45,7 +45,7 @@ const WhitePaper =()=>{
                 >
                     <Flex flexDir={{base:'column-reverse',lg:'row'}} alignItems={'center'}>
                             <Box w={{base:'100%',lg:'30%'}}>
-                            <Image src="wp.svg" />
+                            <Image alt="Media" src="wp.svg" />
                             </Box>
                             <Box w={{base:'100%',lg:'70%'}}>
                             <Text>Over the years, in the upstream oil and gas industry, ensuring the integrity and functionality of Pressure Control Equipment (PCE) is critical to the safety of personnel, assets, and the environment during well intervention operations. </Text>

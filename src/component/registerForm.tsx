@@ -4,15 +4,11 @@ import {
     FormControl,
     FormLabel,
     Input,
-    Select,
-    Stack,
-    VisuallyHidden,
     Flex,
     Text,
     Heading,
   } from '@chakra-ui/react';
-  import { useRef,useState } from 'react';
-  import { useForm } from 'react-hook-form';
+  import {useState } from 'react';
   import { toast } from 'react-toastify';
   import LoadingSpinner from './loadingSpinner';
   import { useRegisterTogetListedHook } from './Hooks/talentsHook';
@@ -22,20 +18,9 @@ import {
     listing_id?: string
   }
 
-  interface FormData {
-    firstName: string;
-    lastName: string;
-    companyType: string;
-    companyName: string;
-    wordEmail: string;
-    updatedCP: string;
-    file: FileList;
-    listing_id?: string
-  }
   
  
  const RegistrationForm : React.FC<RegistrationFormProp> = ({listing_id})=>{
-    const [fileName, setFileName] = useState('');
     const [file, setFile] = useState<File>();
     const [loading,setLoading] = useState(false)
     const mutation = useRegisterTogetListedHook()
@@ -95,8 +80,13 @@ import {
                 toast.success(data.message)
 
                 
-            } catch (error:any) {
-                toast.error(error.message)
+            } catch (error: unknown) {
+                if (error instanceof Error) {
+                    toast.error(error.message);
+                  } else {
+                    // Handle case when error is not an Error object
+                    toast.error('An unknown error occurred');
+                  }
             }finally{
                 setLoading(false)
             }
@@ -162,7 +152,6 @@ import {
                                             onChange={(e) => {
                                                 const selectedFile = e.target.files?.[0];
                                                 if (selectedFile) {
-                                                    setFileName(selectedFile.name);
                                                     setFile(selectedFile)
                                                 }
                                             }}

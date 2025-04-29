@@ -1,13 +1,10 @@
 import { Flex,Box,Heading,Text,Image,Button,VStack,Wrap,Grid,GridItem, } from "@chakra-ui/react";
-import Navigator from "@/component/navigator";
-import Footer from "@/component/footer";
-import ProfileCard from "@/component/profileCard";
 import { useRouter } from "next/router";
 import { useGetTalentHook } from "@/component/Hooks/talentsHook";
 import { useEffect,useState } from "react";
 import { TalentInterface } from "@/component/Interface/talents";
 import { GoBriefcase } from "react-icons/go";
-import { IoLocationOutline ,IoTime } from "react-icons/io5";
+import { IoTime } from "react-icons/io5";
 import {useTalentsStore} from "@/store/talentStore";
 import { TalentStoreInterface } from "@/component/Interface/talents";
 import StarRating from "@/component/starRating";
@@ -79,7 +76,7 @@ const TalentProfile =()=>{
                                   <Heading fontSize={'20px'} fontWeight={'500'} color={'white'} mb={'1rem'}>Code and Cogs Rating</Heading>
                                   <StarRating rating={Number(talent?.rating)} />
                                </Box>
-                               <Image w={'full'} src={talent?.image} />
+                               <Image alt="Media" w={'full'} src={talent?.image} />
                            </Flex>
                        </Box>  
                     
@@ -131,7 +128,7 @@ const TalentProfile =()=>{
                            <Wrap spacing={2}>
                              
                                {talent?.certifications_credentials.map((certificate, certificateIndex) => (
-                                   <Image width={'50px'} key={certificateIndex} height={'50px'} src={certificate?.name} />
+                                   <Image alt="Media" width={'50px'} key={certificateIndex} height={'50px'} src={certificate?.name} />
                                    ))}
                            </Wrap>
                            <Button onClick={()=>router.push('/talents/hire')} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Hire {talent?.name.split(' ')[0]}</Button>
@@ -165,7 +162,7 @@ const TalentProfile =()=>{
                                                         {talents?.map((talent, index) => (
                                                             <GridItem key={index} w="100%">
                                                             <Box w={'100%'} boxShadow={'lg'} p={2}>
-                                                                <Image w={'100%'} src={talent.image} />
+                                                                <Image alt="Media" w={'100%'} src={talent.image} />
                                                                 <Heading m={'0.2rem 0'} fontSize={['md', '20px']} color={'#333'}>
                                                                 {talent?.name}
                                                                 </Heading>

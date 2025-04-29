@@ -1,6 +1,4 @@
 import { Flex,Box,Heading,Text,Button,Image, } from "@chakra-ui/react";
-import Navigator from "@/component/navigator";
-import Footer from "@/component/footer";
 import { useState } from "react";
 import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
 
@@ -88,34 +86,34 @@ const Training = ()=>{
                                 <Text mb={5}> Participants, get ready to be equipped with oil and gas industry skills and recognised certifications. Taking place in Port Harcourt, Rivers State, this 3 weeks training offers the perfect blend of theoretical knowledge and hands-on practice in:</Text>
                                 <Box display={'flex'} flexDir={'column'} gap={'1rem'}>
                                     <Flex p={3} gap={2} alignItems={'center'} bg={'#F5F4F4'} borderRadius={'4px'} width={'fit-content'}>
-                                        <Image src="checkic.svg" />
+                                        <Image alt="Media" src="checkic.svg" />
                                         <Text>HSE Level 1-4</Text>
                                     </Flex>
                                     <Flex p={3} gap={2} alignItems={'center'} bg={'#F5F4F4'} borderRadius={'4px'} width={'fit-content'}>
-                                        <Image src="checkic.svg" />
+                                        <Image alt="Media" src="checkic.svg" />
                                         <Text>IWCF Level 2-4</Text>
                                     </Flex>
                                     <Flex p={3} gap={2} alignItems={'center'} bg={'#F5F4F4'} borderRadius={'4px'} width={'fit-content'}>
-                                        <Image src="checkic.svg" />
+                                        <Image alt="Media" src="checkic.svg" />
                                         <Text>BHP Well Testing</Text>
                                     </Flex>
                                     <Flex p={3} gap={2} alignItems={'center'} bg={'#F5F4F4'} borderRadius={'4px'} width={'fit-content'}>
-                                        <Image src="checkic.svg" />
+                                        <Image alt="Media" src="checkic.svg" />
                                         <Text>Data Acquisition</Text>
                                     </Flex>
                                     <Flex p={3} gap={2} alignItems={'center'} bg={'#F5F4F4'} borderRadius={'4px'} width={'fit-content'}>
-                                        <Image src="checkic.svg" />
+                                        <Image alt="Media" src="checkic.svg" />
                                         <Text>Basic Slickline Operations</Text>
                                     </Flex>
                                     <Flex p={3} gap={2} alignItems={'center'} bg={'#F5F4F4'} borderRadius={'4px'} width={'fit-content'}>
-                                        <Image src="checkic.svg" />
+                                        <Image alt="Media" src="checkic.svg" />
                                         <Text>Advanced Slickline Operations</Text>
                                     </Flex>
                                 </Box>
                             </Box>
 
                             <Box w={{lg:'50%',sm:'100%'}} display={'flex'} justifyContent={'flex-end'}>
-                                        <Image src={'trainingVideo.svg'} />
+                                        <Image alt="Media" src={'trainingVideo.svg'} />
                             </Box>
                         </Flex>
                         
@@ -167,7 +165,7 @@ const Training = ()=>{
                                 onMouseEnter={()=>setActiveEqupiment(item.name)}
                                 onMouseLeave={()=>setActiveEqupiment('')}
                             >
-                                <Image
+                                <Image 
                                     src={item.image}
                                     alt={item.name}
                                     w="100%"
@@ -304,7 +302,7 @@ const Training = ()=>{
                             <Button width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Enroll Now </Button>
                         </Box>
                         <Box display={'flex'} justifyContent={'flex-end'} w={{base:'100%',lg:'50%'}}>
-                            <Image src={'harrison.svg'} />
+                            <Image alt="Media" src={'harrison.svg'} />
                         </Box>
                     </Flex>
                 </Box>

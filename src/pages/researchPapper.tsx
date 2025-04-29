@@ -1,6 +1,4 @@
-import { Flex,Box,Button,Heading,Image,Text,Link } from "@chakra-ui/react";
-import Navigator from "@/component/navigator";
-import Footer from "@/component/footer";
+import { Flex,Box,Heading,Image,Text,Link } from "@chakra-ui/react";
 import { FcLike } from "react-icons/fc";
 import { CiHeart } from "react-icons/ci";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
@@ -22,7 +20,7 @@ const ResearchPapper = ()=>{
             >
             <Heading m={{base:'1rem 0',lg:'3rem 0'}} color={'#0D0F3A'}>University Of Oil And Gas</Heading>
 
-                 <Image src="rp.svg" width={'100%'} />
+                 <Image alt="Media" src="rp.svg" width={'100%'} />
                             <Heading color={'#414141'} fontSize={'18px'} mt={'1rem'}>01 Jan, 2024 | 3:45PM</Heading>
                             <Flex alignItems={'center'}  mt={{base:'1rem',lg:'3rem'}} justifyContent={'space-between'}>
                                <Heading color={'#0F0F0F'} >Blockchain and Smart Contracts in Oil and Gas</Heading>
@@ -65,9 +63,9 @@ const ResearchPapper = ()=>{
                         },
                     }}
                     >
-                    {[1, 2, 3, 4, 5].map((item) => (
-                                 <Box   minWidth={{ base: "300px", md: "400px" }} cursor={'pointer'} bg={' rgba(237, 244, 255, 0.20);'} borderRadius={'8px'} p={2} boxShadow={'0px 4.443px 16.663px 0px rgba(0, 0, 0, 0.08)'}>
-                                            <Image src="rp.svg" width={'100%'} />
+                    {[1, 2, 3, 4, 5].map((_,index:number) => (
+                                 <Box key={index}  minWidth={{ base: "300px", md: "400px" }} cursor={'pointer'} bg={' rgba(237, 244, 255, 0.20);'} borderRadius={'8px'} p={2} boxShadow={'0px 4.443px 16.663px 0px rgba(0, 0, 0, 0.08)'}>
+                                            <Image alt="Media" src="rp.svg" width={'100%'} />
                                             <Heading color={'#414141'} fontSize={'12px'} mt={3}>01 Jan, 2024 | 3:45PM</Heading>
                                             <Heading color={'#0F0F0F'} fontSize={'18px'} mt={{base:'1rem',lg:'3rem'}}>Blockchain and Smart Contracts in Oil and Gas</Heading>
                                             <Text fontSize={'14px'} fontWeight={'400'} mt={'1rem'} noOfLines={4}>Discover how blockchain and smart contracts are improving transparency, reducing fraud, and ensuring the security of transactions in the oil and gas industry Discover how blockchain and smart contracts are improving Discover how blockchain and smart contracts are improving transparency, reducing fraud, and ensuring the security of transactions in the oil and gas industry</Text>

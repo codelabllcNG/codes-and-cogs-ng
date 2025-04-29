@@ -14,7 +14,7 @@ export const DesktopView : React.FC<Prop> = ({activeLink}) =>{
       <Flex bg={'white'} height={'15vh'} padding={'1.5rem 5rem'} maxWidth={'2000px'}  mx={'auto'} textColor={'white'} display={{lg:'flex',md:'none',sm:'none',base:'none'}} >
         <Flex alignItems={'center'} justifyContent={'space-between'} width={'100%'} >
             {/* Logo */}
-            <Image src="/LOGO.svg"/>
+            <Image alt="Media" src="/LOGO.svg"/>
 
             {/* menu */}
             <Flex  gap={'3rem'}  >
@@ -66,8 +66,8 @@ export const MobileView = () =>{
       <Flex bg={'white'}  mx={'auto'} textColor={'white'} display={{lg:'none',md:'flex',sm:'flex',base:'flex'}} >
          <Flex padding={{lg:'1.5rem 5rem',md:'1.5rem 2rem',sm:'1rem',base:'1rem'}} alignItems={'center'} justifyContent={'space-between'} width={'100%'} >
             {/* Logo */}
-            <Image src="LOGO.svg"/>
-            <Icon as={GiHamburgerMenu} color={'black'} onClick={()=>setShowMobileMenu(true)} />
+            <Image alt="Media" src="/LOGO.svg"/>
+            <Icon as={GiHamburgerMenu} fontSize={'35px'} color={'black'} onClick={()=>setShowMobileMenu(true)} />
         </Flex>
         <Box zIndex={'100'}  display={showModileMenu?'block':'none'} bg={'#0A0A0A'} position={'fixed'} h={'100vh'} w={'100%'}>
            <Flex justifyContent={'flex-end'}>

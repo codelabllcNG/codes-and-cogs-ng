@@ -1,6 +1,4 @@
 import { Flex,Box,Text,Image,Heading,Button } from "@chakra-ui/react";
-import Navigator from "@/component/navigator";
-import Footer from "@/component/footer";
 import CertificationGrid from "@/component/cerifications";
 import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
 
@@ -50,7 +48,7 @@ const certificationPage = ()=>{
                                     </Button>
                                 </Box>
                                 <Box w={{sm:'100%',lg:'100%'}}>
-                                    <Image src="ctv.svg"/>
+                                    <Image alt="Media" src="ctv.svg"/>
                                 </Box>
                             </Flex>
                         
@@ -89,19 +87,19 @@ const certificationPage = ()=>{
                                   <Text mb={5}>Codes and Cogs offers certification programs that are globally recognized and trusted in the oil and gas industry. Our certifications are designed for professionals aiming to enhance their skills, improve their career prospects, and gain expertise in key oilfield and safety areas.</Text>
                                    <Box display={'flex'} flexDir={'column'} gap={'1rem'}>
                                         <Flex p={3} gap={2} alignItems={'center'} bg={'#F5F4F4'} borderRadius={'4px'} width={'fit-content'}>
-                                            <Image src="checkic.svg" />
+                                            <Image alt="Media" src="checkic.svg" />
                                             <Text>Practical Knowledge</Text>
                                         </Flex>
                                         <Flex p={3} gap={2} alignItems={'center'} bg={'#F5F4F4'} borderRadius={'4px'} width={'fit-content'}>
-                                            <Image src="checkic.svg" />
+                                            <Image alt="Media" src="checkic.svg" />
                                             <Text>Global Career oppurtunities</Text>
                                         </Flex>
                                         <Flex p={3} gap={2} alignItems={'center'} bg={'#F5F4F4'} borderRadius={'4px'} width={'fit-content'}>
-                                            <Image src="checkic.svg" />
+                                            <Image alt="Media" src="checkic.svg" />
                                             <Text>Industry Recognized Credentials</Text>
                                         </Flex>
                                         <Flex p={3} gap={2} alignItems={'center'} bg={'#F5F4F4'} borderRadius={'4px'} width={'fit-content'}>
-                                            <Image src="checkic.svg" />
+                                            <Image alt="Media" src="checkic.svg" />
                                             <Text>Highly Skilled Facilitators</Text>
                                         </Flex>
                                    </Box>
@@ -119,7 +117,7 @@ const certificationPage = ()=>{
                                 </Box>
 
                                 <Box w={{lg:'50%',sm:'100%'}} display={'flex'} justifyContent={'flex-end'}>
-                                          <Image src={'ctimg1.svg'} />
+                                          <Image alt="Media" src={'ctimg1.svg'} />
                                 </Box>
                             </Flex>
                          
@@ -226,12 +224,12 @@ const certificationPage = ()=>{
                         >
 
                             <Flex>
-                                <Image mx={'auto'} src="comingsoon.svg" />
+                                <Image alt="Media" mx={'auto'} src="comingsoon.svg" />
                             </Flex>
 
                             <Flex alignItems={'center'} m={'2rem 0'}>
                                 <Box w={{base:'100%',lg:'50%'}} display={'flex'} >
-                                    <Image mx={'auto'} src="csimg.svg" />
+                                    <Image alt="Media" mx={'auto'} src="csimg.svg" />
                                 </Box>
                                 <Box w={{base:'100%',lg:'50%'}}>
                                     <Text>Cohort 1 of our 2025 certification program is drawing close. This time, the program is curated to cover comprehensive and hands-on trainings  on slickline operations, HSE, IWCF, BHP Well Testing, and Data Acquisition. </Text>

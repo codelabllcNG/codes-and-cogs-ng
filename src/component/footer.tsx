@@ -3,11 +3,9 @@ import {
     Flex,
     Heading,
     Text,
-    VStack,
     Input,
     Button,
     Link,
-    HStack,
     IconButton,
     Image
   } from "@chakra-ui/react";
@@ -80,7 +78,7 @@ import {
           {/* Logo & Newsletter */}
           <Flex flexDir={'column'} gap={'2rem'}>
              <Box>
-             <Image src={'/LOGO-WHITE.svg'}/>
+             <Image alt="Media" src={'/LOGO-WHITE.svg'}/>
              </Box>
             <Text fontSize="sm">Subscribe to our Newsletter</Text>
             <Flex bg="gray.800" p={2} borderRadius="md">

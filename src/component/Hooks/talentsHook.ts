@@ -1,4 +1,4 @@
-import { useMutation, useQueryClient ,useQuery} from '@tanstack/react-query';
+import { useMutation,useQuery} from '@tanstack/react-query';
 import { getTalents,hireTalent,registToGetListed } from '../Services/talentsService';
 import { useState,useCallback } from 'react';
 import { TalentParams } from '../Interface/talents';

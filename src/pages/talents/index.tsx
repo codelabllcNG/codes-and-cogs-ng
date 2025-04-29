@@ -1,22 +1,17 @@
 
-
-import { GetServerSideProps } from 'next';
-import { TalentInterface } from '@/component/Interface/talents';
-import { CategoryInterface } from '@/component/Interface/talents';
+import { TalentInterface, TalentStoreInterface } from '@/component/Interface/talents';
 import { useState, useEffect } from 'react';
-import Navigator from "@/component/navigator";
-import Footer from "@/component/footer";
 import { IoMdArrowBack, IoMdArrowForward } from 'react-icons/io';
-import { 
-  Flex, Box, Text, Heading, Button, Image, Grid, GridItem,
-  FormControl, FormLabel, Select, Input
-} from '@chakra-ui/react';
+import { Flex, Box, Text, Heading, Button, Image, Grid, GridItem,FormControl, FormLabel, Select, Input } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { useTalentsStore } from '@/store/talentStore';
 import LoadingSpinner from '@/component/loadingSpinner';
 import { useGetTalentHook } from '@/component/Hooks/talentsHook';
 import { useGetCategoriesHook } from '@/component/Hooks/categoriesHook';
+import { useGetLocationHook } from '@/component/Hooks/locationHook';
 import { JobTypeInterface } from '@/component/Interface/Jobs';
+import { LocationInterface } from '@/component/Interface/talents';
+import HeaderAndFooter from '@/component/layout/HeaderAndFooter';
 
 
 const Talents = () => {
@@ -24,15 +19,18 @@ const Talents = () => {
   const [search, setSearch] = useState('');
   const [searchValue,setSearchValue] = useState ('')
   const {data:talentData,isLoading:talentIsLoading,refetchWithParams} = useGetTalentHook({limit:'8'})
-  const {data:categoriesData,isLoading:categoriesIsLoading} = useGetCategoriesHook({for:'talents'})
+  const {data:locationData} = useGetLocationHook({for:'listing'})
+  const {data:categoriesData} = useGetCategoriesHook({for:'talent'})
   const [talents,setTalents] = useState <TalentInterface[]>([])
   const [categories,setCategories] = useState <JobTypeInterface[]> ([])
+  const [locations,setLocations] = useState <LocationInterface[]> ([])
+  const [location,setLocation] = useState<string>('')
   const [totalTalents,setTotalTalents] = useState<number>(0)
   const [activeIndex,setActiveIndex] = useState(0)
   const [cat,setCat] = useState('')
   
   const router = useRouter();
-  const editSelectedTalent = useTalentsStore((state: any) => state.editSelectedTalent);
+  const editSelectedTalent = useTalentsStore((state: TalentStoreInterface) => state.editSelectedTalent);
 
   // Pagination control functions
   const goNext = () => {
@@ -57,16 +55,21 @@ const Talents = () => {
   },[talentData])
 
   useEffect(()=>{
+    console.log({categoriesData})
     setCategories(categoriesData?.categories)
   },[categoriesData])
 
   useEffect(()=>{
+    console.log({locationData})
+    setLocations(locationData?.categories)
+  },[locationData])
+
+  useEffect(()=>{
     const offset = activeIndex * 8
-    const params = {search,cat,offset}
-    console.log({params})
+    const params = {search,cat,offset,location}
     refetchWithParams(params)
     
-  },[search,cat,activeIndex])
+  },[search,cat,activeIndex,location])
 
   useEffect(()=>{
     if(search === '' ) return 
@@ -84,9 +87,8 @@ const Talents = () => {
   },[router.query])
 
   return (
-    <Box>
-      <Navigator />
 
+    <HeaderAndFooter>
       <Box
         maxWidth="2000px"
         mx="auto"
@@ -109,7 +111,7 @@ const Talents = () => {
         <Box w={'100%'}>
           {/* Header - Now scrollable on mobile */}
           <Flex flexDirection={['column', 'column', 'row']} gap={4} alignItems="flex-end">
-            <Flex flex={{ lg: '0 0 70%', md: '1', sm: '1', base: '1' }} w="100%">
+            <Flex flex={{ lg: '0 0 50%', md: '1', sm: '1', base: '1' }} w="100%">
               <Input
                 placeholder="Enter Key Word..."
                 borderRadius={0}
@@ -137,7 +139,7 @@ const Talents = () => {
               </Button>
             </Flex>
 
-            <FormControl flex={{ lg: '0 0 30%', md: '1', sm: '1', base: '1' }} w="100%">
+            <FormControl flex={{ lg: '0 0 24%', md: '1', sm: '1', base: '1' }} w="100%">
               <Flex direction="column" w="100%">
                 <Text fontWeight={'500'} mb={1}>
                   <FormLabel>Filter by Category</FormLabel>
@@ -154,9 +156,35 @@ const Talents = () => {
                      setActiveIndex(0)
                   }}
                 >
-                  {categories?.map((category:any, index:number) => (
+                  {categories?.map((category, index:number) => (
                     <option key={index} value={category.id}>
                       {category.name}
+                    </option>
+                  ))}
+                </Select>
+              </Flex>
+            </FormControl>
+
+            <FormControl flex={{ lg: '0 0 24%', md: '1', sm: '1', base: '1' }} w="100%">
+              <Flex direction="column" w="100%">
+                <Text fontWeight={'500'} mb={1}>
+                  <FormLabel>Filter by Location</FormLabel>
+                </Text>
+                <Select
+                  placeholder="Select"
+                  variant="filled"
+                  border={'1px solid #656060'}
+                  h={'60px'}
+                  w="100%"
+                  bg={'transparent'}
+                  onChange={(e) => {
+                    setLocation(e.target.value)
+                     setActiveIndex(0)
+                  }}
+                >
+                  {locations?.map((location, index:number) => (
+                    <option key={index} value={location.id}>
+                      {location.name}
                     </option>
                   ))}
                 </Select>
@@ -259,9 +287,7 @@ const Talents = () => {
           </Flex>
         </Box>
       </Box>
-
-      <Footer />
-    </Box>
+</HeaderAndFooter>
   );
 };
 

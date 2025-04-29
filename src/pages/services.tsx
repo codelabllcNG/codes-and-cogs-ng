@@ -1,6 +1,4 @@
 import { Flex, Box, Heading, Text, Link, Image,Button } from "@chakra-ui/react";
-import Navigator from "@/component/navigator";
-import Footer from "@/component/footer";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
 
@@ -70,7 +68,7 @@ const Services = () => {
             borderColor="gray.200"
             w={{ base: "100%", sm: "100%", md: "45%", lg: "45%" }}
           >
-            <Image width={"100%"} src="Service1.svg" />
+            <Image alt="Media" width={"100%"} src="Service1.svg" />
 
             <Heading mt={"1rem"} size="md">
               Well Insight Services
@@ -100,7 +98,7 @@ const Services = () => {
             borderColor="gray.200"
             w={{ base: "100%", sm: "100%", md: "45%", lg: "45%" }}
           >
-            <Image width={"100%"} src="Service2.svg" />
+            <Image alt="Media" width={"100%"} src="Service2.svg" />
 
             <Heading mt={"1rem"} size="md">
               Thru Tubing Re-Entry Solutions
@@ -137,7 +135,7 @@ const Services = () => {
             borderColor="gray.200"
             w={{ base: "100%", sm: "100%", md: "45%", lg: "45%" }}
           >
-            <Image width={"100%"} src="Service3.svg" />
+            <Image alt="Media" width={"100%"} src="Service3.svg" />
 
             <Heading mt={"1rem"} size="md">
               NDT and PCE Integrity Testing
@@ -166,7 +164,7 @@ const Services = () => {
             borderColor="gray.200"
             w={{ base: "100%", sm: "100%", md: "45%", lg: "45%" }}
           >
-            <Image width={"100%"} src="Service4.svg" />
+            <Image alt="Media" width={"100%"} src="Service4.svg" />
 
             <Heading mt={"1rem"} size="md">
               Equipment Rentals
