@@ -1,8 +1,8 @@
 
 
 import { useState,useEffect } from 'react';
-import { Flex, Box, Text, Heading, Button, Image, Grid, GridItem } from '@chakra-ui/react';
-
+import { Flex, Box, Text, Heading, Button, Image,Menu,MenuButton,MenuList,MenuItem } from '@chakra-ui/react';
+import { ChevronDownIcon } from '@chakra-ui/icons';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { TalentInterface } from './Interface/talents';
@@ -59,7 +59,8 @@ const TalentExplorer  = () => {
       borderBottom={'1px solid #CCC'}
       px={[2, 4, 0]}
     >
-      <Flex minW="max-content" justifyContent={['start', 'start', 'space-between']} w="100%">
+      {/* desktop view */}
+      <Flex display={{lg:'flex',base:'none'}} minW="max-content" justifyContent={'space-between'} w="100%">
         {jobCategories?.map((category, index:number) => (
           <Flex 
             key={index}
@@ -78,18 +79,77 @@ const TalentExplorer  = () => {
           </Flex>
         ))}
       </Flex>
+       
+      {/* mobile view */}
+      <Box w={'100%'} display={{lg:'none',base:'block'}}>
+      <Menu >
+      <MenuButton
+      
+        as={Button}
+        rightIcon={<ChevronDownIcon />}
+        w="100%"
+        h="60px"
+        bg="transparent"
+        border="1px solid #656060"
+        textAlign="left"
+      >
+        {/* show currently selected */}
+        <Flex align="center">
+          {/** render the icon of current */}
+          {jobCategories?.find((c) => c.name === activeTab) && (
+            <Image
+              src={
+                jobCategories?.find((c) => c.name === activeTab)!
+                  .active_icon
+              }
+              boxSize="1.5rem"
+              mr={2}
+            />
+          )}
+          <Text>
+            {activeTab || "Select a category"}
+          </Text>
+        </Flex>
+      </MenuButton>
+      <MenuList maxH="300px" overflowY="auto">
+        {jobCategories?.map((category) => (
+          <MenuItem
+            key={category.name}
+            onClick={() => setActiveTab(category.name)}
+          >
+            <Flex align="center">
+              <Image
+                src={category.active_icon}
+                boxSize="1.5rem"
+                mr={2}
+              />
+              <Text>{category.name}</Text>
+            </Flex>
+          </MenuItem>
+        ))}
+      </MenuList>
+      </Menu>
+      </Box>
+
     </Flex>
 
     {/* Body - Stack on mobile */}
     <Flex mt={'2rem'} flexDirection={['column', 'column', 'row']}>
       <Box w={['100%', '100%', '80%']} p={[2, 4]} pos={'relative'}>
         <LoadingSpinner showLoadingSpinner={isTalentLoading} />
-        <Grid 
-          templateColumns={['1fr', 'repeat(2, 1fr)', 'repeat(3, 1fr)']} 
-          gap={[4, 6]}
-        >
+        <Flex
+          overflowX={'auto'} 
+          justifyContent={'space-between'}
+          p={2}
+          css={{
+            "&::-webkit-scrollbar": {
+              display: "none",
+            },
+          }}
+          >
+          
           {talents?.map((talent, index:number) => (
-            <GridItem key={index} w="100%">
+            <Box  key={index} flex="0 0 auto" minW={{lg:'24vw',base:'90vw'}} boxShadow="lg" borderRadius="md" >
               <Box w={'100%'} boxShadow={'lg'} p={2}>
                 <Image w={'100%'} src={talent?.image} />
                 <Heading m={'0.2rem 0'} fontSize={['md', '20px']} color={'#333'}>
@@ -116,9 +176,9 @@ const TalentExplorer  = () => {
                 <Button  onClick={()=>viewProfile(talent)} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)">  View Profile </Button>
                       
               </Box>
-            </GridItem>
+            </Box>
           ))}
-        </Grid>
+        </Flex>
         <Box display={'flex'} mt={'2rem'}>
           <Button onClick={()=>router.push('/talents')} width={'fit-content'} mx={'auto'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Discover More Talents </Button>
         </Box>

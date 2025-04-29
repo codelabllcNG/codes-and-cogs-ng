@@ -1,3 +1,4 @@
+
 export function timeAgo(dateStr: string): string {
     const inputDate = new Date(dateStr.replace(' ', 'T')); // convert to valid ISO format
     const now = new Date();
@@ -23,3 +24,16 @@ export function timeAgo(dateStr: string): string {
     return 'just now';
   }
   
+
+ export  function upperCaseFirstLetter (data: string){
+    const names = data.split(' ')
+    const upperCaseNames : string[] = [] 
+
+    names.forEach((name)=>{
+      const fisrtLetter = name.slice(0,1).toLocaleUpperCase()
+      const remainingLetters = name.slice(1).toLocaleLowerCase()
+      upperCaseNames.push(fisrtLetter + remainingLetters)
+    })
+
+    return upperCaseNames.join(' ')
+  }

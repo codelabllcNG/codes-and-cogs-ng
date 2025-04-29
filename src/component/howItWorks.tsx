@@ -32,7 +32,7 @@ const HowItWorks = () => {
         description: 'You match our standards? Submit your details below.'
       }
     ],
-    'Become A Talent': [
+    'Join Talents': [
       {
         image: '/register.svg',
         title: 'Register With Us',
@@ -49,7 +49,7 @@ const HowItWorks = () => {
         description: 'You match our standards? Submit your details below.'
       }
     ],
-    'List Your Opening': [
+    'List Opening': [
       {
         image: '/explore.svg',
         title: 'Need Specific Skill?',
@@ -70,8 +70,8 @@ const HowItWorks = () => {
 
   return (
     <Box maxWidth="2000px" bg="#EDF2FC" p={{ lg: "5rem 5rem", md: "1.5rem 2rem", base: "1rem" }}>
-      <Heading mb={2} color="#2E3192" fontWeight="600" textAlign="center">
-        HOW IT WORKS
+      <Heading mb={2} fontSize={{lg:'30px',base:'20px'}} color="#2E3192" fontWeight="600" textAlign="center">
+        HOW OUR PLATFORM WORKS
       </Heading>
 
       <Flex
@@ -79,12 +79,11 @@ const HowItWorks = () => {
         borderRadius="48px"
         bg="#4C4FB0"
         p="1rem"
-        flexDirection={{ base: 'column', sm: 'row' }}
         gap={2}
         width={{ base: '100%', lg: '50%' }}
         mx="auto"
       >
-        {['Employer', 'Become A Talent', 'List Your Opening'].map((tab) => (
+        {['Employer', 'Join Talents', 'List Opening'].map((tab) => (
           <Box
             key={tab}
             borderRadius="48px"

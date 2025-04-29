@@ -1,12 +1,15 @@
-import { Box, Grid, Heading, Text, Link, VStack,Button } from "@chakra-ui/react";
+import { Box, Grid, Heading, Text, Link, VStack, Button } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
 
+// Wrap Chakra Box with framer-motion
+const MotionBox = motion(Box);
 
 interface certificationInterface {
-  title : string;
-  subtitle :string;
-  description : string []
+  title: string;
+  subtitle: string;
+  description: string[];
 }
 
 const certifications = [
@@ -18,17 +21,18 @@ const certifications = [
       "Covers pressure control, equipment usage, blowout prevention, and safety procedures.",
     ],
   },
-  // Repeat the object to match the design (6 cards)
+  // ...additional certification entries
 ];
 
 const CertificationGrid = () => {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <Box textAlign="center">
-      <Heading size="lg" m={'2rem 0'} color={'#1C55E0'} fontWeight={'600'}>
+      <Heading size="lg" m="2rem 0" color="#1C55E0" fontWeight="600">
         CERTIFICATION TRAINING FOR INDUSTRY EXCELLENCE
       </Heading>
-      <Text mt={'2rem'} maxW="700px" mx="auto" color="gray.600">
+
+      <Text mt="2rem" maxW="700px" mx="auto" color="gray.600">
         Navigating the oil and gas sector demands top-tier expertise and professional skills.
         Designed to meet the best standards, our certification trainings ensure you achieve
         excellence and remain competitive in the industry.
@@ -41,9 +45,10 @@ const CertificationGrid = () => {
       >
         {Array(6)
           .fill(certifications[0])
-          .map((cert:certificationInterface, index) => (
-            <Box
+          .map((cert: certificationInterface, index) => (
+            <MotionBox
               key={index}
+              role="group"
               p={6}
               borderRadius="md"
               boxShadow="sm"
@@ -51,14 +56,23 @@ const CertificationGrid = () => {
               borderColor="gray.200"
               bg="white"
               textAlign="left"
+              // Flip animation
+              initial={{ rotateY: 90, opacity: 0 }}
+              whileInView={{ rotateY: 0, opacity: 1 }}
+              viewport={{ once: false, amount: 0.5 }}
+              transition={{ duration: 0.8 }}
+              // Background flip on hover
+              whileHover={{ backgroundColor: "#2E3192" }}
             >
-              <Heading size="md">{cert.title}</Heading>
-              <Text fontWeight="semibold" color="gray.500">
+              <Heading size="md" _groupHover={{ color: "white" }}>
+                {cert.title}
+              </Heading>
+              <Text fontWeight="semibold" color="gray.500" _groupHover={{ color: "white" }}>
                 {cert.subtitle}
               </Text>
               <VStack align="start" mt={3} spacing={2}>
-                {cert.description.map((line, i:number) => (
-                  <Text key={i} fontSize="sm" color="gray.700">
+                {cert.description.map((line, i: number) => (
+                  <Text key={i} fontSize="sm" color="gray.700" _groupHover={{ color: "white" }}>
                     • {line}
                   </Text>
                 ))}
@@ -70,15 +84,26 @@ const CertificationGrid = () => {
                 color="blue.500"
                 fontWeight="bold"
                 href="#"
+                _groupHover={{ color: "white" }}
               >
                 Read More <ArrowForwardIcon ml={1} />
               </Link>
-            </Box>
+            </MotionBox>
           ))}
       </Grid>
-       
-         <Button onClick={()=>router.push('/certifications')} width={'fit-content'} m={'2rem auto'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> See All Certification </Button>              
 
+      <Button
+        onClick={() => router.push('/certifications')}
+        width="fit-content"
+        m="2rem auto"
+        borderRadius="4px"
+        padding="12px 24px"
+        textColor="white"
+        bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"
+        boxShadow="2px 5px 5px rgba(51, 51, 51, 0.15)"
+      >
+        See All Certification
+      </Button>
     </Box>
   );
 };

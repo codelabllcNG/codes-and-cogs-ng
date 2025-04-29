@@ -13,6 +13,7 @@ import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
 import { GetServerSideProps } from "next";
 import { TalentInterface, TalentStoreInterface } from "@/component/Interface/talents";
 import { useTalentsStore } from '@/store/talentStore';
+import { upperCaseFirstLetter } from "@/component/utils";
 
 interface HomepageProp{
   topTalents : TalentInterface[]
@@ -98,7 +99,7 @@ export default function Home({topTalents}:HomepageProp)  {
             pr={{ md: 8 }} 
             w={{ base: '100%', md: '50%' }}
           >
-            <Heading fontWeight={'500'} lineHeight={'normal'}>
+            <Heading fontWeight={'500'} fontSize={{base:'26px',lg:'50px'}} textAlign={{base:'center',lg:'left'}}  lineHeight={'normal'}>
               Elevate Your <br />
                 <Heading 
                           as="span"
@@ -106,6 +107,7 @@ export default function Home({topTalents}:HomepageProp)  {
                           color="white"
                           fontWeight={'500'}
                           mr={3}
+                          fontSize={{base:'26px',lg:'50px'}} 
                           >
                           Business 
                     </Heading>
@@ -117,17 +119,12 @@ export default function Home({topTalents}:HomepageProp)  {
               borderRadius="48px" 
               bg="#4C4FB0" 
               p="0.4rem"
-              flexDirection={{
-                base: 'column',
-                sm: 'row'
-              }}
               gap={2}
-              display={{lg:'flex',base:'none'}}
             >
               {[
-                {text:'Hire a Talent',url:'/talents'},
-                {text:'Lite Your Opening',url:'/openings'},
-                {text:'Work With Us',url:'/contact'}].map((item, index) => (
+                {mobiletext:'Hire Talent',text:'Hire a Talent',url:'/talents'},
+                {mobiletext:'List Opening',text:'List Your Opening',url:'/jobs/openings'},
+                {mobiletext:'Join Talent',text:'Work With Us',url:'/talents/consultant'}].map((item, index) => (
                 <Box 
                   key={item.text}
                   borderRadius="48px" 
@@ -145,12 +142,17 @@ export default function Home({topTalents}:HomepageProp)  {
                   }}
                   onClick={()=>router.push(item.url)}
                 >
-                  {item.text}
+                         <Box display={{ base: "none", md: "block" }}>
+                          {item.text}
+                        </Box>
+                        <Box display={{ base: "block", md: "none" }}>
+                          {item.mobiletext}
+                        </Box>
                 </Box>
               ))}
             </Flex>
 
-            <Flex position="relative">
+            <Flex display={{lg:'flex',base:'none'}} position="relative">
             <InputGroup mt={'2rem'} w="full" boxShadow="md">
               <Input
                 placeholder="Search skills/services..."
@@ -174,7 +176,7 @@ export default function Home({topTalents}:HomepageProp)  {
                   bg="#2E3192"
                   h="90%" // Set specific height relative to parent
                   w="90%" // Set specific width
-                  _hover={{ bg: 'gray.100', color: '#2E3192' }}
+                  _hover={{background:" #2E3192"}}
                   onClick={() => handleSearch(search)}
                 />
   </InputRightElement>
@@ -187,7 +189,7 @@ export default function Home({topTalents}:HomepageProp)  {
             w={{ base: '100%', md: '50%' }}
             position="relative" 
             minH={{ base: '300px', md: '400px' }}
-            mt={{ base: 8, md: 0 }}
+            mt={{ base: 2, md: 0 }}
           >
             {topTalents.map((topTalent, index) => (
               <Box
@@ -234,15 +236,46 @@ export default function Home({topTalents}:HomepageProp)  {
                   onClick={()=>viewProfile(topTalent)}
                 >
                   <Heading fontSize={{ base: '14px', md: '18px' }} fontWeight="500">
-                    {topTalent?.name}
+                    {upperCaseFirstLetter(topTalent?.name)}
                   </Heading>
                   <Text fontSize={{ base: '12px', md: '16px' }}>
-                     {topTalent?.expertises[0].name}
+                     {upperCaseFirstLetter(topTalent?.expertises[0].name)}
                   </Text>
                 </Box>
               </Box>
             ))}
           </Box>
+
+          <Flex display={{lg:'none',base:'flex'}} >
+                  <InputGroup m={'1rem 0'} w="full" boxShadow="md">
+                    <Input
+                      placeholder="Search skills/services..."
+                      bg="white"
+                      borderRadius="md"
+                      color="black"
+                      onChange={(e) => setSearch(e.target.value)}
+                      p={{ base: '1rem', md: '1.5rem 1rem' }}
+                      pr="4.5rem" // Add padding-right to make space for the button
+                      _placeholder={{ 
+                        color: 'gray.500',
+                        fontSize: { base: '14px', sm: '16px' }
+                      }}
+                    />
+                    <InputRightElement bg={'#2E3192'} borderRadius={'4px'} width="4.5rem" height="full">
+                      <IconButton
+                        aria-label="Search"
+                        icon={<FaSearch />}
+                        variant="solid" // Changed from "ghost" for better visibility
+                        color="white"
+                        bg="#2E3192"
+                        h="90%" // Set specific height relative to parent
+                        w="90%" // Set specific width
+                        _hover={{background:" #2E3192"}}
+                        onClick={() => handleSearch(search)}
+                      />
+                    </InputRightElement>
+                  </InputGroup>
+          </Flex>
         </Flex>
      <CompanySlideText />
       </Flex>
@@ -371,7 +404,7 @@ export default function Home({topTalents}:HomepageProp)  {
                           <Text>Artificial Intelligence/Machine Learning capabilities are embedded in our well-testing procedures and other oilfield solutions. Codes and Cogs also unites industry professionals and offer comprehensive talent recruitment, and specialized training.</Text>
                           </Box>
 
-                          <Button onClick={()=>router.push('/about')} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> About Us </Button>
+                          <Button _hover={{background:" #2E3192"}} onClick={()=>router.push('/about')} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> About Us </Button>
                           
                       </Box>
                       <Box display={'flex'} justifyContent={'flex-end'} w={{base:'100%',sm:'100%',md:'100%',lg:'50%'}}>
@@ -391,7 +424,7 @@ export default function Home({topTalents}:HomepageProp)  {
                                <Text>The job fair would serve as the launch for the Codes and Cogs Talent platform. Top exploration and production, and oilfield services companies would also be present, and top talents would get a chance to land leading opportunities in Nigeria oil and gas industries.</Text>
                           </Box>
 
-                          <Button onClick={()=>router.push('/trainning')} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Explore Details </Button>
+                          <Button _hover={{background:" #2E3192"}} onClick={()=>router.push('/trainning')} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Explore Details </Button>
                         </Box>
                       </Flex>
                       <Box display={'flex'} width={"full"} justifyContent={'flex-start'} w={{base:'100%',sm:'100%',md:'100%',lg:'50%'}}>
