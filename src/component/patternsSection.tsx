@@ -51,6 +51,7 @@ const PartnersSection = () => {
           {/* First set of logos */}
           {partnerLogos.map((logo, index) => (
             <Box 
+              key={index}
               flexShrink={0}
               width="180px" 
               height="90px"
@@ -72,6 +73,7 @@ const PartnersSection = () => {
           {/* Duplicate set of logos to create seamless loop */}
           {partnerLogos.map((logo, index) => (
          <Box 
+         key={index}
          flexShrink={0}
          width="180px" 
          height="90px"

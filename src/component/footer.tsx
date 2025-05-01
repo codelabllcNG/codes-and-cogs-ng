@@ -6,10 +6,8 @@ import {
     Input,
     Button,
     Link,
-    IconButton,
     Image
   } from "@chakra-ui/react";
-  import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
   import { RiInstagramLine, RiLinkedinBoxLine ,RiFacebookCircleLine,RiTwitterXFill  } from "react-icons/ri";
   
   const Footer = () => {
