@@ -29,7 +29,7 @@ const CertificationGrid = () => {
   const router = useRouter();
   return (
     <Box textAlign="center">
-      <Heading size="lg" m="2rem 0" color="#1C55E0" fontWeight="600">
+      <Heading size="lg" m={{lg:"2rem 0",base:"1rem 0"}} color="#1C55E0" fontWeight="600">
         CERTIFICATION TRAINING FOR INDUSTRY EXCELLENCE
       </Heading>
 
@@ -96,7 +96,7 @@ const CertificationGrid = () => {
       <Button
         onClick={() => router.push('/certifications')}
         width="fit-content"
-        m="2rem auto"
+        m={{lg:"2rem auto",base:"1rem auto"}}
         borderRadius="4px"
         padding="12px 24px"
         textColor="white"

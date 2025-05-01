@@ -16,7 +16,7 @@ const marqueeAnimation = keyframes`
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 `;
 
@@ -31,47 +31,66 @@ const PartnersSection = () => {
       </Text>
 
       {/* Marquee container */}
-      <Flex 
-        m={'6rem 0'}
+      <Box 
         position="relative"
-        width="100vw"
-        left="50%"
-        right="50%"
-        ml="-50vw"
-        mr="-50vw"
+        width="100%"
+        overflow="hidden"
+        m={'3rem 0'}
       >
-        <Box
-          display="flex"
-          animation={`${marqueeAnimation} 20s linear infinite`}
+        <Flex
+          position="relative"
+          width="max-content"
+          animation={`${marqueeAnimation} 15s linear infinite`}
           sx={{ 
             willChange: "transform",
-            // Makes the marquee loop seamlessly
             '&:hover': {
               animationPlayState: 'paused'
             }
           }}
         >
-          {[...partnerLogos, ...partnerLogos].map((logo, index) => (
+          {/* First set of logos */}
+          {partnerLogos.map((logo, index) => (
             <Box 
-              key={index} 
               flexShrink={0}
-              minWidth="200px"
-              mx={8}
+              width="180px" 
+              height="90px"
+              mx={1}
               display="flex"
               alignItems="center"
               justifyContent="center"
             >
-              <Image 
-                src={logo} 
-                alt={`Partner ${index + 1}`} 
-                maxH="60px" 
-                width="auto"
-                objectFit="contain"
-              />
+                <Image 
+                  src={logo} 
+                  alt={`Partner ${index + 1}`} 
+                  maxW="100%" 
+                  maxH="100%"
+                  objectFit="contain"
+                />
             </Box>
           ))}
-        </Box>
-      </Flex>
+          
+          {/* Duplicate set of logos to create seamless loop */}
+          {partnerLogos.map((logo, index) => (
+         <Box 
+         flexShrink={0}
+         width="180px" 
+         height="90px"
+         mx={1}
+         display="flex"
+         alignItems="center"
+         justifyContent="center"
+       >
+         <Image 
+           src={logo} 
+           alt={`Partner ${index + 1}`} 
+           maxW="100%" 
+           maxH="100%"
+           objectFit="contain"
+         />
+       </Box>
+          ))}
+        </Flex>
+      </Box>
     </Box>
   );
 };

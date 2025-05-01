@@ -99,10 +99,11 @@ export default function Home({topTalents}:HomepageProp)  {
           <Box 
             color="white" 
             flex={1} 
-            pr={{ md: 8 }} 
+            pr={{ md: 8 }}
             w={{ base: '100%', md: '50%' }}
           >
-            <Heading fontWeight={'500'} fontSize={{base:'26px',lg:'50px'}} textAlign={{base:'center',lg:'left'}}  lineHeight={'normal'}>
+
+            <Heading fontWeight={'500'} fontSize={{base:'26px',lg:'36px'}} textAlign={{base:'center',lg:'left'}}  lineHeight={'normal'}>
               Elevate Your <br />
                 <Heading 
                           as="span"
@@ -110,13 +111,15 @@ export default function Home({topTalents}:HomepageProp)  {
                           color="white"
                           fontWeight={'500'}
                           mr={3}
-                          fontSize={{base:'26px',lg:'50px'}} 
+                          fontSize={{base:'26px',lg:'36px'}} 
                           >
                           Business 
                     </Heading>
                           with the Top 1% <br />Oil & Gas Talents in Nigeria
             </Heading>
 
+            
+      
             <Flex 
               m={{ base: '1.5rem 0', md: '2rem 0' }} 
               borderRadius="48px" 
@@ -191,7 +194,7 @@ export default function Home({topTalents}:HomepageProp)  {
           <Box 
             w={{ base: '100%', md: '50%' }}
             position="relative" 
-            minH={{ base: '300px', md: '400px' }}
+            // minH={{ base: '300px', md: '400px' }}
             mt={{ base: 2, md: 0 }}
           >
             {topTalents.map((topTalent, index) => (
@@ -456,6 +459,7 @@ export default function Home({topTalents}:HomepageProp)  {
         alignItems="center"
         px={4}
         py={{ base: 4, lg: 8 }}
+        gap={'3rem'}
       >
         <Box w={{ base: "100%", lg: "50%" }}>
           <Heading
@@ -505,6 +509,7 @@ export default function Home({topTalents}:HomepageProp)  {
         alignItems="center"
         px={4}
         py={{ base: 4, lg: 8 }}
+        gap={'3rem'}
       >
         <Box w={{ base: "100%", lg: "50%" }}>
           <Heading
@@ -555,7 +560,7 @@ export default function Home({topTalents}:HomepageProp)  {
 
 
       <Flex flexDir={'column'}  maxWidth={'2000px'} bg={''}  mx={'auto'} textColor={''}  padding={{lg:'1.5rem 5rem',md:'1.5rem 2rem',sm:'1rem',base:'1rem'}}>        
-      <PartnersSection />
+          <PartnersSection />
       </Flex>
 
       </HeaderAndFooter>
