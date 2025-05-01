@@ -14,6 +14,11 @@ import { GetServerSideProps } from "next";
 import { TalentInterface, TalentStoreInterface } from "@/component/Interface/talents";
 import { useTalentsStore } from '@/store/talentStore';
 import { upperCaseFirstLetter } from "@/component/utils";
+import { motion } from "framer-motion";
+import { useBreakpointValue } from "@chakra-ui/react";
+
+// Wrap Chakra Box with framer-motion
+const MotionBox = motion(Box);
 
 interface HomepageProp{
   topTalents : TalentInterface[]
@@ -39,9 +44,7 @@ try {
     }
   }
 
-}
-
-  
+}  
 }
 
 export default function Home({topTalents}:HomepageProp)  {
@@ -179,7 +182,7 @@ export default function Home({topTalents}:HomepageProp)  {
                   _hover={{background:" #2E3192"}}
                   onClick={() => handleSearch(search)}
                 />
-  </InputRightElement>
+           </InputRightElement>
             </InputGroup>
             </Flex>
           </Box>
@@ -282,74 +285,115 @@ export default function Home({topTalents}:HomepageProp)  {
  {/* Section 1 */}
 
      
-      <Flex  maxWidth={'2000px'} alignItems={'center'}  bg={''}  mx={'auto'} textColor={''}  padding={{lg:'1.5rem 5rem',md:'1.5rem 2rem',sm:'1rem',base:'1rem'}}>
+    <Flex  maxWidth={'2000px'} alignItems={'center'}  bg={''}  mx={'auto'} textColor={''}  padding={{lg:'1.5rem 5rem',md:'1.5rem 2rem',sm:'1rem',base:'1rem'}}>
       <Box as="section" py={8} w={'100%'} textAlign="center">
       <Heading mb={8} fontSize="2xl">
         Why our Talents are the Top 1%
       </Heading>
       <Text mb={4}>Codes and Cogs is committed to driving innovation, sustainability, and excellence, and that translates to our workforce development.</Text>
+      <Box overflowX="hidden" w="100%"> 
+        <SimpleGrid
+          columns={{ base: 1, md: 3 }}
+          spacing={6}
+          mx="auto"
+          px={4}
+         >
+          {/* Card 1 */}
+          <MotionBox
+                // slide in animation
+                initial={useBreakpointValue({
+                  base: { x: -100, opacity: 0 },
+                  md: { x: -100, opacity: 0 },
+                  lg: { x: -100, opacity: 0 }
+                })}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: false, amount: 0.5 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                >
+                <Box
+                  background="#2E3192"
+                  color="white"
+                  p={6}
+                  borderRadius="md"
+                  textAlign="center"
+                >
+                  <Icon as={FaLightbulb} w={8} h={8} mb={4} />
+                  <Heading fontWeight={'500'} fontSize="xl" mb={2}>
+                    Rigorous Recruitment
+                  </Heading>
+                  <Text fontSize={'15px'}>
+                    To get listed on this platform, candidates undertake thorough
+                    screenings and checks.
+                  </Text>
+                </Box>
+          </MotionBox>  
 
-      <SimpleGrid
-        columns={{ base: 1, md: 3 }}
-        spacing={6}
-        mx="auto"
-        px={4}
-      >
-        {/* Card 1 */}
-        <Box
-          background="#2E3192"
-          color="white"
-          p={6}
-          borderRadius="md"
-          textAlign="center"
-        >
-          <Icon as={FaLightbulb} w={8} h={8} mb={4} />
-          <Heading fontWeight={'500'} fontSize="xl" mb={2}>
-            Rigorous Recruitment
-          </Heading>
-          <Text fontSize={'15px'}>
-            To get listed on this platform, candidates undertake thorough
-            screenings and checks.
-          </Text>
-        </Box>
+          {/* Card 2 */}
+          <MotionBox
+              // slide in animation
+              initial={useBreakpointValue({
+                base: { x: 100, opacity: 0 },    // Right to left on small screens
+                md: { x: 100, opacity: 0 },      // Right to left on medium screens
+                lg: { x: 100, opacity: 0 }       // Bottom to top on large screens
+              })}
+              whileInView={useBreakpointValue({
+                base: { x: 0, y: 0, opacity: 1 },
+                md: { x: 0, y: 0, opacity: 1 },
+                lg: { x: 0, y: 0, opacity: 1 }
+              })}
+              viewport={{ once: false, amount: 0.5 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+            <Box
+              background="#2E3192"
+              color="white"
+              p={6}
+              borderRadius="md"
+              textAlign="center"
+              >
+              <Icon as={FaLightbulb} w={8} h={8} mb={4} />
+              <Heading fontWeight={'500'} fontSize="xl" mb={2}>
+                Experienced Professionals
+              </Heading>
+              <Text fontSize={'15px'}>
+                In our talent pool, we have seasoned experts with proven track
+                records.
+              </Text>
+            </Box>
+          </MotionBox>
 
-        {/* Card 2 */}
-        <Box
-          background="#2E3192"
-          color="white"
-          p={6}
-          borderRadius="md"
-          textAlign="center"
-        >
-          <Icon as={FaLightbulb} w={8} h={8} mb={4} />
-          <Heading fontWeight={'500'} fontSize="xl" mb={2}>
-            Experienced Professionals
-          </Heading>
-          <Text fontSize={'15px'}>
-            In our talent pool, we have seasoned experts with proven track
-            records.
-          </Text>
-        </Box>
-
-        {/* Card 3 */}
-        <Box
-          background="#2E3192"
-          color="white"
-          p={6}
-          borderRadius="md"
-          textAlign="center"
-        >
-          <Icon as={FaLightbulb} w={8} h={8} mb={4} />
-          <Heading fontWeight={'500'} fontSize="xl" mb={2}>
-            Certified
-          </Heading>
-          <Text fontSize={'15px'}>
-            As a training body, our talents have undertaken our certification
-            programs.
-          </Text>
-        </Box>
-      </SimpleGrid>
-    </Box>
+          {/* Card 3 */}
+          <MotionBox
+                // slide in animation
+                initial={useBreakpointValue({
+                  base: { x: -100, opacity: 0 },
+                  md: { x: -100, opacity: 0 },
+                  lg: { x: 100, opacity: 0 }
+                })}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: false, amount: 0.5 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                >
+            <Box
+              background="#2E3192"
+              color="white"
+              p={6}
+              borderRadius="md"
+              textAlign="center"
+            >
+              <Icon as={FaLightbulb} w={8} h={8} mb={4} />
+              <Heading fontWeight={'500'} fontSize="xl" mb={2}>
+                Certified
+              </Heading>
+              <Text fontSize={'15px'}>
+                As a training body, our talents have undertaken our certification
+                programs.
+              </Text>
+            </Box>
+          </MotionBox>
+        </SimpleGrid>
+      </Box>
+      </Box>
       </Flex>
 
       <Flex  maxWidth={'2000px'} alignItems={'center'}  bg={''}  mx={'auto'} textColor={''}  padding={{lg:'1.5rem 5rem',md:'1.5rem 2rem',sm:'1rem',base:'1rem'}}>
@@ -392,46 +436,115 @@ export default function Home({topTalents}:HomepageProp)  {
                         <Box h="3px" fontSize={'28px'} mt={'1.5rem'} borderRadius={'12px'} w="100%" bg="linear-gradient(90deg,rgb(242, 242, 248) 0%,rgb(242, 244, 247) 100%)"></Box>
                </Heading>
 
+               <Flex
+      w="100%"
+      flexDir={{ base: "row", lg: "column" }}
+      overflowX={{ base: "auto", lg: "hidden" }}
+      // optional: hide scrollbar on webkit
+      sx={{
+        "&::-webkit-scrollbar": { display: "none" },
+        msOverflowStyle: "none",
+        scrollbarWidth: "none",
+      }}
+    >
+      {/* Slide 1 */}
+      <Flex
+        flex="0 0 auto"           // prevent shrinking
+        w={{ base: "90vw", lg: "100%" }}
+        mt={{ base: "0", lg: "0" }}
+        flexDir={{ base: "column-reverse", md: "row" }}
+        alignItems="center"
+        px={4}
+        py={{ base: 4, lg: 8 }}
+      >
+        <Box w={{ base: "100%", lg: "50%" }}>
+          <Heading
+            lineHeight="40px"
+            fontWeight="500"
+            fontSize={{ base: "20px", md: "30px", lg: "40px" }}
+          >
+            EMPOWERING INNOVATION <br />
+            IN OIL & GAS
+          </Heading>
+          <Box my="1rem" w={{ base: "100%", lg: "70%" }}>
+            <Text>
+              Artificial Intelligence/Machine Learning capabilities are embedded
+              in our well-testing procedures and other oilfield solutions. Codes
+              and Cogs also unites industry professionals and offer comprehensive
+              talent recruitment, and specialized training.
+            </Text>
+          </Box>
+          <Button
+            onClick={() => router.push("/about")}
+            bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"
+            color="white"
+            boxShadow="2px 5px 5px rgba(0,0,0,0.15)"
+            borderRadius="4px"
+            px="24px"
+            py="12px"
+            _hover={{ bg: "#2E3192" }}
+          >
+            About Us
+          </Button>
+        </Box>
+        <Box
+          w={{ base: "100%", lg: "50%" }}
+          display="flex"
+          justifyContent="flex-end"
+        >
+          <Image alt="Media" src="DISCOVER1.svg" />
+        </Box>
+      </Flex>
 
-                <Flex  mt={'4rem'} flexDir={{ base:'column', sm:'column', md:'row',lg:'row'}} padding={{lg:'1rem 0'}} alignItems={'center'}>
-                      <Box w={{base:'100%',sm:'100%',md:'100%',lg:'50%'}}>
-                          <Heading lineHeight={'40px'} fontWeight={'500'} fontSize={{base:'20px',sm:'20px',md:'30px',lg:'40px'}} width={'fit-content'} >
-                          EMPOWERING INNOVATION <br />IN OIL & GAS
-                          </Heading>
-
-                          
-                          <Box m={'1rem 0'} w={{lg:'70%',base:'100%'}}>
-                          <Text>Artificial Intelligence/Machine Learning capabilities are embedded in our well-testing procedures and other oilfield solutions. Codes and Cogs also unites industry professionals and offer comprehensive talent recruitment, and specialized training.</Text>
-                          </Box>
-
-                          <Button _hover={{background:" #2E3192"}} onClick={()=>router.push('/about')} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> About Us </Button>
-                          
-                      </Box>
-                      <Box display={'flex'} justifyContent={'flex-end'} w={{base:'100%',sm:'100%',md:'100%',lg:'50%'}}>
-                          <Image alt="Media" width={'fill'} src="DISCOVER1.svg"></Image>
-                      </Box>
-                </Flex>
-
-                <Flex mt={{base:'2rem',sm:'2rem'}} flexDir={{ base:'column', sm:'column', md:'row',lg:'row-reverse'}} padding={{lg:'1rem 0'}} alignItems={'center'}>
-                      <Flex w={{base:'100%',sm:'100%',md:'100%',lg:'50%'}}>
-                        <Box  ml={'auto'} w={{lg:'80%',sm:'100%'}}>
-                          <Heading lineHeight={'40px'} fontWeight={'500'} fontSize={{base:'20px',sm:'20px',md:'30px',lg:'40px'}} width={'fit-content'} >
-                            JOB FAIR COMING SOON
-                          </Heading>
-
-                          
-                          <Box mt={'2rem'} >
-                               <Text>The job fair would serve as the launch for the Codes and Cogs Talent platform. Top exploration and production, and oilfield services companies would also be present, and top talents would get a chance to land leading opportunities in Nigeria oil and gas industries.</Text>
-                          </Box>
-
-                          <Button _hover={{background:" #2E3192"}} onClick={()=>router.push('/trainning')} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Explore Details </Button>
-                        </Box>
-                      </Flex>
-                      <Box display={'flex'} width={"full"} justifyContent={'flex-start'} w={{base:'100%',sm:'100%',md:'100%',lg:'50%'}}>
-                          <Image alt="Media" src="DISCOVER2.svg"></Image>
-                      </Box>
-                </Flex>
-
+      {/* Slide 2 */}
+      <Flex
+        flex="0 0 auto"
+        w={{ base: "90vw", lg: "100%" }}
+        mt={{ base: "2rem", lg: "0" }}
+        flexDir={{ base: "column-reverse", md: "row-reverse" }}
+        alignItems="center"
+        px={4}
+        py={{ base: 4, lg: 8 }}
+      >
+        <Box w={{ base: "100%", lg: "50%" }}>
+          <Heading
+            lineHeight="40px"
+            fontWeight="500"
+            fontSize={{ base: "20px", md: "30px", lg: "40px" }}
+          >
+            JOB FAIR COMING SOON
+          </Heading>
+          <Box my="1rem" w={{ base: "100%", lg: "80%" }}>
+            <Text>
+              The job fair would serve as the launch for the Codes and Cogs
+              Talent platform. Top exploration and production, and oilfield
+              services companies would also be present, and top talents would
+              get a chance to land leading opportunities in Nigeria oil and gas
+              industries.
+            </Text>
+          </Box>
+          <Button
+            onClick={() => router.push("/trainning")}
+            bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"
+            color="white"
+            boxShadow="2px 5px 5px rgba(0,0,0,0.15)"
+            borderRadius="4px"
+            px="24px"
+            py="12px"
+            _hover={{ bg: "#2E3192" }}
+          >
+            Explore Details
+          </Button>
+        </Box>
+        <Box
+          w={{ base: "100%", lg: "50%" }}
+          display="flex"
+          justifyContent="flex-start"
+        >
+          <Image alt="Media" src="DISCOVER2.svg" />
+        </Box>
+      </Flex>
+    </Flex>                                                                    
                 
         
        </Flex>

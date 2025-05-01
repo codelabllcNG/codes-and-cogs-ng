@@ -3,6 +3,7 @@ import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 
+
 // Wrap Chakra Box with framer-motion
 const MotionBox = motion(Box);
 
