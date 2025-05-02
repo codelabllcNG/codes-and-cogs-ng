@@ -6,10 +6,9 @@ import {
     Input,
     Button,
     Link,
-    IconButton,
     Image
   } from "@chakra-ui/react";
-  import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+  import { RiInstagramLine, RiLinkedinBoxLine ,RiFacebookCircleLine,RiTwitterXFill  } from "react-icons/ri";
   
   const Footer = () => {
     return (
@@ -29,37 +28,39 @@ import {
           justify="space-between"
           m={'3rem 0'}
           gap={'2rem'}
-        >
           
-          {/* Useful Links */}
-          <Flex flexDir={'column'} gap={'2rem'}>
-            <Heading fontSize={'18px'} fontWeight={'500'}>Useful Link</Heading>
-            {["Home", "About Us", "Services", "Work With Us", "Investors", "Contact Us"].map((link) => (
-              <Link key={link} href="#" color="gray.400" _hover={{ color: "white" }}>
-                {link}
-              </Link>
-            ))}
-          </Flex>
-  
-          {/* Resources */}
-          <Flex flexDir={'column'} gap={'2rem'}>
-            <Heading fontSize={'18px'} fontWeight={'500'}>Resources</Heading>
-            {[
-              "Privacy Policy",
-              "Terms and Condition",
-              "University of Oil and Gas",
-              "Corporate Social Responsibility",
-              "Whitepaper",
-            ].map((link) => (
-              <Link key={link} href="#" color="gray.400" _hover={{ color: "white" }}>
-                {link}
-              </Link>
-            ))}
+        >
+          <Flex width={{lg:'40%',base:'100%'}}  gap={'2rem'} justifyContent={'space-between'} >
+              {/* Useful Links */}
+              <Flex flexDir={'column'} gap={'2rem'}>
+                <Heading fontSize={'18px'} fontWeight={'500'}>Useful Link</Heading>
+                {["Home", "About Us", "Services", "Work With Us", "Investors", "Contact Us"].map((link) => (
+                  <Link key={link} href="#" color="white" _hover={{ color: "white" }}>
+                    {link}
+                  </Link>
+                ))}
+              </Flex>
+      
+              {/* Resources */}
+              <Flex flexDir={'column'} gap={'2rem'}>
+                <Heading fontSize={'18px'} fontWeight={'500'}>Resources</Heading>
+                {[
+                  "Privacy Policy",
+                  "Terms and Condition",
+                  "University of Oil and Gas",
+                  "Corporate Social Responsibility",
+                  "Whitepaper",
+                ].map((link) => (
+                  <Link key={link} href="#" color="white" _hover={{ color: "white" }}>
+                    {link}
+                  </Link>
+                ))}
+              </Flex>
           </Flex>
           
   
           {/* Services */}
-          <Flex flexDir={'column'} gap={'2rem'}>
+          <Flex mt={{base:'2rem'}} flexDir={'column'} gap={'2rem'}>
             <Heading fontSize={'18px'} fontWeight={'500'}>Services</Heading>
             {[
               "Well Insights",
@@ -69,7 +70,7 @@ import {
               "Talent Network",
               "Sustainable Tech",
             ].map((link) => (
-              <Link key={link} href="#" color="gray.400" _hover={{ color: "white" }}>
+              <Link key={link} href="#" color="white" _hover={{ color: "white" }}>
                 {link}
               </Link>
             ))}
@@ -77,21 +78,40 @@ import {
   
           {/* Logo & Newsletter */}
           <Flex flexDir={'column'} gap={'2rem'}>
-             <Box>
-             <Image alt="Media" src={'/LOGO-WHITE.svg'}/>
+             <Box display={'flex'} >
+                <Image mx={{base:'auto',lg:'0'}} alt="Media" src={'/LOGO-WHITE.svg'}/>
              </Box>
-            <Text fontSize="sm">Subscribe to our Newsletter</Text>
-            <Flex bg="gray.800" p={2} borderRadius="md">
+            <Text align={{base:'center',lg:'left'}} fontSize="sm">Subscribe to our Newsletter</Text>
+             
+            {/* <Box bg={'red'} w={'100%'}> */}
+            <Box  position="relative" w="80%" >
               <Input
                 placeholder="Enter your Email"
-                bg="gray.800"
+                bg="#2B2E3C"
                 border="none"
                 _focus={{ outline: "none" }}
                 color="white"
+                pr="6rem"               // make room for the button
+                borderRadius="md"
+                p={8}
               />
-              <Button colorScheme="whiteAlpha">Subscribe</Button>
-            </Flex>
+              <Button
+                position="absolute"
+                top="50%"
+                right="0"
+                p={6}
+                transform="translate(50%, -50%)"   // shift half outside
+                bg="white"
+                color="#1D2130"
+                borderRadius="md"
+                height="2.5rem"        // match input height
+                px="1.5rem"
+              >
+                Subscribe
+              </Button>
+            </Box>
           </Flex>
+
         </Flex>
          <hr />
         {/* Social Icons & Copyright */}
@@ -103,14 +123,15 @@ import {
        
           mx="auto"
         >
-          <Flex gap={'4rem'} mb={'3rem'}>
-            <IconButton as="a" href="#" aria-label="LinkedIn" icon={<FaLinkedin />} />
-            <IconButton as="a" href="#" aria-label="Instagram" icon={<FaInstagram />} />
-            <IconButton as="a" href="#" aria-label="Twitter" icon={<FaTwitter />} />
-            <IconButton as="a" href="#" aria-label="Facebook" icon={<FaFacebook />} />
+         
+          <Flex gap={'1rem'} m={'1rem auto'}>
+            <Link><RiLinkedinBoxLine fontSize={'40px'} /></Link>
+            <Link><RiFacebookCircleLine fontSize={'40px'} /></Link>
+            <Link><RiInstagramLine fontSize={'40px'} /></Link>
+            <Link><RiTwitterXFill fontSize={'40px'} /></Link>
           </Flex>
   
-          <Text fontSize="sm" color="gray.400">
+          <Text fontSize="sm" color="white" >
             © 2025 Code Lab Projects Company. All rights reserved.
           </Text>
         </Flex>

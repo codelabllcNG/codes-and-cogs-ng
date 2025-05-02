@@ -97,7 +97,7 @@ const TalentExplorer  = () => {
         <Flex align="center">
           {/** render the icon of current */}
           {jobCategories?.find((c) => c.name === activeTab) && (
-            <Image
+            <Image alt='Media'
               src={
                 jobCategories?.find((c) => c.name === activeTab)!
                   .active_icon
@@ -118,7 +118,7 @@ const TalentExplorer  = () => {
             onClick={() => setActiveTab(category.name)}
           >
             <Flex align="center">
-              <Image
+              <Image alt='Media'
                 src={category.active_icon}
                 boxSize="1.5rem"
                 mr={2}
@@ -151,7 +151,7 @@ const TalentExplorer  = () => {
           {talents?.map((talent, index:number) => (
             <Box  key={index} flex="0 0 auto" minW={{lg:'24vw',base:'90vw'}} boxShadow="lg" borderRadius="md" >
               <Box w={'100%'} boxShadow={'lg'} p={2}>
-                <Image w={'100%'} src={talent?.image} />
+                <Image alt='Media' w={'100%'} src={talent?.image} />
                 <Heading m={'0.2rem 0'} fontSize={['md', '20px']} color={'#333'}>
                   {talent.name}
                 </Heading>

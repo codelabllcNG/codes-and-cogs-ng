@@ -16,7 +16,7 @@ const slide = keyframes`
 
 const CompanySlideText = () => {
   return (
-    <Box background={'#383B9C'} mt={'1rem'} width={'100vw'} >
+    <Box background={'#383B9C'} mt={'3rem'} width={'100vw'} >
     <Flex     maxWidth={'2000px'} 
         alignItems={'center'} 
         mx={'auto'} 
