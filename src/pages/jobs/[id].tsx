@@ -34,7 +34,7 @@ export default function JobDescription (){
 
 
     useEffect(()=>{
-       console.log(data?.listings[0] )
+       console.log({data} )
        setJob(data?.listings[0])
     },[data])
 
@@ -86,12 +86,12 @@ export default function JobDescription (){
                                         <Text fontSize={'14px'} color={'#656060'}> {job?.applicants} Applicant </Text>
                                     </Flex>   
                                     {/* header */}
-                                    {job?.location.map((loc,index:number)=>(
+                                    {job?.location?.map((loc,index:number)=>(
                                     <Text key={index} mt={'2rem'} fontSize={'14px'} color={'#656060'}>Location: {loc?.name}</Text> 
                                     ))}
                                     <Text mb={'2rem'} fontSize={'14px'} color={'#656060'}>{timeAgo(String(job?.date))}</Text> 
                                     <Flex mb={'2rem'} gap={'2rem'}>
-                                        {job?.job_type.map((jobType:JobTypeInterface,index:number)=>{
+                                        {job?.job_type?.map((jobType:JobTypeInterface,index:number)=>{
                                             return(
                                                 <Flex key={index}  p={2} borderRadius={'12px'}  bg={'rgba(136, 136, 136, 0.10)'} fontSize={['xs', 'sm']} >{jobType.name}</Flex>
                                             )
@@ -120,20 +120,20 @@ export default function JobDescription (){
                             <AdsComponent link="#"  imageUrl="/rigzone.png" />
 
 
-                            {job?.similar_listings.map((job:JobInterface,index:number)=>{
+                            {job?.similar_listings?.map((job:JobInterface,index:number)=>{
                                 return(
                                     <Box key={index} mt={'2rem'} border={'1px solid rgba(0, 0, 0, 0.25)'} borderRadius={'4px'} width={'100%'}>
                                     <Box p={'1rem'}>
                                       <Heading fontSize={'20px'} fontWeight={'600'}>{job.title}</Heading>
                                       <Flex alignItems={'center'} gap={'1rem'} mt={'1rem'}>
                                         <IoLocationOutline fontSize={'25px'} />
-                                        {job?.location.map((loc,index:number)=>(
+                                        {job?.location?.map((loc,index:number)=>(
                                         <Heading key={index} fontWeight={'500'} fontSize={'15px'}>{loc.name}</Heading>
 
                                         ))}
                                       </Flex>
                                       <Flex m={'1rem 0'} gap={'2rem'}>
-                                         {job.job_type.map((jobType:JobTypeInterface,index:number)=>{
+                                         {job.job_type?.map((jobType:JobTypeInterface,index:number)=>{
                                             return(
                                               <Flex key={index}   p={2} borderRadius={'12px'}  bg={'rgba(136, 136, 136, 0.10)'} fontSize={['xs', 'sm']} >{jobType.name}</Flex>
                                             )

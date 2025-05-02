@@ -506,7 +506,7 @@ export default function Home({topTalents}:HomepageProp)  {
       {/* Slide 2 */}
       <Flex
         flex="0 0 auto"
-        w={{ base: "90vw", lg: "100%" }}
+        w={{ base: "80vw", lg: "100%" }}
         mt={{ base: "2rem", lg: "0" }}
         flexDir={{ base: "column-reverse", md: "row-reverse" }}
         alignItems="center"
