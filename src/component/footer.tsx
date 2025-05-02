@@ -34,7 +34,7 @@ import {
               {/* Useful Links */}
               <Flex flexDir={'column'} gap={'2rem'}>
                 <Heading fontSize={'18px'} fontWeight={'500'}>Useful Link</Heading>
-                {["Home", "About Us", "Services", "Work With Us", "Investors", "Contact Us"].map((link) => (
+                {["Home", "About Us", "Work With Us", "Investors", "Contact Us"].map((link) => (
                   <Link key={link} href="#" color="white" _hover={{ color: "white" }}>
                     {link}
                   </Link>
@@ -45,11 +45,11 @@ import {
               <Flex flexDir={'column'} gap={'2rem'}>
                 <Heading fontSize={'18px'} fontWeight={'500'}>Resources</Heading>
                 {[
-                  "Privacy Policy",
-                  "Terms and Condition",
-                  "University of Oil and Gas",
+                  "Whitepapers",
+                  "Oil and Gas News",
                   "Corporate Social Responsibility",
-                  "Whitepaper",
+                  "Terms and Condition",
+                  "Privacy Policy",
                 ].map((link) => (
                   <Link key={link} href="#" color="white" _hover={{ color: "white" }}>
                     {link}
@@ -60,15 +60,14 @@ import {
           
   
           {/* Services */}
-          <Flex mt={{base:'2rem'}} flexDir={'column'} gap={'2rem'}>
+          <Flex mt={{base:'2rem',lg:'0'}} flexDir={'column'} gap={'2rem'}>
             <Heading fontSize={'18px'} fontWeight={'500'}>Services</Heading>
             {[
-              "Well Insights",
-              "Drilling Support",
-              "Equipment Services",
-              "Training Hub",
+              "Oilfield Services",
               "Talent Network",
-              "Sustainable Tech",
+              "Certification Trainings",
+              "Equipment Services",
+              "Opportunities Hub"
             ].map((link) => (
               <Link key={link} href="#" color="white" _hover={{ color: "white" }}>
                 {link}
@@ -84,7 +83,7 @@ import {
             <Text align={{base:'center',lg:'left'}} fontSize="sm">Subscribe to our Newsletter</Text>
              
             {/* <Box bg={'red'} w={'100%'}> */}
-            <Box  position="relative" w="80%" >
+            <Box  position="relative" w={{lg:"100%",base:"80%"}} >
               <Input
                 placeholder="Enter your Email"
                 bg="#2B2E3C"

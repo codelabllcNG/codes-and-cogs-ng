@@ -194,7 +194,7 @@ export default function Home({topTalents}:HomepageProp)  {
           <Box 
             w={{ base: '100%', md: '50%' }}
             position="relative" 
-            // minH={{ base: '300px', md: '400px' }}
+            minH={{ base: '300px', md: '400px' }}
             mt={{ base: 2, md: 0 }}
           >
             {topTalents.map((topTalent, index) => (
@@ -315,6 +315,7 @@ export default function Home({topTalents}:HomepageProp)  {
                 >
                 <Box
                   background="#2E3192"
+                  height={'200px'}
                   color="white"
                   p={6}
                   borderRadius="md"
@@ -353,6 +354,7 @@ export default function Home({topTalents}:HomepageProp)  {
               p={6}
               borderRadius="md"
               textAlign="center"
+              height={'200px'}
               >
               <Icon as={FaLightbulb} w={8} h={8} mb={4} />
               <Heading fontWeight={'500'} fontSize="xl" mb={2}>
@@ -383,6 +385,7 @@ export default function Home({topTalents}:HomepageProp)  {
               p={6}
               borderRadius="md"
               textAlign="center"
+              height={'200px'}
             >
               <Icon as={FaLightbulb} w={8} h={8} mb={4} />
               <Heading fontWeight={'500'} fontSize="xl" mb={2}>

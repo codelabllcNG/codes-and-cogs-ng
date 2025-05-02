@@ -149,8 +149,8 @@ const TalentExplorer  = () => {
           >
           
           {talents?.map((talent, index:number) => (
-            <Box  key={index} flex="0 0 auto" minW={{lg:'24vw',base:'90vw'}} boxShadow="lg" borderRadius="md" >
-              <Box w={'100%'} boxShadow={'lg'} p={2}>
+            <Box  key={index} flex="1" minW={{lg:'23%',base:'80vw'}} boxShadow="lg" borderRadius="md" >
+              <Box w={'100%'}  boxShadow={'lg'} p={2}>
                 <Image alt='Media' w={'100%'} src={talent?.image} />
                 <Heading m={'0.2rem 0'} fontSize={['md', '20px']} color={'#333'}>
                   {talent.name}
