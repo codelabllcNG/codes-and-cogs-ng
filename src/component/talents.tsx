@@ -52,6 +52,10 @@ const TalentExplorer  = () => {
   return (
 <Box w={'100%'}>
     {/* Header - Now scrollable on mobile */}
+    <Heading mt={2} mb={10} fontSize={{lg:'30px',base:'20px'}} color="#2E3192" fontWeight="600" textAlign="center">
+          EXPLORE TOP TALENTS
+      </Heading>
+
     <Flex 
       w={'100%'} 
       overflowX="auto"
@@ -59,6 +63,7 @@ const TalentExplorer  = () => {
       borderBottom={'1px solid #CCC'}
       px={[2, 4, 0]}
     >
+       
       {/* desktop view */}
       <Flex display={{lg:'flex',base:'none'}} minW="max-content" justifyContent={'space-between'} w="100%">
         {jobCategories?.map((category, index:number) => (
@@ -149,7 +154,7 @@ const TalentExplorer  = () => {
           >
           
           {talents?.map((talent, index:number) => (
-            <Box  key={index} flex="1" minW={{lg:'23%',base:'80vw'}} boxShadow="lg" borderRadius="md" >
+            <Box  key={index}  minW={{lg:'23%',base:'80vw'}} boxShadow="lg" borderRadius="md" >
               <Box w={'100%'}  boxShadow={'lg'} p={2}>
                 <Image alt='Media' w={'100%'} src={talent?.image} />
                 <Heading m={'0.2rem 0'} fontSize={['md', '20px']} color={'#333'}>

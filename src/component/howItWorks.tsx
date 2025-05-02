@@ -69,7 +69,7 @@ const HowItWorks = () => {
   };
 
   return (
-    <Box maxWidth="2000px" bg="#EDF2FC" p={{ lg: "5rem 5rem", md: "1.5rem 2rem", base: "1rem" }}>
+    <Box maxWidth="2000px"  bg="#EDF2FC" p={{ lg: "5rem 5rem", md: "1.5rem 2rem", base: "1rem 0" }}>
       <Heading mb={2} fontSize={{lg:'30px',base:'20px'}} color="#2E3192" fontWeight="600" textAlign="center">
         HOW OUR PLATFORM WORKS
       </Heading>
@@ -107,32 +107,32 @@ const HowItWorks = () => {
           </Box>
         ))}
       </Flex>
-
-      <Flex
-        direction={{ base: "column", md: "row" }}
-        gap="2rem"
-        justifyContent="center"
-        mt="4rem"
-        color="black"
-        bg="white"
-        width="100%"
-      >
-        {contentData[activeTab]?.map((item, index) => (
-          <Box
-            key={index}
-            flex="1"
-            p="1rem"
-            width={{ base: '100%', md: '20%', lg: '30%' }}
-            textAlign="center"
-          >
-            <Image mx="auto" src={item.image} alt={item.title} mb={4} />
-            <Heading m="1rem" as="h3" size="md" fontWeight="500">
-              {item.title}
-            </Heading>
-            <Text fontSize="sm">{item.description}</Text>
-          </Box>
-        ))}
-      </Flex>
+        <Flex
+          direction={{ base: "column", md: "row" }}
+          gap="2rem"
+          justifyContent="center"
+          mt="4rem"
+          color="black"
+          bg="white"
+          width="100%"
+          mx={'auto'}
+        >
+          {contentData[activeTab]?.map((item, index) => (
+            <Box
+              key={index}
+              flex="1"
+              p="1rem"
+              width={{ base: '100%', md: '20%', lg: '30%' }}
+              textAlign="center"
+            >
+              <Image mx="auto" src={item.image} alt={item.title} mb={4} />
+              <Heading m="1rem" as="h3" size="md" fontWeight="500">
+                {item.title}
+              </Heading>
+              <Text fontSize="sm">{item.description}</Text>
+            </Box>
+          ))}
+        </Flex>
     </Box>
   );
 };

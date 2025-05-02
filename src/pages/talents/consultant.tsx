@@ -1,5 +1,4 @@
 import { Flex,Text,Heading,Box,Button,Image,Wrap,SimpleGrid, } from "@chakra-ui/react";
-import Footer from "@/component/footer";
 import RegistrationForm from "@/component/registerForm"
 import { IoLocationOutline } from "react-icons/io5";
 import AdsComponent from "@/component/adsComponent";
@@ -10,6 +9,10 @@ import { useGetJobstHook } from "@/component/Hooks/jobHooks";
 import { JobInterface } from "@/component/Interface/Jobs";
 import { timeAgo } from "@/component/utils";
 import LoadingSpinner from "@/component/loadingSpinner";
+import { useJobStore } from "@/store/jobStore";
+import { JobStoreInterface } from "@/component/Interface/Jobs";
+
+
 
 
 
@@ -17,6 +20,12 @@ const Consultant = ()=>{
     const router = useRouter()
     const [jobs,setJobs] = useState<JobInterface[]>([]) 
     const {data,isLoading} = useGetJobstHook({limit:'4'})
+    const editSelectedTalent = useJobStore((state: JobStoreInterface)=>state.editSelectedJob)
+
+     const viewJob = (job:JobInterface)=> {
+         editSelectedTalent(job)
+         router.push(`/jobs/${job.id}`)
+      }
     
     useEffect(()=>{
       setJobs(data?.listings)
@@ -109,7 +118,7 @@ const Consultant = ()=>{
                                             <LoadingSpinner showLoadingSpinner={isLoading} />
                                             {jobs?.map((job,index)=>{
                                                 return(
-                                                    <Box key={index} border={'1px solid rgba(0, 0, 0, 0.25)'} borderRadius={'12px'} >
+                                                    <Box onClick={()=>viewJob(job)} key={index} border={'1px solid rgba(0, 0, 0, 0.25)'} borderRadius={'12px'} >
                                                     <Box p={'3rem 1rem'} borderBottom={'1px dotted rgba(136, 136, 136, 0.80);'}>
                                                     <Flex gap={'3rem'} mt={'1rem'} mb={'1rem'}>
                                                         <Box>
@@ -298,9 +307,6 @@ const Consultant = ()=>{
                 </Box>
             </Flex>
             {/* ads layout */}
-                
-
-        <Footer />
  </HeaderAndFooter>
     )
 }
