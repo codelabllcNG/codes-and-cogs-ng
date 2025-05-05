@@ -131,7 +131,7 @@ import {
           </Flex>
   
           <Text fontSize="sm" color="white" >
-            © 2025 Code Lab Projects Company. All rights reserved.
+            © 2025 CodeLab Projects Company. All rights reserved.
           </Text>
         </Flex>
       </Box>
