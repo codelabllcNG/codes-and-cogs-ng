@@ -19,7 +19,7 @@ const Talents = () => {
   const [search, setSearch] = useState('');
   const [searchValue,setSearchValue] = useState ('')
   const {data:talentData,isLoading:talentIsLoading,refetchWithParams} = useGetTalentHook({limit:'8'})
-  const {data:locationData} = useGetLocationHook({for:'listing'})
+  const {data:locationData} = useGetLocationHook({for:'talents'})
   const {data:categoriesData} = useGetCategoriesHook({for:'talent'})
   const [talents,setTalents] = useState <TalentInterface[]>([])
   const [categories,setCategories] = useState <JobTypeInterface[]> ([])

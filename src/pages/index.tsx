@@ -90,7 +90,9 @@ export default function Home({topTalents}:HomepageProp)  {
         <Flex 
           flexDir={{
             base: 'column',
-            md: 'row'
+            sm:'column',
+            md: 'column',
+            lg:'row'
           }} 
           w={'100%'}
           gap={{ base: 8, md: 0 }}
@@ -100,7 +102,7 @@ export default function Home({topTalents}:HomepageProp)  {
             color="white" 
             flex={1} 
             pr={{ md: 8 }}
-            w={{ base: '100%', md: '50%' }}
+            w={{ base: '100%', md: '100%', lg:'50%' }}
           >
 
             <Heading fontWeight={'500'} fontSize={{base:'26px',lg:'36px'}} textAlign={{base:'center',lg:'left'}}  lineHeight={'normal'}>
@@ -191,66 +193,67 @@ export default function Home({topTalents}:HomepageProp)  {
           </Box>
 
           {/* Right Content - Image Gallery */}
-          <Box 
-            w={{ base: '100%', md: '50%' }}
-            position="relative" 
-            minH={{ base: '300px', md: '400px' }}
-            mt={{ base: 2, md: 0 }}
-          >
-            {topTalents.map((topTalent, index) => (
-              <Box
-                key={index}
-                position="absolute"
-                right={{
-                  base: `${index * 25}%`,
-                  md: `${index * 20}%`
-                }}
-                top="50%"
-                transform="translateY(-50%)"
-                w={{ base: '50%', md: '40%' }}
-                h={{
-                  base: hoveredIndex === index ? '260px' : '220px',
-                  md: hoveredIndex === index ? '380px' : '340px'
-                }}
-                transition="all 0.3s ease"
-                zIndex={hoveredIndex === index ? 3 : 1}
-                onMouseEnter={() => setHoveredIndex(index)}
-                cursor="pointer"
-              >
+            <Box 
+            w={{ base: '100%', md: '100%', lg:'50%' }}
+              position="relative" 
+              minH={{ base: '300px', md: '400px' }}
+              mt={{ base: 2, md: 0 }}
+            >
+              {topTalents.map((topTalent, index) => (
                 <Box
-                  as="img"
-                  src={topTalent?.image}
-                  alt={`Image ${index + 1}`}
-                  w="full"
-                  h="full"
-                  objectFit="cover"
-                  rounded="xl"
-                  shadow="xl"
-                  transition="all 0.3s ease"
-                  transform={hoveredIndex === index ? 'scale(1.05)' : 'scale(0.9)'}
-                />
-                <Box bg={'linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 100%);'} pos={'absolute'} bottom={'0'} left={'0'} w={'100%'} h={'50%'} ></Box>
-                <Box
+                  key={index}
                   position="absolute"
-                  bottom="15px"
-                  left="15px"
-                  color="white"
-                  px={2}
-                  py={1}
-                  rounded="md"
-                  fontSize={{ base: 'xs', sm: 'sm' }}
-                  onClick={()=>viewProfile(topTalent)}
+                  right={{
+                    base: `${index * 25}%`,
+                    md: `${index * 20}%`
+                  }}
+                  top="50%"
+                  transform="translateY(-50%)"
+                  w={{ base: '50%', md: '60%',lg:'40%' }}
+                  h={{
+                    base: hoveredIndex === index ? '260px' : '220px',
+                    md: hoveredIndex === index ? '380px' : '340px'
+                  }}
+                  transition="all 0.3s ease"
+                  zIndex={hoveredIndex === index ? 3 : 1}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  cursor="pointer"
+                  mx={'auto'}
                 >
-                  <Heading fontSize={{ base: '14px', md: '18px' }} fontWeight="500">
-                    {upperCaseFirstLetter(topTalent?.name)}
-                  </Heading>
-                  <Text fontSize={{ base: '12px', md: '16px' }}>
-                     {upperCaseFirstLetter(topTalent?.expertises[0].name)}
-                  </Text>
+                  <Box
+                    as="img"
+                    src={topTalent?.image}
+                    alt={`Image ${index + 1}`}
+                    w="full"
+                    h="full"
+                    objectFit="cover"
+                    rounded="xl"
+                    shadow="xl"
+                    transition="all 0.3s ease"
+                    transform={hoveredIndex === index ? 'scale(1.05)' : 'scale(0.9)'}
+                  />
+                  <Box bg={'linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 100%);'} pos={'absolute'} bottom={'0'} left={'0'} w={'100%'} h={'50%'} ></Box>
+                  <Box
+                    position="absolute"
+                    bottom="15px"
+                    left="15px"
+                    color="white"
+                    px={2}
+                    py={1}
+                    rounded="md"
+                    fontSize={{ base: 'xs', sm: 'sm' }}
+                    onClick={()=>viewProfile(topTalent)}
+                  >
+                    <Heading fontSize={{ base: '14px', md: '18px' }} fontWeight="500">
+                      {upperCaseFirstLetter(topTalent?.name)}
+                    </Heading>
+                    <Text fontSize={{ base: '12px', md: '16px' }}>
+                      {upperCaseFirstLetter(topTalent?.expertises[0].name)}
+                    </Text>
+                  </Box>
                 </Box>
-              </Box>
-            ))}
-          </Box>
+              ))}
+            </Box>
 
           <Flex display={{lg:'none',base:'flex'}} >
                   <InputGroup m={'1rem 0'} w="full" boxShadow="md">

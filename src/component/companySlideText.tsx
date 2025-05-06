@@ -30,7 +30,7 @@ const CompanySlideText = () => {
         Companies who hire our talents:
       </Heading>
       <Heading display={{lg:'none',base:'block'}} fontSize="18px" fontWeight="400" color={'white'} whiteSpace="nowrap">
-        Companies:
+        Clients:
       </Heading>
       
       <Box overflow="hidden" flex="1">
