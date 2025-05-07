@@ -1,13 +1,10 @@
-import { Box ,Flex,Heading,Text,Button,Image,Container,Divider} from "@chakra-ui/react";
+import { Box ,Flex,Heading,Text,Button,Image,} from "@chakra-ui/react";
 import ServiceComponent from "@/component/servicesComponent";
 import PartnersSection from "@/component/patternsSection";
 import { useRouter } from "next/router";
 import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
-import { motion } from "framer-motion";
 import VideoSlider from "@/component/videoSlider";
 
-// Wrap Chakra Box with framer-motion
-const MotionBox = motion(Box);
 
 
 
