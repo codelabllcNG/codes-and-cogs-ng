@@ -12,14 +12,8 @@ import {
     Textarea
   } from '@chakra-ui/react';
   import {useState } from 'react';
-  import { toast } from 'react-toastify';
-  import LoadingSpinner from "@/component/loadingSpinner";
-  import { useRegisterTogetListedHook } from "@/component/Hooks/talentsHook"
   import React from 'react';
-  
-  interface RegistrationFormProp {
-    listing_id?: string
-  }
+
 
 
 

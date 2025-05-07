@@ -1,73 +1,20 @@
 import { Box ,Flex,Heading,Text,Button,Image,Container,Divider} from "@chakra-ui/react";
 import ServiceComponent from "@/component/servicesComponent";
 import PartnersSection from "@/component/patternsSection";
-import CertificationGrid from "@/component/cerifications";
-import { useState } from "react";
-import { FaSearch } from "react-icons/fa";
-import TalentExplorer from "@/component/talents";
-import { FaLightbulb } from "react-icons/fa";
-import HowItWorks from "@/component/howItWorks";
 import { useRouter } from "next/router";
-import CompanySlideText from "@/component/companySlideText";
 import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
-import { GetServerSideProps } from "next";
-import { TalentInterface, TalentStoreInterface } from "@/component/Interface/talents";
-import { useTalentsStore } from '@/store/talentStore';
-import { upperCaseFirstLetter } from "@/component/utils";
 import { motion } from "framer-motion";
-import { useBreakpointValue } from "@chakra-ui/react";
 import VideoSlider from "@/component/videoSlider";
 
 // Wrap Chakra Box with framer-motion
 const MotionBox = motion(Box);
 
-interface HomepageProp{
-  topTalents : TalentInterface[]
-}
 
-export const getServerSideProps : GetServerSideProps<HomepageProp> = async () => {
-   
-try {
-  const topTalentsDataRes = await fetch('https://api.codesandcogs.com/oilandgas/api/codesandcogs/v1/talents?hero=true')
-  const topTalentsData = await topTalentsDataRes.json();
-  const topTalents = topTalentsData?.talents
 
-    return{
-      props :{
-       topTalents,
-      }
-    }
-} catch (error) {
-  if(error){}
-  return{
-    props:{
-      topTalents: []
-    }
-  }
 
-}  
-}
-
-export default function Home({topTalents}:HomepageProp)  {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(1);
-  const [search,setSearch] =useState('')
+export default function Home()  {
   const router=useRouter()
-  const editSelectedTalent = useTalentsStore((state: TalentStoreInterface) => state.editSelectedTalent);
-
-  const viewProfile = (data: TalentInterface) => {
-    editSelectedTalent(data);
-    router.push(`/talents/bio`);
-  };
-
-  
-    
   // Replace these with your actual image paths
-
-
-  const handleSearch = function(data:string){
-     if(!data) return
-     router.push(`/talents?search=${data}`)
-  }
   
 
   return (
