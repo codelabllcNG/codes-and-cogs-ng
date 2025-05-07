@@ -1,5 +1,4 @@
 import { Box ,Flex,Heading,Text,Button,Image,SimpleGrid,Icon,InputGroup,InputRightElement,IconButton,Input} from "@chakra-ui/react";
-import ServiceComponent from "@/component/servicesComponent";
 import PartnersSection from "@/component/patternsSection";
 import CertificationGrid from "@/component/cerifications";
 import { useState } from "react";
