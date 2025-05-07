@@ -40,12 +40,7 @@ export const DesktopView : React.FC<Prop> = ({activeLink}) =>{
                           <Box h="3px" display={activeLink==='/talents'? 'block' :'none'} fontSize={'28px'} mt={'0.5rem'} borderRadius={'12px'} w="100%" bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"></Box>
                         </Heading>
                 </Link>
-                <Link href="/services">
-                        <Heading fontWeight={'600'}  color={activeLink==='/services'? '#2E3192' :'black'} fontSize={'16px'}>
-                             OILFIELD SERVICES
-                            <Box h="3px" display={activeLink==='/services'? 'block' :'none'} fontSize={'28px'} mt={'0.5rem'} borderRadius={'12px'} w="100%" bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"></Box>
-                        </Heading>
-                </Link>
+             
                 <Link href="/contact">
                     <Heading fontWeight={'600'}  color={activeLink==='/contact'? '#2E3192' :'black'} fontSize={'16px'}>
                             CONTACT US 
@@ -98,11 +93,7 @@ export const MobileView :React.FC<Prop> = ({activeLink}) =>{
                            TALENTS
                         </Heading>
                 </Link>
-                <Link href="/services">
-                        <Heading fontWeight={'600'}  color={activeLink==='/services'? '#2E3192' :'black'} fontSize={'16px'}>
-                             OILFIELD SERVICES
-                        </Heading>
-                </Link>
+        
                 <Link href="/contact">
                     <Heading fontWeight={'600'}  color={activeLink==='/contact'? '#2E3192' :'black'} fontSize={'16px'}>
                             CONTACT US 

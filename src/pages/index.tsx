@@ -415,19 +415,6 @@ export default function Home({topTalents}:HomepageProp)  {
                <HowItWorks />
         </Flex>
 
-
-
-        <Flex flexDir={'column'}  maxWidth={'2000px'} bg={''}  mx={'auto'} textColor={''}  padding={{lg:'1.5rem 5rem',md:'1.5rem 2rem',sm:'1rem',base:'1rem'}}>
-      
-            <Heading fontWeight={'500'} fontSize={'28px'} width={'fit-content'} >
-              Our Services
-              <Box h="3px" fontSize={'28px'} mt={'1.5rem'} borderRadius={'12px'} w="100%" bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"></Box>
-            </Heading>
-            <Text m={'4rem 0'}>Codes and Cogs provides end-to-end solutions for oilfield operations, from well insights and AI-driven analysis to designing custom, cost-effective solutions tailored to unique field needs. We are also dedicated to developing local talent through comprehensive training in safety, oil and gas operations, and specialised roles.</Text>
-            <ServiceComponent />
-
-        </Flex>
-
         <Flex
           flexDir="column"
           maxWidth="2000px"
