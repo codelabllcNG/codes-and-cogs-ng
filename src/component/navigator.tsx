@@ -34,12 +34,7 @@ export const DesktopView : React.FC<Prop> = ({activeLink}) =>{
                           <Box h="3px" display={activeLink==='/about'? 'block' :'none'} fontSize={'28px'} mt={'0.5rem'} borderRadius={'12px'} w="100%" bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"></Box>
                         </Heading>
                 </Link>
-                <Link href="/talents">
-                       <Heading fontWeight={'600'}  color={activeLink==='/talents'? '#2E3192' :'black'} fontSize={'16px'}>
-                           TALENTS
-                          <Box h="3px" display={activeLink==='/talents'? 'block' :'none'} fontSize={'28px'} mt={'0.5rem'} borderRadius={'12px'} w="100%" bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"></Box>
-                        </Heading>
-                </Link>
+             
                 <Link href="/services">
                         <Heading fontWeight={'600'}  color={activeLink==='/services'? '#2E3192' :'black'} fontSize={'16px'}>
                              OILFIELD SERVICES
@@ -56,7 +51,7 @@ export const DesktopView : React.FC<Prop> = ({activeLink}) =>{
 
             {/* button */}
             <Flex gap={'1rem'}>
-                <Button p={0}borderRadius="4px" _hover={{background:"linear-gradient(90deg, #2E3192 10%, #1C55E0 100%)"}}  textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)" padding={'12px 24px'}>  <Link  href="/talents/consultant"> Become A Consultant </Link> </Button>
+                <Button p={0}borderRadius="4px" _hover={{background:"linear-gradient(90deg, #2E3192 10%, #1C55E0 100%)"}}  textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)" padding={'12px 24px'}>  <Link  href="/request-service"> Request a Service </Link> </Button>
            </Flex>
 
         </Flex>
