@@ -1,12 +1,10 @@
 import axios, { AxiosError } from "axios";
-import { LocationParams } from "../Interface/talents";
-
 const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 
 
-export async function getLocation(params:LocationParams) {
+export async function getCertificates() {
     try{
-        const response = await axios.get(`${backendUrl}/location`,{params:params})
+        const response = await axios.get(`${backendUrl}/certifications`)
         return response.data
     } catch(error) {
       if(error instanceof AxiosError){

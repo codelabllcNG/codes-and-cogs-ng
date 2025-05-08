@@ -1,7 +1,8 @@
-import { Box, Grid, Heading, Text, Link, VStack, Button } from "@chakra-ui/react";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
-import { useRouter } from "next/router";
+import { Box, Grid, Heading, Text, VStack} from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import { useGetCertificatesHook } from "./Hooks/certificationHook";
+import { useState } from "react";
+import { useEffect } from "react";
 
 
 // Wrap Chakra Box with framer-motion
@@ -10,25 +11,22 @@ const MotionBox = motion(Box);
 interface certificationInterface {
   title: string;
   subtitle: string;
-  description: string[];
+  description: string;
 }
 
-const certifications = [
-  {
-    title: "IWCF",
-    subtitle: "International Well Control Forum",
-    description: [
-      "Essential for professionals involved in well drilling and maintenance.",
-      "Covers pressure control, equipment usage, blowout prevention, and safety procedures.",
-    ],
-  },
-  // ...additional certification entries
-];
+
 
 const CertificationGrid = () => {
-  const router = useRouter();
+  const {data} = useGetCertificatesHook()
+  const [certifications,setCertifications] = useState<certificationInterface[]>([])
+
+
+  useEffect(()=>{
+    setCertifications(data?.certifications)
+  },[data])
   return (
     <Box textAlign="center">
+
       <Heading size="lg" m={{lg:"2rem 0",base:"1rem 0"}} color="#1C55E0" fontWeight="600">
         CERTIFICATION TRAINING FOR INDUSTRY EXCELLENCE
       </Heading>
@@ -44,9 +42,7 @@ const CertificationGrid = () => {
         templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }}
         gap={6}
       >
-        {Array(6)
-          .fill(certifications[0])
-          .map((cert: certificationInterface, index) => (
+        { certifications?.map((cert: certificationInterface, index) => (
             <MotionBox
               key={index}
               role="group"
@@ -66,19 +62,16 @@ const CertificationGrid = () => {
               whileHover={{ backgroundColor: "#2E3192" }}
             >
               <Heading size="md" _groupHover={{ color: "white" }}>
-                {cert.title}
+                {cert?.title}
               </Heading>
               <Text fontWeight="semibold" color="gray.500" _groupHover={{ color: "white" }}>
-                {cert.subtitle}
+                {cert?.subtitle}
               </Text>
               <VStack align="start" mt={3} spacing={2}>
-                {cert.description.map((line, i: number) => (
-                  <Text key={i} fontSize="sm" color="gray.700" _groupHover={{ color: "white" }}>
-                    • {line}
-                  </Text>
-                ))}
+                 <Box dangerouslySetInnerHTML={{ __html: cert?.description }} />
+              
               </VStack>
-              <Link
+              {/* <Link
                 display="flex"
                 alignItems="center"
                 mt={3}
@@ -88,12 +81,12 @@ const CertificationGrid = () => {
                 _groupHover={{ color: "white" }}
               >
                 Read More <ArrowForwardIcon ml={1} />
-              </Link>
+              </Link> */}
             </MotionBox>
           ))}
       </Grid>
 
-      <Button
+      {/* <Button
         onClick={() => router.push('/certifications')}
         width="fit-content"
         m={{lg:"2rem auto",base:"1rem auto"}}
@@ -102,9 +95,10 @@ const CertificationGrid = () => {
         textColor="white"
         bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"
         boxShadow="2px 5px 5px rgba(51, 51, 51, 0.15)"
+        _hover={{ bg: "#2E3192" }}
       >
         See All Certification
-      </Button>
+      </Button> */}
     </Box>
   );
 };

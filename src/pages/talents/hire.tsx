@@ -54,7 +54,6 @@ const HireTalent = ()=>{
             setLoading(true)
             formData.talent = String(talent?.id)
             const data = await  mutation.mutateAsync(formData)
-            console.log(data)
             toast.success(data.message)
             
         } catch (error:unknown) {
@@ -243,6 +242,7 @@ const HireTalent = ()=>{
                                 {/* Submit Button */}
                                 <Flex justifyContent="left">
                                 <Button
+                                    _hover={{ bg: "#2E3192" }}
                                     borderRadius="4px"
                                     px="24px"
                                     py="12px"

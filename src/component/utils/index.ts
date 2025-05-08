@@ -26,6 +26,7 @@ export function timeAgo(dateStr: string): string {
   
 
  export  function upperCaseFirstLetter (data: string){
+    if(!data) return
     const names = data.split(' ')
     const upperCaseNames : string[] = [] 
 

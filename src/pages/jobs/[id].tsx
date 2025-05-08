@@ -34,7 +34,6 @@ export default function JobDescription (){
 
 
     useEffect(()=>{
-       console.log({data} )
        setJob(data?.listings[0])
     },[data])
 
@@ -100,14 +99,14 @@ export default function JobDescription (){
                                     </Flex>  
 
                                     <Flex alignItems={'center'} justifyContent={'space-between'}>
-                                       <Button onClick={()=>setActive('registration-form')} borderRadius="4px" px="24px" py="12px" textColor="white" bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)">Apply Now</Button>
+                                       <Button  _hover={{ bg: "#2E3192" }} onClick={()=>setActive('registration-form')} borderRadius="4px" px="24px" py="12px" textColor="white" bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)">Apply Now</Button>
                                        <Flex gap={'1rem'}> <FaRegMessage onClick={onEmailOpen} fontSize={'30px'} color="#2E3192" /> <IoShareSocialOutline onClick={onShareOpen} fontSize={'30px'} color="#2E3192" /></Flex>
                                     </Flex>  
                                </Box>
                                <Box mt={{base:'3rem'}} border={'1px solid rgba(0, 0, 0, 0.25)'} p={'2rem'} borderRadius={'4px'}>
                                     <Box dangerouslySetInnerHTML={{__html:job?.details ? job?.details :''}}></Box>
                                     <Flex mt={'1rem'} alignItems={'center'} justifyContent={'space-between'} pt={'2rem'}  borderTop={'1px solid rgba(136, 136, 136, 0.80);'}>
-                                       <Button onClick={()=>setActive('registration-form')} borderRadius="4px" px="24px" py="12px" textColor="white" bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)">Apply Now</Button>
+                                       <Button  _hover={{ bg: "#2E3192" }} onClick={()=>setActive('registration-form')} borderRadius="4px" px="24px" py="12px" textColor="white" bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)">Apply Now</Button>
                                        <Flex gap={'1rem'}> <FaRegMessage onClick={onEmailOpen} fontSize={'30px'} color="#2E3192" /> <IoShareSocialOutline  onClick={onShareOpen} fontSize={'30px'} color="#2E3192" /></Flex>
                                     </Flex> 
                                    

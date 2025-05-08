@@ -39,12 +39,10 @@ export async function listOpening(data:listOpeningBody){
 }
 
 export async function getJobs(params?:JobsParams) {
-    console.log(params)
     try{
         const response = await axios.get(`${backendUrl}/listing`,{
             params: params,
         })
-        console.log(`${backendUrl}/talents`)
         return response.data
     } catch(error) {
       if(error instanceof AxiosError){
@@ -57,7 +55,6 @@ export async function getJobs(params?:JobsParams) {
 }
 
 export async function getJobsById(id:string | string[] |undefined) {
-    console.log({id})
     if(!id) return 
     
     try{

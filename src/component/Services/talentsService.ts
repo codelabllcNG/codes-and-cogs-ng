@@ -38,12 +38,10 @@ export async function registToGetListed(data:registerToGetListedBody){
  }
 
 export async function getTalents(params?:TalentParams) {
-    console.log(params)
     try{
         const response = await axios.get(`${backendUrl}/talents`,{
             params: params,
         })
-        console.log(`${backendUrl}/talents`)
         return response.data
     } catch(error) {
       if(error instanceof AxiosError){

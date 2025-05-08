@@ -139,6 +139,7 @@ export default function JobListing() {
                 onChange={(e) => setSearchValue(e.target.value)}
               />
               <Button
+                 _hover={{ bg: "#2E3192" }}
                 width={'fit-content'}
                 h={'60px'}
                 borderRadius="0"
@@ -211,6 +212,7 @@ export default function JobListing() {
               </FormControl>
   
               <Button
+                 _hover={{ bg: "#2E3192" }}
                 width={{ lg: 'fit-content', base: '100%' }}
                 mt={{ lg: '2.5rem', base: '0.4rem' }}
                 borderRadius="4px"
@@ -245,7 +247,7 @@ export default function JobListing() {
                 <Text m={'2rem 0'}>Showing {jobs?.length} results</Text>
                 <SimpleGrid columns={{ base: 1, md: 2, lg: 2 }} spacingX="40px" spacingY="20px">
                   {jobs?.map((job, index) => (
-                    <Box key={index} border={'1px solid rgba(0, 0, 0, 0.25)'} cursor={'pointer'} onClick={()=>viewJob(job)}  borderRadius={'12px'} >
+                    <Box  key={index} border={'1px solid rgba(0, 0, 0, 0.25)'} cursor={'pointer'} onClick={()=>viewJob(job)}  borderRadius={'12px'} >
                       <Box p={'3rem 1rem'} borderBottom={'1px dotted rgba(136, 136, 136, 0.80)'}>
                         <Flex gap={'3rem'} mt={'1rem'} mb={'1rem'}>
                           <Box>

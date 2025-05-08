@@ -131,7 +131,7 @@ const TalentProfile =()=>{
                                    <Image alt="Media" width={'50px'} key={certificateIndex} height={'50px'} src={certificate?.name} />
                                    ))}
                            </Wrap>
-                           <Button onClick={()=>router.push('/talents/hire')} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Hire {talent?.name.split(' ')[0]}</Button>
+                           <Button  _hover={{ bg: "#2E3192" }} onClick={()=>router.push('/talents/hire')} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Hire {talent?.name.split(' ')[0]}</Button>
                                                                 
                
                            </VStack>
@@ -184,7 +184,7 @@ const TalentProfile =()=>{
                                                                 ))}
                                                                 </Flex>
                                                 
-                                                                <Button onClick={()=>viewProfile(talent)} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> View Profile</Button>
+                                                                <Button  _hover={{ bg: "#2E3192" }} onClick={()=>viewProfile(talent)} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> View Profile</Button>
                                                                     
                                                             </Box>
                                                             </GridItem>

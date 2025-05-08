@@ -26,7 +26,6 @@ const EmailJobModal: React.FC<EmailJobModalProps> = ({ isOpen, onClose }) => {
 
   const handleSubmit = () => {
     // Handle email submission logic here
-    console.log('Sending job to email:', email);
     onClose();
   };
 
@@ -66,6 +65,7 @@ const EmailJobModal: React.FC<EmailJobModalProps> = ({ isOpen, onClose }) => {
                 size="sm" 
                 fontWeight="medium"
                 onClick={handleSubmit}
+                _hover={{ bg: "#2E3192" }}
               >
                 Email Job
               </Button>
