@@ -137,6 +137,7 @@ function About() {
           width={{ base: "calc(100% - 16px)", md: "calc(50% - 16px)", lg: "calc(25% - 16px)" }}
           onClick={()=>router.push('/teams/andy-a')}
           cursor={'pointer'}
+          role="group" 
         >
           <Image
             src={item.image}
@@ -154,6 +155,9 @@ function About() {
             h="100%"
             bg="linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0) 100%)"
             zIndex={1}
+            _groupHover={{
+              opacity: 0.8,
+            }}
           />
           {/* Text Overlay */}
           <Box
@@ -266,19 +270,19 @@ function About() {
       </Box>
 
       {/* sectione 5 */}
-       <Flex maxWidth={'2000px'} alignItems={'center'}  bg={''}  mx={'auto'} textColor={''}   padding={{lg:'0.1rem 5rem',md:'1.5rem 2rem',sm:'1rem',base:'1rem'}}>
-                      <Flex  flexDir={{ base:'column', sm:'column', md:'row',lg:'row'}} alignItems={'center'}>
+       <Flex maxWidth={'2000px'} alignItems={'center'}  mx={'auto'} textColor={''}   padding={{lg:'0.1rem 0rem 0.1rem 5rem',md:'1.5rem 2rem',sm:'1rem',base:'1rem'}}>
+                      <Flex w={'100%'} flexDir={{ base:'column', sm:'column', md:'row',lg:'row'}} alignItems={'center'} justifyContent={'space-between'}>
                         <Box w={{base:'100%',sm:'100%',md:'100%',lg:'50%'}}>   
                             <Heading fontSize={'20px'} m={'2rem 0'} fontWeight={'600'} >Want to find out more?</Heading>
                             
                             <Box m={'1rem 0'}>
-                            <Text>We have a team of team of experts ready to answer your enquiries and help you get what you need.</Text>
+                            <Text w={{lg:'70%',base:'100%'}}>We have a team of team of experts ready to answer your enquiries and help you get what you need.</Text>
                            </Box>
       
                             <Button  _hover={{ bg: "#2E3192" }} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Contact us </Button>
                             
                         </Box>
-                        <Box display={'flex'} justifyContent={'flex-end'} w={{base:'100%',sm:'100%',md:'100%',lg:'50%'}}>
+                        <Box  display={'flex'} justifyContent={'flex-end'} w={{base:'100%',sm:'100%',md:'100%',lg:'50%'}}>
                              <Image alt="Media" src="AboutImage.svg"></Image>
                           </Box>
                       </Flex>

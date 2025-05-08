@@ -21,7 +21,7 @@ import {
         <Box w={{base:'100%',lg:'60%'}}>
             <VStack align="start" spacing={4} >
             <Text fontSize="2xl" fontWeight="bold" color={{lg:'white',base:'blcack'}}>
-                Gabriel U.
+            Andy A.
             </Text>
     
             <Flex gap={'1rem'} alignItems={'center'} color={{lg:'white',base:'blcack'}} >
