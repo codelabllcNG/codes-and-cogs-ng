@@ -34,9 +34,14 @@ import {
               {/* Useful Links */}
               <Flex flexDir={'column'} gap={'2rem'}>
                 <Heading fontSize={'18px'} fontWeight={'500'}>Useful Link</Heading>
-                {["Home", "About Us", "Work With Us", "Investors", "Contact Us"].map((link) => (
-                  <Link key={link} href="#" color="white" _hover={{ color: "white" }}>
-                    {link}
+                {[
+                  {name:"Home",url:"/"}, 
+                  {name:"About Us",url:'/about'},
+                  {name:"Work With Us",url:'/talents/consultant'},
+                  // {name:"Investors",url:'/investor'},
+                  {name:"Contact Us",url:"/contact"}].map((link) => (
+                  <Link key={link.name} href={link.url} color="white" _hover={{ color: "white" }}>
+                    {link.name}
                   </Link>
                 ))}
               </Flex>
@@ -45,14 +50,14 @@ import {
               <Flex flexDir={'column'} gap={'2rem'}>
                 <Heading fontSize={'18px'} fontWeight={'500'}>Resources</Heading>
                 {[
-                  "Whitepapers",
-                  "Oil and Gas News",
-                  "Corporate Social Responsibility",
-                  "Terms and Condition",
-                  "Privacy Policy",
+                  {name:"Whitepapers",url:"/white-paper"},
+                  // {name:"Oil and Gas News",url:"/oil-and-gas-news"},
+                  {name:"Corporate Social Responsibility",url:''},
+                  {name:"Terms and Condition",url:""},
+                  {name:"Privacy Policy",url:""},
                 ].map((link) => (
-                  <Link key={link} href="#" color="white" _hover={{ color: "white" }}>
-                    {link}
+                  <Link key={link.name} href={link.url} color="white" _hover={{ color: "white" }}>
+                    {link.name}
                   </Link>
                 ))}
               </Flex>
@@ -63,14 +68,14 @@ import {
           <Flex mt={{base:'2rem',lg:'0'}} flexDir={'column'} gap={'2rem'}>
             <Heading fontSize={'18px'} fontWeight={'500'}>Services</Heading>
             {[
-              "Oilfield Services",
-              "Talent Network",
-              "Certification Trainings",
-              "Equipment Services",
-              "Opportunities Hub"
+              // {name:"Oilfield Services",url:"/service"},
+              {name:"Talent Network",url:'/talents'},
+              {name:"Certification Trainings",url:'/certifications'},
+              // {name:"Equipment Services",url:"/equipment"},
+              {name:"Opportunities Hub",url:"/jobs"}
             ].map((link) => (
-              <Link key={link} href="#" color="white" _hover={{ color: "white" }}>
-                {link}
+              <Link key={link.name} href={link.url} color="white" _hover={{ color: "white" }}>
+                {link.name}
               </Link>
             ))}
           </Flex>
@@ -105,6 +110,7 @@ import {
                 borderRadius="md"
                 height="2.5rem"        // match input height
                 px="1.5rem"
+                _hover={{ bg: "#2E3192" }}
               >
                 Subscribe
               </Button>
@@ -119,15 +125,14 @@ import {
           direction={'column'}
           align="center"
           justify="space-between"
-       
           mx="auto"
         >
          
           <Flex gap={'1rem'} m={'1rem auto'}>
-            <Link><RiLinkedinBoxLine fontSize={'40px'} /></Link>
-            <Link><RiFacebookCircleLine fontSize={'40px'} /></Link>
-            <Link><RiInstagramLine fontSize={'40px'} /></Link>
-            <Link><RiTwitterXFill fontSize={'40px'} /></Link>
+          <Link href="https://www.linkedin.com/company/codes-and-cogs/"><RiLinkedinBoxLine fontSize={'40px'} /></Link>
+            <Link href="https://web.facebook.com/Officialcodesandcogs/?_rdc=1&_rdr#"><RiFacebookCircleLine fontSize={'40px'} /></Link>
+            <Link href="https://www.instagram.com/codesandcogs/"><RiInstagramLine fontSize={'40px'} /></Link>
+            <Link href="https://x.com/codesandcogs"><RiTwitterXFill fontSize={'40px'} /></Link>
           </Flex>
   
           <Text fontSize="sm" color="white" >

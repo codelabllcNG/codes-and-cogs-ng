@@ -22,7 +22,7 @@ const Contact = ()=>{
                 }}
               >
                 <Box
-                  m={{ lg: "12rem 0" }}
+                  m={{ lg: "8rem 0" }}
                   w={{ base: "100%", sm: "100%", md: "50%", lg: "50%" }}
                 >
                   <Heading m={"2rem 0"}>Who We Are</Heading>
@@ -186,6 +186,7 @@ const Contact = ()=>{
             textColor="white"
             bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"
             boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"
+            _hover={{ bg: "#2E3192" }}
           >
             Submit Details
           </Button>

@@ -277,7 +277,7 @@ const Training = ()=>{
                     <Text fontSize="lg" mb={5}>
                         We have curated our training catalog which covers all the details you need your chosen <br/> track prerequisites and well-detailed curriculum.
                     </Text>
-                    <Button width={'fit-content'} m={'1rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Download Brochure </Button>
+                    <Button  _hover={{ bg: "#2E3192" }} width={'fit-content'} m={'1rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Download Brochure </Button>
                     
                     </Box>
                 </Box>
@@ -299,7 +299,7 @@ const Training = ()=>{
                         <Box w={{base:'100%',lg:'50%'}}>
                             <Heading fontSize={'28px'}>Secure Your Spot Now</Heading>
                             <Text m={'1rem 0'}>Ready to take the next step in your career? Secure your spot in our June 2025 training cohort by filling out the registration form below:</Text>
-                            <Button width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Enroll Now </Button>
+                            <Button  _hover={{ bg: "#2E3192" }} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Enroll Now </Button>
                         </Box>
                         <Box display={'flex'} justifyContent={'flex-end'} w={{base:'100%',lg:'50%'}}>
                             <Image alt="Media" src={'harrison.svg'} />

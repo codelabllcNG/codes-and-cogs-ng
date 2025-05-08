@@ -4,7 +4,6 @@ const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 
 
 export async function getCategories(params:CategoryParams) {
-    console.log('running')
     try{
         const response = await axios.get(`${backendUrl}/category`,{params:params})
         return response.data

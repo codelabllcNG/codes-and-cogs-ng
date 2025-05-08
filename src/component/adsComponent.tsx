@@ -11,7 +11,6 @@ interface AdsComponentProp {
 const AdsComponent :React.FC<AdsComponentProp> = ({imageUrl,link,mobileUrl}) => {
   const handleClose = () => {
     // Handle close logic here
-    console.log("Closed the image");
   };
 
   return (

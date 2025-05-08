@@ -45,7 +45,7 @@ const ShareJobModal: React.FC<ShareJobModalProps> = ({ isOpen, onClose }) => {
             
             <Divider />
             
-            <Button variant="ghost" justifyContent="flex-start" height="40px" borderRadius={0} onClick={onClose}>
+            <Button  variant="ghost" justifyContent="flex-start" height="40px" borderRadius={0} onClick={onClose}>
               <HStack spacing={3}>
                 <Text fontSize="lg" w="24px" textAlign="center">f</Text>
                 <Text>Facebook</Text>

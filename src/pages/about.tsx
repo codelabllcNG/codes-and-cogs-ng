@@ -1,25 +1,27 @@
 import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
 import { Box, Heading, Text, Image, Flex,Icon,Button } from "@chakra-ui/react";
 import { FaLightbulb, FaLeaf, FaUsers } from "react-icons/fa";
+import { useRouter } from "next/router";
 
 const imageData = [
-  { name: 'Andy G', title: 'Managing Director', image: 'AndyG.svg' },
-  { name: 'Andy G', title: 'Managing Director', image: 'AndyG.svg' },
-  { name: 'Andy G', title: 'Managing Director', image: 'AndyG.svg' },
-  { name: 'Andy G', title: 'Managing Director', image: 'AndyG.svg' },
-  { name: 'Andy G', title: 'Managing Director', image: 'AndyG.svg' },
-  { name: 'Andy G', title: 'Managing Director', image: 'AndyG.svg' },
-  { name: 'Andy G', title: 'Managing Director', image: 'AndyG.svg' }
+  { name: 'Andy G', title: 'Managing Director', image: 'andy.png' },
+  { name: 'Fidelis O.', title: 'BDM (Consultant)', image: 'fidelis.png' },
+  { name: 'Charles U.', title: 'Engineering Manager (Consultant)', image: 'avatar.png' },
+  { name: 'Emmanuel A.', title: 'Software Engineering Lead', image: 'emmanuel.png' },
+  { name: 'Theophilus A.', title: 'Senior Slickline Operator', image: 'avatar.png' },
+  { name: 'Harrison U.', title: 'QAHSSE Specialist', image: 'harrison.png' },
+  { name: 'Alina A.', title: 'Finance and Administration', image: 'alina.png'}
 ];
 
 function About() {
+  const router = useRouter()
   return (
 <HeaderAndFooter >
 
       {/*section 1  */}
       <Box
         maxWidth="2000px"
-        bgImage="url('About.svg')"
+        bgImage="url('/About.svg')"
         bgSize="cover" // Ensures the image covers the entire container.
         bgPosition="center" // Centers the background image.
         bgRepeat="no-repeat" // Prevents the background image from repeating.
@@ -33,7 +35,7 @@ function About() {
         }}
       >
         <Box
-          m={{ lg: "12rem 0" }}
+          m={{ lg: "8rem 0" }}
           w={{ base: "100%", sm: "100%", md: "50%", lg: "50%" }}
         >
           <Heading m={"2rem 0"}>Who We Are</Heading>
@@ -133,6 +135,8 @@ function About() {
           flexDir="column"
           position="relative"
           width={{ base: "calc(100% - 16px)", md: "calc(50% - 16px)", lg: "calc(25% - 16px)" }}
+          onClick={()=>router.push('/teams/andy-a')}
+          cursor={'pointer'}
         >
           <Image
             src={item.image}
@@ -271,7 +275,7 @@ function About() {
                             <Text>We have a team of team of experts ready to answer your enquiries and help you get what you need.</Text>
                            </Box>
       
-                            <Button width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Contact us </Button>
+                            <Button  _hover={{ bg: "#2E3192" }} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Contact us </Button>
                             
                         </Box>
                         <Box display={'flex'} justifyContent={'flex-end'} w={{base:'100%',sm:'100%',md:'100%',lg:'50%'}}>

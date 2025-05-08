@@ -15,7 +15,6 @@ import { useTalentsStore } from '@/store/talentStore';
 import { upperCaseFirstLetter } from "@/component/utils";
 import { motion } from "framer-motion";
 import { useBreakpointValue } from "@chakra-ui/react";
-
 // Wrap Chakra Box with framer-motion
 const MotionBox = motion(Box);
 
@@ -69,6 +68,7 @@ export default function Home({topTalents}:HomepageProp)  {
   
 
   return (
+
     <HeaderAndFooter>
  
  {/* SECTION 1*/}
@@ -116,11 +116,9 @@ export default function Home({topTalents}:HomepageProp)  {
                           >
                           Business 
                     </Heading>
-                          with the Top 1% <br />Oil & Gas Talents in Nigeria
+                          with the Top 1% <br />Oil & Gas Talents
             </Heading>
 
-            
-      
             <Flex 
               m={{ base: '1.5rem 0', md: '2rem 0' }} 
               borderRadius="48px" 
@@ -521,7 +519,7 @@ export default function Home({topTalents}:HomepageProp)  {
             </Text>
           </Box>
           <Button
-            onClick={() => router.push("/trainning")}
+            // onClick={() => router.push("/")}
             bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"
             color="white"
             boxShadow="2px 5px 5px rgba(0,0,0,0.15)"
@@ -530,7 +528,7 @@ export default function Home({topTalents}:HomepageProp)  {
             py="12px"
             _hover={{ bg: "#2E3192" }}
           >
-            Explore Details
+            Comming Soon
           </Button>
         </Box>
         <Box

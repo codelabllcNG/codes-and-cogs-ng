@@ -17,7 +17,7 @@ export interface JobTypeInterface {
   id: number;
   name: string;
   active_icon : string;
-  non_active_icon : string;
+  none_active_icon : string;
 }
 
 export interface LocationInterface{

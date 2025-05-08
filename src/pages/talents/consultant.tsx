@@ -29,7 +29,6 @@ const Consultant = ()=>{
     
     useEffect(()=>{
       setJobs(data?.listings)
-      console.log(data)
     },[data])
     return(
 
@@ -51,7 +50,7 @@ const Consultant = ()=>{
                             }}
                         >
                             <Box
-                            m={{ lg: "12rem 0" }}
+                            m={{ lg: "6rem 0" }}
                         
                             >
                                 <Heading textAlign={'center'} m={"2rem 0"}>International Collaboration for Oil & Gas Experts</Heading>
@@ -61,8 +60,8 @@ const Consultant = ()=>{
                                 </Text>
 
                                 <Flex width={'fit-content'} mx={'auto'} gap={'3rem'} flexDir={{lg:'row',md:'row',sm:'column',base:'column'}}>
-                                    <Button onClick={()=>router.push('/talents/consultant#form')} width={'fit-content'} m={{lg:'3rem 0'}} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Register as a Consultant </Button>
-                                    <Button onClick={()=>router.push('/jobs')}  width={'fit-content'} m={{lg: '3rem 0'}} borderRadius="4px" padding={'12px 24px'} textColor={'white'} border={'2px solid #C9CBFF'} bg={'transparent'} boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> See Job Openings </Button>
+                                    <Button  _hover={{ bg: "#2E3192" }} onClick={()=>router.push('/talents/consultant#form')} width={'fit-content'} m={{lg:'3rem 0'}} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Register as a Consultant </Button>
+                                    <Button  _hover={{ bg: "#2E3192" }} onClick={()=>router.push('/jobs')}  width={'fit-content'} m={{lg: '3rem 0'}} borderRadius="4px" padding={'12px 24px'} textColor={'white'} border={'2px solid #C9CBFF'} bg={'transparent'} boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> See Job Openings </Button>
                                 </Flex>
                             </Box>
              </Box>
@@ -118,7 +117,7 @@ const Consultant = ()=>{
                                             <LoadingSpinner showLoadingSpinner={isLoading} />
                                             {jobs?.map((job,index)=>{
                                                 return(
-                                                    <Box onClick={()=>viewJob(job)} key={index} border={'1px solid rgba(0, 0, 0, 0.25)'} borderRadius={'12px'} >
+                                                    <Box cursor={'pointer'} onClick={()=>viewJob(job)} key={index} border={'1px solid rgba(0, 0, 0, 0.25)'} borderRadius={'12px'} >
                                                     <Box p={'3rem 1rem'} borderBottom={'1px dotted rgba(136, 136, 136, 0.80);'}>
                                                     <Flex gap={'3rem'} mt={'1rem'} mb={'1rem'}>
                                                         <Box>
@@ -158,7 +157,7 @@ const Consultant = ()=>{
                                             })}
                                     </SimpleGrid>
                                     <Flex>
-                                    <Button onClick={()=>router.push('/jobs')}  width={'fit-content'} m={'2rem auto'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> See All Opportunities </Button>              
+                                    <Button  _hover={{ bg: "#2E3192" }} onClick={()=>router.push('/jobs')}  width={'fit-content'} m={'2rem auto'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> See All Opportunities </Button>              
                                     </Flex>
 
                                     <Flex 

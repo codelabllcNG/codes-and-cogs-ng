@@ -50,7 +50,7 @@ const WhitePaper =()=>{
                             <Box w={{base:'100%',lg:'70%'}}>
                             <Text>Over the years, in the upstream oil and gas industry, ensuring the integrity and functionality of Pressure Control Equipment (PCE) is critical to the safety of personnel, assets, and the environment during well intervention operations. </Text>
                             <Text mt={'2rem'}>This white paper introduces a proactive and comprehensive solution designed to inspect, pressure test, and function test PCEs daily, prior to well intervention activities. By leveraging fast and real-time data transmission and advanced monitoring techniques, this service mitigates risks, enhances safety, and optimizes operational efficiency.</Text>
-                            <Button width={'fit-content'} m={'2rem auto'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Get White Paper </Button>              
+                            <Button  _hover={{ bg: "#2E3192" }} width={'fit-content'} m={'2rem auto'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Get White Paper </Button>              
                             </Box>
                     </Flex>
                 </Box>
@@ -111,7 +111,7 @@ const WhitePaper =()=>{
                             </Flex>
                           
                             <Flex>
-                              <Button width={'fit-content'} mx={'auto'} m={'3rem auto'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Submit Request</Button>
+                              <Button  _hover={{ bg: "#2E3192" }} width={'fit-content'} mx={'auto'} m={'3rem auto'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Submit Request</Button>
                             </Flex>                       
 
 

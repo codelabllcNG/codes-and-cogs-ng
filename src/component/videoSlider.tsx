@@ -21,7 +21,6 @@ const VideoSlider = () => {
   };
 
   useEffect(() => {
-    console.log({activeIndex})
     // Set a timeout to scroll automatically based on video duration
     const timeout = setTimeout(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % durations.length);

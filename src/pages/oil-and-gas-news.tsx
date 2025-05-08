@@ -71,8 +71,8 @@ const UniversityOfOilAndGas = ()=>{
                                                 </Select>
                                         </FormControl>
                                  
-                                        <Button width={{lg:'fit-content',base:'100%'}} mt={{lg:'2.5rem',base:'0.4rem'}} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Filter </Button>
-                                        <Button width={{lg:'fit-content',base:'100%'}} mt={{lg:'2.5rem',base:'0.4rem'}} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Reset </Button>
+                                        <Button  _hover={{ bg: "#2E3192" }} width={{lg:'fit-content',base:'100%'}} mt={{lg:'2.5rem',base:'0.4rem'}} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Filter </Button>
+                                        <Button  _hover={{ bg: "#2E3192" }} width={{lg:'fit-content',base:'100%'}} mt={{lg:'2.5rem',base:'0.4rem'}} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Reset </Button>
                                     
                 </Flex>
             </Box>
@@ -211,7 +211,7 @@ const UniversityOfOilAndGas = ()=>{
                </Flex>
 
                <Flex justifyContent={'center'}>
-                    <Button width={'fit-content'} m={'2rem auto'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> See More Videos</Button>              
+                    <Button  _hover={{ bg: "#2E3192" }} width={'fit-content'} m={'2rem auto'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> See More Videos</Button>              
                </Flex>
             </Box>
             {/* section 3 */}

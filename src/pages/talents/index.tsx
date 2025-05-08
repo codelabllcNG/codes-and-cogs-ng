@@ -12,6 +12,7 @@ import { useGetLocationHook } from '@/component/Hooks/locationHook';
 import { JobTypeInterface } from '@/component/Interface/Jobs';
 import { LocationInterface } from '@/component/Interface/talents';
 import HeaderAndFooter from '@/component/layout/HeaderAndFooter';
+import { upperCaseFirstLetter } from '@/component/utils';
 
 
 const Talents = () => {
@@ -55,12 +56,10 @@ const Talents = () => {
   },[talentData])
 
   useEffect(()=>{
-    console.log({categoriesData})
     setCategories(categoriesData?.categories)
   },[categoriesData])
 
   useEffect(()=>{
-    console.log({locationData})
     setLocations(locationData?.categories)
   },[locationData])
 
@@ -124,6 +123,7 @@ const Talents = () => {
                 onChange={(e) => setSearchValue(e.target.value)}
               />
               <Button
+               _hover={{ bg: "#2E3192" }}
                 onClick={()=>setSearch(searchValue)}
                 width={'fit-content'}
                 h={'60px'}
@@ -203,10 +203,10 @@ const Talents = () => {
                     <Box w={'100%'} boxShadow={'lg'} p={2}>
                       <Image w={'100%'} src={talent.image} alt={talent.name} />
                       <Heading m={'0.2rem 0'} fontSize={['md', '20px']} color={'#333'}>
-                        {talent.name}
+                        {upperCaseFirstLetter(talent?.name)}
                       </Heading>
                       <Text m={'0.2rem 0'} fontSize={['sm', '16px']} color={'#2E3192'}>
-                        {talent.role}
+                        {upperCaseFirstLetter(talent?.role)}
                       </Text>
                       <Text fontSize={['xs', '14px']} color={'#333'}>
                         Expertise

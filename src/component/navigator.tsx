@@ -104,7 +104,7 @@ export const MobileView :React.FC<Prop> = ({activeLink}) =>{
 
             {/* button */}
             <Flex gap={'1rem'} p={'1rem'} mt={'3rem'} flexDir={'column'} >
-            <Button width={'100%'} mx={'auto'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)">
+            <Button width={'100%'} mx={'auto'} borderRadius="4px"  _hover={{ bg: "#2E3192" }} padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)">
                <Link  href="/talents/consultant"> Become A Consultant </Link>
             </Button>
             
@@ -120,7 +120,6 @@ const Navigator  = () => {
     const [activeLink,setActivelink] = useState('')
 
     useEffect(()=>{
-       console.log(router.asPath)
        setActivelink(router.asPath)
     },[router])
 

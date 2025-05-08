@@ -54,7 +54,6 @@ import {
             try {
                 setLoading(true)
                 if(!file){
-                    console.log(typeof file)
                     toast.error('please upload you cv')
                    
                 }
@@ -65,9 +64,7 @@ import {
 
                 if(listing_id){
                     formData.listing_id = listing_id
-                    console.log({formData})
                     const data = await  mutation.mutateAsync(formData)
-                    console.log({formData})
                     toast.success(data.message)
                     return
 
@@ -76,7 +73,6 @@ import {
                 setLoading(true)
                
                 const data = await  mutation.mutateAsync(formData)
-                console.log(data)
                 toast.success(data.message)
 
                 
@@ -159,7 +155,7 @@ import {
                                     </FormControl>
                             </Flex>
                             <Flex>
-                              <Button width={'fit-content'} onClick={hanldeSubmit} mx={'auto'} m={'3rem auto'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Submit Details</Button>
+                              <Button width={'fit-content'} onClick={hanldeSubmit} mx={'auto'} m={'3rem auto'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"  _hover={{ bg: "#2E3192" }} boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Submit Details</Button>
                             </Flex>                       
 
 
