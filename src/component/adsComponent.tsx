@@ -17,8 +17,9 @@ const AdsComponent :React.FC<AdsComponentProp> = ({imageUrl,link,mobileUrl}) => 
     
     <Box position="relative" maxW="fit-content">
       {/* Image Container */}
-      <Text textAlign={'center'} color={'black'}>Advertisment</Text>
-      <Link href={link} >
+      <Text display={imageUrl ? {lg:'block',md:'block',sm:'none',base:'none'}:'none'} textAlign={'center'} color={'black'}>Advertisment</Text>
+      <Text display={mobileUrl ? {lg:'none',md:'none',sm:'block',base:'block'}:'none'} textAlign={'center'} color={'black'}>Advertisment</Text>
+      <Link href={link} target="_blank" >
       <Image
         src={imageUrl}
         alt="Advertisement"
@@ -31,7 +32,7 @@ const AdsComponent :React.FC<AdsComponentProp> = ({imageUrl,link,mobileUrl}) => 
         alt="Advertisement"
         borderRadius="md"
         boxShadow="lg"
-        display={{lg:'none',md:'none',sm:'block',base:'block'}}
+        display={mobileUrl?{lg:'none',md:'none',sm:'block',base:'block'} :'none'}
       />
       </Link>
   
