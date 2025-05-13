@@ -28,7 +28,7 @@ const TalentProfile =()=>{
 
 
     useEffect(()=>{
-        
+        console.log({talent})
         setTalents(data?.talents)
         setCat(`${talent?.category[0]?.id}`)
  
@@ -68,7 +68,7 @@ const TalentProfile =()=>{
                 base: "1rem",
                 }}
             >
-                   <Flex gap={'2rem'} alignItems={'center'} flexDir={{lg:'row',md:'column',sm:'column',base:'column'}}>
+                   <Flex gap={'2rem'}  flexDir={{lg:'row',md:'column',sm:'column',base:'column'}}>
                        <Box w={{base:'100%',lg:'40%'}}>
                            <Flex justifyContent={'flex-end'} pos={'relative'}>
                             <Box bg={'linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 100%);'} pos={'absolute'} bottom={'0'} left={'0'} w={'100%'} h={'50%'} ></Box>
@@ -128,7 +128,7 @@ const TalentProfile =()=>{
                            <Wrap spacing={2}>
                              
                                {talent?.certifications_credentials.map((certificate, certificateIndex) => (
-                                   <Image alt="Media" width={'50px'} key={certificateIndex} height={'50px'} src={certificate?.name} />
+                                   <Image alt="Media"  key={certificateIndex} height={'50px'} src={certificate?.logo} />
                                    ))}
                            </Wrap>
                            <Button  _hover={{ bg: "#2E3192" }} onClick={()=>router.push('/talents/hire')} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Hire {talent?.name.split(' ')[0]}</Button>
@@ -151,7 +151,7 @@ const TalentProfile =()=>{
                     base: "1rem",
                     }}
                 >
-                                  <Heading fontWeight={'600'} color={'#2E3192'} mt={'1rem'} mb={'2rem'} fontSize={'28px'} textAlign={'center'}>EXPLORE MORE {talent?.category[0]?.name.toLocaleUpperCase()}</Heading>
+                                  <Heading fontWeight={'600'} color={'#2E3192'} mt={'1rem'} mb={'2rem'} fontSize={'28px'} textAlign={'center'}>EXPLORE MORE TALENTS IN {talent?.category[0]?.name.toLocaleUpperCase()}</Heading>
                                                     <Flex mt={'2rem'} flexDirection={['column', 'column', 'row']} position={'relative'}>
                                                         <LoadingSpinner showLoadingSpinner={isLoading} />
                                                     <Box w={['100%', '100%', '100%']} p={[2, 4]}>
@@ -160,9 +160,17 @@ const TalentProfile =()=>{
                                                         gap={[4, 6]}
                                                         >
                                                         {talents?.map((talent, index) => (
-                                                            <GridItem key={index} w="100%">
+                                                            <GridItem key={index} w="100%" display={'flex'}>
                                                             <Box w={'100%'} boxShadow={'lg'} p={2}>
-                                                                <Image alt="Media" w={'100%'} src={talent.image} />
+                                                            <Box w="100%" h="230px" overflow="hidden">
+                                                                    <Image
+                                                                    src={talent?.image}
+                                                                    alt="Media"
+                                                                    w="100%"
+                                                                    h="100%"
+                                                                    objectFit="cover"
+                                                                    />
+                                                             </Box>
                                                                 <Heading m={'0.2rem 0'} fontSize={['md', '20px']} color={'#333'}>
                                                                 {talent?.name}
                                                                 </Heading>
@@ -170,8 +178,8 @@ const TalentProfile =()=>{
                                                                 {talent?.role}
                                                                 </Text>
                                                                 <Text fontSize={['xs', '14px']} color={'#333'}>Expertise</Text>
-                                                                <Flex mt={3} wrap="wrap" gap={2}>
-                                                                {talent?.expertises?.map((skill, skillIndex) => (
+                                                                <Flex mt={3} wrap="wrap" gap={2} >
+                                                                {talent?.expertises.slice(0,6)?.map((skill, skillIndex) => (
                                                                     <Flex 
                                                                     key={skillIndex} 
                                                                     p={2} 
@@ -194,6 +202,8 @@ const TalentProfile =()=>{
                                                     </Flex>
               </Box>   
             {/* section 3 */}
+
+            
   </HeaderAndFooter>
     )
 }

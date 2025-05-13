@@ -25,7 +25,8 @@ interface HomepageProp{
 export const getServerSideProps : GetServerSideProps<HomepageProp> = async () => {
    
 try {
-  const topTalentsDataRes = await fetch('https://api.codesandcogs.com/oilandgas/api/codesandcogs/v1/talents?hero=true')
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
+  const topTalentsDataRes = await fetch(`${backendUrl}/talents?hero=true`)
   const topTalentsData = await topTalentsDataRes.json();
   const topTalents = topTalentsData?.talents
 
@@ -245,7 +246,7 @@ export default function Home({topTalents}:HomepageProp)  {
                       {upperCaseFirstLetter(topTalent?.name)}
                     </Heading>
                     <Text fontSize={{ base: '12px', md: '16px' }}>
-                      {upperCaseFirstLetter(topTalent?.expertises[0].name)}
+                      {upperCaseFirstLetter(topTalent?.role)}
                     </Text>
                   </Box>
                 </Box>

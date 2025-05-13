@@ -64,6 +64,18 @@ const TalentExplorer  = () => {
         borderTop={'1px solid #CCC'} 
         borderBottom={'1px solid #CCC'}
         px={[2, 4, 0]}
+          /* Hide scrollbar */
+          css={{
+            /* Webkit browsers (Chrome, Safari) */
+            '&::-webkit-scrollbar': {
+              display: 'none',
+            },
+            /* Firefox */
+            scrollbarWidth: 'none',
+            /* IE 10+ */
+            '-ms-overflow-style': 'none',
+          }}
+
       >  
         <Flex display={{lg:'flex',base:'none'}} minW="max-content" justifyContent={'space-between'} w="100%">
           {jobCategories?.map((category, index:number) => (
@@ -145,7 +157,7 @@ const TalentExplorer  = () => {
         <LoadingSpinner showLoadingSpinner={isTalentLoading} />
         <Flex
           overflowX={'auto'} 
-          justifyContent={'space-between'}
+          gap={'3rem'}
           p={2}
           css={{
             "&::-webkit-scrollbar": {
@@ -156,8 +168,8 @@ const TalentExplorer  = () => {
           
           {talents?.map((talent, index:number) => (
               <Box  key={index}  minW={{lg:'23%',base:'80vw'}} width={{lg:'30%',base:'100%'}} boxShadow="lg" borderRadius="md" >
-              <Box w={'100%'}  boxShadow={'lg'} p={2}>
-              <Box w="100%" h="209px" overflow="hidden">
+              <Box w={'100%'}  p={2}>
+              <Box w="100%" h="230px" overflow="hidden">
                 <Image
                   src={talent?.image}
                   alt="Media"

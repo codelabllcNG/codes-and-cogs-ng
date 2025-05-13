@@ -1,8 +1,6 @@
 interface CertificationCredential {
-    id: number;
     name: string;
-    issuing_organization?: string; // Optional based on your data
-    year_obtained?: number;        // Optional based on your data
+    logo:string;    
   }
   
 export  interface CategoryInterface {
