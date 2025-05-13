@@ -40,12 +40,12 @@ const TalentExplorer  = () => {
   },[jobCategoriesData])
 
   useEffect(()=>{
+    console.log({talentsData})
     setTalents(talentsData?.talents)
   },[talentsData])
 
 
   useEffect(()=>{
-
     const cat = jobCategories?.find((category)=>category.name === activeTab)
     refetchWithParams({cat:String(cat?.id),limit:'3'})
   },[activeTab])
@@ -57,37 +57,39 @@ const TalentExplorer  = () => {
           EXPLORE TOP TALENTS
       </Heading>
 
-    <Flex 
-      w={'100%'} 
-      overflowX="auto"
-      borderTop={'1px solid #CCC'} 
-      borderBottom={'1px solid #CCC'}
-      px={[2, 4, 0]}
-    >
-       
       {/* desktop view */}
-      <Flex display={{lg:'flex',base:'none'}} minW="max-content" justifyContent={'space-between'} w="100%">
-        {jobCategories?.map((category, index:number) => (
-          <Flex 
-            key={index}
-            p={['1rem', '2rem 0']} 
-            borderBottom={activeTab === category.name ? '2px solid #2E3192' : 'none'}
-            cursor="pointer"
-            onClick={() => setActiveTab(category.name)}
-            color={activeTab === category.name ? '#2E3192' : 'inherit'}
-            flexShrink={0}
-            mx={[2, 4]}
-          >
-            <Image src={activeTab === category.name ? category.active_icon : category.none_active_icon}/>
-            <Heading fontSize={['sm', '19px']} whiteSpace="nowrap">
-              {category.name}
-            </Heading>
-          </Flex>
-        ))}
+      <Flex 
+        w={'100%'} 
+        overflowX="auto"
+        borderTop={'1px solid #CCC'} 
+        borderBottom={'1px solid #CCC'}
+        px={[2, 4, 0]}
+      >  
+        <Flex display={{lg:'flex',base:'none'}} minW="max-content" justifyContent={'space-between'} w="100%">
+          {jobCategories?.map((category, index:number) => (
+            <Flex 
+              key={index}
+              p={['1rem', '2rem 0']} 
+              borderBottom={activeTab === category.name ? '2px solid #2E3192' : 'none'}
+              cursor="pointer"
+              onClick={() => setActiveTab(category.name)}
+              color={activeTab === category.name ? '#2E3192' : 'inherit'}
+              flexShrink={0}
+              mx={[2, 4]}
+              alignItems={'center'}
+            >
+              <Image width={'30px'} src={activeTab === category.name ? category.active_icon : category.none_active_icon}/>
+              <Heading fontSize={['sm', '19px']} whiteSpace="nowrap">
+                {category.name}
+              </Heading>
+            </Flex>
+          ))}
+        </Flex>
+
       </Flex>
-       
-      {/* mobile view */}
-      <Box w={'100%'} display={{lg:'none',base:'block'}}>
+
+       {/* mobile view */}
+       <Box w={'100%'} display={{lg:'none',base:'block'}}>
       <Menu >
       <MenuButton
       
@@ -112,7 +114,7 @@ const TalentExplorer  = () => {
               mr={2}
             />
           )}
-          <Text>
+          <Text noOfLines={1}>
             {activeTab || "Select a category"}
           </Text>
         </Flex>
@@ -135,9 +137,7 @@ const TalentExplorer  = () => {
         ))}
       </MenuList>
       </Menu>
-      </Box>
-
-    </Flex>
+       </Box>
 
     {/* Body - Stack on mobile */}
     <Flex mt={'2rem'} flexDirection={['column', 'column', 'row']}>
@@ -155,9 +155,17 @@ const TalentExplorer  = () => {
           >
           
           {talents?.map((talent, index:number) => (
-            <Box  key={index}  minW={{lg:'23%',base:'80vw'}} boxShadow="lg" borderRadius="md" >
+              <Box  key={index}  minW={{lg:'23%',base:'80vw'}} width={{lg:'30%',base:'100%'}} boxShadow="lg" borderRadius="md" >
               <Box w={'100%'}  boxShadow={'lg'} p={2}>
-                <Image alt='Media' w={'100%'} src={talent?.image} />
+              <Box w="100%" h="209px" overflow="hidden">
+                <Image
+                  src={talent?.image}
+                  alt="Media"
+                  w="100%"
+                  h="100%"
+                  objectFit="cover"
+                />
+              </Box>
                 <Heading m={'0.2rem 0'} fontSize={['md', '20px']} color={'#333'}>
                   {upperCaseFirstLetter(talent.name)}
                 </Heading>
@@ -166,7 +174,7 @@ const TalentExplorer  = () => {
                 </Text>
                 <Text fontSize={['xs', '14px']} color={'#333'}>Expertise</Text>
                 <Flex mt={3} wrap="wrap" gap={2}>
-                  {talent.expertises?.map((skill, skillIndex:number) => (
+                  {talent.expertises.slice(0,6)?.map((skill, skillIndex:number) => (
                     <Flex 
                       key={skillIndex} 
                       p={2} 
@@ -179,7 +187,7 @@ const TalentExplorer  = () => {
                   ))}
                 </Flex>
   
-                <Button  _hover={{ bg: "#2E3192" }} onClick={()=>viewProfile(talent)} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)">  View Profile </Button>
+                <Button  _hover={{ bg: "#2E3192" }} onClick={()=>viewProfile(talent)} width={'fit-content'} m={'1rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)">  View Profile </Button>
                       
               </Box>
             </Box>
@@ -197,7 +205,7 @@ const TalentExplorer  = () => {
         justifyContent={'center'} 
       
       >
-        <AdsComponent imageUrl='/image 3.svg' mobileUrl='/image 3.svg' link='#'/>
+        <AdsComponent imageUrl='/ads/homepage/Ads-D-1.png' mobileUrl='/ads/homepage/Ads-M-1.png' link='/jobs'/>
       </Box>
     </Flex>
    </Box>

@@ -81,7 +81,7 @@ const Consultant = ()=>{
                             base: "1rem",
                             }}
                         >
-                          <AdsComponent link="#" imageUrl="/ads 1.png" />
+                          <AdsComponent link="/contact" imageUrl="/ads/consultant/Ads-D-1.png" mobileUrl="/ads/consultant/Ads-M-1.png" />
             </Flex>
             {/* ads block */}
 
@@ -288,20 +288,22 @@ const Consultant = ()=>{
                                 sm: "1rem",
                                 base: "1rem",
                                 }}
-                                gap={'3rem'}
+                                justify={'center'}
                             >
-                                <AdsComponent imageUrl="/ads6.png" link="#" />
-                                <AdsComponent imageUrl="/ads6.png" link="#" />
+                                <Flex gap={{lg:'3rem',base:'0rem'}}>
+                                <AdsComponent   imageUrl="/ads/consultant/Ads-5.png" mobileUrl="/ads/consultant/Ads-5.png" link="https://deskmayte.com/" />
+                                <AdsComponent  imageUrl="/ads/consultant/Ads-5.png" link="https://deskmayte.com/"  />
+                                </Flex>
             
                         </Flex>
                     {/* section 4 */}
 
                 </Box>
                 <Box display={'flex'} flexDir={'column'} pt={'4rem'} gap={'3rem'} w={{lg:'20%',md:'20%',sm:'100%',base:'100%'}} alignItems={'center'}>
-                    <AdsComponent imageUrl="/ads2.png" link="#" />
-                    <AdsComponent imageUrl="/ads3.png" link="#" />
-                    <AdsComponent imageUrl="/ads4.png" link="#" />
-                    <AdsComponent imageUrl="/ads5.png" link="#" />
+                    <AdsComponent imageUrl="/ads/consultant/Ads-2.png" link="https://codelabllc.com/us/branding/" />
+                    <AdsComponent imageUrl="/ads/consultant/Ads-3.png" link="https://deskmayte.com/" />
+                    <AdsComponent imageUrl="/ads/consultant/Ads-4.png" link="/contact" />
+                    <AdsComponent imageUrl="/ads/consultant/Ads-M-1.png" link="/contact" />
 
                 </Box>
             </Flex>
