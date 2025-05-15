@@ -1,10 +1,9 @@
 
-import { TalentInterface, TalentStoreInterface } from '@/component/Interface/talents';
+import { TalentInterface } from '@/component/Interface/talents';
 import { useState, useEffect } from 'react';
 import { IoMdArrowBack, IoMdArrowForward } from 'react-icons/io';
 import { Flex, Box, Text, Heading, Button, Image, Grid, GridItem,FormControl, FormLabel, Select, Input } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
-import { useTalentsStore } from '@/store/talentStore';
 import LoadingSpinner from '@/component/loadingSpinner';
 import { useGetTalentHook } from '@/component/Hooks/talentsHook';
 import { useGetCategoriesHook } from '@/component/Hooks/categoriesHook';
@@ -12,7 +11,7 @@ import { useGetLocationHook } from '@/component/Hooks/locationHook';
 import { JobTypeInterface } from '@/component/Interface/Jobs';
 import { LocationInterface } from '@/component/Interface/talents';
 import HeaderAndFooter from '@/component/layout/HeaderAndFooter';
-import { upperCaseFirstLetter } from '@/component/utils';
+import TalentCard from '@/component/talentCard';
 
 
 const Talents = () => {
@@ -31,7 +30,6 @@ const Talents = () => {
   const [cat,setCat] = useState('')
   
   const router = useRouter();
-  const editSelectedTalent = useTalentsStore((state: TalentStoreInterface) => state.editSelectedTalent);
 
   // Pagination control functions
   const goNext = () => {
@@ -45,10 +43,6 @@ const Talents = () => {
     setActiveIndex(activeIndex -1)
   };
 
-  const viewProfile = (data: TalentInterface) => {
-    editSelectedTalent(data);
-    router.push(`/talents/bio`);
-  };
 
   useEffect(()=>{
     setTalents(talentData?.talents)
@@ -200,44 +194,7 @@ const Talents = () => {
               <Grid templateColumns={['1fr', 'repeat(2, 1fr)', 'repeat(4, 1fr)']} gap={[4, 6]}>
                 {talents?.map((talent, index) => (
                   <GridItem key={index} w="100%">
-                    <Box w={'100%'} boxShadow={'lg'} p={2}>
-                      <Image w={'100%'} src={talent.image} alt={talent.name} />
-                      <Heading m={'0.2rem 0'} fontSize={['md', '20px']} color={'#333'}>
-                        {upperCaseFirstLetter(talent?.name)}
-                      </Heading>
-                      <Text m={'0.2rem 0'} fontSize={['sm', '16px']} color={'#2E3192'}>
-                        {upperCaseFirstLetter(talent?.role)}
-                      </Text>
-                      <Text fontSize={['xs', '14px']} color={'#333'}>
-                        Expertise
-                      </Text>
-                      <Flex mt={3} wrap="wrap" gap={2}>
-                        {talent.expertises?.map((skill, skillIndex) => (
-                          <Flex
-                            key={skillIndex}
-                            p={2}
-                            borderRadius={'12px'}
-                            border={'0.8px solid #A3A2A2'}
-                            fontSize={['xs', 'sm']}
-                          >
-                            {skill?.name}
-                          </Flex>
-                        ))}
-                      </Flex>
-
-                      <Button
-                        onClick={() => viewProfile(talent)}
-                        width={'fit-content'}
-                        m={'3rem 0'}
-                        borderRadius="4px"
-                        padding={'12px 24px'}
-                        textColor={'white'}
-                        bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"
-                        boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"
-                      >
-                        View Profile
-                      </Button>
-                    </Box>
+                      <TalentCard talent={talent} />
                   </GridItem>
                 ))}
               </Grid>

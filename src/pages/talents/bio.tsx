@@ -10,25 +10,17 @@ import { TalentStoreInterface } from "@/component/Interface/talents";
 import StarRating from "@/component/starRating";
 import LoadingSpinner from "@/component/loadingSpinner";
 import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
+import TalentCard from "@/component/talentCard";
 
 
 const TalentProfile =()=>{
     const router = useRouter()
     const [talents,setTalents] = useState<TalentInterface[]>()
     const talent = useTalentsStore((state:TalentStoreInterface)=>state.selectedTalent)
-    const editSelectedTalent = useTalentsStore((state:TalentStoreInterface)=>state.editSelectedTalent)
     const [cat,setCat] =useState<string>('')
     const { data, isLoading } = useGetTalentHook({  limit : '8' ,cat})
 
-    const viewProfile = function(data:TalentInterface){
-      editSelectedTalent(data)
-      router.push(`/talents/bio`)
-    
-    }
-
-
     useEffect(()=>{
-        console.log({talent})
         setTalents(data?.talents)
         setCat(`${talent?.category[0]?.id}`)
  
@@ -161,40 +153,7 @@ const TalentProfile =()=>{
                                                         >
                                                         {talents?.map((talent, index) => (
                                                             <GridItem key={index} w="100%" display={'flex'}>
-                                                            <Box w={'100%'} boxShadow={'lg'} p={2}>
-                                                            <Box w="100%" h="230px" overflow="hidden">
-                                                                    <Image
-                                                                    src={talent?.image}
-                                                                    alt="Media"
-                                                                    w="100%"
-                                                                    h="100%"
-                                                                    objectFit="cover"
-                                                                    />
-                                                             </Box>
-                                                                <Heading m={'0.2rem 0'} fontSize={['md', '20px']} color={'#333'}>
-                                                                {talent?.name}
-                                                                </Heading>
-                                                                <Text m={'0.2rem 0'} fontSize={['sm', '16px']} color={'#2E3192'}>
-                                                                {talent?.role}
-                                                                </Text>
-                                                                <Text fontSize={['xs', '14px']} color={'#333'}>Expertise</Text>
-                                                                <Flex mt={3} wrap="wrap" gap={2} >
-                                                                {talent?.expertises.slice(0,6)?.map((skill, skillIndex) => (
-                                                                    <Flex 
-                                                                    key={skillIndex} 
-                                                                    p={2} 
-                                                                    borderRadius={'12px'} 
-                                                                    border={'0.8px solid #A3A2A2'}
-                                                                    fontSize={['xs', 'sm']}
-                                                                    >
-                                                                    {skill?.name}
-                                                                    </Flex>
-                                                                ))}
-                                                                </Flex>
-                                                
-                                                                <Button  _hover={{ bg: "#2E3192" }} onClick={()=>viewProfile(talent)} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> View Profile</Button>
-                                                                    
-                                                            </Box>
+                                                             <TalentCard talent={talent} />
                                                             </GridItem>
                                                         ))}
                                                         </Grid> 

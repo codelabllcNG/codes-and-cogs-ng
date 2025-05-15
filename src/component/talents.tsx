@@ -90,7 +90,7 @@ const TalentExplorer  = () => {
               mx={[2, 4]}
               alignItems={'center'}
             >
-              <Image width={'30px'} src={activeTab === category.name ? category.active_icon : category.none_active_icon}/>
+              <Image alt='Media' width={'30px'} src={activeTab === category.name ? category.active_icon : category.none_active_icon}/>
               <Heading fontSize={['sm', '19px']} whiteSpace="nowrap">
                 {category.name}
               </Heading>
@@ -185,8 +185,26 @@ const TalentExplorer  = () => {
                   {upperCaseFirstLetter(talent.role)}
                 </Text>
                 <Text fontSize={['xs', '14px']} color={'#333'}>Expertise</Text>
-                <Flex mt={3} wrap="wrap" gap={2}>
-                  {talent.expertises.slice(0,6)?.map((skill, skillIndex:number) => (
+                <Flex
+                      mt={3}
+                      wrap="wrap"
+                      gap={2}
+                      h="20vh"
+                      overflowY="auto"
+                      alignContent="flex-start"
+                      alignItems="flex-start"
+                      css={{
+                          /* Webkit browsers (Chrome, Safari) */
+                          '&::-webkit-scrollbar': {
+                            display: 'none',
+                          },
+                          /* Firefox */
+                          scrollbarWidth: 'none',
+                          /* IE 10+ */
+                          '-ms-overflow-style': 'none',
+                        }}
+                    >
+                          {talent.expertises.slice(0,6)?.map((skill, skillIndex:number) => (
                     <Flex 
                       key={skillIndex} 
                       p={2} 
