@@ -64,6 +64,18 @@ const TalentExplorer  = () => {
         borderTop={'1px solid #CCC'} 
         borderBottom={'1px solid #CCC'}
         px={[2, 4, 0]}
+          /* Hide scrollbar */
+          css={{
+            /* Webkit browsers (Chrome, Safari) */
+            '&::-webkit-scrollbar': {
+              display: 'none',
+            },
+            /* Firefox */
+            scrollbarWidth: 'none',
+            /* IE 10+ */
+            '-ms-overflow-style': 'none',
+          }}
+
       >  
         <Flex display={{lg:'flex',base:'none'}} minW="max-content" justifyContent={'space-between'} w="100%">
           {jobCategories?.map((category, index:number) => (
@@ -78,7 +90,7 @@ const TalentExplorer  = () => {
               mx={[2, 4]}
               alignItems={'center'}
             >
-              <Image width={'30px'} src={activeTab === category.name ? category.active_icon : category.none_active_icon}/>
+              <Image alt='Media' width={'30px'} src={activeTab === category.name ? category.active_icon : category.none_active_icon}/>
               <Heading fontSize={['sm', '19px']} whiteSpace="nowrap">
                 {category.name}
               </Heading>
@@ -145,7 +157,7 @@ const TalentExplorer  = () => {
         <LoadingSpinner showLoadingSpinner={isTalentLoading} />
         <Flex
           overflowX={'auto'} 
-          justifyContent={'space-between'}
+          gap={'3rem'}
           p={2}
           css={{
             "&::-webkit-scrollbar": {
@@ -156,8 +168,8 @@ const TalentExplorer  = () => {
           
           {talents?.map((talent, index:number) => (
               <Box  key={index}  minW={{lg:'23%',base:'80vw'}} width={{lg:'30%',base:'100%'}} boxShadow="lg" borderRadius="md" >
-              <Box w={'100%'}  boxShadow={'lg'} p={2}>
-              <Box w="100%" h="209px" overflow="hidden">
+              <Box w={'100%'}  p={2}>
+              <Box w="100%" h="230px" overflow="hidden">
                 <Image
                   src={talent?.image}
                   alt="Media"
@@ -173,8 +185,26 @@ const TalentExplorer  = () => {
                   {upperCaseFirstLetter(talent.role)}
                 </Text>
                 <Text fontSize={['xs', '14px']} color={'#333'}>Expertise</Text>
-                <Flex mt={3} wrap="wrap" gap={2}>
-                  {talent.expertises.slice(0,6)?.map((skill, skillIndex:number) => (
+                <Flex
+                      mt={3}
+                      wrap="wrap"
+                      gap={2}
+                      h="20vh"
+                      overflowY="auto"
+                      alignContent="flex-start"
+                      alignItems="flex-start"
+                      css={{
+                          /* Webkit browsers (Chrome, Safari) */
+                          '&::-webkit-scrollbar': {
+                            display: 'none',
+                          },
+                          /* Firefox */
+                          scrollbarWidth: 'none',
+                          /* IE 10+ */
+                          '-ms-overflow-style': 'none',
+                        }}
+                    >
+                          {talent.expertises.slice(0,6)?.map((skill, skillIndex:number) => (
                     <Flex 
                       key={skillIndex} 
                       p={2} 

@@ -6,7 +6,7 @@ const companies = [
   'Nok Engineering',
   'WeAfri',
   'Star Offshore',
-  'Cadelab LLC'
+  'Codelab LLC'
 ];
 
 // Define keyframes for sliding animation
