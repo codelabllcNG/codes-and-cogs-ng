@@ -198,59 +198,74 @@ export default function Home({topTalents}:HomepageProp)  {
               mt={{ base: 2, md: 0 }}
             >
               {topTalents.map((topTalent, index) => (
-                <Box
-                  key={index}
-                  position="absolute"
-                  right={{
-                    base: `${index * 25}%`,
-                    md: `${index * 20}%`
-                  }}
-                  top="50%"
-                  transform="translateY(-50%)"
-                  w={{ base: '50%', md: '60%',lg:'40%' }}
-                  h={{
-                    base: hoveredIndex === index ? '260px' : '220px',
-                    md: hoveredIndex === index ? '380px' : '340px'
-                  }}
-                  transition="all 0.3s ease"
-                  zIndex={hoveredIndex === index ? 3 : 1}
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  cursor="pointer"
-                  mx={'auto'}
-                >
                   <Box
-                    as="img"
-                    src={topTalent?.image}
-                    alt={`Image ${index + 1}`}
-                    w="full"
-                    h="full"
-                    objectFit="cover"
-                    rounded="xl"
-                    shadow="xl"
-                    transition="all 0.3s ease"
-                    transform={hoveredIndex === index ? 'scale(1.05)' : 'scale(0.9)'}
-                  />
-                  <Box bg={'linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 100%);'} pos={'absolute'} bottom={'0'} left={'0'} w={'100%'} h={'50%'} ></Box>
-                  <Box
+                    key={index}
                     position="absolute"
-                    bottom="15px"
-                    left="15px"
-                    color="white"
-                    px={2}
-                    py={1}
-                    rounded="md"
-                    fontSize={{ base: 'xs', sm: 'sm' }}
-                    onClick={()=>viewProfile(topTalent)}
+                    right={{
+                      base: `${index * 25}%`,
+                      md: `${index * 20}%`
+                    }}
+                    top="50%"
+                    transform="translateY(-50%)"
+                    w={{ base: '50%', md: '60%', lg: '40%' }}
+                    h={{
+                      base: hoveredIndex === index ? '260px' : '220px',
+                      md: hoveredIndex === index ? '380px' : '340px'
+                    }}
+                    transition="all 0.3s ease"
+                    zIndex={hoveredIndex === index ? 3 : 1}
+                    onMouseEnter={() => setHoveredIndex(index)}
+                    onMouseLeave={() => setHoveredIndex(1)}
+                    cursor="pointer"
+                    mx="auto"
+                    overflow="hidden"            
+                    rounded="xl"                
                   >
-                    <Heading fontSize={{ base: '14px', md: '18px' }} fontWeight="500">
-                      {upperCaseFirstLetter(topTalent?.name)}
-                    </Heading>
-                    <Text fontSize={{ base: '12px', md: '16px' }}>
-                      {upperCaseFirstLetter(topTalent?.role)}
-                    </Text>
+                    {/* The image itself */}
+                    <Box
+                      as="img"
+                      src={topTalent?.image}
+                      alt={`Image ${index + 1}`}
+                      w="100%"
+                      h="100%"
+                      objectFit="cover"
+                      transition="all 0.3s ease"
+                      transform={hoveredIndex === index ? 'scale(1.05)' : 'scale(0.9)'}
+                    />
+
+                    {/* Full‐width gradient overlay, anchored to the bottom */}
+                    <Box
+                      position="absolute"
+                      bottom="0"
+                      left="0"
+                      right="0"
+                      height="50%"
+                      bgGradient="linear(to-t, rgba(0,0,0,1), rgba(0,0,0,0))"
+                      roundedBottom="xl"          
+                    />
+
+                    {/* Text/content box on top of the gradient */}
+                    <Box
+                      position="absolute"
+                      bottom="15px"
+                      left="15px"
+                      color="white"
+                      px={2}
+                      py={1}
+                      rounded="md"
+                      fontSize={{ base: 'xs', sm: 'sm' }}
+                      onClick={() => viewProfile(topTalent)}
+                      zIndex={2}              
+                    >
+                      <Heading fontSize={{ base: '14px', md: '18px' }} fontWeight="500">
+                        {upperCaseFirstLetter(topTalent?.name)}
+                      </Heading>
+                      <Text fontSize={{ base: '12px', md: '16px' }}>
+                        {upperCaseFirstLetter(topTalent?.role)}
+                      </Text>
+                    </Box>
                   </Box>
-                </Box>
-              ))}
+                ))}
             </Box>
 
           <Flex display={{lg:'none',base:'flex'}} >
@@ -479,7 +494,7 @@ export default function Home({topTalents}:HomepageProp)  {
             py="12px"
             _hover={{ bg: "#2E3192" }}
           >
-            About Us
+            Our Oilfield Services
           </Button>
         </Box>
         <Box

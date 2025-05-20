@@ -1,6 +1,6 @@
 
 import { TalentInterface } from '@/component/Interface/talents';
-import { useState, useEffect } from 'react';
+import { useState, useEffect,useRef } from 'react';
 import { IoMdArrowBack, IoMdArrowForward } from 'react-icons/io';
 import { Flex, Box, Text, Heading, Button, Image, Grid, GridItem,FormControl, FormLabel, Select, Input } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
@@ -28,6 +28,15 @@ const Talents = () => {
   const [totalTalents,setTotalTalents] = useState<number>(0)
   const [activeIndex,setActiveIndex] = useState(0)
   const [cat,setCat] = useState('')
+  const targetRef = useRef<HTMLDivElement>(null)
+   function handleScroll(){
+    if(targetRef.current){
+      targetRef.current.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+      })
+    }
+   }
   
   const router = useRouter();
 
@@ -35,11 +44,13 @@ const Talents = () => {
   const goNext = () => {
 
     if(activeIndex >= (totalTalents/8)-1) return
+    handleScroll()
     setActiveIndex(activeIndex + 1)
   };
   
   const goBack = () => {
     if(activeIndex <= 0) return
+    handleScroll()
     setActiveIndex(activeIndex -1)
   };
 
@@ -76,6 +87,8 @@ const Talents = () => {
       setSearch(search)
       setSearchValue(search)
     }
+
+  
     
   },[router.query])
 
@@ -91,7 +104,7 @@ const Talents = () => {
       >
         <Box>
           <Heading textAlign={'center'} m={'1rem'} fontWeight={'500'}>
-            Our Talent
+            Our Talents
           </Heading>
         </Box>
       </Box>
@@ -187,7 +200,7 @@ const Talents = () => {
           </Flex>
 
           {/* Body */}
-          <Flex alignItems={'center'} mt={'2rem'} flexDirection={['column', 'column', 'row']} pos={'relative'}>
+          <Flex ref={targetRef}  alignItems={'center'} mt={'2rem'} flexDirection={['column', 'column', 'row']} pos={'relative'}>
             <LoadingSpinner showLoadingSpinner={false} />
             <Box  display={talents?.length > 0 || talentIsLoading? 'block' : 'none' } w={['100%', '100%', '100%']} p={[2, 4]} minH={'100vh'} pos={'relative'} >
               <LoadingSpinner showLoadingSpinner={talentIsLoading} />
@@ -209,12 +222,16 @@ const Talents = () => {
                   <Text>Back</Text>
                 </Flex>
                 <Flex gap={'1rem'}>
-                  {Array.from({length:(totalTalents/8)}).map((_, index) => (
+                  {Array.from({length:(Math.ceil(totalTalents/8))}).map((_, index) => (
                     <Box
                       key={index}
                       h={'10px'}
                       w={'10px'}
-                      onClick={() => setActiveIndex(index)}
+                      // onClick={() => setActiveIndex(index)}
+                      onClick={()=>{
+                        setActiveIndex(index)
+                        handleScroll()
+                      }}
                       borderRadius={'50%'}
                       bg={index === activeIndex ? '#2E3192' : '#B6CAF2'}
                     ></Box>

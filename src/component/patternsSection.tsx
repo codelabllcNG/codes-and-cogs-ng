@@ -9,6 +9,10 @@ const partnerLogos = [
   "/LOGOS/IWCF.svg",
   "/LOGOS/CODELAB.svg",
   "/LOGOS/ES.svg",
+  "/LOGOS/certtech.png",
+  "/LOGOS/spe.png",
+  "/LOGOS/weafri.png",
+  "/LOGOS/wso.png",
 ];
 
 const marqueeAnimation = keyframes`

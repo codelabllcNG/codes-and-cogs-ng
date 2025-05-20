@@ -61,7 +61,7 @@ export default function MyApp({ Component, pageProps }:AppProps) {
         <title>Codes And Cogs </title>
         <meta name="description" content="Welcome to Codes And Cogs Talent Hub" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/logo.svg" />
+        <link rel="icon" href="/LOGO.svg" />
         {/* Add any other common meta tags here */}
       </Head>
         {/* Apply font variables to the entire app */}
