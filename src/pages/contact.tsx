@@ -80,11 +80,13 @@ const Contact = ()=>{
               <FormLabel>Choose your category</FormLabel>
             </Text>
             <Select h="60px" placeholder="Select">
-              <option value="startup">Startup</option>
-              <option value="sme">SME</option>
-              <option value="enterprise">Enterprise</option>
-              <option value="government">Government</option>
-              <option value="nonprofit">Non-Profit</option>
+            <option value="recruitment expert consultation">Recruitment Expert Consultation</option>
+            <option value="become a partner">Become a Partner</option>
+            <option value="advertise service/product">Advertise Service/Product</option>
+            <option value="speak to a local rep">Speak to a Local Rep</option>
+            <option value="get assistance with registration">Get assistance with registration</option>
+            <option value="safety concern">Safety Concern</option>
+            <option value="other">Other</option>
             </Select>
           </FormControl>
           </Flex>

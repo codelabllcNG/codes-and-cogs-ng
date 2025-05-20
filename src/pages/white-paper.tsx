@@ -43,7 +43,7 @@ const WhitePaper =()=>{
                     base: "1rem",
                     }}
                 >
-                    <Flex flexDir={{base:'column-reverse',lg:'row'}} alignItems={'center'}>
+                    <Flex flexDir={{base:'column-reverse',lg:'row'}} alignItems={'center'}gap={'2rem'}>
                             <Box w={{base:'100%',lg:'30%'}}>
                             <Image alt="Media" src="wp.svg" />
                             </Box>
@@ -68,7 +68,7 @@ const WhitePaper =()=>{
                     }}
                 >
                           <Flex  mt={'3rem'}>
-                <Box mx={'auto'} p={5} bg={'#FAFAFA'} borderRadius={'4px'} w={{base:'100%',lg:'80%'}}>
+                <Box mx={'auto'}  p={5} bg={'#FAFAFA'} borderRadius={'4px'} w={{base:'100%',lg:'80%'}}>
 
                     <Heading m={{lg:'3rem auto'}} textAlign={'center'} fontSize={'28px'} color={'#2E3192'}> Download Whitepaper </Heading>
 

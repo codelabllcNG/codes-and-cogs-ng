@@ -523,7 +523,7 @@ export default function Home({topTalents}:HomepageProp)  {
             fontWeight="500"
             fontSize={{ base: "20px", md: "30px", lg: "40px" }}
           >
-            JOB FAIR COMING SOON
+            UPCOMING JOB FAIR
           </Heading>
           <Box my="1rem" w={{ base: "100%", lg: "80%" }}>
             <Text>
@@ -561,7 +561,7 @@ export default function Home({topTalents}:HomepageProp)  {
        </Flex>
 
        <Flex flexDir={'column'}  maxWidth={'2000px'} bg={''}  mx={'auto'} textColor={''}  padding={{lg:'1.5rem 5rem',md:'1.5rem 2rem',sm:'1rem',base:'1rem'}}>    
-       <CertificationGrid />
+       <CertificationGrid showButton={true} number={6}/>
        </Flex>
 
 

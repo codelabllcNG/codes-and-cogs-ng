@@ -19,7 +19,7 @@ const Talents = () => {
   const [search, setSearch] = useState('');
   const [searchValue,setSearchValue] = useState ('')
   const {data:talentData,isLoading:talentIsLoading,refetchWithParams} = useGetTalentHook({limit:'8'})
-  const {data:locationData} = useGetLocationHook({for:'talents'})
+  const {data:locationData} = useGetLocationHook({for:'talent'})
   const {data:categoriesData} = useGetCategoriesHook({for:'talent'})
   const [talents,setTalents] = useState <TalentInterface[]>([])
   const [categories,setCategories] = useState <JobTypeInterface[]> ([])
@@ -81,16 +81,24 @@ const Talents = () => {
   },[searchValue])
 
   useEffect(()=>{
-    const {search} = router.query
+    const {search,location,category} = router.query
     
     if(typeof search === 'string'){
       setSearch(search)
       setSearchValue(search)
     }
 
-  
+    if(typeof location === 'string'){
+      const selectedLocation = locations?.find((loc)=>loc.name.toLocaleLowerCase() === location.toLowerCase())
+      if(selectedLocation) setLocation(String(selectedLocation.id))
+    }
+
+    if(typeof category === 'string'){
+       const selectedCategory = categories?.find(cat=> cat.name.toLocaleLowerCase() === category.toLocaleLowerCase())
+       if(selectedCategory) setCat(String(selectedCategory.id))
+    }
     
-  },[router.query])
+  },[router.query,locations,categories])
 
   return (
 
@@ -119,7 +127,7 @@ const Talents = () => {
           <Flex flexDirection={['column', 'column', 'row']} gap={4} alignItems="flex-end">
             <Flex flex={{ lg: '0 0 50%', md: '1', sm: '1', base: '1' }} w="100%">
               <Input
-                placeholder="Enter Key Word..."
+                placeholder="Enter Keyword..."
                 borderRadius={0}
                 border={'1px solid #656060'}
                 h={'60px'}
@@ -162,6 +170,7 @@ const Talents = () => {
                     setCat(e.target.value)
                      setActiveIndex(0)
                   }}
+                  value={cat}
                 >
                   {categories?.map((category, index:number) => (
                     <option key={index} value={category.id}>
@@ -188,6 +197,7 @@ const Talents = () => {
                     setLocation(e.target.value)
                      setActiveIndex(0)
                   }}
+                  value={location}
                 >
                   {locations?.map((location, index:number) => (
                     <option key={index} value={location.id}>
@@ -216,7 +226,7 @@ const Talents = () => {
                   cursor={'pointer'}
                   onClick={goBack}
                   alignItems={'center'}
-                  color={'#2E3192'}
+                  color= {activeIndex <= 0 ? 'grey' : '#2E3192'}
                 >
                   <IoMdArrowBack />
                   <Text>Back</Text>
@@ -241,7 +251,7 @@ const Talents = () => {
                   cursor={'pointer'}
                   onClick={goNext}
                   alignItems={'center'}
-                  color={'#2E3192'}
+                  color= {activeIndex >= (totalTalents/8)-1? 'grey' : '#2E3192'}
                 >
                   <Text>Next</Text>
                   <IoMdArrowForward />
