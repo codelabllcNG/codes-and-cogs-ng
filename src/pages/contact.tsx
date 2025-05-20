@@ -229,25 +229,9 @@ const Contact = ()=>{
             </Box>
             <Box bg="#F0F0F0" w={'100%'} p={3}>
                 <Heading fontSize="22px" fontWeight="500">
-                Work With Us
-                </Heading>
-                <Text color="#A3A2A2">Explore our opportunities</Text>
-                <Link
-                display="flex"
-                alignItems="center"
-                mt={3}
-                color="#2E3192"
-                fontWeight="bold"
-                href="#"
-                >
-                Learn More <ArrowForwardIcon ml={1} />
-                </Link>
-            </Box>
-            <Box bg="#F0F0F0" w={'100%'} p={3}>
-                <Heading fontSize="22px" fontWeight="500">
                 Become A Consultant
                 </Heading>
-                <Text color="#A3A2A2">Work with Codes and Cogs</Text>
+                <Text color="#A3A2A2">Get listed as a Top Talent</Text>
                 <Link
                 display="flex"
                 alignItems="center"

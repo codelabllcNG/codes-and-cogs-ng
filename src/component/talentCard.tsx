@@ -44,7 +44,7 @@ const TalentCard: React.FC<TalentCardProps> = ({ talent }) => {
         {upperCaseFirstLetter(talent.name)}
       </Heading>
       <Text m="0.2rem 0" fontSize={["sm", "16px"]} color="#2E3192">
-        {upperCaseFirstLetter(talent.role)}
+        {talent.role}
       </Text>
       <Text fontSize={["xs", "14px"]} color="#333">
         Expertise

@@ -68,7 +68,7 @@ import {
           <Flex mt={{base:'2rem',lg:'0'}} flexDir={'column'} gap={'2rem'}>
             <Heading fontSize={'18px'} fontWeight={'500'}>Services</Heading>
             {[
-              // {name:"Oilfield Services",url:"/service"},
+              {name:"Oilfield Services",url:"/service"},
               {name:"Talent Network",url:'/talents'},
               {name:"Certification Trainings",url:'/certifications'},
               // {name:"Equipment Services",url:"/equipment"},
@@ -129,10 +129,10 @@ import {
         >
          
           <Flex gap={'1rem'} m={'1rem auto'}>
-          <Link href="https://www.linkedin.com/company/codes-and-cogs/"><RiLinkedinBoxLine fontSize={'40px'} /></Link>
-            <Link href="https://web.facebook.com/Officialcodesandcogs/?_rdc=1&_rdr#"><RiFacebookCircleLine fontSize={'40px'} /></Link>
-            <Link href="https://www.instagram.com/codesandcogs/"><RiInstagramLine fontSize={'40px'} /></Link>
-            <Link href="https://x.com/codesandcogs"><RiTwitterXFill fontSize={'40px'} /></Link>
+            <Link target="_blank" href="https://www.linkedin.com/company/codes-and-cogs/"><RiLinkedinBoxLine fontSize={'40px'} /></Link>
+            <Link target="_blank" href="https://web.facebook.com/Officialcodesandcogs/?_rdc=1&_rdr#"><RiFacebookCircleLine fontSize={'40px'} /></Link>
+            <Link target="_blank" href="https://www.instagram.com/codesandcogs/"><RiInstagramLine fontSize={'40px'} /></Link>
+            <Link target="_blank" href="https://x.com/codesandcogs"><RiTwitterXFill fontSize={'40px'} /></Link>
           </Flex>
   
           <Text fontSize="sm" color="white" >
