@@ -31,6 +31,7 @@ export  interface LocationInterface {
     role: string;
     description: string;
     image: string;
+    location:LocationInterface[];
     years_of_experience: string;
     rating: string;
     category: CategoryInterface[];

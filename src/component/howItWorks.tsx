@@ -19,57 +19,57 @@ const HowItWorks = () => {
       {
         image: '/explore.svg',
         title: 'Explore Talents',
-        description: 'You match our standards? Submit your details below.'
+        description: 'Browse and discover top-tier oil and gas talents'
       },
       {
         image: '/undergo.svg',
         title: 'Undergo KYC',
-        description: 'You match our standards? Submit your details below.'
+        description: 'Complete a quick business verification'
       },
       {
         image: '/Industry.svg',
         title: 'Hire Industry Experts',
-        description: 'You match our standards? Submit your details below.'
+        description: 'Hire professionals ready to drive results'
       }
     ],
     'Join Talents': [
       {
         image: '/register.svg',
         title: 'Register With Us',
-        description: 'You match our standards? Submit your details below.'
+        description: 'Submit your details to join our verified talent network.'
       },
       {
         image: '/trainning.svg',
         title: 'Screening & Training',
-        description: 'You match our standards? Submit your details below.'
+        description: 'Undergo assessments and training'
       },
       {
         image: '/roles.svg',
         title: 'Get Exclusive Roles',
-        description: 'You match our standards? Submit your details below.'
+        description: 'Passed screening? Get listed and matched to exclusive oil and gas roles'
       }
     ],
     'List Opening': [
       {
         image: '/explore.svg',
         title: 'Need Specific Skill?',
-        description: 'You match our standards? Submit your details below.'
+        description: 'Post your job openings and reach specialized talents.'
       },
       {
         image: '/listing.svg',
         title: 'Create Your Listing',
-        description: 'You match our standards? Submit your details below.'
+        description: 'Verify your business for a trusted hiring process.'
       },
       {
         image: '/match.svg',
         title: 'Get Tailored Match',
-        description: 'You match our standards? Submit your details below.'
+        description: 'Get skilled professional applicants for you.'
       }
     ]
   };
 
   return (
-    <Box maxWidth="2000px"  bg="#EDF2FC" p={{ lg: "5rem 5rem", md: "1.5rem 2rem", base: "1rem 0" }}>
+    <Box  mx={'auto'} bg="#EDF2FC" p={{ lg: "5rem 5rem", md: "1.5rem 2rem", base: "1rem 0" }}>
       <Heading mb={2} fontSize={{lg:'30px',base:'20px'}} color="#2E3192" fontWeight="600" textAlign="center">
         HOW OUR PLATFORM WORKS
       </Heading>

@@ -4,7 +4,7 @@ import { useGetTalentHook } from "@/component/Hooks/talentsHook";
 import { useEffect,useState } from "react";
 import { TalentInterface } from "@/component/Interface/talents";
 import { GoBriefcase } from "react-icons/go";
-import { IoTime } from "react-icons/io5";
+import { IoTimeOutline,IoLocationOutline } from "react-icons/io5";
 import {useTalentsStore} from "@/store/talentStore";
 import { TalentStoreInterface } from "@/component/Interface/talents";
 import StarRating from "@/component/starRating";
@@ -21,8 +21,10 @@ const TalentProfile =()=>{
     const { data, isLoading } = useGetTalentHook({  limit : '8' ,cat})
 
     useEffect(()=>{
+        console.log({talent})
         setTalents(data?.talents)
         setCat(`${talent?.category[0]?.id}`)
+
  
     },[cat,data,talent])
    
@@ -84,8 +86,13 @@ const TalentProfile =()=>{
                            </Flex>
                
                            <Flex gap={'1rem'} alignItems={'center'} >
-                           <IoTime color="#2E3192" />
+                           <IoTimeOutline color="#2E3192" />
                              {talent?.years_of_experience} years of experience
+                           </Flex>
+
+                           <Flex gap={'1rem'} alignItems={'center'} >
+                           <IoLocationOutline color="#2E3192" />
+                             {talent?.location[0].name} 
                            </Flex>
                    
                            <Heading fontSize="lg" fontWeight="semibold" mt={4}>
