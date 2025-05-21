@@ -3,12 +3,10 @@ import { Box, Heading, Text, Image, Flex } from "@chakra-ui/react";
 import { keyframes } from "@emotion/react";
 
 const partnerLogos = [
-  "/LOGOS/OSHA.svg",
   "/LOGOS/API.svg",
   "/LOGOS/ES.svg",
   "/LOGOS/IWCF.svg",
   "/LOGOS/CODELAB.svg",
-  "/LOGOS/ES.svg",
   "/LOGOS/certtech.png",
   "/LOGOS/spe.png",
   "/LOGOS/weafri.png",

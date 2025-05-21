@@ -1,10 +1,9 @@
-import { Box ,Flex,Heading,Text,Button,Image,SimpleGrid,Icon,InputGroup,InputRightElement,IconButton,Input} from "@chakra-ui/react";
+import { Box ,Flex,Heading,Text,Button,Image,SimpleGrid,InputGroup,InputRightElement,IconButton,Input} from "@chakra-ui/react";
 import PartnersSection from "@/component/patternsSection";
 import CertificationGrid from "@/component/cerifications";
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import TalentExplorer from "@/component/talents";
-import { FaLightbulb } from "react-icons/fa";
 import HowItWorks from "@/component/howItWorks";
 import { useRouter } from "next/router";
 import CompanySlideText from "@/component/companySlideText";
@@ -329,23 +328,23 @@ export default function Home({topTalents}:HomepageProp)  {
                 viewport={{ once: false, amount: 0.5 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 >
-                <Box
-                  background="#2E3192"
-                  height={'200px'}
-                  color="white"
-                  p={6}
-                  borderRadius="md"
-                  textAlign="center"
-                >
-                  <Icon as={FaLightbulb} w={8} h={8} mb={4} />
-                  <Heading fontWeight={'500'} fontSize="xl" mb={2}>
-                    Rigorous Recruitment
-                  </Heading>
-                  <Text fontSize={'15px'}>
-                    To get listed on this platform, candidates undertake thorough
-                    screenings and checks.
-                  </Text>
-                </Box>
+                     <Box
+                        background="#2E3192"
+                        color="white"
+                        p={6}
+                        borderRadius="md"
+                        textAlign="center"
+                        height={'200px'}
+                      >
+                        <Image mx={'auto'} alt="media" src="/recruitment.png" pb={2} />
+                        <Heading fontWeight={'500'} fontSize="xl" mb={2}>
+                          Rigorous Recruitment
+                        </Heading>
+                        <Text fontSize={'15px'}>
+                          In our talent pool, we have seasoned experts with proven track
+                          records.
+                        </Text>
+                     </Box>
           </MotionBox>  
 
           {/* Card 2 */}
@@ -372,7 +371,7 @@ export default function Home({topTalents}:HomepageProp)  {
               textAlign="center"
               height={'200px'}
               >
-              <Icon as={FaLightbulb} w={8} h={8} mb={4} />
+                <Image mx={'auto'} alt="media" src="/calender.png" pb={2} />
               <Heading fontWeight={'500'} fontSize="xl" mb={2}>
                 Experienced Professionals
               </Heading>
@@ -403,7 +402,7 @@ export default function Home({topTalents}:HomepageProp)  {
               textAlign="center"
               height={'200px'}
             >
-              <Icon as={FaLightbulb} w={8} h={8} mb={4} />
+               <Image mx={'auto'} alt="media" pb={2} src="/certified.png" />
               <Heading fontWeight={'500'} fontSize="xl" mb={2}>
                 Certified
               </Heading>
