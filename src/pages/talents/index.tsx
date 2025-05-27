@@ -264,7 +264,7 @@ const Talents = () => {
                 No Result
               </Heading>
               <Text>
-                There are currently no talents that match your filters.
+                {searchValue ? 'There are currently no talents that match your seacrh.' : 'There are currently no talents that match your filters.'}
               </Text>
             </Flex>
 

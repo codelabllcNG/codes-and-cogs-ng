@@ -1,10 +1,14 @@
 import { Flex,Box,Heading,Text,FormControl,FormLabel,Select,Input,Textarea,Button,Link,Checkbox } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
+import ReactFlagsSelect from 'react-flags-select';
+import { useState } from "react";
 
 const Contact = ()=>{
+  const [selectedCountry, setSelectedCountry] = useState<string>('');
    return (
 <HeaderAndFooter>
+
               {/*section 1  */}
               <Box
                 maxWidth="2000px"
@@ -143,12 +147,17 @@ const Contact = ()=>{
             <Text fontWeight="500">
               <FormLabel>Country</FormLabel>
             </Text>
-            <Select h="60px" placeholder="Select Country">
-              <option value="usa">USA</option>
-              <option value="uk">UK</option>
-              <option value="canada">Canada</option>
-              {/* Add more countries as needed */}
-            </Select>
+                 <ReactFlagsSelect
+        id="country-select"
+        countries={undefined}          // leave undefined to show ALL countries
+        selected={selectedCountry}     // ISO alpha-2 code, e.g. "US", "NG"
+        onSelect={(code) => setSelectedCountry(code)}
+        placeholder="Choose a country"
+        searchable={true}           // dropdown aligns to the left edge
+        optionsSize={20}               // height of each flag option in px
+        selectedSize={25}              // height of the “selected” flag in px
+      />
+  
           </FormControl>
           <FormControl isRequired>
             <Text fontWeight="500">
@@ -208,7 +217,7 @@ const Contact = ()=>{
                 mt={3}
                 color="#2E3192"
                 fontWeight="bold"
-                href="#"
+                href="/training"
                 >
                 Learn More <ArrowForwardIcon ml={1} />
                 </Link>
@@ -224,7 +233,7 @@ const Contact = ()=>{
                 mt={3}
                 color="#2E3192"
                 fontWeight="bold"
-                href="#"
+                href="/talents"
                 >
                 Learn More <ArrowForwardIcon ml={1} />
                 </Link>
@@ -240,7 +249,7 @@ const Contact = ()=>{
                 mt={3}
                 color="#2E3192"
                 fontWeight="bold"
-                href="#"
+                href="/talents/consultant"
                 >
                 Learn More <ArrowForwardIcon ml={1} />
                 </Link>

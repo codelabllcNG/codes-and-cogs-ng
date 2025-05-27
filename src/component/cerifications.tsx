@@ -95,7 +95,7 @@ const CertificationGrid:React.FC<cerificationsProps> = ({number,showButton}) => 
         _hover={{ bg: "#2E3192" }}
         display={showButton? 'block' : 'none'}
       >
-        See All Certification
+        See All Certifications
       </Button>
     </Box>
   );

@@ -104,7 +104,7 @@ const Consultant = ()=>{
                     {/* section 2 */}
                         <Box >
                                 <Heading textAlign={'center'} fontWeight={'600'} color={'#2E3192'} fontSize={'28px'} >OPPORTUNITIES THROUGH CODES AND COGS</Heading>
-                                <Text textAlign={'center'}>Explore job opportunities that connect you with multiple companies through our platform</Text>  
+                                <Text textAlign={'center'} mb={'1rem'}>Explore job opportunities that connect you with multiple companies through our platform</Text>  
                                 
                                     <SimpleGrid
                                         columns={{ base: 1, md: 2, lg: 2 }}
@@ -113,6 +113,7 @@ const Consultant = ()=>{
                                         marginTop={'4rem'}
                                         minH={'50vh'}
                                         pos={'relative'}
+                                        display={jobs?.length === 0 ? 'none' : 'grid'}
                                         >
                                             <LoadingSpinner showLoadingSpinner={isLoading} />
                                             {jobs?.map((job,index)=>{
@@ -157,7 +158,7 @@ const Consultant = ()=>{
                                             })}
                                     </SimpleGrid>
                                     <Flex>
-                                    <Button  _hover={{ bg: "#2E3192" }} onClick={()=>router.push('/jobs')}  width={'fit-content'} m={'2rem auto'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> See All Opportunities </Button>              
+                                    <Button display={jobs?.length === 0 ? 'none' : 'block'}   _hover={{ bg: "#2E3192" }} onClick={()=>router.push('/jobs')}  width={'fit-content'} m={'2rem auto'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> See All Opportunities </Button>              
                                     </Flex>
 
                                     <Flex 
@@ -245,7 +246,7 @@ const Consultant = ()=>{
                                                     mt={{ base: 4, lg: 0 }}
                                                 >
                                                     <Image 
-                                                    src={'/consultant1.svg'} 
+                                                    src={'/consultant2.svg'} 
                                                     alt="Companies illustration"
                                                     width={500}
                                                     height={400}

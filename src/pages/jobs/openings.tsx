@@ -17,7 +17,6 @@ import SkillsInput from "@/component/skillsInput";
 import { toast } from 'react-toastify';
 import LoadingSpinner from "@/component/loadingSpinner";
 import { useListOpeningHook } from "@/component/Hooks/jobHooks";
-import { useRouter } from "next/router";
 import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
 
 const Openings = () => {
@@ -36,7 +35,6 @@ const Openings = () => {
   const [skills,setSkills] = useState<string[]>([])
   const [loading,setLoading] = useState(false)
   const mutation = useListOpeningHook()
-  const router = useRouter()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -144,11 +142,14 @@ const Openings = () => {
                   <FormLabel>Company Type</FormLabel>
                 </Text>
                 <Select h="60px" name="ctype" value={formData.ctype} onChange={handleChange} placeholder="Select company type">
-                  <option value="startup">Startup</option>
-                  <option value="sme">SME</option>
-                  <option value="enterprise">Enterprise</option>
-                  <option value="government">Government</option>
-                  <option value="nonprofit">Non-Profit</option>
+                  <option value="exploration-production">Exploration & Production</option>
+                  <option value="oilfield-services-equipment">General Oilfield Services & Equipment</option>
+                  <option value="engineering-technical-services">Engineering & Technical Services</option>
+                  <option value="drilling-well-services">Drilling & Well Services</option>
+                  <option value="pipeline-infrastructure">Pipeline & Infrastructure</option>
+                  <option value="energy-consulting-project-management">Energy Consulting & Project Management</option>
+                  <option value="environmental-safety-services">Environmental & Safety Services</option>
+                  <option value="other">Other</option>
                 </Select>
               </FormControl>
 
@@ -265,8 +266,7 @@ const Openings = () => {
               mt={3}
               color="#2E3192"
               fontWeight="bold"
-              href="#"
-              onClick={()=>router.push('/talents')}
+              href="/talents"
             >
               Learn More <ArrowForwardIcon ml={1} />
             </Link>
