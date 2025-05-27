@@ -4,13 +4,13 @@ import { FaLightbulb, FaLeaf, FaUsers } from "react-icons/fa";
 import { useRouter } from "next/router";
 
 const imageData = [
-  { name: 'Andy G', title: 'Managing Director', image: 'andy.png' },
-  { name: 'Fidelis O.', title: 'BDM (Consultant)', image: 'fidelis.png' },
-  { name: 'Charles U.', title: 'Engineering Manager (Consultant)', image: 'avatar.png' },
-  { name: 'Emmanuel A.', title: 'Software Engineering Lead', image: 'emmanuel.png' },
-  { name: 'Theophilus A.', title: 'Senior Slickline Operator', image: 'avatar.png' },
-  { name: 'Harrison U.', title: 'QAHSSE Specialist', image: 'harrison.png' },
-  { name: 'Alina A.', title: 'Finance and Administration', image: 'alina.png'}
+  { name: 'Andy G', title: 'Managing Director', link:'/teams/andy-a',image: 'andy.png' },
+  { name: 'Fidelis O.', title: 'BDM (Consultant)', link:'',image: 'fidelis.png' },
+  { name: 'Charles U.', title: 'Engineering Manager (Consultant)', link:'',image: 'avatar.png' },
+  { name: 'Emmanuel A.', title: 'Software Engineering Lead', link:'',image: 'emmanuel.png' },
+  { name: 'Theophilus A.', title: 'Senior Slickline Operator', link:'',image: 'avatar.png' },
+  { name: 'Harrison U.', title: 'QAHSSE Specialist', link:'',image: 'harrison.png' },
+  { name: 'Alina A.', title: 'Finance and Administration', link:'',image: 'alina.png'}
 ];
 
 function About() {
@@ -135,7 +135,7 @@ function About() {
           flexDir="column"
           position="relative"
           width={{ base: "calc(100% - 16px)", md: "calc(50% - 16px)", lg: "calc(25% - 16px)" }}
-          onClick={()=>router.push('/teams/andy-a')}
+          onClick={()=>router.push(item.link)}
           cursor={'pointer'}
           role="group" 
         >

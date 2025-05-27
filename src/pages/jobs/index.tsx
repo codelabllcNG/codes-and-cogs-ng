@@ -327,8 +327,8 @@ export default function JobListing() {
           alignItems={'center'}
           w={{ lg: '20%', md: '20%', sm: '100%', base: '100%' }}
         >
-          <AdsComponent imageUrl="ads2.png" link="#" />
-          <AdsComponent imageUrl="ads5.png" link="#" />
+             <AdsComponent imageUrl="/ads/consultant/Ads-3.png" link="https://deskmayte.com/" />
+           <AdsComponent imageUrl="/ads/consultant/Ads-4.png" link="/contact" />
         </Box>
       </Flex>
 
