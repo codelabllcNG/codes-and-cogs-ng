@@ -2,7 +2,7 @@
 import { TalentInterface } from '@/component/Interface/talents';
 import { useState, useEffect,useRef } from 'react';
 import { IoMdArrowBack, IoMdArrowForward } from 'react-icons/io';
-import { Flex, Box, Text, Heading, Button, Image, Grid, GridItem,FormControl, FormLabel, Select, Input } from '@chakra-ui/react';
+import { Flex, Box, Text, Heading, Button, Image, Grid, GridItem,FormControl, FormLabel, Select, Input,Link } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import LoadingSpinner from '@/component/loadingSpinner';
 import { useGetTalentHook } from '@/component/Hooks/talentsHook';
@@ -209,7 +209,7 @@ const Talents = () => {
             </FormControl>
           </Flex>
 
-          {/* Body */}
+          {/* Talents */}
           <Flex ref={targetRef}  alignItems={'center'} mt={'2rem'} flexDirection={['column', 'column', 'row']} pos={'relative'}>
             <LoadingSpinner showLoadingSpinner={false} />
             <Box  display={talents?.length > 0 || talentIsLoading? 'block' : 'none' } w={['100%', '100%', '100%']} p={[2, 4]} minH={'100vh'} pos={'relative'} >
@@ -269,6 +269,37 @@ const Talents = () => {
             </Flex>
 
           </Flex>
+
+          
+                          {/* section 5 */}
+                          <Box
+                          maxWidth="2000px"
+                          bgImage="url('WhiteBg.svg')"
+                          bgSize="cover" // Ensures the image covers the entire container.
+                          bgPosition="center" // Centers the background image.
+                          bgRepeat="no-repeat" // Prevents the background image from repeating.
+                          mx="auto"
+                          textColor="black" // Change the text color if needed.
+                          padding={{
+                              lg: "5rem 5rem",
+                              md: "1.5rem 2rem",
+                              sm: "1rem",
+                              base: "1rem",
+                          }}
+                          >
+                              <Box textAlign="center" mb={{ }}>
+                              <Heading fontWeight={'600'} fontSize={{base:'25px',sm:'25px',md:'36px',lg:'36px',}} mb={3} >
+                                  Find a Tailored Talent for Your Specific Needs
+                              </Heading>
+                              <Text fontSize="lg" mb={5}>
+                                  Companies with specific skillset requirements can list their job openings, <br/>  ensuring they find the perfect match for their needs
+                              </Text>
+                              <Link href='/jobs/openings'><Button  _hover={{ bg: "#2E3192" }} width={'fit-content'} m={'1rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> List Your Opening </Button>
+                              </Link>
+                              </Box>
+                          </Box>
+                          {/* section 5 */}
+
         </Box>
       </Box>
 </HeaderAndFooter>

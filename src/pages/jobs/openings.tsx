@@ -18,6 +18,7 @@ import { toast } from 'react-toastify';
 import LoadingSpinner from "@/component/loadingSpinner";
 import { useListOpeningHook } from "@/component/Hooks/jobHooks";
 import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
+import ReactFlagsSelect from 'react-flags-select';
 
 const Openings = () => {
   const [formData, setFormData] = useState({
@@ -34,9 +35,10 @@ const Openings = () => {
   });
   const [skills,setSkills] = useState<string[]>([])
   const [loading,setLoading] = useState(false)
+  const [selectedCountry, setSelectedCountry] = useState<string>('');
   const mutation = useListOpeningHook()
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement >) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -48,6 +50,7 @@ const Openings = () => {
     try {
       setLoading(true)
       formData.skills = skills
+      formData.country = selectedCountry
       const data = await mutation.mutateAsync(formData)
       toast.success(data.message)
     } catch (error: unknown) {
@@ -174,12 +177,16 @@ const Openings = () => {
                 <Text fontWeight="500">
                   <FormLabel>Country</FormLabel>
                 </Text>
-                <Select h="60px" value={formData.country} name="country" onChange={handleChange} placeholder="Select Country">
-                  <option value="usa">USA</option>
-                  <option value="uk">UK</option>
-                  <option value="canada">Canada</option>
-                  {/* Add more countries as needed */}
-                </Select>
+                <ReactFlagsSelect
+                  id="country-select"
+                  countries={undefined}          // leave undefined to show ALL countries
+                  selected={selectedCountry}     // ISO alpha-2 code, e.g. "US", "NG"
+                  onSelect={(code) => setSelectedCountry(code)}
+                  placeholder="Choose a country"
+                  searchable={true}           // dropdown aligns to the left edge
+                  optionsSize={20}               // height of each flag option in px
+                  selectedSize={25}              // height of the “selected” flag in px
+                />
               </FormControl>
             </Flex>
 
