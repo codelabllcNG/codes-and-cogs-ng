@@ -1,17 +1,24 @@
 import { Flex,Box,Text,Image,Heading,Button } from "@chakra-ui/react";
 import CertificationGrid from "@/component/cerifications";
 import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
+import RegisterForCertifiation from "@/component/modal/registerForCertification";
+import { useState } from "react";
 
 
 
-const certificationPage = ()=>{
+const CertificationPage = ()=>{
     const imageData = [
-        { name: 'Andy G', title: 'Managing Director', image: 'tra1.svg' },
-        { name: 'Andy G', title: 'Managing Director', image: 'tra2.svg' },
-        { name: 'Andy G', title: 'Managing Director', image: 'tra3.svg' },
-        { name: 'Andy G', title: 'Managing Director', image: 'tra4.svg' },
+        { name: 'Andy G.', title: 'IWCF, Data Acquisition', image: 'andy.png' },
+        { name: 'Bello', title: 'Reservoir Engineering', image: 'avatar.png' },
+        { name: 'Charles U.', title: 'Slickline Operations', image: 'avatar.png' },
+        { name: 'Theophilus O.', title: 'BHP Well Testing', image: 'avatar.png' },
      ];
-      
+
+    const [isOpen,setIsOPen] = useState<boolean>(false)
+    function onClose () {
+        setIsOPen(false)
+      }
+  
     return(
 
         <HeaderAndFooter>
@@ -44,8 +51,9 @@ const certificationPage = ()=>{
                                         bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"
                                         boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"
                                         _hover={{ bg: "#2E3192" }}
+                                        onClick={()=>setIsOPen(true)}
                                         >
-                                        Get White Paper
+                                        Enroll Now
                                     </Button>
                                 </Box>
                                 <Box w={{sm:'100%',lg:'100%'}}>
@@ -113,6 +121,7 @@ const certificationPage = ()=>{
                                         bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"
                                         boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"
                                         _hover={{ bg: "#2E3192" }}
+                                        onClick={()=>setIsOPen(true)}
                                     >
                                         Get Certified
                                     </Button>
@@ -235,6 +244,7 @@ const certificationPage = ()=>{
                                 </Box>
                                 <Box w={{base:'100%',lg:'50%'}}>
                                     <Text>Cohort 1 of our 2025 certification program is drawing close. This time, the program is curated to cover comprehensive and hands-on trainings  on slickline operations, HSE, IWCF, BHP Well Testing, and Data Acquisition. </Text>
+                                   
                                     <Button
                                         borderRadius="4px"
                                         px="24px"
@@ -245,7 +255,7 @@ const certificationPage = ()=>{
                                         mt={'2rem'}
                                         _hover={{ bg: "#2E3192" }}
                                     >
-                                        Explore Details
+                                        Coming Soon
                                     </Button>
                                 </Box>
                             </Flex>
@@ -350,8 +360,8 @@ const certificationPage = ()=>{
                     <Text fontSize="lg" mb={5}>
                       Enroll in Industry-Leading Certification Programs and Transform Your Career in Oil and Gas.
                     </Text>
-                    <Button  _hover={{ bg: "#2E3192" }} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Enroll Now </Button>
-                    
+                      <Button  _hover={{ bg: "#2E3192" }} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)" onClick={()=>setIsOPen(true)}> Enroll Now </Button>
+                    <RegisterForCertifiation isOpen={isOpen} onClose={onClose} />
                   </Box>
                   </Box>
                     {/* section 7 */}
@@ -359,4 +369,4 @@ const certificationPage = ()=>{
     )
 }
 
-export default certificationPage
+export default CertificationPage

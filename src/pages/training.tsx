@@ -1,6 +1,7 @@
 import { Flex,Box,Heading,Text,Button,Image, } from "@chakra-ui/react";
 import { useState } from "react";
 import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
+import RegisterForCertifiation from "@/component/modal/registerForCertification";
 
 const Training = ()=>{
     const equpimentData = [
@@ -10,6 +11,10 @@ const Training = ()=>{
         { name: 'Patent-Pending Simulator' , title: 'Managing Director', image: 'tfe4.svg' },
       ];
       const [activeEqupiment,setActiveEqupiment] = useState('')
+      const [isOpen,setIsOPen] = useState<boolean>(false)
+      function onClose () {
+        setIsOPen(false)
+      }
 
     const contentData =[
         {
@@ -299,7 +304,8 @@ const Training = ()=>{
                         <Box w={{base:'100%',lg:'50%'}}>
                             <Heading fontSize={'28px'}>Secure Your Spot Now</Heading>
                             <Text m={'1rem 0'}>Ready to take the next step in your career? Secure your spot in our June 2025 training cohort by filling out the registration form below:</Text>
-                            <Button  _hover={{ bg: "#2E3192" }} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Enroll Now </Button>
+                            <Button  _hover={{ bg: "#2E3192" }} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)" onClick={()=>setIsOPen(true)}> Enroll Now </Button>
+                            <RegisterForCertifiation isOpen={isOpen} onClose={onClose} />
                         </Box>
                         <Box display={'flex'} justifyContent={'flex-end'} w={{base:'100%',lg:'50%'}}>
                             <Image alt="Media" src={'harrison.svg'} />
