@@ -17,6 +17,7 @@ import {
   import { TalentStoreInterface } from "@/component/Interface/talents";
   import { useTalentsStore } from "@/store/talentStore";
   import { useHireTalentHook } from "@/component/Hooks/talentsHook";
+  import ReactFlagsSelect from 'react-flags-select';
   import { toast } from 'react-toastify';
   import LoadingSpinner from "@/component/loadingSpinner";
   import { useRouter } from "next/router";
@@ -25,6 +26,7 @@ import {
 
 const HireTalent = ()=>{
     const [loading,setLoading] = useState(false)
+    const [selectedCountry, setSelectedCountry] = useState<string>('');
     const talent = useTalentsStore((state:TalentStoreInterface)=>state.selectedTalent)
     const mutation = useHireTalentHook()
     const router = useRouter()
@@ -53,6 +55,7 @@ const HireTalent = ()=>{
         try {
             setLoading(true)
             formData.talent = String(talent?.id)
+            formData.country = selectedCountry
             const data = await  mutation.mutateAsync(formData)
             toast.success(data.message)
             
@@ -146,11 +149,14 @@ const HireTalent = ()=>{
                                     <FormLabel>Company Type</FormLabel>
                                     </Text>
                                     <Select h="60px" name="ctype" placeholder="Select company type" value={formData.ctype} onChange={handleChange}>
-                                    <option value="startup">Startup</option>
-                                    <option value="sme">SME</option>
-                                    <option value="enterprise">Enterprise</option>
-                                    <option value="government">Government</option>
-                                    <option value="nonprofit">Non-Profit</option>
+                                            <option value="exploration-production">Exploration & Production</option>
+                                            <option value="oilfield-services-equipment">General Oilfield Services & Equipment</option>
+                                            <option value="engineering-technical-services">Engineering & Technical Services</option>
+                                            <option value="drilling-well-services">Drilling & Well Services</option>
+                                            <option value="pipeline-infrastructure">Pipeline & Infrastructure</option>
+                                            <option value="energy-consulting-project-management">Energy Consulting & Project Management</option>
+                                            <option value="environmental-safety-services">Environmental & Safety Services</option>
+                                            <option value="other">Other</option>
                                     </Select>
                                 </FormControl>
 
@@ -175,12 +181,17 @@ const HireTalent = ()=>{
                                     <Text fontWeight="500">
                                     <FormLabel>Country</FormLabel>
                                     </Text>
-                                    <Select h="60px" name="country" placeholder="Select Country" value={formData.country} onChange={handleChange} >
-                                    <option value="usa">USA</option>
-                                    <option value="uk">UK</option>
-                                    <option value="canada">Canada</option>
-                                    {/* Add more countries as needed */}
-                                    </Select>
+                                         <ReactFlagsSelect
+                                            id="country-select"
+                                            countries={undefined}          // leave undefined to show ALL countries
+                                            selected={selectedCountry}     // ISO alpha-2 code, e.g. "US", "NG"
+                                            onSelect={(code) => setSelectedCountry(code)}
+                                            placeholder="Choose a country"
+                                            searchable={true}           // dropdown aligns to the left edge
+                                            optionsSize={20}               // height of each flag option in px
+                                            selectedSize={25}              // height of the “selected” flag in px
+                                            className="custom-react-flag"
+                                        />
                                 </FormControl>
                                 </Flex>
 

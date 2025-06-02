@@ -144,7 +144,7 @@ const RegisterForCertifiation: React.FC<RegisterForCertifiationProps> = ({ isOpe
                                         ))}
                                         </Wrap>
 
-                                        <Select h="60px" name="ctype" placeholder="Select company type" onChange={(e)=>handleCertificationsChange(e.target.value)}>
+                                        <Select h="60px" name="ctype" placeholder="Select Preferred Certifications" onChange={(e)=>handleCertificationsChange(e.target.value)}>
                                                 <option value="bhp-well-testing">BHP Well Testing</option>
                                                 <option value="data-acquisition">Data Acquisition</option>
                                                 <option value="hse-1-2-3">HSE 1, 2, 3</option>
