@@ -132,12 +132,12 @@ import {
                             <Flex gap={'3rem'} mt={'3rem'} flexDir={{base:'column',lg:'row'}}>
                                     <FormControl isRequired>
                                         <Text fontWeight={'500'}><FormLabel>Email</FormLabel></Text>
-                                            <Input name='email' value={formData.email} onChange={handleChange} h={'60px'} placeholder="First Name" />
+                                            <Input name='email' value={formData.email} onChange={handleChange} h={'60px'} placeholder="Enter Email" />
                                     </FormControl>
                             </Flex>
                             <Flex gap={'3rem'} mt={'3rem'} flexDir={{base:'column',lg:'row'}}>
                                     <FormControl isRequired>
-                                        <Text fontWeight={'500'}><FormLabel>Upoload Cv</FormLabel></Text>
+                                        <Text fontWeight={'500'}><FormLabel>Upoload CV</FormLabel></Text>
                                         <Input
                                             id="cv-upload"
                                             type="file"

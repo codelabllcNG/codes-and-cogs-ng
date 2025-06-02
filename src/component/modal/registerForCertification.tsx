@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {
   Modal,
+  Box,
   ModalOverlay,
   ModalContent,
   ModalHeader,
@@ -78,7 +79,16 @@ const RegisterForCertifiation: React.FC<RegisterForCertifiationProps> = ({ isOpe
         </ModalHeader>
         
         <ModalBody p={4}>
-          <VStack spacing={4} align="stretch">
+              <Box
+              as="iframe"
+              aria-label="Certification Form"
+              src="https://forms.zohopublic.com/clpphonesystemsgm1/form/CertificationForm/formperma/fn6-Rj1QtvDBWr0AknLsKO3BRnw7QwkwnBqBfmw2kVo"
+              width="99%"
+              height="75vh"
+              border="none"
+            />
+          {/* back up form */}
+          <VStack display={'none'} spacing={4} align="stretch">
                         <Flex gap="3rem" mb="2rem" flexDir={{ base: 'column', lg: 'row' }}>
                           <FormControl isRequired>
                             <Text fontWeight="500">
@@ -120,7 +130,7 @@ const RegisterForCertifiation: React.FC<RegisterForCertifiationProps> = ({ isOpe
 
                                      <FormControl isRequired>
                                         <Text fontWeight="500">
-                                          <FormLabel>Select Your Preferred Certification Tracks(s)</FormLabel>
+                                          <FormLabel>Select Your Preferred Certification Track(s)</FormLabel>
                                         </Text>
 
                                         <Wrap display={certifications.length > 0 ?'flex':'none'} spacing={2} mb={2}>

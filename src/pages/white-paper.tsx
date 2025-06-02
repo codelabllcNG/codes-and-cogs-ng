@@ -79,7 +79,7 @@ const WhitePaper =()=>{
                                     </FormControl>
 
                                     <FormControl isRequired>
-                                        <Text fontWeight={'500'}><FormLabel>First Name</FormLabel></Text>
+                                        <Text fontWeight={'500'}><FormLabel>Last Name</FormLabel></Text>
                                             <Input h={'60px'} placeholder="Last Name" />
                                     </FormControl>
                             </Flex>
