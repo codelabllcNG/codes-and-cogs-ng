@@ -90,11 +90,14 @@ const WhitePaper =()=>{
                                             h={'60px'}
                                             placeholder="Select company type"
                                         >
-                                            <option value="startup">Startup</option>
-                                            <option value="sme">SME</option>
-                                            <option value="enterprise">Enterprise</option>
-                                            <option value="government">Government</option>
-                                            <option value="nonprofit">Non-Profit</option>
+                                                       <option value="exploration-production">Exploration & Production</option>
+                                                        <option value="oilfield-services-equipment">General Oilfield Services & Equipment</option>
+                                                        <option value="engineering-technical-services">Engineering & Technical Services</option>
+                                                        <option value="drilling-well-services">Drilling & Well Services</option>
+                                                        <option value="pipeline-infrastructure">Pipeline & Infrastructure</option>
+                                                        <option value="energy-consulting-project-management">Energy Consulting & Project Management</option>
+                                                        <option value="environmental-safety-services">Environmental & Safety Services</option>
+                                                        <option value="other">Other</option>
                                         </Select>
                                     </FormControl>
 

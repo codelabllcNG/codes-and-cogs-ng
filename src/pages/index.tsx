@@ -14,6 +14,8 @@ import { useTalentsStore } from '@/store/talentStore';
 import { upperCaseFirstLetter } from "@/component/utils";
 import { motion } from "framer-motion";
 import { useBreakpointValue } from "@chakra-ui/react";
+
+
 // Wrap Chakra Box with framer-motion
 const MotionBox = motion(Box);
 
@@ -129,7 +131,7 @@ export default function Home({topTalents}:HomepageProp)  {
               {[
                 {mobiletext:'Hire Talent',text:'Hire A Talent',url:'/talents'},
                 {mobiletext:'List Opening',text:'List Your Opening',url:'/jobs/openings'},
-                {mobiletext:'Join Talent',text:'Join Our Talent',url:'/talents/consultant'}].map((item, index) => (
+                {mobiletext:'Join Talent',text:'Join Our Talents',url:'/talents/consultant/#reg-form'}].map((item, index) => (
                 <Box 
                   key={item.text}
                   borderRadius="48px" 

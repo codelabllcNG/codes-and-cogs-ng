@@ -268,7 +268,7 @@ const Consultant = ()=>{
                             sm: "1rem",
                             base: "1rem",
                             }}
-                            id="form"
+                            id="reg-form"
                         >
                             <RegistrationForm />
                         </Box >    
