@@ -127,9 +127,9 @@ export default function Home({topTalents}:HomepageProp)  {
               gap={2}
             >
               {[
-                {mobiletext:'Hire Talent',text:'Hire a Talent',url:'/talents'},
+                {mobiletext:'Hire Talent',text:'Hire A Talent',url:'/talents'},
                 {mobiletext:'List Opening',text:'List Your Opening',url:'/jobs/openings'},
-                {mobiletext:'Join Talent',text:'Work With Us',url:'/talents/consultant'}].map((item, index) => (
+                {mobiletext:'Join Talent',text:'Join Our Talent',url:'/talents/consultant'}].map((item, index) => (
                 <Box 
                   key={item.text}
                   borderRadius="48px" 
