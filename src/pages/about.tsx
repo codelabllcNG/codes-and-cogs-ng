@@ -2,6 +2,7 @@ import HeaderAndFooter from "@/component/layout/HeaderAndFooter";
 import { Box, Heading, Text, Image, Flex,Icon,Button } from "@chakra-ui/react";
 import { FaLightbulb, FaLeaf, FaUsers } from "react-icons/fa";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const imageData = [
   { name: 'Andy G', title: 'Managing Director', link:'/teams/andy-a',image: 'andy.png' },
@@ -276,10 +277,10 @@ function About() {
                             <Heading fontSize={'20px'} m={'2rem 0'} fontWeight={'600'} >Want to find out more?</Heading>
                             
                             <Box m={'1rem 0'}>
-                            <Text w={{lg:'70%',base:'100%'}}>We have a team of team of experts ready to answer your enquiries and help you get what you need.</Text>
+                            <Text w={{lg:'70%',base:'100%'}}>We have a team of experts ready to answer your enquiries and help you get what you need.</Text>
                            </Box>
       
-                            <Button  _hover={{ bg: "#2E3192" }} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Contact us </Button>
+                           <Link href="/contact"> <Button  _hover={{ bg: "#2E3192" }} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Contact us </Button> </Link>
                             
                         </Box>
                         <Box  display={'flex'} justifyContent={'flex-end'} w={{base:'100%',sm:'100%',md:'100%',lg:'50%'}}>

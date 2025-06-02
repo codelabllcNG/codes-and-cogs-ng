@@ -167,7 +167,7 @@ const TalentExplorer  = () => {
           >
           
           {talents?.map((talent, index:number) => (
-              <Box  key={index}  minW={{lg:'23%',base:'80vw'}} width={{lg:'30%',base:'100%'}} boxShadow="lg" borderRadius="md" >
+              <Box  key={index}  minW={{lg:'23%',base:'70vw'}} width={{lg:'30%',base:'100%'}} boxShadow="lg" borderRadius="md" >
               <Box w={'100%'}  p={2}>
               <Box w="100%" h="230px" overflow="hidden">
                 <Image

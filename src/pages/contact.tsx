@@ -75,11 +75,10 @@ const Contact = ()=>{
                   m={{ lg: "8rem 0" }}
                   w={{ base: "100%", sm: "100%", md: "50%", lg: "50%" }}
                 >
-                  <Heading m={"2rem 0"}>Who We Are</Heading>
+                  <Heading m={"2rem 0"}>Connect with us</Heading>
         
                   <Text>
-                    We provide technology and oilfield services and connects oil and gas
-                    talents with corporate clients seeking specialised services.
+                    Have enquiries? Get in touch with a Codes and Cogs expert by completing the form below.
                   </Text>
                 </Box>
               </Box>

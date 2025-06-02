@@ -458,7 +458,8 @@ export default function Home({topTalents}:HomepageProp)  {
       {/* Slide 1 */}
       <Flex
         flex="0 0 auto"           // prevent shrinking
-        w={{ base: "90vw", lg: "100%" }}
+        // w={{ base: "90vw", lg: "100%" }}
+         minW={{lg:'100%',base:'70vw'}} width={{lg:'100%',base:'90%'}}
         mt={{ base: "0", lg: "0" }}
         flexDir={{ base: "column-reverse", md: "row" }}
         alignItems="center"
@@ -508,12 +509,13 @@ export default function Home({topTalents}:HomepageProp)  {
       {/* Slide 2 */}
       <Flex
         flex="0 0 auto"
-        w={{ base: "80vw", lg: "100%" }}
-        mt={{ base: "2rem", lg: "0" }}
+        // w={{ base: "80vw", lg: "100%" }}
+        minW={{lg:'100%',base:'70vw'}} width={{lg:'100%',base:'90%'}}
+        mt={{ base: "0rem", lg: "0" }}
         flexDir={{ base: "column-reverse", md: "row-reverse" }}
         alignItems="center"
         px={4}
-        py={{ base: 4, lg: 8 }}
+        py={{ base: 0, lg: 8 }}
         gap={'3rem'}
       >
         <Box w={{ base: "100%", lg: "50%" }}>
@@ -524,7 +526,7 @@ export default function Home({topTalents}:HomepageProp)  {
           >
             UPCOMING JOB FAIR
           </Heading>
-          <Box my="1rem" w={{ base: "100%", lg: "80%" }}>
+          <Box my="3rem" w={{ base: "100%", lg: "80%" }}>
             <Text>
               The job fair would serve as the launch for the Codes and Cogs
               Talent platform. Top exploration and production, and oilfield
