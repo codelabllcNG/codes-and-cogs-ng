@@ -1,4 +1,4 @@
-import { Flex,Text,Heading,Box,Button,Image,Wrap,SimpleGrid, } from "@chakra-ui/react";
+import { Flex,Text,Heading,Box,Button,Image,Wrap,SimpleGrid,} from "@chakra-ui/react";
 import RegistrationForm from "@/component/registerForm"
 import { IoLocationOutline } from "react-icons/io5";
 import AdsComponent from "@/component/adsComponent";
@@ -11,10 +11,6 @@ import { timeAgo } from "@/component/utils";
 import LoadingSpinner from "@/component/loadingSpinner";
 import { useJobStore } from "@/store/jobStore";
 import { JobStoreInterface } from "@/component/Interface/Jobs";
-
-
-
-
 
 const Consultant = ()=>{
     const router = useRouter()
@@ -60,7 +56,7 @@ const Consultant = ()=>{
                                 </Text>
 
                                 <Flex width={'fit-content'} mx={'auto'} gap={'3rem'} flexDir={{lg:'row',md:'row',sm:'column',base:'column'}}>
-                                    <Button  _hover={{ bg: "#2E3192" }} onClick={()=>router.push('/talents/consultant#form')} width={'fit-content'} m={{lg:'3rem 0'}} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Register as a Consultant </Button>
+                                    <Button  _hover={{ bg: "#2E3192" }} onClick={()=>router.push('#reg-form')}  width={'fit-content'} m={{lg:'3rem 0'}} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Register as a Consultant </Button> 
                                     <Button  _hover={{ bg: "#2E3192" }} onClick={()=>router.push('/jobs')}  width={'fit-content'} m={{lg: '3rem 0'}} borderRadius="4px" padding={'12px 24px'} textColor={'white'} border={'2px solid #C9CBFF'} bg={'transparent'} boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> See Job Openings </Button>
                                 </Flex>
                             </Box>
@@ -144,7 +140,7 @@ const Consultant = ()=>{
                                                                 bg={'rgba(136, 136, 136, 0.10)'}
                                                                 fontSize={['xs', 'sm']}
                                                                 >
-                                                                {skill.name}
+                                                                   {skill.name}
                                                                 </Flex>
                                                             ))}
                                                     </Wrap>

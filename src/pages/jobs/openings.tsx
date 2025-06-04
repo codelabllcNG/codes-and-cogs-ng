@@ -117,7 +117,7 @@ const Openings = () => {
               mb={{ base: '2rem', lg: '3rem' }}
               textAlign="center"
             >
-              Thank you for your continued talent platform! Complete the form
+              Thank you for your continued interest in our talents! Complete the form
               below so we can better understand your company’s needs.
             </Text>
 

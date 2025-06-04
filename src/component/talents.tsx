@@ -36,11 +36,9 @@ const TalentExplorer  = () => {
   useEffect(()=>{
     setJobcategories(jobCategoriesData?.categories)
     setActiveTab(jobCategoriesData?.categories[0]?.name)
-    console.log({jobCategoriesData})
   },[jobCategoriesData])
 
   useEffect(()=>{
-    console.log({talentsData})
     setTalents(talentsData?.talents)
   },[talentsData])
 

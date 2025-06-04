@@ -343,8 +343,7 @@ export default function Home({topTalents}:HomepageProp)  {
                           Rigorous Recruitment
                         </Heading>
                         <Text fontSize={'15px'}>
-                          In our talent pool, we have seasoned experts with proven track
-                          records.
+                          To get listed on this platform, candidates undertake thorough screenings and checks.
                         </Text>
                      </Box>
           </MotionBox>  
@@ -487,7 +486,7 @@ export default function Home({topTalents}:HomepageProp)  {
             </Text>
           </Box>
           <Button
-            onClick={() => router.push("/about")}
+            onClick={() => router.push("https://www.oilfieldtechnology.ai/")}
             bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)"
             color="white"
             boxShadow="2px 5px 5px rgba(0,0,0,0.15)"

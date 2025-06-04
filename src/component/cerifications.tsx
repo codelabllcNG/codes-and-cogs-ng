@@ -74,9 +74,8 @@ const CertificationGrid:React.FC<cerificationsProps> = ({number,showButton}) => 
               <Text fontWeight="semibold" color="gray.500" _groupHover={{ color: "white" }}>
                 {cert?.subtitle}
               </Text>
-              <VStack align="start" mt={3} spacing={2}>
-                 <Box dangerouslySetInnerHTML={{ __html: cert?.description }} />
-              
+              <VStack align="start" mt={3} spacing={2} >
+                 <Box  dangerouslySetInnerHTML={{ __html: cert?.description }} />         
               </VStack>
   
             </MotionBox>

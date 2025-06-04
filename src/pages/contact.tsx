@@ -35,7 +35,6 @@ const Contact = ()=>{
     try {
       setIsLoading(true)
       formData.country = selectedCountry ;
-      console.log(formData) ;
       const resonse = await mutation.mutateAsync(formData)
       toast.success(resonse?.message)
       

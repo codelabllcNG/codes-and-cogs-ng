@@ -39,8 +39,8 @@ const CertificationPage = ()=>{
                             }}
                         >
 
-                            <Flex flexDir={{base:'column',lg:'row'}} alignItems={'center'}>
-                                <Box w={{sm:'100%',lg:'100%'}}>
+                            <Flex flexDir={{base:'column',sm:'column',md:'column',lg:'row'}} gap={'3rem'} alignItems={'center'}>
+                                <Box w={{sm:'100%',lg:'60%'}}>
                                     <Heading fontWeight={'500'} lineHeight={'70px'}>Advance Your Professional <br/>Journey with Our Certification<br /> Programs</Heading>
                                     <Text m={'2rem 0'}>Gain globally recognized qualifications to advance your career in the oil <br/> and gas industry</Text>
                                     <Button
@@ -56,8 +56,8 @@ const CertificationPage = ()=>{
                                         Enroll Now
                                     </Button>
                                 </Box>
-                                <Box w={{sm:'100%',lg:'100%'}}>
-                                    <Image alt="Media" src="ctv.svg"/>
+                                <Box w={{sm:'100%',lg:'40%'}} display={'flex'}>
+                                    <Image ms={{lg:'auto',md:'0',sm:'0',base:'0'}} alt="Media" src="ctv.svg"/>
                                 </Box>
                             </Flex>
                         
@@ -91,7 +91,7 @@ const CertificationPage = ()=>{
                             }}
                         >
                             <Heading color={'#2E3192'} textAlign={'center'} fontSize={'28px'}>WHY INVEST IN OUR CERTIFICATION PROGRAMS</Heading>
-                            <Flex flexDir={{sm:'column',lg:'row'}} mt="2rem">
+                            <Flex flexDir={{base:'column',sm:'column',lg:'row'}} mt="2rem" gap={'2rem'}>
                                 <Box w={{lg:'50%',sm:'100%'}}>
                                   <Text mb={5}>Codes and Cogs offers certification programs that are globally recognized and trusted in the oil and gas industry. Our certifications are designed for professionals aiming to enhance their skills, improve their career prospects, and gain expertise in key oilfield and safety areas.</Text>
                                    <Box display={'flex'} flexDir={'column'} gap={'1rem'}>
@@ -166,57 +166,57 @@ const CertificationPage = ()=>{
                                 },
                             }}
                             >
-                            {imageData.map((item, index) => (
-                                <Flex
-                                key={index}
-                                flexDir="column"
-                                position="relative"
-                                minWidth={{ 
-                                    base: "300px", // Fixed width for mobile scrolling
-                                    md: "calc(50% - 16px)", 
-                                    lg: "calc(20% - 16px)"
-                                }}
-                                flexShrink={0} // Prevent items from shrinking
-                                mb={4} // Add bottom margin for wrapped items on desktop
-                                >
-                                <Image
-                                    src={item.image}
-                                    alt={item.name}
-                                    w="100%"
-                                    h={{ base: "400px", md: "500px" }} // Responsive height
-                                    objectFit="cover"
-                                    borderRadius="md" // Add border radius for better appearance
-                                />
-                                
-                                {/* Gradient Overlay */}
-                                <Flex
-                                    position="absolute"
-                                    top="0"
-                                    left="0"
-                                    w="100%"
-                                    h="100%"
-                                    bg="linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0) 100%)"
-                                    zIndex={1}
-                                    borderRadius="md" // Match image border radius
-                                />
-                                
-                                {/* Text Overlay */}
-                                <Box
-                                    position="absolute"
-                                    bottom="5%"
-                                    left="3%"
-                                    color="white"
-                                    zIndex={2}
-                                    p={2}
-                                    maxW="90%"
-                                >
-                                    <Heading fontSize={{ base: "18px", md: "20px" }} fontWeight="500">
-                                    {item.name}
-                                    </Heading>
-                                    <Text fontSize={{ base: "14px", md: "16px" }}>{item.title}</Text>
-                                </Box>
-                                </Flex>
-                            ))}
+                                    <Flex wrap="wrap" justify="center" gap={4}>
+                                    {imageData.map((item, index) => (
+                                        <Flex
+                                        key={index}
+                                        flexDir="column"
+                                        position="relative"
+                                    
+                                        width={{ base: "calc(100% - 16px)", md: "calc(50% - 16px)", lg: "calc(25% - 16px)" }}
+                                        flexShrink={0} // Prevent items from shrinking
+                                        mb={4} // Add bottom margin for wrapped items on desktop
+                                        >
+                                        <Image
+                                            src={item.image}
+                                            alt={item.name}
+                                            w="100%"
+                                            h={{ base: "400px", md: "500px" }} // Responsive height
+                                            objectFit="cover"
+                                            borderRadius="md" // Add border radius for better appearance
+                                        />
+                                        
+                                        {/* Gradient Overlay */}
+                                        <Flex
+                                            position="absolute"
+                                            top="0"
+                                            left="0"
+                                            w="100%"
+                                            h="100%"
+                                            bg="linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0) 100%)"
+                                            zIndex={1}
+                                            borderRadius="md" // Match image border radius
+                                        />
+                                        
+                                        {/* Text Overlay */}
+                                        <Box
+                                            position="absolute"
+                                            bottom="5%"
+                                            left="3%"
+                                            color="white"
+                                            zIndex={2}
+                                            p={2}
+                                            maxW="90%"
+                                        >
+                                            <Heading fontSize={{ base: "18px", md: "20px" }} fontWeight="500">
+                                            {item.name}
+                                            </Heading>
+                                            <Text fontSize={{ base: "14px", md: "16px" }}>{item.title}</Text>
+                                        </Box>
+                                        </Flex>
+                                    ))}
+
+                                    </Flex>
                             </Flex>
                     </Box>    
                     {/* section 4 */}
@@ -238,7 +238,7 @@ const CertificationPage = ()=>{
                                 <Image alt="Media" mx={'auto'} src="comingsoon.svg" />
                             </Flex>
 
-                            <Flex alignItems={'center'} m={'2rem 0'}>
+                            <Flex alignItems={'center'} m={'2rem 0'} flexDir={{lg:'row',md:'column',sm:'column',base:'column'}}>
                                 <Box w={{base:'100%',lg:'50%'}} display={'flex'} >
                                     <Image alt="Media" mx={'auto'} src="csimg.svg" />
                                 </Box>
