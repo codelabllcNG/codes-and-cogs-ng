@@ -38,3 +38,11 @@ export function timeAgo(dateStr: string): string {
 
     return upperCaseNames.join(' ')
   }
+
+
+
+ export function formatDateToMonthYear(dateStr: string): string {
+  const date = new Date(dateStr);
+  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long' };
+  return date.toLocaleDateString('en-US', options);
+}

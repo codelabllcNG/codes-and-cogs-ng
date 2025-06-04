@@ -20,6 +20,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+ul {
+  list-style-type: disc; /* or 'initial' to use the browser default */
+  padding-left: 1.25rem; /* ensure there's space for the bullets */
+}
 .custom-react-flag button {
     font-size: 15px !important;
     padding: 13px !important;

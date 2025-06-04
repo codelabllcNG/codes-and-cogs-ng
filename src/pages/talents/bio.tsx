@@ -18,15 +18,15 @@ const TalentProfile =()=>{
     const [talents,setTalents] = useState<TalentInterface[]>()
     const talent = useTalentsStore((state:TalentStoreInterface)=>state.selectedTalent)
     const [cat,setCat] =useState<string>('')
-    const { data, isLoading } = useGetTalentHook({  limit : '8' ,cat})
-
+    const { data, isLoading, refetchWithParams } = useGetTalentHook({  limit : '8' ,cat})
+    
     useEffect(()=>{
-        console.log({talent})
         setTalents(data?.talents)
         setCat(`${talent?.category[0]?.id}`)
-
- 
+        refetchWithParams({limit:'8',cat:String(talent?.category[0]?.id),exclude:[String(talent?.id)]})
     },[cat,data,talent])
+
+    
    
       
     return (

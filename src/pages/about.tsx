@@ -280,7 +280,7 @@ function About() {
                             <Text w={{lg:'70%',base:'100%'}}>We have a team of experts ready to answer your enquiries and help you get what you need.</Text>
                            </Box>
       
-                           <Link href="/contact"> <Button  _hover={{ bg: "#2E3192" }} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Contact us </Button> </Link>
+                           <Link href="/contact"> <Button  _hover={{ bg: "#2E3192" }} width={'fit-content'} m={'3rem 0'} borderRadius="4px" padding={'12px 24px'} textColor={'white'} bg="linear-gradient(90deg, #2E3192 0%, #1C55E0 100%)" boxShadow="2px 5px 5px 0px rgba(51, 51, 51, 0.15)"> Contact Us </Button> </Link>
                             
                         </Box>
                         <Box  display={'flex'} justifyContent={'flex-end'} w={{base:'100%',sm:'100%',md:'100%',lg:'50%'}}>

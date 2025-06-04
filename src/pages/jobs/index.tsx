@@ -129,7 +129,7 @@ export default function JobListing() {
           <Box>
             <Flex mb={'3rem'}>
               <Input
-                placeholder="Enter Key Word..."
+                placeholder="Enter Keyword..."
                 borderRadius={0}
                 border={'1px solid #656060'}
                 h={'60px'}
@@ -236,7 +236,7 @@ export default function JobListing() {
                 No Result
               </Heading>
               <Text>
-                There are currently no job listings that match your filters.
+                There are currently no job listings.
               </Text>
             </Flex>
           ) : (

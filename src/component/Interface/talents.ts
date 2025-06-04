@@ -1,3 +1,4 @@
+import { whitePaperInterface } from "./form";
 interface CertificationCredential {
     name: string;
     logo:string;    
@@ -46,11 +47,19 @@ export  interface LocationInterface {
       editTalents: (talents: TalentInterface[]) => void
     }
 
+   export interface whitePaperStoreInterface {
+      selectedWhitePaper: whitePaperInterface | null
+      whitePaper: whitePaperInterface[] | null
+      editSelectedWhitePaper: (whitePaper: whitePaperInterface) => void
+      editWhitePapers: (whitePaper: whitePaperInterface[]) => void
+    }
+
   export interface TalentParams {
       search?: string
       cat?:string
       limit?:string
       offset?:number
+      exclude?:string[]
   }  
 
   export interface LocationParams {

@@ -49,7 +49,6 @@ const RegisterForCertifiation: React.FC<RegisterForCertifiationProps> = ({ isOpe
   const handleSubmit = () => {
     // Handle email submission logic here
     formData.certification=certifications
-    console.log({formData})
     onClose();
   };
 
@@ -57,7 +56,6 @@ const RegisterForCertifiation: React.FC<RegisterForCertifiationProps> = ({ isOpe
       if(certifications.includes(data))return
       if(data==="")return
       setCertifications([...certifications,data])
-      console.log(certifications)
   }
 
   const removeCertification =(certification:string)=>{
