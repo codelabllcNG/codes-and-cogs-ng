@@ -52,9 +52,8 @@ import {
                 {[
                   {name:"Whitepapers",url:"/white-paper"},
                   // {name:"Oil and Gas News",url:"/oil-and-gas-news"},
-                  {name:"Corporate Social Responsibility",url:''},
-                  {name:"Terms and Condition",url:""},
-                  {name:"Privacy Policy",url:""},
+                  // {name:"Corporate Social Responsibility",url:''},
+                  {name:"Privacy Policy",url:"/privacy-policy"},
                 ].map((link) => (
                   <Link key={link.name} href={link.url} color="white" _hover={{ color: "white" }}>
                     {link.name}

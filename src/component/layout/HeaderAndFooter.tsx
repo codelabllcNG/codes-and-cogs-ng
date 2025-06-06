@@ -4,16 +4,6 @@ import { Box,Flex } from "@chakra-ui/react";
 import { ReactNode } from "react";
 
 
-// export default function HeaderAndFooter({children}: {children: ReactNode;}){
-//     return(
-//         <Box maxWidth="2000px"  >
-//             <Navigator />
-//               {children}
-//             <Footer />
-//         </Box>
-//     )
-// }
-
 const Layout = ({ children } : {children:ReactNode}) => {
     return (
       <Flex 
