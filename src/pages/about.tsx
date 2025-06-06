@@ -6,6 +6,7 @@ import Link from "next/link";
 
 const imageData = [
   { name: 'Andy G', title: 'Managing Director', link:'/teams/andy-a',image: 'andy.png' },
+  { name: 'Godwin Usoro', title: 'Field Service Manager', link:'/',image: 'godwin-usoro.png' },
   { name: 'Fidelis O.', title: 'BDM (Consultant)', link:'',image: 'fidelis.png' },
   { name: 'Charles U.', title: 'Engineering Manager (Consultant)', link:'',image: 'avatar.png' },
   { name: 'Emmanuel A.', title: 'Software Engineering Lead', link:'',image: 'emmanuel.png' },
@@ -63,7 +64,7 @@ function About() {
       >
         <Box w={"100%"} >
           <Heading fontWeight={"500"} fontSize={"28px"} width={"fit-content"}>
-            About
+            ABOUT
             <Box
               h="3px"
               fontSize={"28px"}
