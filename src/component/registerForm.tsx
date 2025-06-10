@@ -137,7 +137,7 @@ import {
                             </Flex>
                             <Flex gap={'3rem'} mt={'3rem'} flexDir={{base:'column',lg:'row'}}>
                                     <FormControl isRequired>
-                                        <Text fontWeight={'500'}><FormLabel>Upoload CV</FormLabel></Text>
+                                        <Text fontWeight={'500'}><FormLabel>Upload CV</FormLabel></Text>
                                         <Input
                                             id="cv-upload"
                                             type="file"

@@ -75,7 +75,7 @@ const HireTalent = ()=>{
 
 
    return(
-<HeaderAndFooter>
+            <HeaderAndFooter>
             <Box
                     maxWidth="2000px"
                     mx="auto"
@@ -278,7 +278,7 @@ const HireTalent = ()=>{
                                         color="#2E3192"
                                         fontWeight="bold"
                                         href="#"
-                                        onClick={()=>router.push('/openings')}
+                                        onClick={()=>router.push('/jobs/openings')}
                                     >
                                         Learn More <ArrowForwardIcon ml={1} />
                                     </Link>
